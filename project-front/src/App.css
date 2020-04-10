@@ -357,3 +357,45 @@
   margin-top: 10px;
   text-align: left;
 }
+.dashboard {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  background-color: aliceblue;
+}
+.dashboard-display {
+  width: 2000px;
+  height: 600px;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 50px 50px 50px 50px;
+  border-radius: 10px;
+  box-shadow: black;
+  background-color: rgb(156, 234, 236);
+}
+.up-navbar {
+  background-color: rgb(107, 178, 180);
+}
+.up-nav-style {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 25px;
+}
+.down-navbar {
+  background-color: rgb(107, 178, 180);
+  border-radius: 10px;
+}
+.down-nav-style {
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+}
+.nav-dropdown {
+  background: none;
+  border: none;
+}
