@@ -12,11 +12,11 @@ import welcome from "./pages/welcome";
 
 import DoctorSignUpForm from "./pages/DoctorSignUpForm";
 import DoctorSignInForm from "./pages/DoctorSignInForm";
-import Drlist from "./pages/Drlist";
+import Drlist from "./pages/Drlists";
 
 import "./App.css";
-import DrDashboard from "./pages/DrDashboard";
-import PatientDashboard from "./pages/PatientDashboard";
+/*import DrDashboard from "./pages/DrDashboard";*/
+/*import PatientDashboard from "./pages/PatientDashboard";*/
 class App extends Component {
   render() {
     return (
@@ -29,12 +29,8 @@ class App extends Component {
 
           <Route exact path="/Dr_Sign_Up" component={DoctorSignUpForm}></Route>
           <Route path="/Dr_Sign_In" component={DoctorSignInForm}></Route>
-          <Route exact path="/DrDashboard" component={DrDashboard}></Route>
-          <Route
-            exact
-            path="/PatientDashboard"
-            component={PatientDashboard}
-          ></Route>
+          
+         
           <Route path="/Dr_list" component={Drlist}></Route>
         </div>
       </Router>
