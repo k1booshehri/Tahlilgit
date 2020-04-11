@@ -12,6 +12,7 @@ import welcome from "./pages/welcome";
 
 import DoctorSignUpForm from "./pages/DoctorSignUpForm";
 import DoctorSignInForm from "./pages/DoctorSignInForm";
+import Drlist from "./pages/Drlist";
 
 import "./App.css";
 import DrDashboard from "./pages/DrDashboard";
@@ -34,6 +35,7 @@ class App extends Component {
             path="/PatientDashboard"
             component={PatientDashboard}
           ></Route>
+          <Route path="/Dr_list" component={Drlist}></Route>
         </div>
       </Router>
     );
