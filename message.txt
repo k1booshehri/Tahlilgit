@@ -1,0 +1,7 @@
+Dashboard Updated
+
+-Change navbar items to nav-link at DrDashboard.js
+-Change navbar items to nav-link at PatientDashboard.js
+-Add and handle onClick for each link at DrDashboard.js
+-Add and handle onClick for each link at PatientDashboard.js
+-Test rendering a component(test.js) into dashboard.js

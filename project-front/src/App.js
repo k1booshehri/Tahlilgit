@@ -15,8 +15,9 @@ import DoctorSignInForm from "./pages/DoctorSignInForm";
 import Drlist from "./pages/Drlists";
 
 import "./App.css";
-/*import DrDashboard from "./pages/DrDashboard";*/
-/*import PatientDashboard from "./pages/PatientDashboard";*/
+import DrDashboard from "./pages/DrDashboard";
+import PatientDashboard from "./pages/PatientDashboard";
+
 class App extends Component {
   render() {
     return (
