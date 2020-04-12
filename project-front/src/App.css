@@ -370,7 +370,7 @@
 }
 .dashboard-display {
   width: 2000px;
-  height: 600px;
+  height: 900px;
   display: flex;
   flex-direction: row-reverse;
   padding: 50px 50px 50px 50px;
@@ -385,6 +385,7 @@
   display: flex;
   flex-direction: row-reverse;
   font-size: 25px;
+  height: 8%;
 }
 .down-navbar {
   background-color: rgb(107, 178, 180);
@@ -394,8 +395,19 @@
   display: flex;
   flex-direction: row;
   font-size: 25px;
+  height: 8%;
 }
 .nav-dropdown {
   background: none;
   border: none;
+}
+.nav-txt {
+  color: black;
+}
+.test {
+  padding: 100px;
+  margin: 100px;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
 }
