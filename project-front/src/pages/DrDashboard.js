@@ -8,7 +8,6 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
-import Test from "./Test";
 
 class DrDashboard extends Component {
   constructor() {
@@ -82,11 +81,7 @@ class DrDashboard extends Component {
             </nav>
             {/* up navbar ends */}
             {/* conditions starts */}
-            {this.state.eventKey === "0" ? (
-              <Test />
-            ) : (
-              <p className="test">testing rendering a Component</p>
-            )}
+            {/* {this.state.eventKey === "0" ? <p>testing</p> : <p>successful</p>} */}
             {/* conditions ends */}
             {/* down navbar starts */}
             <nav className="nav  fixed-bottom up-navbar down-nav-style">

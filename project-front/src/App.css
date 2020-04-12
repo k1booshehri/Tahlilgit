@@ -1,29 +1,3 @@
-.App {
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  display: flex;
-  background-image: url(./bg-01.png);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.App__Form {
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
-}
-
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
@@ -164,41 +138,6 @@
   border-radius: 10px;
   box-shadow: black;
   background-color: cadetblue;
-}
-
-.PageSwitcher {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 10%;
-}
-
-.PageSwitcher__Item {
-  background-color: #4c5d72;
-  color: #9da6b1;
-  padding: 10px 25px;
-  cursor: pointer;
-  font-size: 0.9em;
-  border: none;
-  outline: none;
-  display: inline-block;
-  text-decoration: none;
-  text-align: left;
-}
-
-.PageSwitcher__Item--Active {
-  background-color: #1a3972;
-  color: white;
-}
-
-.PageSwitcher__Item:first-child {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  text-align: left;
-}
-.PageSwitcher__Item:last-child {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  text-align: left;
 }
 
 .FormCenter {
@@ -362,21 +301,24 @@
   min-height: 100vh;
   width: 100%;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 
   display: flex;
   background-color: aliceblue;
+  background-attachment: fixed;
 }
 .dashboard-display {
-  width: 2000px;
-  height: 900px;
+  width: 100%;
+  height: 10000px;
   display: flex;
   flex-direction: row-reverse;
   padding: 50px 50px 50px 50px;
   border-radius: 10px;
   box-shadow: black;
   background-color: rgb(156, 234, 236);
+  background-attachment: fixed;
+  justify-content: flex-end;
 }
 .up-navbar {
   background-color: rgb(107, 178, 180);
@@ -403,11 +345,4 @@
 }
 .nav-txt {
   color: black;
-}
-.test {
-  padding: 100px;
-  margin: 100px;
-  justify-content: center;
-  align-items: center;
-  font-size: 3em;
 }

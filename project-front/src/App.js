@@ -16,7 +16,6 @@ import DoctorSignInForm from "./pages/DoctorSignInForm";
 import "./App.css";
 import DrDashboard from "./pages/DrDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
-import Test from "./pages/Test";
 
 class App extends Component {
   render() {
@@ -36,7 +35,6 @@ class App extends Component {
             path="/PatientDashboard"
             component={PatientDashboard}
           ></Route>
-          <Route path="/Test" component={Test}></Route>
         </div>
       </Router>
     );
