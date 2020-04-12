@@ -31,25 +31,25 @@ class Drlist extends Component {
                  { this.state.Drlist.map((postdetail , index)=> {
                 return <h1 >
                  
-             <Card className = "Drlistcard">
-             <Card.Body>
+             <div className = "Drlistcard">
+             
            
         {  /* <img>hii</img> */}
             <div >
  
-             <Card.Title> {postdetail.f_name} {postdetail.l_name}</Card.Title>
+             <div> {postdetail.f_name} {postdetail.l_name}</div>
              </div>
-             <Card.Text>
+             <div>
               <div className = "title" >
                {postdetail.edu}
                </div>
                <div className = "title">
                {postdetail.field}
                </div>
-               </Card.Text>
+               </div>
               <button className="Drbutton" variant="primary">profile</button>
-              </Card.Body>
-             </Card></h1>
+              
+             </div></h1>
              
             
              })}
