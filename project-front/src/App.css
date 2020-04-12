@@ -1,10 +1,57 @@
+.card {
+  width: 300px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: black;
+  background-color: cadetblue;
+  text-align: center;
+  
+  float: left;
+  margin: 5px;
+   
+}
+.Drpage {
+ 
+  background-image: url(./bg-01.png);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+ 
+  
+
+ 
+}
+.title {
+  color: rgb(49, 48, 48);
+  font-size: 18px;
+}
+.Drbutton {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+}
+  
+
 .App {
   height: 100%;
   min-height: 100vh;
   width: 100%;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items : center;
 
   display: flex;
   background-image: url(./bg-01.png);
@@ -15,16 +62,6 @@
 }
 
 .App__Form {
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
-}
-
-.App__Form_dr {
   width: 600px;
   display: flex;
   flex-direction: column;
