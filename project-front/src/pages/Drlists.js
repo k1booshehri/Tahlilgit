@@ -14,9 +14,7 @@ class Drlist extends Component {
            'Drlist' : []
        }
    } 
-
-
-   componentDidMount (){
+ componentDidMount (){
        this.getItems();
 
    }
@@ -25,12 +23,7 @@ class Drlist extends Component {
        .then(results =>results.json())
        .then(results => this.setState({'Drlist' : results}))
    }
-   
-   
-   
-   
-   
-    render() {
+ render() {
         return (
              <div className="Drpage">
                  
@@ -38,7 +31,7 @@ class Drlist extends Component {
                  { this.state.Drlist.map((postdetail , index)=> {
                 return <h1 >
                  
-             <Card className = "card">
+             <Card className = "Drlistcard">
              <Card.Body>
            
         {  /* <img>hii</img> */}
@@ -48,10 +41,10 @@ class Drlist extends Component {
              </div>
              <Card.Text>
               <div className = "title" >
-               {postdetail.phone}
+               {postdetail.edu}
                </div>
                <div className = "title">
-               {postdetail.email}
+               {postdetail.field}
                </div>
                </Card.Text>
               <button className="Drbutton" variant="primary">profile</button>
