@@ -45,9 +45,7 @@ class DoctorSignInForm extends Component {
       .then((res) => {
         if (res.status === 200) {
           sessionStorage.setItem("token", res.data.token);
-          //console.log(sessionStorage.getItem("token"));
-          // let doctorInfo = JSON.parse(res.data);
-          // console.log(doctorInfo.token);
+
           this.setState({ isLogedIn: true });
         }
       })
