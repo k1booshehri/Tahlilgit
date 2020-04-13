@@ -43,7 +43,7 @@ export default class OfficeList extends Component {
           {postdetail.building_adress}
           </div>
           </div>
-         <button className="locationbutton" variant="primary">location</button>
+        
 
          
              
