@@ -31,7 +31,7 @@ export default class OfficeList extends Component {
                 return <h1 >
                  
              <div className = "Drofficecard">
-             <div>
+           
            
        
         <div >
@@ -44,11 +44,17 @@ export default class OfficeList extends Component {
           </div>
           </div>
          <button className="locationbutton" variant="primary">location</button>
-              </div>
-             </div></h1>
+
+         
+             
+             </div>
+             
+             
+             </h1>
              
             
              })}
+             <button className="newoffice" > مطب جدید </button>
              
              </div> 
              </div>
