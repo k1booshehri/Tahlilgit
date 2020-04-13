@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import Drlist from "./Drlists";
 
 class PatientDashboard extends Component {
   constructor() {
@@ -62,7 +63,7 @@ class PatientDashboard extends Component {
               <a
                 className="nav-link active nav-txt"
                 onClick={this.navOnClick}
-                id="0"
+                id="1"
               >
                 پزشکان🔍
               </a>
@@ -76,7 +77,7 @@ class PatientDashboard extends Component {
             </nav>
             {/* up navbar ends */}
             {/* conditions starts */}
-            {/* {this.state.eventKey === "0" ? <p>successful</p> : <p>testing</p>} */}
+            {this.state.eventKey === "1" ? < Drlist /> : <p>  </p>}
             {/* conditions ends */}
             {/* down navbar starts */}
             <nav className="nav  fixed-bottom up-navbar down-nav-style">

@@ -5,7 +5,8 @@ import axios from "axios";
 //import Card from 'react-bootstrap/Card'
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
-class Drlist extends Component {
+
+export default class Drlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +23,7 @@ class Drlist extends Component {
   }
   render() {
     return (
-      <div className="Drpage">
+      <div >
         <div>
           {this.state.Drlist.map((postdetail, index) => {
             return (
@@ -51,4 +52,4 @@ class Drlist extends Component {
     );
   }
 }
-export default Drlist;
+
