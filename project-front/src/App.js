@@ -16,6 +16,7 @@ import DoctorSignInForm from "./pages/DoctorSignInForm";
 import "./App.css";
 import DrDashboard from "./pages/DrDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
+import OfficeList from "./pages/OfficeList";
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
           <Route exact path="/Dr_Sign_Up" component={DoctorSignUpForm}></Route>
           <Route path="/Dr_Sign_In" component={DoctorSignInForm}></Route>
           <Route exact path="/DrDashboard" component={DrDashboard}></Route>
+          <Route exact path="/OfficeList" component={OfficeList}></Route>
           <Route
             exact
             path="/PatientDashboard"

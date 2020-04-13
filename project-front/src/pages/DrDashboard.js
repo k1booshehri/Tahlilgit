@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+
 import {
   HashRouter as Router,
   Route,
   NavLink,
   Redirect,
 } from "react-router-dom";
+import OfficeList from "./OfficeList";
 
 class DrDashboard extends Component {
   constructor() {
@@ -67,7 +69,7 @@ class DrDashboard extends Component {
               <a
                 className="nav-link active nav-txt"
                 onClick={this.navOnClick}
-                id="0"
+                id="1"
               >
                 مطب ها&#128193;
               </a>
@@ -81,7 +83,7 @@ class DrDashboard extends Component {
             </nav>
             {/* up navbar ends */}
             {/* conditions starts */}
-            {/* {this.state.eventKey === "0" ? <p>testing</p> : <p>successful</p>} */}
+            {this.state.eventKey === "1" ? < OfficeList /> : <p>  </p>}
             {/* conditions ends */}
             {/* down navbar starts */}
             <nav className="nav  fixed-bottom up-navbar down-nav-style">
