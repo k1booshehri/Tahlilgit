@@ -1,7 +1,4 @@
-Dashboard Updated
+Clinic Form and Doctor Sign up Form Updated
 
--Change navbar items to nav-link at DrDashboard.js
--Change navbar items to nav-link at PatientDashboard.js
--Add and handle onClick for each link at DrDashboard.js
--Add and handle onClick for each link at PatientDashboard.js
--Test rendering a component(test.js) into dashboard.js
+-Add post request for submiting office information
+-Add session storage for storing token at log in level

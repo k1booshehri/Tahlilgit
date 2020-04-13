@@ -52,21 +52,29 @@ export default class ClinicForm extends Component {
     //   info: this.state.info,
     // };
     // console.log(data);
+
     axios
       .post(
         "http://localhost:8000/api/auth/office-register",
         {
           address: this.state.address,
-          city: this.state.address,
+          city: this.state.city,
           phone: this.state.phone,
           park: this.state.park,
           transport: this.state.transport,
           info: this.state.info,
         },
-        { headers: { "content-type": "application/json" } }
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
       )
       .then((res) => {
         if (res.status === 200) {
+          //console.log(res.data);
+          alert("مطب جدید ثبت شد");
           this.setState({ haveLogedIn: true });
         }
       })
