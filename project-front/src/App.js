@@ -16,7 +16,7 @@ import DoctorSignInForm from "./pages/DoctorSignInForm";
 import "./App.css";
 import DrDashboard from "./pages/DrDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
-import clinicForm from "./pages/clinicForm";
+import ClinicForm from "./pages/ClinicForm";
 
 class App extends Component {
   render() {
@@ -36,7 +36,7 @@ class App extends Component {
             path="/PatientDashboard"
             component={PatientDashboard}
           ></Route>
-          <Route exact path="/clinicForm" component={clinicForm}></Route>
+          <Route exact path="/ClinicForm" component={ClinicForm}></Route>
         </div>
       </Router>
     );

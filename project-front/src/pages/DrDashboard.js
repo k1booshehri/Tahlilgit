@@ -8,6 +8,7 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
+import ClinicForm from "./ClinicForm";
 
 class DrDashboard extends Component {
   constructor() {
@@ -81,7 +82,7 @@ class DrDashboard extends Component {
             </nav>
             {/* up navbar ends */}
             {/* conditions starts */}
-            {/* {this.state.eventKey === "0" ? <p>testing</p> : <p>successful</p>} */}
+            {this.state.eventKey === "0" ? <ClinicForm /> : <p>testing</p>}
             {/* conditions ends */}
             {/* down navbar starts */}
             <nav className="nav  fixed-bottom up-navbar down-nav-style">
