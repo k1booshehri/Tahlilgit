@@ -4,6 +4,12 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import Drlist from "./Drlists";
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import MailIcon from '@material-ui/icons/Mail';
+import PagesIcon from '@material-ui/icons/Pages';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import WorkIcon from '@material-ui/icons/Work';
+import PersonIcon from '@material-ui/icons/Person';
 
 class PatientDashboard extends Component {
   constructor() {
@@ -24,8 +30,8 @@ class PatientDashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="dashboard-display">
-          <div className="container  ">
+        <div >
+         
             {/* up navbar starts */}
             <nav className="nav  fixed-top up-navbar up-nav-style ">
               <li className="nav-item dropdown ">
@@ -38,7 +44,7 @@ class PatientDashboard extends Component {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  👤
+                  <PersonIcon></PersonIcon>
                 </a>
                 <div
                   id="dropdownID"
@@ -58,21 +64,21 @@ class PatientDashboard extends Component {
                 onClick={this.navOnClick}
                 id="0"
               >
-                میزکار&#128202;<span className="sr-only">(current)</span>
+                میزکار<WorkIcon></WorkIcon><span className="sr-only">(current)</span>
               </a>
               <a
                 className="nav-link active nav-txt"
                 onClick={this.navOnClick}
                 id="1"
               >
-                پزشکان🔍
+                پزشکان<LocalHospitalIcon></LocalHospitalIcon>
               </a>
               <a
                 className=" nav-link active nav-txt"
                 onClick={this.navOnClick}
                 id="0"
               >
-                مقاله ها&#128221;
+                مقاله ها<PagesIcon></PagesIcon>
               </a>
             </nav>
             {/* up navbar ends */}
@@ -88,17 +94,17 @@ class PatientDashboard extends Component {
               >
                 <span className="nav-txt" id="0">
                   {" "}
-                  📧 ارتباط با ما
+                  <MailIcon></MailIcon> ارتباط با ما
                 </span>
               </a>
               <a className="nav-link active" id="0">
-                <span className="nav-txt"> 💡 درباره ی ما</span>
+                <span className="nav-txt"> <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما</span>
               </a>
             </nav>
             {/* down navbar ends */}
           </div>
         </div>
-      </div>
+      
     );
   }
 }

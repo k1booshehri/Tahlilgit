@@ -24,27 +24,26 @@ export default class Drlist extends Component {
   render() {
     return (
       <div >
-        <div>
+        <div className = "dashboard">
           {this.state.Drlist.map((postdetail, index) => {
             return (
-              <h1>
+              
                 <div className="Drlistcard">
+                
+                  
                   {/* <img>hii</img> */}
                   <div>
-                    <div>
-                      {" "}
-                      {postdetail.f_name} {postdetail.l_name}
-                    </div>
+                    <div className="container">{postdetail.f_name}{postdetail.l_name}  :نام پزشک</div>
                   </div>
                   <div>
-                    <div className="title">{postdetail.edu}</div>
-                    <div className="title">{postdetail.field}</div>
+                    <div className="container">{postdetail.edu}  :تحصیلات</div>
+                    <div className="container">{postdetail.field} :تخصص</div>
                   </div>
-                  <button className="Drbutton" variant="primary">
+                  <button className="locationbutton" variant="primary">
                     profile
                   </button>
                 </div>
-              </h1>
+             
             );
           })}
         </div>
