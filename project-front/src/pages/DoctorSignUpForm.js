@@ -85,6 +85,7 @@ class DoctorSignUpForm extends Component {
       )
       .then((res) => {
         if (res.status === 200) {
+          sessionStorage.setItem("token", res.data.token);
           this.setState({ isSignedUp: true });
         }
       })
@@ -170,7 +171,7 @@ class DoctorSignUpForm extends Component {
                   >
                     <option value="female">زن</option>
                     <option value="male">مرد</option>
-                    <option value="other">other</option>
+                    <option value="other">سایر</option>
                   </select>
                 </div>
                 <div className="FormField">

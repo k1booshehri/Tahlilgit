@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import PagesIcon from "@material-ui/icons/Pages";
+import BusinessIcon from "@material-ui/icons/Business";
+import WorkIcon from "@material-ui/icons/Work";
+import PersonIcon from "@material-ui/icons/Person";
+import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
+import MailIcon from "@material-ui/icons/Mail";
 
 import {
   HashRouter as Router,
@@ -11,12 +16,6 @@ import {
 } from "react-router-dom";
 import OfficeList from "./OfficeList";
 import ClinicForm from "./ClinicForm";
-import PagesIcon from "@material-ui/icons/Pages";
-import BusinessIcon from "@material-ui/icons/Business";
-import WorkIcon from "@material-ui/icons/Work";
-import PersonIcon from "@material-ui/icons/Person";
-import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
-import MailIcon from "@material-ui/icons/Mail";
 
 class DrDashboard extends Component {
   constructor(props) {
@@ -71,8 +70,9 @@ class DrDashboard extends Component {
               onClick={this.navOnClick}
               id="0"
             >
-              میزکار<span className="sr-only">(current)</span>
+              میزکار
               <WorkIcon></WorkIcon>
+              <span className="sr-only">(current)</span>
             </a>
             <a
               className="nav-link active nav-txt"
@@ -113,7 +113,8 @@ class DrDashboard extends Component {
             >
               <span className="nav-txt" id="0">
                 {" "}
-                <MailIcon></MailIcon> ارتباط با ما
+                ارتباط با ما
+                <MailIcon></MailIcon>
               </span>
             </a>
             <a className="nav-link active" id="0">

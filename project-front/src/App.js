@@ -12,6 +12,7 @@ import welcome from "./pages/welcome";
 
 import DoctorSignUpForm from "./pages/DoctorSignUpForm";
 import DoctorSignInForm from "./pages/DoctorSignInForm";
+import Drlist from "./pages/Drlists";
 
 import "./App.css";
 import DrDashboard from "./pages/DrDashboard";
@@ -31,13 +32,13 @@ class App extends Component {
 
           <Route exact path="/Dr_Sign_Up" component={DoctorSignUpForm}></Route>
           <Route path="/Dr_Sign_In" component={DoctorSignInForm}></Route>
+          <Route path="/Dr_list" component={Drlist}></Route>
+          
+          <Route path="/PatientDashboard" component={PatientDashboard}></Route>
+         
           <Route exact path="/DrDashboard" component={DrDashboard}></Route>
           <Route exact path="/OfficeList" component={OfficeList}></Route>
-          <Route
-            exact
-            path="/PatientDashboard"
-            component={PatientDashboard}
-          ></Route>
+          
           <Route exact path="/ClinicForm" component={ClinicForm}></Route>
         </div>
       </Router>
