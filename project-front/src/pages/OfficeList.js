@@ -41,21 +41,25 @@ export default class OfficeList extends Component {
        
        <div>
        <div> {postdetail.info}  </div>
- 
        </div>
+       
        <div className = "titleOffice">
         <div> {postdetail.city}   :شهر</div>
- </div>
+       </div>
+       
+       
         <div>
-         
-          <div className = "titleOffice"> {postdetail.address}  :آدرس  </div>
+        <div className = "titleOffice"> {postdetail.address}  :آدرس  </div>
           </div>
+          
           <div>
           <div className = "titleOffice"> {postdetail.phone}  :تلفن  </div>
           </div>
+         
           <div>
           <div className = "titleOffice"> {postdetail.transport}   :امکان دسترسی  </div>
           </div>
+          
           </div>
             </h1>
              
