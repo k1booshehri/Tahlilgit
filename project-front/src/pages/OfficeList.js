@@ -65,7 +65,14 @@ export default class OfficeList extends Component {
              
             
              })}
-             <button className="newoffice" > مطب جدید </button>
+              <button
+            className="newoffice"
+            id="1-1"
+            onClick={(e) => this.props.updateState(e)}
+          >
+            {" "}
+            ثبت مطب جدید{" "}
+          </button>
              
              
              </div>
