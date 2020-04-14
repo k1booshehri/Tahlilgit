@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Drofficedata from '../pages/officedata/officedata.json'
-
+import Drofficedata from "../pages/officedata/officedata.json";
+import DrDashboard from "./DrDashboard";
 
 export default class OfficeList extends Component {
    
@@ -27,9 +27,7 @@ export default class OfficeList extends Component {
        .then(results => this.setState({'officeList' : results}))
        .catch(error => console.error('Error:', error));
    } 
- 
- 
-   render() {
+  render() {
         return (
              <div >
                  
@@ -38,28 +36,16 @@ export default class OfficeList extends Component {
                 return <h1 >
                  
              <div className = "Drofficecard">
-           
-           
-       
-        <div >
+       <div >
         <div> {postdetail.city}</div>
         </div>
         <div>
-         
-          <div className = "titleOffice">
+            <div className = "titleOffice">
           {postdetail.address}
           </div>
           </div>
-        
-
-         
-             
-             </div>
-             
-             
+         </div>
              </h1>
-             
-            
              })}
              <button className="newoffice" > مطب جدید </button>
              
@@ -70,4 +56,6 @@ export default class OfficeList extends Component {
         );
     }
 
+ 
+  
 }

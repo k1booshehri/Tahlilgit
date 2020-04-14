@@ -10,12 +10,14 @@ import {
   Redirect,
 } from "react-router-dom";
 import OfficeList from "./OfficeList";
+import ClinicForm from "./ClinicForm";
 
 class DrDashboard extends Component {
-  constructor() {
-    super();
-    this.state = { eventKey: "", eventKeyChanged: false };
+  constructor(props) {
+    super(props);
+    this.state = { eventKeyChanged: false };
     this.navOnClick = this.navOnClick.bind(this);
+    localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");
@@ -23,7 +25,7 @@ class DrDashboard extends Component {
 
   navOnClick(e) {
     let target = e.target.id;
-    this.state.eventKey = target;
+    localStorage.setItem("eventKey", target);
 
     this.setState({ eventKeyChanged: true });
   }
@@ -83,7 +85,16 @@ class DrDashboard extends Component {
             </nav>
             {/* up navbar ends */}
             {/* conditions starts */}
-            {this.state.eventKey === "1" ? <OfficeList /> : <p> </p>}
+            {localStorage.getItem("eventKey") === "1" ? (
+              <OfficeList updateState={this.navOnClick} />
+            ) : (
+              <p> </p>
+            )}
+            {localStorage.getItem("eventKey") === "1-1" ? (
+              <ClinicForm />
+            ) : (
+              <p> </p>
+            )}
             {/* conditions ends */}
             {/* down navbar starts */}
             <nav className="nav  fixed-bottom down-navbar down-nav-style">
@@ -108,5 +119,10 @@ class DrDashboard extends Component {
     );
   }
 }
+function navOnClickOutside(e) {
+  let target = e.target.id;
+  localStorage.setItem("eventKey", target);
 
+  this.setState({ eventKeyChanged: true });
+}
 export default DrDashboard;

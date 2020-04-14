@@ -1,4 +1,4 @@
-Clinic Form and Doctor Sign up Form Updated
+Connect officList and officeForm and Update dashboard
 
--Add post request for submiting office information
--Add session storage for storing token at log in level
+-Add 'create new office' to clinicList
+-Update dashboard with localStorage property
