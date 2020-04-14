@@ -1,3 +1,5 @@
+
+
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
@@ -156,52 +158,41 @@ font-size: 0.7em;
 }
 .dashboard {
 
-  background-color: #e9e9e9;
+  background-color: #FFFFFF;
   justify-content: right;
   align-items: right;
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  flex-direction: column;
-  display: flex;
-  padding-top: 80px;
-  padding-right: 40px;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  padding: 60px;
   
- 
   
 }
 
 .up-navbar {
-  background-color: #99d3df;
-  border-radius: 1em;
+  background-color: #d0e8ee;
+  border-radius: 0.0em;
   box-shadow: 0px 11px 10px 2px rgba(0, 0, 0, 0.096);
-  margin-left: 10px;
-  margin-right: 10px;
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
-  font-size: 25px;
+
   height: 8%;
   float: left;
-  color: #505358;
+  color: #797e85;
   text-align: center;
  
   text-decoration: none;
   font-size: 20px;
 }
 .up-nav-style :hover {
-  background-color: #cdcdcd;
-  color: black;
+  background-color: rgb(230, 230, 230);
   cursor: pointer;
 }
-.nav-link.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
 .down-navbar {
-  background-color: #d0eef5;
+  background-color: #f8feff;
   
   border-radius: 0.5em;
   box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
@@ -214,7 +205,7 @@ font-size: 0.7em;
   float: left;
   color: #949ba5;
   text-align: center;
-  
+  cursor: pointer;
   text-decoration: none;
   font-size: 17px;
 }
@@ -236,7 +227,7 @@ font-size: 0.7em;
   padding-bottom: 10px;
   margin-top: 10px;
 
-  text-align: right;
+text-align: right;
 }
 .clinicFormInput {
   width: 100%;
@@ -299,17 +290,8 @@ font-size: 0.7em;
   margin-bottom: 40px;
   text-align: right;
 }
-.Drofficecard {
-  width: 700px;
-  padding: 20px 40px;
- text-align: right;
-  float: right;
-  margin: 5px;
-  border-bottom: 0.1px solid;
-  transition: 0.1s;
-  width: 60%;
-  
-}
+
+
 .titleOffice {
   color: rgb(49, 48, 48);
   font-size: 18px;
@@ -329,12 +311,29 @@ font-size: 0.7em;
 }
 .newoffice {
   width: 700px;
+  height: 100px;
   padding: 20px 40px;
- text-align: right;
+  margin: 5px;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid;
+  transition: 0.3s;
+  text-align: right;
+  color: #5d6166;
+  font-size: 30px;
   float: right;
   margin: 5px;
-  border-bottom: 0.1px solid;
-  transition: 0.1s;
-  background-color:transparent ;
-  width: 60%;
+}
+.Drofficecard {
+  width: 700px;
+  padding: 20px 40px;
+  
+ color: #5d6166;
+  text-align: right;
+  float: right;
+  border-bottom: 1px solid;
+  margin: 5px;
+  
+  transition: 0.3s;
+  
 }
