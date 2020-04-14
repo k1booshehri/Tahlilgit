@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "http://iamfaiz.github.io/react-auth-ui/",
   "dependencies": {
+    "@material-ui/core": "^4.9.10",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "gh-pages": "^1.1.0",
