@@ -186,15 +186,20 @@ font-size: 0.7em;
   float: left;
   color: #505358;
   text-align: center;
-  padding: 14px 16px;
+ 
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
 }
 .up-nav-style :hover {
   background-color: #cdcdcd;
   color: black;
   cursor: pointer;
 }
+.nav-link.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
 .down-navbar {
   background-color: #d0eef5;
   
