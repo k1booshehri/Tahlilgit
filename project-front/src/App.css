@@ -78,8 +78,8 @@
 }
 
 .PageSwitcher__Item {
-  background-color: #4c5d72;
-  color: #9da6b1;
+  background-color: #cdcdcd;
+  color: #949ba5;
   padding: 10px 25px;
   cursor: pointer;
   font-size: 0.9em;
@@ -91,7 +91,7 @@
 }
 
 .PageSwitcher__Item--Active {
-  background-color: #1a3972;
+  background-color: #88bbd6;
   color: white;
 }
 
@@ -106,87 +106,16 @@
   text-align: left;
 }
 
-.FormCenter {
-  margin-bottom: 100px;
-}
 
 .FormCenter2 {
   margin-bottom: 100px;
   display: block;
   text-transform: uppercase;
   font-size: 2em;
-  color: #1a3972;
+  color: #88bbd6;
   text-align: center;
 }
 
-.FormTitle {
-  color: #1a3972;
-  font-weight: 500;
-  margin-bottom: 50px;
-  text-align: right;
-}
-
-.FormTitle__Link {
-  color: #31101e;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.7em;
-  margin: 0 10px;
-  padding-bottom: 5px;
-  text-align: right;
-}
-
-.FormTitle__Link:first-child {
-  margin-left: 0;
-  text-align: right;
-}
-
-.FormTitle__Link--Active {
-  color: white;
-  border-bottom: 1px solid;
-  text-align: right;
-}
-
-.FormField {
-  margin-bottom: 40px;
-  text-align: right;
-}
-
-.FormField__Label {
-  display: block;
-  text-transform: uppercase;
-  font-size: 1.3em;
-  color: #31101e;
-  text-align: right;
-}
-.FormField__Input {
-  width: 85%;
-  background-color: transparent;
-  border: none;
-  color: black;
-  outline: none;
-  border-bottom: 1px solid;
-  font-size: 1em;
-  font-weight: 300;
-  padding-bottom: 10px;
-  margin-top: 10px;
-  text-align: right;
-}
-
-.FormField__Input::placeholder {
-  color: rgb(247, 247, 247);
-}
-
-.FormField__Button {
-  background-color: #1a3972;
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: 25px;
-  padding: 15px 70px;
-  font-size: 0.8em;
-  font-weight: 500;
-}
 .App {
   height: 100%;
   min-height: 100vh;
@@ -194,13 +123,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  background-color: #caebf2;
   display: flex;
-  background-image: url(./bg-01.png);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+ 
 }
 
 .App__Form {
@@ -208,41 +133,15 @@
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
+  background-color: #FFFFFF;
+  margin-top: 20px;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
 }
 
 .FormCenter {
   margin-bottom: 100px;
-}
-
-.FormTitle {
-  color: #1a3972;
-  font-weight: 500;
-  margin-bottom: 50px;
-  text-align: right;
-}
-
-.FormTitle__Link {
-  color: #31101e;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.7em;
-  margin: 0 10px;
-  padding-bottom: 5px;
-  text-align: right;
-}
-
-.FormTitle__Link:first-child {
-  margin-left: 0;
-  text-align: right;
-}
-
-.FormTitle__Link--Active {
-  color: white;
-  border-bottom: 1px solid;
-  text-align: right;
 }
 
 .FormField {
@@ -265,30 +164,35 @@
 .FormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.5em;
-  color: #31101e;
+  font-size: 1.2em;
+  color: rgb(105, 105, 107);
   text-align: right;
 }
 .FormField__Input {
-  width: 85%;
-  background-color: transparent;
-  border: none;
-  color: black;
-  outline: none;
-  border-bottom: 1px solid;
-  font-size: 1em;
+  width: 100%;
+font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
+  font-weight: 700;
+letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
+ 
 }
 
 .FormField__Input::placeholder {
-  color: rgb(247, 247, 247);
+  color: #cdcdcd;
 }
 
 .FormField__Button {
-  background-color: #1a3972;
+  background-color: #88bbd6;
   color: white;
   border: none;
   outline: none;
@@ -297,7 +201,13 @@
   font-size: 1em;
   font-weight: 500;
   justify-content: left;
-}
+  
+    
+  }
+  
+  button:focus,button:hover {
+    background: rgb(174, 198, 214);
+  }
 
 .Dr__list__Button {
   background-color: #1a3972;
@@ -322,55 +232,93 @@
   padding-bottom: 5px;
 }
 
-.FormField__CheckboxLabel {
-  color: #1a3972;
-  font-size: 0.9em;
-}
-
-.FormField__Checkbox {
-  position: relative;
-  top: 1.5px;
-}
-
-.FormField__TermsLink {
-  color: white;
-  border-bottom: 1px solid #1a3972;
-  text-decoration: none;
-  display: inline-block;
-  padding-bottom: 2px;
-  margin-left: 5px;
-}
-
-.FormField__Link {
-  color: #1a3972;
-  text-decoration: none;
-  display: inline-block;
-  padding-top: 5%;
-  padding-left: 7%;
-  border-bottom: 1.5px solid #225e62;
-  padding-bottom: 5px;
-}
-
-.FormField__CheckboxLabel {
-  color: #1a3972;
-  font-size: 0.9em;
-}
-
-.FormField__Checkbox {
-  position: relative;
-  top: 1.5px;
-}
-
-.FormField__TermsLink {
-  color: white;
-  border-bottom: 1px solid #1a3972;
-  text-decoration: none;
-  display: inline-block;
-  padding-bottom: 2px;
-  margin-left: 5px;
-}
 .FormField__Input__Date {
-  width: 85%;
+  width: 100%;
+font-size: 0.7em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: left;
+  font-weight: 700;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
+  color: #cdcdcd
+}
+.dashboard {
+
+  background-color: #FFFFFF;
+  justify-content: right;
+  align-items: right;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  
+  padding: 60px;
+  
+}
+
+.up-navbar {
+  background-color: #caebf2;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 10px 2px rgba(0, 0, 0, 0.096);
+}
+.up-nav-style {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 25px;
+  height: 8%;
+  float: left;
+  color: #949ba5;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.down-navbar {
+  background-color: #d0eef5;
+  
+  border-radius: 0.5em;
+  box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
+}
+.down-nav-style {
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+  height: 5%;
+  float: left;
+  color: #949ba5;
+  text-align: center;
+  
+  text-decoration: none;
+  font-size: 17px;
+}
+.nav-dropdown {
+  background: none;
+  border: none;
+}
+.nav-txt {
+  color: #949ba5;
+}
+.clinicFormInput-checkbox {
+  background-color: transparent;
+  border: none;
+  color: black;
+  outline: none;
+
+  font-size: 1.3em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+
+  text-align: right;
+}
+.clinicFormInput {
+  width: 100%;
   background-color: transparent;
   border: none;
   color: black;
@@ -380,55 +328,92 @@
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
-  text-align: left;
+  text-align: right;
 }
-.dashboard {
-  height: 100%;
-  min-height: 100vh;
+.clinicFormInput-info {
   width: 100%;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: black;
+  outline: none;
+  border: solid;
 
-  display: flex;
-  background-color: aliceblue;
-  background-attachment: fixed;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: right;
 }
-.dashboard-display {
-  width: 100%;
-  height: 10000px;
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 50px 50px 50px 50px;
+.clinicFormCheckbox {
+  margin-left: 7em;
+}
+.clinicFormTitle {
+  display: block;
+  font-weight: lighter;
+  text-align: center;
+  font-size: 2em;
+  text-justify: inherit;
+  height: 2em;
+  width: 50%;
+  color: white;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  margin-top: 3em;
+  margin-left: 9em;
+  /* border: solid; */
+
+  border-radius: 25px;
+  justify-content: center;
+  background-color: #1a3972;
+  background-size: 8em;
+}
+.clinicFormTitleText {
+  margin-right: 2em;
+  width: 80%;
+}
+.FormField3 {
+  margin-top: 3em;
+  margin-bottom: 40px;
+  text-align: right;
+}
+.Drofficecard {
+  width: 600px;
+  padding: 20px 40px;
   border-radius: 10px;
   box-shadow: black;
-  background-color: rgb(156, 234, 236);
-  background-attachment: fixed;
-  justify-content: flex-end;
+  background-color: cadetblue;
+  text-align: center;
+  float: right;
+  margin: 5px;
 }
-.up-navbar {
-  background-color: rgb(107, 178, 180);
+.titleOffice {
+  color: rgb(49, 48, 48);
+  font-size: 18px;
 }
-.up-nav-style {
-  display: flex;
-  flex-direction: row-reverse;
-  font-size: 25px;
-  height: 8%;
-}
-.down-navbar {
-  background-color: rgb(107, 178, 180);
+.locationbutton {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
   border-radius: 10px;
 }
-.down-nav-style {
-  display: flex;
-  flex-direction: row;
-  font-size: 25px;
-  height: 8%;
-}
-.nav-dropdown {
-  background: none;
-  border: none;
-}
-.nav-txt {
-  color: black;
+.newoffice {
+  width: 500px;
+  height: 100px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: black;
+  background-color: cadetblue;
+  text-align: center;
+  font-size: 30px;
+  float: right;
+  margin: 5px;
 }
