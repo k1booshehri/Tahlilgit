@@ -96,7 +96,7 @@
   text-align: right;
 }
 .FormField__Input {
-  width: 85%;
+  width: 100%;
 font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
@@ -138,12 +138,12 @@ letter-spacing: 1px;
 
 
 .FormField__Input__Date {
-  width: 85%;
+  width: 100%;
 font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
-  text-align: right;
+  text-align: left;
   font-weight: 700;
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
@@ -155,60 +155,59 @@ font-size: 0.7em;
   color: #cdcdcd
 }
 .dashboard {
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  flex-direction: column;
-  margin-top: 70px;
-  align-items: center;
-  display: flex;
-  background-color: aliceblue;
-  background-attachment: fixed;
-}
-.dashboard-display {
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 50px 50px 50px 50px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: rgb(156, 234, 236);
-  background-attachment: fixed;
 
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(247, 247, 247);
+  background-color: #FFFFFF;
+  justify-content: right;
+  align-items: right;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  
+  padding: 60px;
   
 }
 
 .up-navbar {
-  background-color: rgb(107, 178, 180);
+  background-color: #caebf2;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 10px 2px rgba(0, 0, 0, 0.096);
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
   font-size: 25px;
   height: 8%;
+  float: left;
+  color: #949ba5;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 .down-navbar {
-  background-color: rgb(107, 178, 180);
-  border-radius: 10px;
+  background-color: #d0eef5;
+  
+  border-radius: 0.5em;
+  box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
 }
 .down-nav-style {
   display: flex;
   flex-direction: row;
   font-size: 25px;
-  height: 8%;
+  height: 5%;
+  float: left;
+  color: #949ba5;
+  text-align: center;
+  
+  text-decoration: none;
+  font-size: 17px;
 }
 .nav-dropdown {
   background: none;
   border: none;
 }
 .nav-txt {
-  color: black;
+  color: #949ba5;
 }
 .clinicFormInput-checkbox {
   background-color: transparent;
@@ -291,8 +290,7 @@ font-size: 0.7em;
   box-shadow: black;
   background-color: cadetblue;
   text-align: center;
-
-  float: left;
+  float: right;
   margin: 5px;
 }
 .titleOffice {
@@ -321,6 +319,6 @@ font-size: 0.7em;
   background-color: cadetblue;
   text-align: center;
   font-size: 30px;
-  float: left;
+  float: right;
   margin: 5px;
 }

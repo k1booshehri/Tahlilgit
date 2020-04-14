@@ -4,11 +4,11 @@ import Drofficedata from '../pages/officedata/officedata.json'
 
 export default class OfficeList extends Component {
    
-  /* constructor(props){
+  constructor(props){
        super(props);
        this.state = {
            
-           'OfficeList' : []
+           'officeList' : []
        }
    } 
  componentDidMount (){
@@ -16,10 +16,17 @@ export default class OfficeList extends Component {
 
    }
    getItems(){
-       fetch('')
-       .then(results =>results.json())
-       .then(results => this.setState({'OfficeList' : results}))
-   } */
+       fetch('http://localhost:8000/api/auth/officelist', {
+        method: 'GET',
+        headers:{
+          Authorization: "token " + sessionStorage.getItem("token"),
+          'Content-Type': 'application/json'
+        }
+      })
+       .then(res => res.json())
+       .then(results => this.setState({'officeList' : results}))
+       .catch(error => console.error('Error:', error));
+   } 
  
  
    render() {
@@ -27,7 +34,7 @@ export default class OfficeList extends Component {
              <div >
                  
                  <div >
-                 { Drofficedata.map((postdetail , index)=> {
+                 { this.state.officeList.map((postdetail , index)=> {
                 return <h1 >
                  
              <div className = "Drofficecard">
@@ -35,12 +42,12 @@ export default class OfficeList extends Component {
            
        
         <div >
-        <div> {postdetail.building_name}</div>
+        <div> {postdetail.city}</div>
         </div>
         <div>
          
           <div className = "titleOffice">
-          {postdetail.building_adress}
+          {postdetail.address}
           </div>
           </div>
         

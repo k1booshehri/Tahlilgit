@@ -30,8 +30,8 @@ class DrDashboard extends Component {
   render() {
     return (
       <div className="dashboard">
-        <div className="dashboard-display">
-          <div className="container  ">
+        
+          <div >
             {/* up navbar starts */}
             <nav className="nav  fixed-top up-navbar up-nav-style ">
               <li className="nav-item dropdown ">
@@ -86,7 +86,7 @@ class DrDashboard extends Component {
             {this.state.eventKey === "1" ? <OfficeList /> : <p> </p>}
             {/* conditions ends */}
             {/* down navbar starts */}
-            <nav className="nav  fixed-bottom up-navbar down-nav-style">
+            <nav className="nav  fixed-bottom down-navbar down-nav-style">
               <a
                 className="nav-link active"
                 type="click"
@@ -104,7 +104,7 @@ class DrDashboard extends Component {
             {/* down navbar ends */}
           </div>
         </div>
-      </div>
+     
     );
   }
 }
