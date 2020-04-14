@@ -1,75 +1,3 @@
-.Drlistcard {
-  width: 300px;
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
-  text-align: center;
-  
-  float: left;
-  margin: 5px;
-   
-}
-
-.Drpage {
- 
-  background-image: url(./bg-01.png);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  flex-direction: column;
- 
-}
-.title {
-  color: rgb(49, 48, 48);
-  font-size: 18px;
-}
-.Drbutton {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  border-radius: 10px;
-}
-  
-
-.App {
-  height: 100%;
-  min-height: 100vh;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items : center;
-
-  display: flex;
-  background-image: url(./bg-01.png);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.App__Form {
-  width: 600px;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
-}
-
-
 
 .PageSwitcher {
   display: flex;
@@ -209,28 +137,6 @@ letter-spacing: 1px;
     background: rgb(174, 198, 214);
   }
 
-.Dr__list__Button {
-  background-color: #1a3972;
-  color: white;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  padding: 30px;
-  font-size: 0.5em;
-  font-weight: 300;
-  justify-content: right;
-}
-
-
-.FormField__Link {
-  color: #1a3972;
-  text-decoration: none;
-  display: inline-block;
-  padding-top: 5%;
-  padding-left: 7%;
-  border-bottom: 1.5px solid #225e62;
-  padding-bottom: 5px;
-}
 
 .FormField__Input__Date {
   width: 100%;
@@ -257,30 +163,35 @@ font-size: 0.7em;
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   padding: 60px;
+  
   
 }
 
 .up-navbar {
-  background-color: #caebf2;
-  border-radius: 0.5em;
+  background-color: #d0e8ee;
+  border-radius: 0.0em;
   box-shadow: 0px 11px 10px 2px rgba(0, 0, 0, 0.096);
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
-  font-size: 25px;
+
   height: 8%;
   float: left;
-  color: #949ba5;
+  color: #797e85;
   text-align: center;
-  padding: 14px 16px;
+ 
   text-decoration: none;
-  font-size: 17px;
+  font-size: 20px;
+}
+.up-nav-style :hover {
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
 }
 .down-navbar {
-  background-color: #d0eef5;
+  background-color: #f8feff;
   
   border-radius: 0.5em;
   box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
@@ -293,7 +204,7 @@ font-size: 0.7em;
   float: left;
   color: #949ba5;
   text-align: center;
-  
+  cursor: pointer;
   text-decoration: none;
   font-size: 17px;
 }
@@ -315,7 +226,7 @@ font-size: 0.7em;
   padding-bottom: 10px;
   margin-top: 10px;
 
-  text-align: right;
+text-align: right;
 }
 .clinicFormInput {
   width: 100%;
@@ -378,16 +289,8 @@ font-size: 0.7em;
   margin-bottom: 40px;
   text-align: right;
 }
-.Drofficecard {
-  width: 600px;
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
-  text-align: center;
-  float: right;
-  margin: 5px;
-}
+
+
 .titleOffice {
   color: rgb(49, 48, 48);
   font-size: 18px;
@@ -406,14 +309,30 @@ font-size: 0.7em;
   border-radius: 10px;
 }
 .newoffice {
-  width: 500px;
+  width: 700px;
   height: 100px;
   padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: black;
-  background-color: cadetblue;
-  text-align: center;
+  margin: 5px;
+  background-color: transparent;
+  border: transparent;
+  border-bottom: 1px solid;
+  transition: 0.3s;
+  text-align: right;
+  color: #5d6166;
   font-size: 30px;
   float: right;
   margin: 5px;
+}
+.Drofficecard {
+  width: 700px;
+  padding: 20px 40px;
+  
+ color: #5d6166;
+  text-align: right;
+  float: right;
+  border-bottom: 1px solid;
+  margin: 5px;
+  
+  transition: 0.3s;
+  
 }

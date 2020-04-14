@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import PagesIcon from '@material-ui/icons/Pages';
+import BusinessIcon from '@material-ui/icons/Business';
+import WorkIcon from '@material-ui/icons/Work';
+import PersonIcon from '@material-ui/icons/Person';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import MailIcon from '@material-ui/icons/Mail';
+
 
 import {
   HashRouter as Router,
@@ -45,7 +51,7 @@ class DrDashboard extends Component {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                👤
+                <PersonIcon></PersonIcon>
               </a>
               <div
                 id="dropdownID"
@@ -65,21 +71,26 @@ class DrDashboard extends Component {
               onClick={this.navOnClick}
               id="0"
             >
-              میزکار&#128202;<span className="sr-only">(current)</span>
+              میزکار
+              <WorkIcon></WorkIcon>
+              <span className="sr-only">(current)</span>
             </a>
             <a
               className="nav-link active nav-txt"
               onClick={this.navOnClick}
               id="1"
             >
-              مطب ها&#128193;
+              مطب ها
+              <BusinessIcon></BusinessIcon>
+              
             </a>
             <a
               className=" nav-link active nav-txt"
               onClick={this.navOnClick}
               id="0"
             >
-              مقاله ها&#128221;
+              مقاله ها
+              <PagesIcon></PagesIcon>
             </a>
           </nav>
           {/* up navbar ends */}
@@ -104,11 +115,12 @@ class DrDashboard extends Component {
             >
               <span className="nav-txt" id="0">
                 {" "}
-                📧 ارتباط با ما
+                 ارتباط با ما
+             <MailIcon></MailIcon>
               </span>
             </a>
             <a className="nav-link active" id="0">
-              <span className="nav-txt"> 💡 درباره ی ما</span>
+              <span className="nav-txt"> <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما</span>
             </a>
           </nav>
           {/* down navbar ends */}
