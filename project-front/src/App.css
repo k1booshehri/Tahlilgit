@@ -33,7 +33,6 @@
   text-align: left;
 }
 
-
 .FormCenter2 {
   margin-bottom: 100px;
   display: block;
@@ -52,7 +51,6 @@
   align-items: center;
   background-color: #caebf2;
   display: flex;
- 
 }
 
 .App__Form {
@@ -60,7 +58,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin-top: 20px;
   border-radius: 0.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -97,13 +95,13 @@
 }
 .FormField__Input {
   width: 100%;
-font-size: 0.7em;
+  font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
   font-weight: 700;
-letter-spacing: 1px;
+  letter-spacing: 1px;
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
@@ -111,7 +109,6 @@ letter-spacing: 1px;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
- 
 }
 
 .FormField__Input::placeholder {
@@ -128,18 +125,16 @@ letter-spacing: 1px;
   font-size: 1em;
   font-weight: 500;
   justify-content: left;
-  
-    
-  }
-  
-  button:focus,button:hover {
-    background: rgb(174, 198, 214);
-  }
+}
 
+button:focus,
+button:hover {
+  background: rgb(174, 198, 214);
+}
 
 .FormField__Input__Date {
   width: 100%;
-font-size: 0.7em;
+  font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
@@ -152,19 +147,17 @@ font-size: 0.7em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
-  color: #cdcdcd
+  color: #cdcdcd;
 }
 .dashboard {
-
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   justify-content: right;
   align-items: right;
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  
+
   padding: 60px;
-  
 }
 
 .up-navbar {
@@ -186,7 +179,7 @@ font-size: 0.7em;
 }
 .down-navbar {
   background-color: #d0eef5;
-  
+
   border-radius: 0.5em;
   box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
 }
@@ -198,7 +191,7 @@ font-size: 0.7em;
   float: left;
   color: #949ba5;
   text-align: center;
-  
+
   text-decoration: none;
   font-size: 17px;
 }
@@ -212,10 +205,10 @@ font-size: 0.7em;
 .clinicFormInput-checkbox {
   background-color: transparent;
   border: none;
-  color: black;
+  color: rgb(39, 36, 36);
   outline: none;
 
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
@@ -224,24 +217,28 @@ font-size: 0.7em;
 }
 .clinicFormInput {
   width: 100%;
-  background-color: transparent;
-  border: none;
-  color: black;
-  outline: none;
-  border-bottom: 1px solid;
-  font-size: 1em;
+  font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
 }
 .clinicFormInput-info {
   width: 100%;
-  background-color: transparent;
+  background: rgba(136, 126, 126, 0.04);
   border: none;
   color: black;
   outline: none;
-  border: solid;
+  border: 2px solid rgba(0, 0, 0, 0.048);
 
   font-size: 1em;
   font-weight: 300;
@@ -253,33 +250,38 @@ font-size: 0.7em;
   margin-left: 7em;
 }
 .clinicFormTitle {
-  display: block;
+  display: inline-block;
   font-weight: lighter;
   text-align: center;
-  font-size: 2em;
-  text-justify: inherit;
+  font-size: 1.5em;
+  text-justify: right;
   height: 2em;
-  width: 50%;
-  color: white;
-  border-top: 0px;
-  border-bottom: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  margin-top: 3em;
-  margin-left: 9em;
+  width: 60%;
+  color: #157085;
+  margin-top: 0.5em;
+  border: 0.4px solid rgb(197, 200, 204);
+  margin-bottom: 1.5em;
   /* border: solid; */
-
+  margin-left: auto;
+  margin-right: 0em;
   border-radius: 25px;
   justify-content: center;
-  background-color: #1a3972;
-  background-size: 8em;
 }
-.clinicFormTitleText {
-  margin-right: 2em;
-  width: 80%;
+.clinicForm {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
 }
+
 .FormField3 {
-  margin-top: 3em;
   margin-bottom: 40px;
   text-align: right;
 }
