@@ -33,37 +33,37 @@ export default class OfficeList extends Component {
         return (
              <div >
                  
-                 <div >
+                 
                  { this.state.officeList.map((postdetail , index)=> {
                 return <h1 >
                  
              <div className = "Drofficecard">
-           
-           
        
-        <div >
-        <div> {postdetail.city}</div>
-        </div>
+       <div>
+       <div> {postdetail.info}  </div>
+ 
+       </div>
+       <div className = "titleOffice">
+        <div> {postdetail.city}   :شهر</div>
+ </div>
         <div>
          
-          <div className = "titleOffice">
-          {postdetail.address}
+          <div className = "titleOffice"> {postdetail.address}  :آدرس  </div>
+          </div>
+          <div>
+          <div className = "titleOffice"> {postdetail.phone}  :تلفن  </div>
+          </div>
+          <div>
+          <div className = "titleOffice"> {postdetail.transport}   :امکان دسترسی  </div>
           </div>
           </div>
-        
-
-         
-             
-             </div>
-             
-             
-             </h1>
+            </h1>
              
             
              })}
              <button className="newoffice" > مطب جدید </button>
              
-             </div> 
+             
              </div>
 
             

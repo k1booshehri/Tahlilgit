@@ -1,16 +1,13 @@
 [{
-    "building_name" : "sakhtemane1",
-    "building_adress" : " usygf/iybic/iwytf/aowruhv"
-},
-
-{
-    "building_name" : "sakhtemane2",
-    "building_adress" : " usygf/iybic/iwytf/aowruhv"
-
+    "city" : "sakhtemane1",
+    "address" : " usygf/iybic/iwytf/aowruhv"
 },
 {
-    "building_name" : "sakhtemane3",
-    "building_adress" : " usygf/iybic/iwytf/aowruhv"
+    "city" : "sakhtemane2",
+    "address" : " usygf/iybic/iwytf/aowruhv"
+},{
+    "city" : "sakhtemane1",
+    "address" : " usygf/iybic/iwytf/aowruhv"
 }
 
 
