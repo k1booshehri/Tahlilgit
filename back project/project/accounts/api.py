@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3
 from .models import office, User
 
 # showing a doctor data
@@ -10,7 +10,7 @@ from .models import office, User
 class DoctorDataViewset(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
-    serializer_class = UserSerializer2
+    serializer_class = UserSerializer3
 
     def get_queryset(self):
         return User.objects.filter(username=self.kwargs['username'])
@@ -31,7 +31,7 @@ class OfficeViewSet(viewsets.ViewSet):
 class DoctorsViewset(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
-    serializer_class = UserSerializer2
+    serializer_class = UserSerializer3
 
     def get_queryset(self):
         return User.objects.filter(edu=self.kwargs['edu'])
@@ -117,3 +117,12 @@ class UserAPI2(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class OfficesViewset(viewsets.ModelViewSet):
+
+    queryset = office.objects.all()
+    serializer_class = OfficeSerializer
+
+    def get_queryset(self):
+        return office.objects.filter(doctor=self.kwargs['id'])
