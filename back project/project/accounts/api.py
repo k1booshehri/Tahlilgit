@@ -147,3 +147,14 @@ class FilterViewset(generics.ListAPIView):
             queryset = queryset.filter(
                 office__city=shahr)
         return queryset
+
+
+class SearchViewset(generics.ListAPIView):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer3
+
+    def get_queryset(self):
+        cont = self.request.GET.get('contains', None)
+        queryset = User.objects.filter(f_name__contains=cont)
+        return queryset
