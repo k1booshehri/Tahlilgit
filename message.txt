@@ -1,4 +1,0 @@
-Connect officList and officeForm and Update dashboard
-
--Add 'create new office' to clinicList
--Update dashboard with localStorage property
