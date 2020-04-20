@@ -126,3 +126,24 @@ class OfficesViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return office.objects.filter(doctor=self.kwargs['id'])
+
+class FilterViewset(generics.ListAPIView):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer3
+
+    def get_queryset(self):
+        queryset = User.objects.all()
+        education = self.request.GET.get('edu', None)
+        if education is not None:
+            queryset = queryset.filter(
+                edu=education)
+        who = self.request.GET.get('username', None)
+        if who is not None:
+            queryset = queryset.filter(
+                username=who)
+        shahr = self.request.GET.get('city', None)
+        if shahr is not None:
+            queryset = queryset.filter(
+                office__city=shahr)
+        return queryset
