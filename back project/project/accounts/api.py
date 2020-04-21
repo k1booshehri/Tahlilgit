@@ -137,14 +137,18 @@ class FilterViewset(generics.ListAPIView):
 
     def get_queryset(self):
         queryset = User.objects.all()
-        education = self.request.GET.get('edu', None)
-        if education is not None:
+        takhasos = self.request.GET.get('field', None)
+        if takhasos is not None:
             queryset = queryset.filter(
-                edu=education)
-        who = self.request.GET.get('username', None)
-        if who is not None:
+                field=takhasos)
+        emtiaz = self.request.GET.get('rate', None)
+        if emtiaz is not None:
             queryset = queryset.filter(
-                username=who)
+                rate__gt=emtiaz)
+        jensiat = self.request.GET.get('gender', None)
+        if jensiat is not None:
+            queryset = queryset.filter(
+                gender=jensiat)
         shahr = self.request.GET.get('city', None)
         if shahr is not None:
             queryset = queryset.filter(
