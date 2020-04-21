@@ -3,6 +3,9 @@ from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3
 from .models import office, User
+from django.db.models import Q
+import operator
+import functools
 
 # showing a doctor data
 
@@ -155,6 +158,8 @@ class SearchViewset(generics.ListAPIView):
     serializer_class = UserSerializer3
 
     def get_queryset(self):
-        cont = self.request.GET.get('contains', None)
-        queryset = User.objects.filter(f_name__contains=cont)
-        return queryset
+        queries = self.request.GET.get('contains', None).split()
+        qset1 = functools.reduce(operator.__or__, [Q(f_name_icontains=query) | Q(
+            l_name__icontains=query) for query in queries])
+        results = User.objects.filter(qset1).distinct()
+        return results
