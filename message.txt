@@ -1,4 +1,7 @@
-Connect officList and officeForm and Update dashboard
+Create DrProfileView.js
 
--Add 'create new office' to clinicList
--Update dashboard with localStorage property
+-Created a new page for viewing docotr's profile as a user
+-Update App.js with new route for DrProfileView.js
+-Handle profile button in Drlists.js for redirecting to DrProfileView.js
+-Update PatientDashboard.js with localStorage to save Link's id as eventKey
+-Update PatientDashboard.js with new condition statement for redirecting
