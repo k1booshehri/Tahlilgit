@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Drofficedata from "../pages/officedata/officedata.json";
 
 export default class OfficeList extends Component {
   constructor(props) {

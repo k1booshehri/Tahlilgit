@@ -5,6 +5,8 @@ import axios from "axios";
 //import Card from 'react-bootstrap/Card'
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
+import Filter from "./Filtering";
+
 
 export default class Drlist extends Component {
   constructor(props) {
@@ -21,15 +23,41 @@ export default class Drlist extends Component {
       .then((results) => results.json())
       .then((results) => this.setState({ Drlist: results }));
   }
+ /* state = {
+    search : ""
+  }
+  onchange = e =>{
+    this.setState({ search : e.target.value });
+}*/
+
+  
   render() {
+
     return (
-      <div >
+   
+    /*  <input label="Search Country" icon="search" onChange={this.onchange}
+      type="search"
+      id="search"
+      className="Drsearch"
+      placeholder="search"
+      name="search"
+      value={this.state.search}
+  
+      />*/
+   
+   
+   <div >
+       
         <div className = "dashboard">
+          
+           <Filter/>
+
           {this.state.Drlist.map((postdetail, index) => {
             return (
+               
               
                 <div className="Drlistcard">
-                
+               
                   
                   {/* <img>hii</img> */}
                   <div>
