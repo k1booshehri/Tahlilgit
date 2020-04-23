@@ -153,17 +153,10 @@ class FilterViewset(generics.ListAPIView):
         if shahr is not None:
             queryset = queryset.filter(
                 office__city=shahr)
+        esm = self.request.GET.get('contains', None)
+        if esm is not None:
+            esm = esm.split()
+            qset1 = functools.reduce(operator.__or__, [Q(f_name_icontains=query) | Q(
+                l_name__icontains=query) for query in esm])
+            queryset = queryset.filter(qset1).distinct()
         return queryset
-
-
-class SearchViewset(generics.ListAPIView):
-
-    queryset = User.objects.all()
-    serializer_class = UserSerializer3
-
-    def get_queryset(self):
-        queries = self.request.GET.get('contains', None).split()
-        qset1 = functools.reduce(operator.__or__, [Q(f_name_icontains=query) | Q(
-            l_name__icontains=query) for query in queries])
-        results = User.objects.filter(qset1).distinct()
-        return results
