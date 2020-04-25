@@ -15,6 +15,7 @@ class User(AbstractUser):
     activetime = models.DateField(null=True)
     field = models.CharField(null=True, max_length=30)
     city = models.CharField(null=True, max_length=30)
+    rate = models.CharField(null=True, max_length=30)
 
 
 class office (models.Model):

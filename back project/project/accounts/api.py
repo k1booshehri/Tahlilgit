@@ -1,22 +1,11 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer
 from .models import office, User
 from django.db.models import Q
 import operator
 import functools
-
-# showing a doctor data
-
-
-class DoctorDataViewset(viewsets.ModelViewSet):
-
-    queryset = User.objects.all()
-    serializer_class = UserSerializer3
-
-    def get_queryset(self):
-        return User.objects.filter(username=self.kwargs['username'])
 
 
 # showing offices

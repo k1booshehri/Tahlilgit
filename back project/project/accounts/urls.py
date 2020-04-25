@@ -1,7 +1,8 @@
 from django.urls import path, include
 from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorDataViewset, DoctorsViewset, OfficesViewset, FilterViewset,RateSetAPI
 from knox import views as knox_views
-
+from rest_framework.urlpatterns import format_suffix_patterns
+from . import views
 
 urlpatterns = [
     path('api/auth', include('knox.urls')),
@@ -13,8 +14,6 @@ urlpatterns = [
     path('api/auth/patient-user', UserAPI.as_view()),
     path('api/auth/doctor-user', UserAPI2.as_view()),
     path('api/auth/logout', knox_views.LogoutView.as_view(), name='knox_logout'),
-    path('doctors/username=<username>/',
-         DoctorDataViewset.as_view({'get': 'list'})),
     path('doctors/edu=<edu>/',
          DoctorsViewset.as_view({'get': 'list'})),
     path('api/auth/offices/id=<id>/',
@@ -22,4 +21,5 @@ urlpatterns = [
      path('filter/',
          FilterViewset.as_view()),
     path('api/auth/setrate/', RateSetAPI.as_view()),
+    path('user/username=<str:username>', views.user_detail),
 ]
