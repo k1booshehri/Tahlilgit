@@ -160,3 +160,21 @@ class FilterViewset(generics.ListAPIView):
                 l_name__icontains=query) for query in esm])
             queryset = queryset.filter(qset1).distinct()
         return queryset
+
+class RateSetAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+
+    serializer_class = RateSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        off = serializer.save()
+        perializer = RateUpdateSerializer(data=request.data)
+        perializer.is_valid(raise_exception=True)
+        on = perializer.save()
+        return Response({
+            "Rate": RateSerializer(off, context=self.get_serializer_context()).data
+        })
