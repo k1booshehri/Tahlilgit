@@ -260,7 +260,7 @@ class DoctorSignUpForm extends Component {
                     required
                   >
                     <option value="masters">کارشناسی ارشد</option>
-                    <option value="PHD">دکتری</option>
+                    <option value="phd">دکتری</option>
                   </select>
                 </div>
                 <div className="FormField">
@@ -275,15 +275,27 @@ class DoctorSignUpForm extends Component {
                     onChange={this.handleChange}
                     required
                   >
-                    <option value="balini">روان شناسی بالینی</option>
-                    <option value="moshavere">روان شناسی مشاوره </option>
-                    <option value="khanevade">روان شناسی خانواده </option>
-                    <option value="tahisli">روان شناسی تحصیلی </option>
-                    <option value="tarbiati">روان شناسی تربیتی </option>
-                    <option value="shakhsiat">روان شناسی شخصیت </option>
-                    <option value="ejtemaei">روان شناسی اجتماعی </option>
-                    <option value="sazmani">روان شناسی صنعتی و سازمانی </option>
-                    <option value="masraf">روان شناسی مصرف </option>
+                    <option value="روان شناسی بالینی">روان شناسی بالینی</option>
+                    <option value="روان شناسی مشاوره">
+                      روان شناسی مشاوره{" "}
+                    </option>
+                    <option value="روان شناسی خانواده">
+                      روان شناسی خانواده{" "}
+                    </option>
+                    <option value="روان شناسی تحصیلی">
+                      روان شناسی تحصیلی{" "}
+                    </option>
+                    <option value="روان شناسی تربیتی">
+                      روان شناسی تربیتی{" "}
+                    </option>
+                    <option value="روان شناسی شخصیت">روان شناسی شخصیت </option>
+                    <option value="روان شناسی اجتماعی">
+                      روان شناسی اجتماعی{" "}
+                    </option>
+                    <option value="روان شناسی صنعتی و سازمانی">
+                      روان شناسی صنعتی و سازمانی{" "}
+                    </option>
+                    <option value="روان شناسی مصرف">روان شناسی مصرف </option>
                   </select>
                 </div>
 

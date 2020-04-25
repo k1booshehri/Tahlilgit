@@ -1,7 +1,15 @@
-Create DrProfileView.js
+Update DrProfileView.js
 
--Created a new page for viewing docotr's profile as a user
--Update App.js with new route for DrProfileView.js
--Handle profile button in Drlists.js for redirecting to DrProfileView.js
--Update PatientDashboard.js with localStorage to save Link's id as eventKey
--Update PatientDashboard.js with new condition statement for redirecting
+-Update state varibales
+-Add html for showing data
+-Add get request
+-Add function for parsing responses
+-Add png file to pages folder for avatar picture
+-Add new font url ro index.css
+-Add CSS for the component
+-Change education values to persion equivalents at DoctorSignUp.js
+-Change transport values to persion equivalents at clinicForm.js
+-Change park values to persion equivalents at clinicForm.js
+-Change cities values to persian equivalents at clinicForm.js
+-Add comments for DrProfileView.js and Drlists.js
+-Delete dropdown from profile icon at both dashboards
