@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorDataViewset, DoctorsViewset
+from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorDataViewset, DoctorsViewset, OfficesViewset
 from knox import views as knox_views
 
 
@@ -16,6 +16,8 @@ urlpatterns = [
     path('doctors/username=<username>/',
          DoctorDataViewset.as_view({'get': 'list'})),
     path('doctors/edu=<edu>/',
-         DoctorsViewset.as_view({'get': 'list'}))
+         DoctorsViewset.as_view({'get': 'list'})),
+    path('api/auth/offices/id=<id>/',
+         OfficesViewset.as_view({'get': 'list'}))
 
 ]
