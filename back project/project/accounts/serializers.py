@@ -82,7 +82,7 @@ class UserSerializer3(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'gender', 'f_name',
-                  'l_name', 'edu', 'activetime', 'field')
+                  'l_name', 'edu', 'activetime', 'field', 'rate')
 
 
 class RateSerializer(serializers.ModelSerializer):
@@ -94,5 +94,20 @@ class RateSerializer(serializers.ModelSerializer):
         p = self.context['request'].user
         off, created = Rates.objects.update_or_create(
             patient=p, doctor=User.objects.get(username=validated_data['doctorusername']), doctorusername=validated_data['doctorusername'], defaults={'Value': validated_data['Value']},)
+
+        return off
+
+
+class RateUpdateSerializer(serializers.Serializer):
+    doctorusername = serializers.CharField(
+        required=False, allow_blank=True, max_length=100)
+    Value = serializers.CharField(
+        required=False, allow_blank=True, max_length=100)
+
+    def create(self, validated_data):
+        rate = Rates.objects.filter(
+            doctor=User.objects.get(username=validated_data['doctorusername'])).aggregate(Avg('Value'))['Value__avg']
+        off, created = User.objects.update_or_create(
+            username=validated_data['doctorusername'], defaults={'rate': rate},)
 
         return off
