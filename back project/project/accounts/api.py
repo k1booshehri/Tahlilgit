@@ -111,13 +111,6 @@ class UserAPI2(generics.RetrieveAPIView):
         return self.request.user
 
 
-class OfficesViewset(viewsets.ModelViewSet):
-
-    queryset = office.objects.all()
-    serializer_class = OfficeSerializer
-
-    def get_queryset(self):
-        return office.objects.filter(doctor=self.kwargs['id'])
 
 class FilterViewset(generics.ListAPIView):
 
