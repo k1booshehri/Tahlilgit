@@ -149,20 +149,21 @@
   color: #cdcdcd;
 }
 .dashboard {
-  background-color: #ffffff;
+
+  background-color: #FFFFFF;
   justify-content: right;
   align-items: right;
   width: 100%;
   height: 100%;
-  
-
-  padding: 60px;
+   margin-top: 75px;
+   margin-bottom: 45px;
 }
+
 
 .up-navbar {
   background-color: #d0e8ee;
   border-radius: 0em;
-  box-shadow: 0px 11px 10px 2px rgba(0, 0, 0, 0.096);
+  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.096);
 }
 .up-nav-style {
   display: flex;
@@ -181,7 +182,7 @@
   cursor: pointer;
 }
 .down-navbar {
-  background-color: #f8feff;
+  background-color: #d0e8ee;
 
   border-radius: 0.5em;
   box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
@@ -299,8 +300,8 @@
   outline: 0;
   display: inline-block;
   padding: 8px;
-  color: white;
-  background-color: #88bbd6;
+  color: rgb(141, 139, 139);
+  background-color: #fddba862;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -343,28 +344,18 @@
 
   transition: 0.3s;
 }
-.Drofficecard {
-  width: 700px;
-  padding: 20px 40px;
 
-  color: #5d6166;
-  text-align: right;
-  float: right;
-  border-bottom: 1px solid;
-  margin: 5px;
-
-  transition: 0.3s;
-}
 .Drlistcard {
-  width: 400px;
+  width: 320px;
   padding: 20px 40px;
-
+ background-color: #f8feff;
   color: #5d6166;
   text-align: right;
   float: right;
 
-  margin: 10px;
-
+  margin-right: 10px;
+  margin-bottom: 10px;
+ 
   font-size: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -375,3 +366,73 @@
 .Drsearch{
   margin-top: 30px;
 }
+.sidenav {
+  height: 600px;
+  width: 200px;
+  position: absolute;
+    right: 0px;
+  border-radius: 1em;
+
+  background-color: #fddba862;
+  overflow-x: hidden;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.096);
+  float: right;
+  text-align: right;
+}
+.Drlistdashboard {
+  height: 100%;
+  flex-direction: column;
+ margin-right: 230px;
+  background-color: #ffffff;
+  
+}
+.filteringlable {
+  margin : 10px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  color: rgb(105, 105, 107);
+  text-align: right;
+}
+.Filtering__Label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: rgb(105, 105, 107);
+  text-align: right;
+  margin-right: 10px;
+}
+.Filtering__Input {
+  width: 90%;
+  font-size: 0.7em;
+  font-weight: 300;
+ padding: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-align: right;
+  margin-bottom: 10px;
+  background: rgba(136, 126, 126, 0.04);
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
+}
+.Filtering__Input::placeholder {
+
+  color: #cdcdcd;
+}
+.Filtering__Button {
+  background-color: #88bbd6;
+  color: white;
+ 
+  border-radius: 10px;
+  padding: 5px 20px;
+  font-size: 1em;
+  font-weight: 300;
+  justify-content: left;
+  margin-top: 20px;
+}
+.Filtering__Button:hover {
+  background: rgb(174, 198, 214);
+}
+

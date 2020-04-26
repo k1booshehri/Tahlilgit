@@ -45,15 +45,16 @@ export default class Drlist extends Component {
   
       />*/
    
-   
+      
    <div >
        
-        <div className = "dashboard">
-          
-           <Filter/>
-
+       <Filter/> 
+        
+        <div className = "Drlistdashboard">
+     
           {this.state.Drlist.map((postdetail, index) => {
             return (
+              console.log(this.state.Drlist),
                
               
                 <div className="Drlistcard">
@@ -75,7 +76,10 @@ export default class Drlist extends Component {
             );
           })}
         </div>
+       
       </div>
+      
+     
     );
   }
 }

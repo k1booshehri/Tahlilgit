@@ -260,7 +260,7 @@ class DoctorSignUpForm extends Component {
                     required
                   >
                     <option value="masters">کارشناسی ارشد</option>
-                    <option value="PHD">دکتری</option>
+                    <option value="phd">دکتری</option>
                   </select>
                 </div>
                 <div className="FormField">

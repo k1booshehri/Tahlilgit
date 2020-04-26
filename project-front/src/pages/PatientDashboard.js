@@ -29,8 +29,8 @@ class PatientDashboard extends Component {
   }
   render() {
     return (
-      <div className="dashboard">
-        <div >
+      <div >
+        <div className="dashboard">
          
             {/* up navbar starts */}
             <nav className="nav  fixed-top up-navbar up-nav-style ">
@@ -86,7 +86,7 @@ class PatientDashboard extends Component {
             {this.state.eventKey === "1" ? < Drlist /> : <p>  </p>}
             {/* conditions ends */}
             {/* down navbar starts */}
-            <nav className="nav  fixed-bottom up-navbar down-nav-style">
+            <nav className="nav  fixed-bottom down-navbar down-nav-style">
               <a
                 className="nav-link active"
                 type="click"

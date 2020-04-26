@@ -95,7 +95,7 @@ export default class ClinicForm extends Component {
     }
     if (!this.state.haveLogedIn) {
       return (
-        <div className="clinicForm">
+        <div className="clinicForm ">
           <form onSubmit={this.handleSubmit} className="FormField3">
             <p className="clinicFormTitle">
               {" "}
