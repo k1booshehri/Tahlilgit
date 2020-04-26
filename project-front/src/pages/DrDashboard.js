@@ -16,6 +16,8 @@ import {
 } from "react-router-dom";
 import OfficeList from "./OfficeList";
 import ClinicForm from "./ClinicForm";
+import DoctorProfile from "./DoctorProfile";
+import EditDrProfile from "./EditDrProfile";
 
 class DrDashboard extends Component {
   constructor(props) {
@@ -86,7 +88,16 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
-
+          {localStorage.getItem("eventKey") === "3" ? (
+            <DoctorProfile updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+          {localStorage.getItem("eventKey") === "3-1" ? (
+            <EditDrProfile />
+          ) : (
+            <p> </p>
+          )}
           {/* conditions ends */}
           {/* down navbar starts */}
           <nav className="nav  fixed-bottom down-navbar down-nav-style">

@@ -1,15 +1,10 @@
-Update DrProfileView.js
+Add DoctorProfile.js and EditDrProfile.js
 
--Update state varibales
--Add html for showing data
--Add get request
--Add function for parsing responses
--Add png file to pages folder for avatar picture
--Add new font url ro index.css
--Add CSS for the component
--Change education values to persion equivalents at DoctorSignUp.js
--Change transport values to persion equivalents at clinicForm.js
--Change park values to persion equivalents at clinicForm.js
--Change cities values to persian equivalents at clinicForm.js
--Add comments for DrProfileView.js and Drlists.js
--Delete dropdown from profile icon at both dashboards
+-Create DoctorProfile.js Html
+-Handle get request for DoctorProfile.js
+-Handle DoctorProfile.js redirects at DrDashboard.js
+-Create Edit DrProfile html
+-Add Edit DrProfile CSS
+-Add "Edit" button to DoctorProfile.js
+-Handle redirecting to EditDrProfile.js with "Edit" button
+-Add two Urls in App.js for new js files
