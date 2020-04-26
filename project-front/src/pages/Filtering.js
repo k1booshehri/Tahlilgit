@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import queryString from 'query-string'
 
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
@@ -18,7 +19,7 @@ export default class Filtering extends Component {
           gender: "",
           field: "",
           rate: "",
-          Drlist: [],
+          Drs: [],
         
         };
     
@@ -35,20 +36,28 @@ export default class Filtering extends Component {
           [name]: value,
         });
       }
-    
+     /* componentDidMount() {
+        const values = queryString.parse(this.props.location.search)
+        console.log(values.contains) // "active"
+        console.log(values.city) // "ascend"
+        console.log(values.gender) // "1"
+        console.log(values.field)
+        console.log(values.rate) // "50"
+      }
+    */
 
       
       handleSubmit(e) {
         e.preventDefault();
 
-        let params = {
+       {/* let params = {
           
             "contains": this.state.contains,
             "city": this.state.city,
             "gender":this.state.gender,
             "field": this.state.field,
             "rate" :this.state.rate
-          };
+          };*/}
 
 
           let p = new URLSearchParams();
@@ -58,15 +67,17 @@ export default class Filtering extends Component {
        if(this.state.gender){ p.append('gender', this.state.gender );}
         if (this.state.field){p.append('field', this.state.field);}
        if(this.state.rate){ p.append('rate', this.state.rate);}
+
+      window.history.replaceState(null , '' , '/PatientDashboard/'+p);
       
        return fetch('http://localhost:8000/filter/?' + p, {
            
     })
     .then((results) => results.json())
-    .then( (results) => this.setState({ Drlist: results }));
-
+    .then( (results) => this.props.data.updatedr(results));
+     
     
-        
+    
         
         
      {/*   
@@ -100,12 +111,13 @@ export default class Filtering extends Component {
     }
    
    
-   
+    
+      
    
    
     render(){
         return(
-            
+           
 
             <div className =" sidenav t" >
 
@@ -140,13 +152,13 @@ export default class Filtering extends Component {
                   <select
                    value={this.state.city}
                     onChange={this.handleChange}
-                    required
+                    
                     className="Filtering__Input"
                     id="city"
                     placeholder=""
                     name="city"
                   >
-                      <option value="null"> </option>
+                      <option value={null}> </option>
                     <option value="east-azarbijan">آذربایجان شرقی</option>
                     <option value="west-azarbijan">آذربایجان غربی</option>
                     <option value="ardebil">اردبیل</option>
@@ -182,7 +194,7 @@ export default class Filtering extends Component {
              {/*********************************/}
 
              <label htmlFor="gender" className="Filtering__Label">
-                    جنسیت خود را وارد کنید
+                   : جنسیت 
                   </label>
                   <select
                     className="Filtering__Input"
@@ -192,6 +204,7 @@ export default class Filtering extends Component {
                     onChange={this.handleChange}
                    
                   >
+                      <option value= {null} > </option>
                     <option value="female">زن</option>
                     <option value="male">مرد</option>
                     <option value="other">سایر</option>
@@ -209,6 +222,7 @@ export default class Filtering extends Component {
                     onChange={this.handleChange}
                    
                   >
+                      <option value={null}> </option>
                     <option value="balini">روان شناسی بالینی</option>
                     <option value="moshavere">روان شناسی مشاوره </option>
                     <option value="khanevade">روان شناسی خانواده </option>

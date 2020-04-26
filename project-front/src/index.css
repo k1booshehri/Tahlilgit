@@ -1,9 +1,10 @@
-@import url("https://fonts.google.com/specimen/Jomhuria/?subset=arabic");
+@import url("https://fonts.googleapis.com/css2?family=Lateef&display=swap");
 
 * {
   box-sizing: border-box;
-  /* font-family: "Markazi Text", serif; */
-  font-family: "Katibeh", cursive;
+
+  font-family: "Lateef", cursive;
+  font-weight: 600;
 }
 
 body {

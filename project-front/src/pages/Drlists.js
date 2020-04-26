@@ -13,13 +13,13 @@ export default class Drlist extends Component {
     super(props);
     this.state = {
       Drlist: [],
-    };
-  }
+    };}
+  
   componentDidMount() {
     this.getItems();
   }
   getItems() {
-    fetch("http://localhost:8000/doctors/edu=phd/")
+    fetch("http://localhost:8000/filter/")
       .then((results) => results.json())
       .then((results) => this.setState({ Drlist: results }));
   }
@@ -29,11 +29,17 @@ export default class Drlist extends Component {
   onchange = e =>{
     this.setState({ search : e.target.value });
 }*/
+updatedr(items){
+ 
+  this.setState({Drlist:items})
+}
 
   
-  render() {
+  render () {
+   
 
     return (
+      
    
     /*  <input label="Search Country" icon="search" onChange={this.onchange}
       type="search"
@@ -48,13 +54,19 @@ export default class Drlist extends Component {
       
    <div >
        
-       <Filter/> 
-        
+       
+       <Filter data = {
+        {
+          Drlist: this.state.Drlist,
+          updatedr:this.updatedr.bind(this)
+        }
+      }/>
         <div className = "Drlistdashboard">
+        
      
           {this.state.Drlist.map((postdetail, index) => {
             return (
-              console.log(this.state.Drlist),
+            
                
               
                 <div className="Drlistcard">
