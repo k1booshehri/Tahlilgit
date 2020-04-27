@@ -38,15 +38,11 @@ export default class DoctorProfile extends Component {
   }
   parsingInformation(res) {
     let information = res;
-
     // initializing this states with responses
-
     this.state.f_name = information.f_name;
-
     this.state.l_name = information.l_name;
     this.state.email = information.email;
     this.state.field = information.field;
-    this.state.edu = information.edu;
     this.state.gender = information.gender;
     this.state.activetime = information.activetime;
     this.state.username = information.username;
@@ -54,10 +50,14 @@ export default class DoctorProfile extends Component {
     this.state.code = information.code;
     this.state.birth = information.birth;
     this.state.phone = information.phone;
-
+    if (information.edu === "phd") {
+      this.state.edu = "دکتری";
+    }
+    if (information.edu === "masters") {
+      this.state.edu = "کارشناسی ارشد";
+    }
     let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
     this.state.startYear = split[0];
-    console.log(this.state.startYear);
   }
   componentDidMount() {
     this.getItems();
@@ -87,25 +87,25 @@ export default class DoctorProfile extends Component {
           <div className="nameDisplay"></div>
 
           <div className="nameInfoTable">
-            <div class="nameTableRow">
-              <div class="nameCompleteTableCell">
+            <div className="nameTableRow">
+              <div className="nameCompleteTableCell">
                 {this.state.f_name + " " + this.state.l_name}
               </div>
             </div>
           </div>
 
           <div className="infoTable1">
-            <div class="tableRow1">
-              <div class="leftTableCell">{this.state.field}</div>
-              <div class="rightTableCell">تخصص</div>
+            <div className="tableRow1">
+              <div className="leftTableCell">{this.state.field}</div>
+              <div className="rightTableCell">تخصص</div>
             </div>
-            <div class="tableRow1">
-              <div class="leftTableCell">{this.state.edu}</div>
-              <div class="rightTableCell">تحصیلات</div>
+            <div className="tableRow1">
+              <div className="leftTableCell">{this.state.edu}</div>
+              <div className="rightTableCell">تحصیلات</div>
             </div>
-            <div class="tableRow1">
-              <div class="leftTableCell">{this.state.startYear}</div>
-              <div class="rightTableCell">شروع فعالیت</div>
+            <div className="tableRow1">
+              <div className="leftTableCell">{this.state.startYear}</div>
+              <div className="rightTableCell">شروع فعالیت</div>
             </div>
           </div>
 

@@ -1,10 +1,5 @@
-Add DoctorProfile.js and EditDrProfile.js
+Update EditDrProfile.js
 
--Create DoctorProfile.js Html
--Handle get request for DoctorProfile.js
--Handle DoctorProfile.js redirects at DrDashboard.js
--Create Edit DrProfile html
--Add Edit DrProfile CSS
--Add "Edit" button to DoctorProfile.js
--Handle redirecting to EditDrProfile.js with "Edit" button
--Add two Urls in App.js for new js files
+
+-Handle put request for updatin database with new information
+-Add html for all fields

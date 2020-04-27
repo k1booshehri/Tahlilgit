@@ -169,9 +169,9 @@ class DoctorSignUpForm extends Component {
                     onChange={this.handleChange}
                     required
                   >
-                    <option value="female">زن</option>
-                    <option value="male">مرد</option>
-                    <option value="other">سایر</option>
+                    <option value="زن">زن</option>
+                    <option value="مرد">مرد</option>
+                    <option value="سایر">سایر</option>
                   </select>
                 </div>
                 <div className="FormField">
