@@ -150,11 +150,11 @@
 }
 .dashboard {
   background-color: #ffffff;
-  justify-content: right;
-  align-items: right;
+  /* justify-content: right;
+  align-items: right; */
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 
   padding: 60px;
 }
@@ -372,3 +372,160 @@
 .Drlistcard:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+/* Start of doctor profile view for user */
+
+/* main container */
+.DrProfileView {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-color: #eceff1;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+
+/* blue border container for each part */
+.infoWrap {
+  border: 0.5px solid #0097a7;
+  background-color: #fdf2f4;
+  border-width: 0.1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 100%;
+  margin-bottom: 3em;
+}
+/* avatar css */
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5%;
+  margin-right: 40%;
+  vertical-align: middle;
+  width: 25%;
+  height: 25%;
+  border: solid;
+  border-width: 0.8px;
+  border-radius: 70%;
+  z-index: +1;
+  position: relative;
+}
+/* table with one cell for showing name */
+.nameInfoTable {
+  display: table;
+}
+.nameTableRow {
+  display: table-row;
+}
+.nameCompleteTableCell {
+  display: table-cell;
+  color: #000000;
+  text-align: center;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.8em;
+}
+
+/* table with two cells for showing personal information */
+.infoTable1 {
+  display: table;
+}
+.tableRow1 {
+  display: table-row;
+}
+.rightTableCell {
+  width: 50%;
+  display: table-cell;
+  color: #006064;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.4em;
+  background-color: #eceff1;
+  /* background-color: #eceff1; */
+}
+.leftTableCell {
+  width: 50%;
+  display: table-cell;
+  color: #006064;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.4em;
+  background-color: #eceff1;
+}
+/* table with one cell for showing "clinic" word */
+.infoTable0 {
+  display: table;
+}
+.tableRow0 {
+  display: table-row;
+}
+.completeTableCell0 {
+  display: table-cell;
+  color: #000000;
+  text-align: center;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.8em;
+}
+/* table with one cell for showing "اطلاعات تکمیلی" words */
+.infoTable2 {
+  display: table;
+}
+.tableRow2 {
+  display: table-row;
+}
+.completeTableCell1 {
+  display: table-cell;
+  color: #000000;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: center;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.5em;
+}
+/* table with one cell for showing extra information about a clinic */
+.infoTable3 {
+  display: table;
+}
+.tableRow3 {
+  display: table-row;
+}
+.completeTableCell2 {
+  display: table-cell;
+  color: #006064;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.4em;
+  background-color: #eceff1;
+}
+/* css for extra information about a clinic lists */
+.infoList {
+  list-style-type: none;
+}
+.listItem {
+  margin-bottom: 3%;
+}
+/* End of doctor profile view for user */
