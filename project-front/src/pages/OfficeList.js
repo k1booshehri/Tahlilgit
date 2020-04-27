@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Drofficedata from "../pages/officedata/officedata.json";
 
 export default class OfficeList extends Component {
   constructor(props) {
@@ -26,7 +25,7 @@ export default class OfficeList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboard">
         {this.state.officeList.map((postdetail, index) => {
           return (
             <h1>
