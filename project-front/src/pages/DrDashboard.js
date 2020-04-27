@@ -40,31 +40,14 @@ class DrDashboard extends Component {
         <div>
           {/* up navbar starts */}
           <nav className="nav  fixed-top up-navbar up-nav-style ">
-            <li className="nav-item dropdown ">
-              <a
-                className="nav-link dropdown-toggle active"
-                onClick={this.dropdownClick}
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <PersonIcon></PersonIcon>
-              </a>
-              <div
-                id="dropdownID"
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <a className="dropdown-item" onClick={this.navOnClick} id="0">
-                  تنظیمات
-                </a>
-                <a className="dropdown-item" onClick={this.navOnClick} id="0">
-                  خروج
-                </a>
-              </div>
-            </li>
+            <a
+              className="nav-link active  nav-txt "
+              onClick={this.navOnClick}
+              id="3"
+            >
+              <PersonIcon></PersonIcon>
+              <span className="sr-only">(current)</span>
+            </a>
             <a
               className="nav-link active  nav-txt "
               onClick={this.navOnClick}
@@ -103,6 +86,7 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
+
           {/* conditions ends */}
           {/* down navbar starts */}
           <nav className="nav  fixed-bottom down-navbar down-nav-style">
