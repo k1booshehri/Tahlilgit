@@ -312,6 +312,10 @@
 .locationbutton:hover {
   background: rgb(174, 198, 214);
 }
+.Drlistlable{
+  text-align: center;
+  font-size: 30px;
+}
 .newoffice {
   width: 700px;
   height: 100px;
@@ -353,10 +357,10 @@
   text-align: right;
   float: right;
   margin-top: 20px;
-
+ 
   margin-right: 10px;
   margin-bottom: 10px;
- 
+ min-height: 200px;
   font-size: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;

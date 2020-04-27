@@ -83,18 +83,15 @@ updatedr(items){
                   
                   {/* <img>hii</img> */}
                   <div>
-                    <div className="container">{postdetail.f_name}{postdetail.l_name}  :نام پزشک</div>
+                   
+                    <div className="Drlistlable">{postdetail.f_name}{postdetail.l_name} </div>
                   </div>
                   <div>
                     <div className="container">{postdetail.edu}  :تحصیلات</div>
                     <div className="container">{postdetail.field} :تخصص</div>
                   </div>
                 
-                <div>
-                  <div className="container">{postdetail.edu} :تحصیلات</div>
-                  <div className="container">{postdetail.field} :تخصص</div>
-                </div>
-
+              
                 <button
                   className="locationbutton"
                   id="2-1"
