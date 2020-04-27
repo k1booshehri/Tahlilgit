@@ -1,5 +1,0 @@
-Update EditDrProfile.js
-
-
--Handle put request for updatin database with new information
--Add html for all fields

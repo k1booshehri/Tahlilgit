@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
+import Filter from "./Filtering";
+
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
 export default class Drlist extends Component {
@@ -26,28 +28,70 @@ export default class Drlist extends Component {
     this.props.updateState(e);
   }
   getItems() {
-    fetch("http://localhost:8000/doctors/edu=phd/")
+    fetch("http://localhost:8000/filter/")
       .then((results) => results.json())
       .then((results) => this.setState({ Drlist: results }));
   }
-  render() {
+ /* state = {
+    search : ""
+  }
+  onchange = e =>{
+    this.setState({ search : e.target.value });
+}*/
+updatedr(items){
+ 
+  this.setState({Drlist:items})
+}
+
+  
+  render () {
+   
+
     return (
-      <div>
-        <div className="dashboard">
+      
+   
+    /*  <input label="Search Country" icon="search" onChange={this.onchange}
+      type="search"
+      id="search"
+      className="Drsearch"
+      placeholder="search"
+      name="search"
+      value={this.state.search}
+  
+      />*/
+   
+      
+   <div >
+       
+       
+       <Filter data = {
+        {
+          Drlist: this.state.Drlist,
+          updatedr:this.updatedr.bind(this)
+        }
+      }/>
+        <div className = "Drlistdashboard">
+        
+     
           {this.state.Drlist.map((postdetail, index) => {
             return (
-              <div className="Drlistcard">
-                {/* <img>hii</img> */}
-                <div>
-                  <div className="container">
-                    {postdetail.f_name + " " + postdetail.l_name} :نام پزشک
+            
+               
+              
+                <div className="Drlistcard">
+               
+                  
+                  {/* <img>hii</img> */}
+                  <div>
+                   
+                    <div className="Drlistlable">{postdetail.f_name}{postdetail.l_name} </div>
                   </div>
-                </div>
-                <div>
-                  <div className="container">{postdetail.edu} :تحصیلات</div>
-                  <div className="container">{postdetail.field} :تخصص</div>
-                </div>
-
+                  <div>
+                    <div className="container">{postdetail.edu}  :تحصیلات</div>
+                    <div className="container">{postdetail.field} :تخصص</div>
+                  </div>
+                
+              
                 <button
                   className="locationbutton"
                   id="2-1"
@@ -58,11 +102,15 @@ export default class Drlist extends Component {
                 >
                   profile
                 </button>
-              </div>
+           </div>
+              
             );
           })}
         </div>
+       
       </div>
+      
+     
     );
   }
 }

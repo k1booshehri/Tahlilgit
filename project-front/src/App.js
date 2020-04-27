@@ -37,7 +37,7 @@ class App extends Component {
           <Route path="/Dr_Sign_In" component={DoctorSignInForm}></Route>
           <Route path="/Dr_list" component={Drlist}></Route>
 
-          <Route path="/PatientDashboard" component={PatientDashboard}></Route>
+          <Route exact path="/PatientDashboard" component={PatientDashboard}></Route>
 
           <Route exact path="/DrDashboard" component={DrDashboard}></Route>
           <Route exact path="/OfficeList" component={OfficeList}></Route>
