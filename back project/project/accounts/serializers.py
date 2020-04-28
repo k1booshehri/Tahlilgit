@@ -9,14 +9,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'birth', 'gender', 'f_name', 'l_name',
-                  'phone', 'insurance', 'city')
+                  'phone', 'insurance', 'city','pp')
 
 
 class UserSerializer2(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'birth', 'gender', 'f_name', 'l_name',
-                  'phone', 'edu', 'code', 'activetime', 'field', 'insurance')
+                  'phone', 'edu', 'code', 'activetime', 'field', 'insurance','pp')
 
 # office creation serializer
 
@@ -82,7 +82,7 @@ class UserSerializer3(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'gender', 'f_name',
-                  'l_name', 'edu', 'activetime', 'field')
+                  'l_name', 'edu', 'activetime', 'field','pp')
 
 
 #update serializer
