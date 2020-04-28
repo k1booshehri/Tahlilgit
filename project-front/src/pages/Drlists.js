@@ -4,6 +4,9 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import Filter from "./Filtering";
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
@@ -84,11 +87,15 @@ updatedr(items){
                   {/* <img>hii</img> */}
                   <div>
                    
-                    <div className="Drlistlable">{postdetail.f_name}{postdetail.l_name} </div>
+                    <div className="Drlistlable">{postdetail.f_name} {postdetail.l_name} </div>
                   </div>
                   <div>
-                    <div className="container">{postdetail.edu}  :تحصیلات</div>
-                    <div className="container">{postdetail.field} :تخصص</div>
+                    
+                    <div className="container">  تخصص :  {postdetail.field}</div>
+                    <Box className="rate"   borderColor="transparent">
+        
+                  <Rating  value={postdetail.rate} readOnly ></Rating>
+                  </Box>
                   </div>
                 
               
