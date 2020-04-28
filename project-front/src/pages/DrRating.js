@@ -20,21 +20,18 @@ export default class DrRating extends Component {
     this.onStarClick = this.onStarClick.bind(this);
   }
 
-  onStarClick(nextValue, prevValue, name) {
-    this.setState({ rating: nextValue });
-    console.log(this.state.rating);
+  onStarClick(currentValue, oldValue, name) {
+    this.setState({ rating: currentValue });
   }
 
   render() {
-    const { rating } = this.state;
-
     return (
       <div>
-        <h2>Rating from state: {rating}</h2>
+        <h2>Rating from state: {this.state.rating}</h2>
         <StarRatingComponent
           name="rating"
           starCount={10}
-          value={rating}
+          value={this.state.rating}
           onStarClick={this.onStarClick}
         />
       </div>
