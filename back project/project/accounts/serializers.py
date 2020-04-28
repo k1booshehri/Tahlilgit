@@ -83,3 +83,39 @@ class UserSerializer3(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'gender', 'f_name',
                   'l_name', 'edu', 'activetime', 'field')
+
+
+#update serializer
+class UpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'password', 'f_name', 'l_name', 'birth',
+                  'gender', 'phone', 'edu', 'code', 'activetime', 'field', 'insurance', 'city', 'pp')
+        extra_kwargs = {'paswword': {'write_only': True}}
+
+    def update(self, instance, validated_data):
+        pas = validated_data.get('password', None)
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.f_name = validated_data.get('f_name', instance.f_name)
+        instance.l_name = validated_data.get('l_name', instance.l_name)
+        instance.birth = validated_data.get('birth', instance.birth)
+        instance.gender = validated_data.get('gender', instance.gender)
+        instance.phone = validated_data.get('phone', instance.phone)
+        instance.edu = validated_data.get('edu', instance.edu)
+        instance.code = validated_data.get('code', instance.code)
+        instance.activetime = validated_data.get(
+            'activetime', instance.activetime)
+        instance.field = validated_data.get('field', instance.field)
+        instance.city = validated_data.get('city', instance.city)
+        # instance.set_password()
+        if pas is not None:
+            instance.set_password(validated_data['password'])
+        instance.pp = validated_data.get('pp', instance.pp)
+        instance.save()
+
+        return instance
+
+
+
+
