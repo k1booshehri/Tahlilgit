@@ -126,3 +126,23 @@ class OfficesViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return office.objects.filter(doctor=self.kwargs['id'])
+
+
+#update api
+class UpdateAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = UpdateSerializer
+
+    def put(self, request, *args, **kwargs):
+        p = self.request.user
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "user updated"
+        })
+        
+
+
