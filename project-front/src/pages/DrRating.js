@@ -1,38 +1,41 @@
 import React, { Component } from "react";
-
-
-import ReactDOM from 'react-dom';
-import StarRatingComponent from 'react-star-rating-component';
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import {
+  HashRouter as Router,
+  Route,
+  NavLink,
+  Redirect,
+} from "react-router-dom";
+import StarRatingComponent from "react-star-rating-component";
 
 export default class DrRating extends Component {
-constructor() {
+  constructor() {
     super();
- 
+
     this.state = {
-      rating: 1
+      rating: 0,
     };
+    this.onStarClick = this.onStarClick.bind(this);
   }
- 
+
   onStarClick(nextValue, prevValue, name) {
-    this.setState({rating: nextValue});
+    this.setState({ rating: nextValue });
+    console.log(this.state.rating);
   }
-  handleRatingChange(value) {
-    console.log(value);
-    //here set your state for rating
-}
- 
+
   render() {
     const { rating } = this.state;
-    
-    return (                
+
+    return (
       <div>
         <h2>Rating from state: {rating}</h2>
-        <Rating 
-          name="rate1" 
+        <StarRatingComponent
+          name="rating"
           starCount={10}
           value={rating}
-          onStarClick={this.onStarClick.bind(this)}
-          onChange={this.handleRatingChange} 
+          onStarClick={this.onStarClick}
         />
       </div>
     );
