@@ -46,7 +46,6 @@ class App extends Component {
 
           <Route exact path="/ClinicForm" component={ClinicForm}></Route>
           <Route exact path="/DrProfileView" component={DrProfileView}></Route>
-          <Route exact path="/DrRating" component={DrRating}></Route>
         </div>
       </Router>
     );
