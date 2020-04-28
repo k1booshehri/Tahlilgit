@@ -15,7 +15,7 @@ class User(AbstractUser):
     activetime = models.DateField(null=True)
     field = models.CharField(null=True, max_length=30)
     city = models.CharField(null=True, max_length=30)
-
+    pp = models.TextField(null=True)
 
 class office (models.Model):
     address = models.CharField(null=True, max_length=30)

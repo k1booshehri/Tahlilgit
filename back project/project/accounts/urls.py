@@ -18,6 +18,7 @@ urlpatterns = [
     path('doctors/edu=<edu>/',
          DoctorsViewset.as_view({'get': 'list'})),
     path('api/auth/offices/id=<id>/',
-         OfficesViewset.as_view({'get': 'list'}))
+         OfficesViewset.as_view({'get': 'list'})),
+    path('api/auth/update-user', UpdateAPI.as_view())
 
 ]
