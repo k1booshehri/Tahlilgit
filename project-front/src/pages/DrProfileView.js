@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import avatar from "./avatarpic.png";
+import StarRatingComponent from "react-star-rating-component";
+import Rating from "@material-ui/lab/Rating";
 
 export default class DrProfileView extends Component {
   constructor(props) {
@@ -32,7 +34,10 @@ export default class DrProfileView extends Component {
       code: "",
       transportResultString: "",
       parkResultString: "",
+      rate: "",
+      rating: 0,
     };
+    this.onStarClick = this.onStarClick.bind(this);
     this.parsingInformation = this.parsingInformation.bind(this);
     this.extraClinicInfo = this.extraClinicInfo.bind(this);
   }
@@ -49,6 +54,7 @@ export default class DrProfileView extends Component {
     this.state.edu = this.state.drInfo.edu;
     this.state.gender = this.state.drInfo.gender;
     this.state.activetime = this.state.drInfo.activetime;
+    this.state.rate = this.state.drInfo.rate;
 
     let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
     this.state.startYear = split[0];
@@ -81,6 +87,34 @@ export default class DrProfileView extends Component {
       })
       .catch((error) => console.error("Error:", error));
   }
+  onStarClick(currentValue, oldValue, name) {
+    axios
+      .post(
+        "http://localhost:8000/api/auth/setrate/",
+        {
+          Value: currentValue,
+          doctorusername: sessionStorage.getItem("DrProfileUsername"),
+        },
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          this.setState({ rating: currentValue });
+        }
+      })
+      .catch(function (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+        }
+      });
+  }
 
   render() {
     return (
@@ -89,6 +123,7 @@ export default class DrProfileView extends Component {
           {/* showing doctor info  */}
 
           <img src={avatar} className="avatar" />
+          <Rating value={this.state.rate} readOnly></Rating>
           <div className="nameDisplay"></div>
 
           <div className="nameInfoTable">
@@ -158,6 +193,13 @@ export default class DrProfileView extends Component {
                   </div>
                 </div>
               </div>
+
+              <StarRatingComponent
+                name="rating"
+                starCount={10}
+                value={this.state.rating}
+                onStarClick={this.onStarClick}
+              />
             </div>
           );
         })}
