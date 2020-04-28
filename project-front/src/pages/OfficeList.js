@@ -39,7 +39,7 @@ export default class OfficeList extends Component {
                 </div>
 
                 <div>
-                  <div className="titleOffice">{postdetail.address} :آدرس</div>
+                  <div className="titleOffice"> {postdetail.address} :آدرس</div>
                 </div>
 
                 <div>
