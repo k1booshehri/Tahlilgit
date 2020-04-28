@@ -20,7 +20,6 @@ import PatientDashboard from "./pages/PatientDashboard";
 import ClinicForm from "./pages/ClinicForm";
 import OfficeList from "./pages/OfficeList";
 import DrProfileView from "./pages/DrProfileView";
-import DrRating from "./pages/DrRating";
 
 class App extends Component {
   render() {
@@ -36,7 +35,11 @@ class App extends Component {
           <Route path="/Dr_Sign_In" component={DoctorSignInForm}></Route>
           <Route path="/Dr_list" component={Drlist}></Route>
 
-          <Route exact path="/PatientDashboard" component={PatientDashboard}></Route>
+          <Route
+            exact
+            path="/PatientDashboard"
+            component={PatientDashboard}
+          ></Route>
 
           <Route exact path="/DrDashboard" component={DrDashboard}></Route>
           <Route exact path="/OfficeList" component={OfficeList}></Route>
