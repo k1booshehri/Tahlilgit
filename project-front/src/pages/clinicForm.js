@@ -86,203 +86,194 @@ export default class ClinicForm extends Component {
         }
       });
   }
-  // onClick(e) {
-  //   var checkboxes = e.target.name;
-  //   // checkboxes.forEach((item) => {
-  //   //   if (item !== e) item.checked = false;
-  //   // });
-  //   // Array.prototype.forEach.call(checkboxes, (item) => {
-  //   //   if (item !== e) item.checked = false;
-  //   // });
 
-  //   for (const item of checkboxes) {
-  //     if (item !== e) e.checked = false;
-  //   }
-  // }
   render() {
     if (this.state.haveLogedIn) {
       // redirect to dashboard if signed up
+      //  alert("مطب جدید با موفقیت ثبت شد");
       return <Redirect to={{ pathname: "/DrDashboard" }} />;
     }
     if (!this.state.haveLogedIn) {
       return (
-        <form onSubmit={this.handleSubmit} className="FormField3">
-          <div className="clinicFormTitle">
-            <div className=".clinicFormTitleText">
+        <div className="clinicForm ">
+          <form onSubmit={this.handleSubmit} className="FormField3">
+            <p className="clinicFormTitle">
+              {" "}
               برای ثبت مطب جدید اطلاعات زیر را تکمیل کنید
+            </p>
+            <div className="FormField3">
+              <label className="FormField__Label" htmlFor="address">
+                آدرس مطب خود را وارد کنید
+              </label>
+              <input
+                type="text"
+                className="clinicFormInput"
+                id="address"
+                name="address"
+                placeholder="شهر،منطقه،خیابان،پلاک،واحد"
+                value={this.state.address}
+                onChange={this.handleChange}
+                required
+              />
             </div>
-          </div>
-          <div className="FormField3">
-            <label className="FormField__Label" htmlFor="address">
-              آدرس مطب خود را وارد کنید
-            </label>
-            <input
-              type="text"
-              className="clinicFormInput"
-              id="address"
-              name="address"
-              placeholder="شهر،منطقه،خیابان،پلاک،واحد"
-              value={this.state.address}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
-          <div className="FormField3">
-            <label className="FormField__Label" htmlFor="city">
-              استان مطب را انتخاب کنید
-            </label>
-            <select
-              value={this.state.city}
-              onChange={this.handleChange}
-              required
-              className="clinicFormInput"
-              id="city"
-              placeholder=""
-              name="city"
-            >
-              <option value="east-azarbijan">آذربایجان شرقی</option>
-              <option value="west-azarbijan">آذربایجان غربی</option>
-              <option value="ardebil">اردبیل</option>
-              <option value="isfahan">اصفهان</option>
-              <option value="alborz">البرز</option>
-              <option value="ilam">ایلام</option>
-              <option value="boushehr">بوشهر</option>
-              <option value="tehran">تهران</option>
-              <option value="chaharmahal">چهارمحال و بختیاری</option>
-              <option value="south-khorasan">خراسان جنوبی</option>
-              <option value="razavi">خراسان رضوی</option>
-              <option value="north-khorasan">خراسان شمالی</option>
-              <option value="khozestan">خوزستان</option>
-              <option value="zanjan">زنجان</option>
-              <option value="semnan">سمنان</option>
-              <option value="sistan">سیستان و بلوچستان</option>
-              <option value="fars">فارس</option>
-              <option value="ghazvin">قزوین</option>
-              <option value="qom">قم</option>
-              <option value="kordestan">کردستان</option>
-              <option value="kerman">کرمان</option>
-              <option value="kermanshah">کرمانشاه</option>
-              <option value="kohkelouyeh">کهگیلویه و بویراحمد</option>
-              <option value="golestan">گلستان</option>
-              <option value="gilan">گیلان</option>
-              <option value="lorestan">لرستان</option>
-              <option value="mazandaran">مازندران</option>
-              <option value="markazi">مرکزی</option>
-              <option value="hormozgan">هرمزگان</option>
-              <option value="hamedan">همدان</option>
-              <option value="yazd">یزد</option>
-            </select>
-          </div>
-          <div className="FormField3">
-            <label className="FormField__Label" htmlFor="phone">
-              شماره ی تلفن مطب را با رعایت کد پیش شماره ی استان مورد نظر وارد
-              کنید
-            </label>
-            <input
-              className="clinicFormInput"
-              placeholder="شماره ی تلفن"
-              type="tel"
-              id="phone"
-              name="phone"
-              value={this.state.phone}
-              required
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="FormField3">
-            <label className="FormField__Label" htmlFor="transport">
-              مطب شما یا کدام وسایل حمل و نقل عمومی دسترسی آسان تری دارد؟
-            </label>
-            <div>
-              <input
-                className="clinicFormCheckbox"
-                type="checkbox"
-                name="transport"
-                value="taxi"
-                onChange={this.handleChange}
-              />
-              <label className="clinicFormInput-checkbox" htmlFor="transport">
-                تاکسی
+            <div className="FormField3">
+              <label className="FormField__Label" htmlFor="city">
+                استان مطب را انتخاب کنید
               </label>
-              <input
-                className="clinicFormCheckbox"
-                type="checkbox"
-                name="transport"
-                value="bus"
+              <select
+                value={this.state.city}
                 onChange={this.handleChange}
-              />
-              <label className="clinicFormInput-checkbox" htmlFor="transport">
-                {" "}
-                اتوبوس
-              </label>
-              <input
-                className="clinicFormCheckbox"
-                type="checkbox"
-                name="transport"
-                value="subway"
-                onChange={this.handleChange}
-              />
-              <label className="clinicFormInput-checkbox" htmlFor="transport">
-                {" "}
-                مترو
-              </label>
+                required
+                className="clinicFormInput"
+                id="city"
+                placeholder=""
+                name="city"
+              >
+                <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+                <option value="آذربایجان غربی">آذربایجان غربی</option>
+                <option value="آردبیل">اردبیل</option>
+                <option value="اصفهان">اصفهان</option>
+                <option value="البرز">البرز</option>
+                <option value="ایلام">ایلام</option>
+                <option value="بوشهر">بوشهر</option>
+                <option value="تهران">تهران</option>
+                <option value="چهارمحال و بختیاری">چهارمحال و بختیاری</option>
+                <option value="خراسان جنوبی">خراسان جنوبی</option>
+                <option value="خراسان رضوی">خراسان رضوی</option>
+                <option value="خراسان شمالی">خراسان شمالی</option>
+                <option value="خوزستان">خوزستان</option>
+                <option value="زنجان">زنجان</option>
+                <option value="سمنان">سمنان</option>
+                <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
+                <option value="فارس">فارس</option>
+                <option value="قزوین">قزوین</option>
+                <option value="قم">قم</option>
+                <option value="کردستان">کردستان</option>
+                <option value="کرمان">کرمان</option>
+                <option value="کرمانشاه">کرمانشاه</option>
+                <option value="کهگیلویه و بویراحمد">کهگیلویه و بویراحمد</option>
+                <option value="گلستان">گلستان</option>
+                <option value="گیلان">گیلان</option>
+                <option value="لرستان">لرستان</option>
+                <option value="مازندران">مازندران</option>
+                <option value="مرکزی">مرکزی</option>
+                <option value="هرمزگان">هرمزگان</option>
+                <option value="همدان">همدان</option>
+                <option value="یزد">یزد</option>
+              </select>
             </div>
-          </div>
-          <div className="FormField3">
-            <label className="FormField__Label" htmlFor="park">
-              آیا پارک خودروی شخصی در اطراف مطب شما به زمان زیادی احتیاج دارد؟
-            </label>
-            <div>
-              <input
-                className="clinicFormCheckbox"
-                type="checkbox"
-                name="park"
-                value="parkYes"
-                onChange={this.handleChange}
-                //onClick={this.onClick}
-              />
-              <label className="clinicFormInput-checkbox" htmlFor="park">
-                بله
+            <div className="FormField3">
+              <label className="FormField__Label" htmlFor="phone">
+                شماره ی تلفن مطب را با رعایت کد پیش شماره ی استان مورد نظر وارد
+                کنید
               </label>
               <input
-                className="clinicFormCheckbox"
-                type="checkbox"
-                name="park"
-                value="parkNo"
+                className="clinicFormInput"
+                placeholder="شماره تلفن"
+                type="tel"
+                id="phone"
+                name="phone"
+                pattern="[0]\d{10}$"
+                value={this.state.phone}
+                required
                 onChange={this.handleChange}
-                //onClick={this.onClick}
               />
-              <label className="clinicFormInput-checkbox" htmlFor="park">
-                {" "}
-                خیر
-              </label>
             </div>
-          </div>
-          <div className="FormField3">
-            <label className="FormField__Label" htmlFor="info">
-              توضیخات تکمیلی درمورد مطب خود را وارد کنید
-            </label>
-            <textarea
-              type="text"
-              className="clinicFormInput-info"
-              id="info"
-              rows="5"
-              cols="50"
-              name="info"
-              placeholder="توضیخات"
-              value={this.state.info}
-              onChange={this.handleChange}
-            />
-            {/* <textarea
+            <div className="FormField3">
+              <label className="FormField__Label" htmlFor="transport">
+                مطب شما با کدام وسایل حمل و نقل عمومی دسترسی آسان تری دارد؟
+              </label>
+              <div>
+                <input
+                  className="clinicFormCheckbox"
+                  type="checkbox"
+                  name="transport"
+                  value="تاکسی"
+                  onChange={this.handleChange}
+                />
+                <label className="clinicFormInput-checkbox" htmlFor="transport">
+                  تاکسی
+                </label>
+                <input
+                  className="clinicFormCheckbox"
+                  type="checkbox"
+                  name="transport"
+                  value="اتوبوس"
+                  onChange={this.handleChange}
+                />
+                <label className="clinicFormInput-checkbox" htmlFor="transport">
+                  {" "}
+                  اتوبوس
+                </label>
+                <input
+                  className="clinicFormCheckbox"
+                  type="checkbox"
+                  name="transport"
+                  value="مترو"
+                  onChange={this.handleChange}
+                />
+                <label className="clinicFormInput-checkbox" htmlFor="transport">
+                  {" "}
+                  مترو
+                </label>
+              </div>
+            </div>
+            <div className="FormField3">
+              <label className="FormField__Label" htmlFor="park">
+                آیا پارک خودروی شخصی در اطراف مطب شما به زمان زیادی احتیاج دارد؟
+              </label>
+              <div>
+                <input
+                  className="clinicFormCheckbox"
+                  type="checkbox"
+                  name="park"
+                  value="دارد"
+                  onChange={this.handleChange}
+                  //onClick={this.onClick}
+                />
+                <label className="clinicFormInput-checkbox" htmlFor="park">
+                  بله
+                </label>
+                <input
+                  className="clinicFormCheckbox"
+                  type="checkbox"
+                  name="park"
+                  value="ندارد"
+                  onChange={this.handleChange}
+                  //onClick={this.onClick}
+                />
+                <label className="clinicFormInput-checkbox" htmlFor="park">
+                  {" "}
+                  خیر
+                </label>
+              </div>
+            </div>
+            <div className="FormField3">
+              <label className="FormField__Label" htmlFor="info">
+                توضیخات تکمیلی درمورد مطب خود را وارد کنید
+              </label>
+              <textarea
+                type="text"
+                className="clinicFormInput-info"
+                id="info"
+                rows="5"
+                cols="50"
+                name="info"
+                placeholder="توضیحات"
+                value={this.state.info}
+                onChange={this.handleChange}
+              />
+              {/* <textarea
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
           ></textarea> */}
-          </div>
-          <div className="FormField1">
-            <button className="FormField__Button mr-20">ثبت مطب</button>{" "}
-          </div>
-        </form>
+            </div>
+            <div className="FormField1">
+              <button className="FormField__Button mr-20">ثبت مطب</button>{" "}
+            </div>
+          </form>
+        </div>
       );
     }
   }

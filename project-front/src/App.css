@@ -1,4 +1,3 @@
-
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
@@ -34,7 +33,6 @@
   text-align: left;
 }
 
-
 .FormCenter2 {
   margin-bottom: 100px;
   display: block;
@@ -53,7 +51,6 @@
   align-items: center;
   background-color: #caebf2;
   display: flex;
- 
 }
 
 .App__Form {
@@ -61,7 +58,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin-top: 20px;
   border-radius: 0.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -98,13 +95,13 @@
 }
 .FormField__Input {
   width: 100%;
-font-size: 0.7em;
+  font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
   font-weight: 700;
-letter-spacing: 1px;
+  letter-spacing: 1px;
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
@@ -112,7 +109,6 @@ letter-spacing: 1px;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
- 
 }
 
 .FormField__Input::placeholder {
@@ -129,18 +125,15 @@ letter-spacing: 1px;
   font-size: 1em;
   font-weight: 500;
   justify-content: left;
-  
-    
-  }
-  
-  .FormField__Button:hover {
-    background: rgb(174, 198, 214);
-  }
+}
 
+.FormField__Button:hover {
+  background: rgb(174, 198, 214);
+}
 
 .FormField__Input__Date {
   width: 100%;
-font-size: 0.7em;
+  font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
@@ -153,29 +146,22 @@ font-size: 0.7em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
-  color: #cdcdcd
+  color: #cdcdcd;
 }
 .dashboard {
-
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   justify-content: right;
   align-items: right;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
- 
-  padding-top: 60px;
-  padding-right: 30px;
-  padding-left: 30px;
- 
-  
-  
+  margin-top: 60px;
+  margin-bottom: 45px;
 }
 
 .up-navbar {
   background-color: #d0e8ee;
-  border-radius: 0.0em;
-  box-shadow: 0px 11px 10px 2px rgba(0, 0, 0, 0.096);
+  border-radius: 0em;
+  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.096);
 }
 .up-nav-style {
   display: flex;
@@ -185,7 +171,7 @@ font-size: 0.7em;
   float: left;
   color: #797e85;
   text-align: center;
- 
+
   text-decoration: none;
   font-size: 20px;
 }
@@ -194,8 +180,8 @@ font-size: 0.7em;
   cursor: pointer;
 }
 .down-navbar {
-  background-color: #f8feff;
-  
+  background-color: #d0e8ee;
+
   border-radius: 0.5em;
   box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
 }
@@ -221,36 +207,40 @@ font-size: 0.7em;
 .clinicFormInput-checkbox {
   background-color: transparent;
   border: none;
-  color: black;
+  color: rgb(39, 36, 36);
   outline: none;
 
-  font-size: 1.3em;
-  font-weight: 300;
-  padding-bottom: 10px;
-  margin-top: 10px;
-
-text-align: right;
-}
-.clinicFormInput {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  color: black;
-  outline: none;
-  border-bottom: 1px solid;
   font-size: 1em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
+
   text-align: right;
+}
+.clinicFormInput {
+  width: 100%;
+  font-size: 0.7em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
 }
 .clinicFormInput-info {
   width: 100%;
-  background-color: transparent;
+  background: rgba(136, 126, 126, 0.04);
   border: none;
   color: black;
   outline: none;
-  border: solid;
+  border: 2px solid rgba(0, 0, 0, 0.048);
 
   font-size: 1em;
   font-weight: 300;
@@ -262,58 +252,67 @@ text-align: right;
   margin-left: 7em;
 }
 .clinicFormTitle {
-  display: block;
+  display: inline-block;
   font-weight: lighter;
-  text-align: center;
-  font-size: 2em;
-  text-justify: inherit;
+  text-align: right;
+  font-size: 1.5em;
+  text-justify: right;
   height: 2em;
-  width: 50%;
-  color: white;
-  border-top: 0px;
-  border-bottom: 0px;
-  border-right: 0px;
-  border-left: 0px;
-  margin-top: 3em;
-  margin-left: 9em;
+  width: 55%;
+  color: #157085;
+  margin-top: 0.5em;
+  border-bottom: solid;
+  margin-bottom: 1.5em;
   /* border: solid; */
+  margin-left: auto;
+  margin-right: 0em;
 
-  border-radius: 25px;
   justify-content: center;
-  background-color: #1a3972;
-  background-size: 8em;
 }
-.clinicFormTitleText {
-  margin-right: 2em;
-  width: 80%;
+.clinicForm {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
 }
+
 .FormField3 {
-  margin-top: 3em;
   margin-bottom: 40px;
   text-align: right;
 }
 
-
 .titleOffice {
   color: rgb(49, 48, 48);
   font-size: 18px;
+  margin-bottom: 0.5em;
 }
 .locationbutton {
   border: none;
   outline: 0;
   display: inline-block;
   padding: 8px;
-  color: white;
+  color: rgb(255, 251, 251);
   background-color: #88bbd6;
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
   border-radius: 10px;
-  margin-top: 10px;
+ 
 }
 .locationbutton:hover {
   background: rgb(174, 198, 214);
+}
+.Drlistlable {
+  text-align: center;
+  font-size: 30px;
 }
 .newoffice {
   width: 700px;
@@ -329,36 +328,353 @@ text-align: right;
   font-size: 30px;
   float: right;
   margin: 5px;
+  margin-bottom: 2em;
+}
+.newoffice:hover {
+  background-color: rgb(141, 224, 224);
+  cursor: pointer;
 }
 .Drofficecard {
   width: 700px;
   padding: 20px 40px;
-  
- color: #5d6166;
+
+  color: #5d6166;
   text-align: right;
   float: right;
   border-bottom: 1px solid;
   margin: 5px;
-  
+
   transition: 0.3s;
-  
 }
+
 .Drlistcard {
-  width: 300px;
+  width: 320px;
   padding: 20px 40px;
-  
- color: #5d6166;
+  background-color: #f8feff;
+  color: #5d6166;
   text-align: right;
   float: right;
-  
-  margin: 10px;
-  
+  margin-top: 20px;
+
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-height: 200px;
   font-size: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  
-  
 }
 .Drlistcard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.Drsearch {
+  margin-top: 30px;
+}
+.sidenav {
+  height: 650px;
+  width: 200px;
+  position: absolute;
+  right: 0px;
+
+  background-color: #f8feff;
+  overflow-x: hidden;
+  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.096);
+  float: right;
+  text-align: right;
+}
+.Drlistdashboard {
+  height: 100%;
+  flex-direction: column;
+  margin-right: 230px;
+  background-color: #ffffff;
+}
+.filteringlable {
+  margin: 10px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  color: rgb(105, 105, 107);
+  text-align: right;
+}
+.Filtering__Label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: rgb(105, 105, 107);
+  text-align: right;
+  margin-right: 10px;
+}
+.Filtering__Input {
+  width: 85%;
+  font-size: 0.7em;
+  font-weight: 300;
+  padding: 3px;
+  margin-right: 10px;
+  margin-left: 10px;
+  text-align: right;
+  margin-bottom: 10px;
+  background: rgba(136, 126, 126, 0.04);
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
+}
+.Filtering__Input::placeholder {
+  color: #cdcdcd;
+}
+.Filtering__Button {
+  background-color: #88bbd6;
+  color: white;
+
+  border-radius: 10px;
+  padding: 5px 20px;
+  font-size: 1em;
+  font-weight: 300;
+  justify-content: left;
+  margin-top: 20px;
+}
+.Filtering__Button:hover {
+  background: rgb(174, 198, 214);
+}
+
+/* Start of doctor profile view for user */
+
+/* main container */
+.DrProfileView {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-color: #eceff1;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+}
+
+/* blue border container for each part */
+.infoWrap {
+  border: 0.5px solid #0097a7;
+  background-color: #fdf2f4;
+  border-width: 0.1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 100%;
+  margin-bottom: 3em;
+}
+/* avatar css */
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5%;
+  margin-right: 40%;
+  vertical-align: middle;
+  width: 25%;
+  height: 25%;
+  border: solid;
+  border-width: 0.8px;
+  border-radius: 70%;
+  z-index: +1;
+  position: relative;
+}
+/* table with one cell for showing name */
+.nameInfoTable {
+  display: table;
+}
+.nameTableRow {
+  display: table-row;
+}
+.nameCompleteTableCell {
+  display: table-cell;
+  color: #000000;
+  text-align: center;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.8em;
+}
+
+/* table with two cells for showing personal information */
+.infoTable1 {
+  display: table;
+}
+.tableRow1 {
+  display: table-row;
+}
+.rightTableCell {
+  width: 50%;
+  display: table-cell;
+  color: #006064;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.4em;
+  background-color: #eceff1;
+  /* background-color: #eceff1; */
+}
+.leftTableCell {
+  width: 50%;
+  display: table-cell;
+  color: #006064;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.4em;
+  background-color: #eceff1;
+}
+/* table with one cell for showing "clinic" word */
+.infoTable0 {
+  display: table;
+}
+.tableRow0 {
+  display: table-row;
+}
+.completeTableCell0 {
+  display: table-cell;
+  color: #000000;
+  text-align: center;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.8em;
+}
+/* table with one cell for showing "اطلاعات تکمیلی" words */
+.infoTable2 {
+  display: table;
+}
+.tableRow2 {
+  display: table-row;
+}
+.completeTableCell1 {
+  display: table-cell;
+  color: #000000;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: center;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.5em;
+}
+/* table with one cell for showing extra information about a clinic */
+.infoTable3 {
+  display: table;
+}
+.tableRow3 {
+  display: table-row;
+}
+.completeTableCell2 {
+  display: table-cell;
+  color: #006064;
+  border-top: 0.5px solid #0097a7;
+  border-top-width: 0.1em;
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: 1.4em;
+  background-color: #eceff1;
+}
+/* css for extra information about a clinic lists */
+.infoList {
+  list-style-type: none;
+}
+.listItem {
+  margin-bottom: 3%;
+}
+/* End of doctor profile view for user */
+.DrProfileForm {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 0.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.DrProfileFormField {
+  margin-bottom: 40px;
+  text-align: right;
+}
+
+.DrProfileFormField1 {
+  margin-bottom: 40px;
+  text-align: left;
+  padding-top: 2em;
+}
+
+.DrProfileFormField2 {
+  margin-bottom: 40px;
+  text-align: center;
+  padding-top: 2em;
+}
+
+.DrProfileFormField__Label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: rgb(105, 105, 107);
+  text-align: right;
+  margin-right: 5%;
+}
+.DrProfileFormField__Input {
+  width: 100%;
+  font-size: 0.7em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
+}
+
+.DrProfileFormField__Input::placeholder {
+  color: #000000;
+}
+
+.DrProfileInfoTable {
+  display: table;
+}
+.DrProfileTableRow {
+  display: table-row;
+}
+.DrProfileRightTableCell {
+  width: 50%;
+  display: table-cell;
+
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+.DrProfileLeftTableCell {
+  width: 50%;
+  display: table-cell;
+
+  text-align: right;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }

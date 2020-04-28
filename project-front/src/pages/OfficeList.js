@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Drofficedata from "../pages/officedata/officedata.json";
-import DrDashboard from "./DrDashboard";
 
 export default class OfficeList extends Component {
   constructor(props) {
@@ -24,46 +22,47 @@ export default class OfficeList extends Component {
       .then((results) => this.setState({ officeList: results }))
       .catch((error) => console.error("Error:", error));
   }
+
   render() {
     return (
-      <div>
-        <div>
-          {this.state.officeList.map((postdetail, index) => {
-            return (
-              <h1>
-                <div className="Drofficecard">
-                  <div>
-                    <div> {postdetail.info}</div>
-                  </div>
-                  
-                  <div>
-                    <div className="titleOffice">{postdetail.city}  :شهر</div>
-                  </div>
-                  
-                  <div>
-                    <div className="titleOffice">{postdetail.address}  :آدرس</div>
-                  </div>
+      <div className="dashboard">
+        {this.state.officeList.map((postdetail, index) => {
+          return (
+            <h1>
+              <div className="Drofficecard">
+                <div>
+                  <div> {postdetail.info}</div>
+                </div>
 
-                  <div>
-                    <div className="titleOffice">{postdetail.phone}  :تلفن</div>
-                  </div>
+                <div>
+                  <div className="titleOffice">{postdetail.city} :شهر</div>
+                </div>
 
-                  <div>
-                    <div className="titleOffice">{postdetail.transport}  :حمل و نقل</div>
+                <div>
+                  <div className="titleOffice">{postdetail.address} :آدرس</div>
+                </div>
+
+                <div>
+                  <div className="titleOffice">{postdetail.phone} :تلفن</div>
+                </div>
+
+                <div>
+                  <div className="titleOffice">
+                    {postdetail.transport} :حمل و نقل
                   </div>
                 </div>
-              </h1>
-            );
-          })}
-          <button
-            className="newoffice"
-            id="1-1"
-            onClick={(e) => this.props.updateState(e)}
-          >
-            {" "}
-            ثبت مطب جدید{" "}
-          </button>
-        </div>
+              </div>
+            </h1>
+          );
+        })}
+        <button
+          className="newoffice"
+          id="1-1"
+          onClick={(e) => this.props.updateState(e)}
+        >
+          {" "}
+          ثبت مطب جدید{" "}
+        </button>
       </div>
     );
   }

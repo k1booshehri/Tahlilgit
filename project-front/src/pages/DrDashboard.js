@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import PagesIcon from '@material-ui/icons/Pages';
-import BusinessIcon from '@material-ui/icons/Business';
-import WorkIcon from '@material-ui/icons/Work';
-import PersonIcon from '@material-ui/icons/Person';
-import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
-import MailIcon from '@material-ui/icons/Mail';
-
+import PagesIcon from "@material-ui/icons/Pages";
+import BusinessIcon from "@material-ui/icons/Business";
+import WorkIcon from "@material-ui/icons/Work";
+import PersonIcon from "@material-ui/icons/Person";
+import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
+import MailIcon from "@material-ui/icons/Mail";
 
 import {
   HashRouter as Router,
@@ -17,6 +16,8 @@ import {
 } from "react-router-dom";
 import OfficeList from "./OfficeList";
 import ClinicForm from "./ClinicForm";
+import DoctorProfile from "./DoctorProfile";
+import EditDrProfile from "./EditDrProfile";
 
 class DrDashboard extends Component {
   constructor(props) {
@@ -41,31 +42,14 @@ class DrDashboard extends Component {
         <div>
           {/* up navbar starts */}
           <nav className="nav  fixed-top up-navbar up-nav-style ">
-            <li className="nav-item dropdown ">
-              <a
-                className="nav-link dropdown-toggle active"
-                onClick={this.dropdownClick}
-                id="navbarDropdownMenuLink"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <PersonIcon></PersonIcon>
-              </a>
-              <div
-                id="dropdownID"
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              >
-                <a className="dropdown-item" onClick={this.navOnClick} id="0">
-                  تنظیمات
-                </a>
-                <a className="dropdown-item" onClick={this.navOnClick} id="0">
-                  خروج
-                </a>
-              </div>
-            </li>
+            <a
+              className="nav-link active  nav-txt "
+              onClick={this.navOnClick}
+              id="3"
+            >
+              <PersonIcon></PersonIcon>
+              <span className="sr-only">(current)</span>
+            </a>
             <a
               className="nav-link active  nav-txt "
               onClick={this.navOnClick}
@@ -82,7 +66,6 @@ class DrDashboard extends Component {
             >
               مطب ها
               <BusinessIcon></BusinessIcon>
-              
             </a>
             <a
               className=" nav-link active nav-txt"
@@ -105,6 +88,16 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
+          {localStorage.getItem("eventKey") === "3" ? (
+            <DoctorProfile updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+          {localStorage.getItem("eventKey") === "3-1" ? (
+            <EditDrProfile updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
           {/* conditions ends */}
           {/* down navbar starts */}
           <nav className="nav  fixed-bottom down-navbar down-nav-style">
@@ -115,12 +108,15 @@ class DrDashboard extends Component {
             >
               <span className="nav-txt" id="0">
                 {" "}
-                 ارتباط با ما
-             <MailIcon></MailIcon>
+                ارتباط با ما
+                <MailIcon></MailIcon>
               </span>
             </a>
             <a className="nav-link active" id="0">
-              <span className="nav-txt"> <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما</span>
+              <span className="nav-txt">
+                {" "}
+                <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما
+              </span>
             </a>
           </nav>
           {/* down navbar ends */}

@@ -19,12 +19,16 @@ import DrDashboard from "./pages/DrDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
 import ClinicForm from "./pages/ClinicForm";
 import OfficeList from "./pages/OfficeList";
+import DrProfileView from "./pages/DrProfileView";
+import DoctorProfile from "./pages/DoctorProfile";
+import EditDrProfile from "./pages/EditDrProfile";
+
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div >
+        <div>
           <Route exact path="/" component={welcome}></Route>
 
           <Route exact path="/sign-up" component={SignUpForm}></Route>
@@ -33,13 +37,20 @@ class App extends Component {
           <Route exact path="/Dr_Sign_Up" component={DoctorSignUpForm}></Route>
           <Route path="/Dr_Sign_In" component={DoctorSignInForm}></Route>
           <Route path="/Dr_list" component={Drlist}></Route>
-          
-          <Route path="/PatientDashboard" component={PatientDashboard}></Route>
-         
+
+          <Route
+            exact
+            path="/PatientDashboard"
+            component={PatientDashboard}
+          ></Route>
+
           <Route exact path="/DrDashboard" component={DrDashboard}></Route>
           <Route exact path="/OfficeList" component={OfficeList}></Route>
-          
+
           <Route exact path="/ClinicForm" component={ClinicForm}></Route>
+          <Route exact path="/DrProfileView" component={DrProfileView}></Route>
+          <Route exact path="/DoctorProfile" component={DoctorProfile}></Route>
+          <Route exact path="/EditDrProfile" component={EditDrProfile}></Route>
         </div>
       </Router>
     );
