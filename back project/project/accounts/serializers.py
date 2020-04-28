@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, office
+from .models import User, office, Rates
 from django.contrib.auth import authenticate
 
 # user serializer
@@ -118,4 +118,29 @@ class UpdateSerializer(serializers.ModelSerializer):
 
 
 
+class RateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rates
+        fields = ('Value', 'doctorusername')
 
+    def create(self, validated_data):
+        p = self.context['request'].user
+        off, created = Rates.objects.update_or_create(
+            patient=p, doctor=User.objects.get(username=validated_data['doctorusername']), doctorusername=validated_data['doctorusername'], defaults={'Value': validated_data['Value']},)
+
+        return off
+
+
+class RateUpdateSerializer(serializers.Serializer):
+    doctorusername = serializers.CharField(
+        required=False, allow_blank=True, max_length=100)
+    Value = serializers.CharField(
+        required=False, allow_blank=True, max_length=100)
+
+    def create(self, validated_data):
+        rate = Rates.objects.filter(
+            doctor=User.objects.get(username=validated_data['doctorusername'])).aggregate(Avg('Value'))['Value__avg']
+        off, created = User.objects.update_or_create(
+            username=validated_data['doctorusername'], defaults={'rate': rate},)
+
+        return off
