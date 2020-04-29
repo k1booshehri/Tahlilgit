@@ -35,6 +35,7 @@ export default class DrProfileView extends Component {
       transportResultString: "",
       parkResultString: "",
       rate: "",
+      image : "",
       rating: 0,
     };
     this.onStarClick = this.onStarClick.bind(this);
@@ -55,6 +56,7 @@ export default class DrProfileView extends Component {
     this.state.gender = this.state.drInfo.gender;
     this.state.activetime = this.state.drInfo.activetime;
     this.state.rate = this.state.drInfo.rate;
+    this.state.image = this.state.drInfo.pp;
 
     let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
     this.state.startYear = split[0];
@@ -122,7 +124,7 @@ export default class DrProfileView extends Component {
         <div className="infoWrap">
           {/* showing doctor info  */}
 
-          <img src={avatar} className="avatar" />
+          <img className='tc br3' alt='none' src={ this.state.image }className="avatar" />
           <Rating value={this.state.rate} readOnly></Rating>
           <div className="nameDisplay"></div>
 
@@ -196,7 +198,7 @@ export default class DrProfileView extends Component {
 
               <StarRatingComponent
                 name="rating"
-                starCount={10}
+                starCount={5}
                 value={this.state.rating}
                 onStarClick={this.onStarClick}
               />

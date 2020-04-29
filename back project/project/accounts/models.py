@@ -16,6 +16,8 @@ class User(AbstractUser):
     field = models.CharField(null=True, max_length=30)
     city = models.CharField(null=True, max_length=30)
     pp = models.TextField(null=True)
+    rate = models.CharField(null=True, max_length=30)
+
 
 class office (models.Model):
     address = models.CharField(null=True, max_length=30)
@@ -31,3 +33,13 @@ class office (models.Model):
 
     def __str__(self):
         return self.data
+
+
+class Rates (models.Model):
+    Value = models.CharField(null=True, max_length=30)
+    doctor = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='doctor')
+    patient = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='patient')
+
+    doctorusername = models.CharField(null=True, max_length=30)

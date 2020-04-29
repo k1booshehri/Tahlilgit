@@ -1,19 +1,11 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer
 from .models import office, User
-
-# showing a doctor data
-
-
-class DoctorDataViewset(viewsets.ModelViewSet):
-
-    queryset = User.objects.all()
-    serializer_class = UserSerializer3
-
-    def get_queryset(self):
-        return User.objects.filter(username=self.kwargs['username'])
+from django.db.models import Q
+import operator
+import functools
 
 
 # showing offices
@@ -119,14 +111,38 @@ class UserAPI2(generics.RetrieveAPIView):
         return self.request.user
 
 
-class OfficesViewset(viewsets.ModelViewSet):
 
-    queryset = office.objects.all()
-    serializer_class = OfficeSerializer
+class FilterViewset(generics.ListAPIView):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer3
 
     def get_queryset(self):
-        return office.objects.filter(doctor=self.kwargs['id'])
-
+        queryset = User.objects.all()
+        queryset = queryset.filter(Q(edu="phd") | Q(edu="masters"))
+        takhasos = self.request.GET.get('field', None)
+        if takhasos is not None:
+            queryset = queryset.filter(
+                field=takhasos)
+        emtiaz = self.request.GET.get('rate', None)
+        if emtiaz is not None:
+            queryset = queryset.filter(
+                rate__gt=emtiaz)
+        jensiat = self.request.GET.get('gender', None)
+        if jensiat is not None:
+            queryset = queryset.filter(
+                gender=jensiat)
+        shahr = self.request.GET.get('city', None)
+        if shahr is not None:
+            queryset = queryset.filter(
+                office__city=shahr)
+        esm = self.request.GET.get('contains', None)
+        if esm is not None:
+            esm = esm.split()
+            qset1 = functools.reduce(operator.__or__, [Q(f_name_icontains=query) | Q(
+                l_name__icontains=query) for query in esm])
+            queryset = queryset.filter(qset1).distinct()
+        return queryset        
 
 #update api
 class UpdateAPI(generics.GenericAPIView):
@@ -146,3 +162,21 @@ class UpdateAPI(generics.GenericAPIView):
         
 
 
+
+class RateSetAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+
+    serializer_class = RateSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        off = serializer.save()
+        perializer = RateUpdateSerializer(data=request.data)
+        perializer.is_valid(raise_exception=True)
+        on = perializer.save()
+        return Response({
+            "Rate": RateSerializer(off, context=self.get_serializer_context()).data
+        })

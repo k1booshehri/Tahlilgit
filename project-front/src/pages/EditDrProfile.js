@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import FileBase64 from 'react-file-base64';
+import avatar from './avatarpic.png';
 import {
   HashRouter as Router,
   Route,
   NavLink,
   Redirect,
 } from "react-router-dom";
+
 
 export default class EditDrProfile extends Component {
   constructor(props) {
@@ -37,6 +40,9 @@ export default class EditDrProfile extends Component {
       username: "",
 
       dateType: "text",
+
+      
+      file: null,
       isStateSet: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -88,8 +94,17 @@ export default class EditDrProfile extends Component {
       phone: information.phone,
       activetime: information.activetime,
       persianEdu: persianEdu0,
+      image : information.pp,
+      
     };
+
+   
   }
+  getFiles(files){
+    this.setState({ file: files.base64 })
+
+    
+ }
 
   //function for initializing informations that user want them changed
   handleChange(e) {
@@ -110,6 +125,10 @@ export default class EditDrProfile extends Component {
     let changedDrInfo = {};
 
     //if a state has been changed it is added to changedDrInfo
+    if(this.state.file !== null){
+      changedDrInfo.pp = this.state.file;
+    }
+
     if (this.state.l_name !== "") {
       changedDrInfo.l_name = this.state.l_name;
     }
@@ -211,8 +230,21 @@ export default class EditDrProfile extends Component {
   }
 
   render() {
+
     return (
       <div className="DrProfileForm">
+
+         {this.state.drInfo.image !== null ? (
+           
+            <img src={ this.state.drInfo.image } className="avatar"/>
+            
+          ) : (
+            <img src= {avatar} className="avatar"/>
+          )} 
+            <div>
+             <FileBase64  onDone={ this.getFiles.bind(this) } />
+           
+          </div>
         <div className="DrProfileInfoTable">
           {" "}
           <div className="DrProfileTableRow">
@@ -220,6 +252,7 @@ export default class EditDrProfile extends Component {
             <div className="DrProfileLeftTableCell">
               {" "}
               <div className="DrProfileFormField">
+
                 <label htmlFor="l_name" className="DrProfileFormField__Label">
                   نام خانوداگی
                 </label>

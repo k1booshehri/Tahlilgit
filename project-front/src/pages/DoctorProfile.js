@@ -29,6 +29,7 @@ export default class DoctorProfile extends Component {
       username: "",
       code: "",
       startYear: "",
+      image : "",
       isStateSet: false,
     };
     this.EditProfileButtonOnClick = this.EditProfileButtonOnClick.bind(this);
@@ -50,6 +51,7 @@ export default class DoctorProfile extends Component {
     this.state.code = information.code;
     this.state.birth = information.birth;
     this.state.phone = information.phone;
+    this.state.image = information.pp;
     if (information.edu === "phd") {
       this.state.edu = "دکتری";
     }
@@ -83,7 +85,7 @@ export default class DoctorProfile extends Component {
         <div className="infoWrap">
           {/* showing doctor info  */}
 
-          <img src={avatar} className="avatar" />
+          <img className='tc br3' alt='none' src={ this.state.image}className="avatar" />
           <div className="nameDisplay"></div>
 
           <div className="nameInfoTable">
