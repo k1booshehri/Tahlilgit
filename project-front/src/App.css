@@ -305,7 +305,6 @@
   width: 100%;
   font-size: 18px;
   border-radius: 10px;
- 
 }
 .locationbutton:hover {
   background: rgb(174, 198, 214);
@@ -593,19 +592,33 @@
 }
 /* End of doctor profile view for user */
 .DrProfileForm {
-  width: 800px;
+  width: 960px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
   background-color: #ffffff;
-  margin-top: 20px;
+  margin-top: 8%;
+  margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 0.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  border: solid;
+  border-color: #4fc3f7;
+  border-width: 0.4em;
+  border-radius: 0.3em;
+  /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); */
   margin-bottom: 20px;
   font-size: 1.3em;
 }
+/* .DrInfoWrap {
+  border: 0.5px solid #0097a7;
+  background-color: #fdf2f4;
+  border-width: 0.1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  width: 100%;
+  margin-bottom: 3em;
+} */
 
 .DrProfileFormField {
   margin-bottom: 40px;
