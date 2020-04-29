@@ -24,6 +24,7 @@ import DoctorProfile from "./pages/DoctorProfile";
 import EditDrProfile from "./pages/EditDrProfile";
 
 
+
 class App extends Component {
   render() {
     return (
@@ -51,6 +52,7 @@ class App extends Component {
           <Route exact path="/DrProfileView" component={DrProfileView}></Route>
           <Route exact path="/DoctorProfile" component={DoctorProfile}></Route>
           <Route exact path="/EditDrProfile" component={EditDrProfile}></Route>
+         
         </div>
       </Router>
     );
