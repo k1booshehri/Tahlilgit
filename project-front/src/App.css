@@ -159,29 +159,30 @@
 }
 
 .up-navbar {
-  background-color: #d0e8ee;
+  background-color: #01579b;
   border-radius: 0em;
-  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.096);
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.315);
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
 
-  height: 8%;
+  height: 7%;
   float: left;
-  color: #797e85;
+  color: #ffffff;
   text-align: center;
-
+  padding-right: 80px;
   text-decoration: none;
   font-size: 20px;
 }
 .up-nav-style :hover {
-  background-color: rgb(230, 230, 230);
+  background-color: #81d4fa;
+
   cursor: pointer;
 }
 .down-navbar {
-  background-color: #d0e8ee;
-
+  background-color: #ffffff;
+  padding-left: 80px;
   border-radius: 0.5em;
   box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
 }
@@ -202,8 +203,9 @@
   border: none;
 }
 .nav-txt {
-  color: #949ba5;
+  color: #1a4888;
 }
+
 .clinicFormInput-checkbox {
   background-color: transparent;
   border: none;
@@ -591,103 +593,210 @@
   margin-bottom: 3%;
 }
 /* End of doctor profile view for user */
+
+/* edit profile css starts */
 .DrProfileForm {
-  width: 960px;
+  width: 850px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  background-color: #ffffff;
+  background-color: white;
   margin-top: 8%;
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
-  border: solid;
-  border-color: #4fc3f7;
-  border-width: 0.4em;
+
   border-radius: 0.3em;
-  /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); */
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
   font-size: 1.3em;
 }
-/* .DrInfoWrap {
-  border: 0.5px solid #0097a7;
-  background-color: #fdf2f4;
-  border-width: 0.1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  width: 100%;
-  margin-bottom: 3em;
-} */
 
 .DrProfileFormField {
   margin-bottom: 40px;
   text-align: right;
 }
 
-.DrProfileFormField1 {
-  margin-bottom: 40px;
-  text-align: left;
-  padding-top: 2em;
-}
-
-.DrProfileFormField2 {
-  margin-bottom: 40px;
-  text-align: center;
-  padding-top: 2em;
-}
-
 .DrProfileFormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: rgb(105, 105, 107);
   text-align: right;
   margin-right: 5%;
 }
-.DrProfileFormField__Input {
+
+.DrProfileFormField__Input__Right {
   width: 100%;
-  font-size: 0.7em;
+  font-size: 0.9em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
   font-weight: 700;
+  color: black;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background: rgba(216, 210, 210, 0.04);
   padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
+  border-radius: 0.3em;
+
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
 }
+.DrProfileFormField__Input__Right::placeholder {
+  color: black;
+  text-align: right;
+  font-size: 1.1em;
+}
+.DrProfileFormField__Input__Left::placeholder {
+  color: black;
+  text-align: left;
+  font-size: 1.1em;
+}
+.DrProfileFormField__Input__Left {
+  width: 100%;
+  color: black;
+  font-size: 0.9em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: left;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(216, 210, 210, 0.04);
+  padding: 10px 20px;
+  border-radius: 0.3em;
 
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.048);
+}
 .DrProfileFormField__Input::placeholder {
   color: #000000;
 }
 
 .DrProfileInfoTable {
   display: table;
+  padding-top: 5%;
 }
 .DrProfileTableRow {
   display: table-row;
 }
 .DrProfileRightTableCell {
-  width: 50%;
+  width: 20%;
   display: table-cell;
 
   text-align: right;
-  padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
 }
 .DrProfileLeftTableCell {
   width: 50%;
   display: table-cell;
+  padding-left: 4%;
+  text-align: right;
+}
+
+/* Titles in edit profile */
+.DrProfileFormField__Tiltle {
+  display: block;
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #00355e;
+  text-align: right;
+  margin-right: 4%;
+  padding-top: 0%;
+}
+
+.DrProfileInfoTable__Tiltle {
+  display: table;
+  padding-top: 2%;
+}
+.DrProfileTableRow__Tiltle {
+  display: table-row;
+}
+.DrProfileRightTableCell__Tiltle {
+  width: 50%;
+  display: table-cell;
 
   text-align: right;
-  padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
 }
+
+.DrProfileLeftTableCell__Tiltle {
+  width: 0%;
+  display: table-cell;
+  padding-left: 30%;
+  text-align: right;
+}
+/* end of titles */
+/* picture */
+.DrProfileInfoTable__Picture {
+  display: table;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.DrProfileTableRow__Picture {
+  display: table-row;
+}
+.DrProfileRightTableCell__Picture {
+  width: 50%;
+  display: table-cell;
+  padding-right: 3%;
+  text-align: right;
+}
+.DrProfileLeftTableCell__Picture {
+  width: 0%;
+  display: table-cell;
+  padding-left: 10%;
+  text-align: right;
+}
+.EditProfileAvatar {
+  margin: auto;
+
+  vertical-align: middle;
+  width: 60%;
+  height: 20%;
+  min-width: 20vh;
+  min-height: 30vh;
+  border: solid;
+  border-width: 0.8px;
+  border-color: #00507a;
+
+  z-index: +1;
+  position: relative;
+}
+.ChosePicture {
+  width: 5%;
+  position: relative;
+  padding-left: 45%;
+  padding-top: 5%;
+}
+.ChosePictureButton {
+  border: solid;
+  padding: 5% 5% 5% 5%;
+  display: block;
+}
+.divider {
+  width: 95%;
+  margin-left: 4%;
+}
+.editProfileButton {
+  border: 0.1;
+  outline: 0;
+  border-radius: 0.3em;
+  color: #263238;
+  background-color: #cfd8dc21;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 5px;
+  margin-left: 4.4%;
+  font-size: 1em;
+  margin-bottom: 4%;
+}
+.editProfileButton:hover {
+  background: rgb(174, 198, 214);
+}
+/* end of picture */
+/* edit profile css ends */

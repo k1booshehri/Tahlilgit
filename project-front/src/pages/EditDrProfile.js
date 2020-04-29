@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+
 import axios from "axios";
-import FileBase64 from 'react-file-base64';
-import avatar from './avatarpic.png';
+import FileBase64 from "react-file-base64";
+import avatar from "./avatarpic.png";
 import {
   HashRouter as Router,
   Route,
   NavLink,
   Redirect,
 } from "react-router-dom";
-
 
 export default class EditDrProfile extends Component {
   constructor(props) {
@@ -41,7 +41,6 @@ export default class EditDrProfile extends Component {
 
       dateType: "text",
 
-      
       file: null,
       isStateSet: false,
     };
@@ -94,17 +93,12 @@ export default class EditDrProfile extends Component {
       phone: information.phone,
       activetime: information.activetime,
       persianEdu: persianEdu0,
-      image : information.pp,
-      
+      image: information.pp,
     };
-
-   
   }
-  getFiles(files){
-    this.setState({ file: files.base64 })
-
-    
- }
+  getFiles(files) {
+    this.setState({ file: files.base64 });
+  }
 
   //function for initializing informations that user want them changed
   handleChange(e) {
@@ -125,7 +119,7 @@ export default class EditDrProfile extends Component {
     let changedDrInfo = {};
 
     //if a state has been changed it is added to changedDrInfo
-    if(this.state.file !== null){
+    if (this.state.file !== null) {
       changedDrInfo.pp = this.state.file;
     }
 
@@ -218,7 +212,7 @@ export default class EditDrProfile extends Component {
           if (res.status === 200) {
             //update eventKey at DrDashboard.js and render DoctorProfile.js
             this.props.updateState(e);
-            alert("موفقیت آمیز بود");
+            <alert></alert>;
           }
         })
         .catch(function (error) {
@@ -230,11 +224,9 @@ export default class EditDrProfile extends Component {
   }
 
   render() {
-
     return (
       <div className="DrProfileForm">
-
-         {this.state.drInfo.image !== null ? (
+        {/* {this.state.drInfo.image !== null ? (
            
             <img src={ this.state.drInfo.image } className="avatar"/>
             
@@ -244,7 +236,69 @@ export default class EditDrProfile extends Component {
             <div>
              <FileBase64  onDone={ this.getFiles.bind(this) } />
            
+          </div> */}
+        <div className="DrProfileInfoTable__Tiltle">
+          {" "}
+          <div className="DrProfileTableRow__Tiltle">
+            {" "}
+            <div className="DrProfileLeftTableCell__Tiltle">
+              {" "}
+              <p></p>
+            </div>
+            <div className="DrProfileRightTableCell__Tiltle">
+              <label className="DrProfileFormField__Tiltle" htmlFor="f_name">
+                ویرایش حساب کاربری
+              </label>
+            </div>
           </div>
+        </div>
+        <hr class="divider"></hr>
+        <div className="DrProfileInfoTable__Picture">
+          {" "}
+          <div className="DrProfileTableRow__Picture">
+            {" "}
+            <div className="DrProfileLeftTableCell__Picture">
+              {" "}
+              <p></p>
+            </div>
+            <div className="DrProfileRightTableCell__Picture">
+              {this.state.drInfo.image !== null ? (
+                <img
+                  src={this.state.drInfo.image}
+                  className="EditProfileAvatar"
+                />
+              ) : (
+                <img src={avatar} className="EditProfileAvatar" />
+              )}
+              <div className="ChosePicture">
+                <FileBase64
+                  className="ChosePictureButton"
+                  onDone={this.getFiles.bind(this)}
+                ></FileBase64>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="DrProfileInfoTable__Tiltle">
+          {" "}
+          <div className="DrProfileTableRow__Tiltle">
+            {" "}
+            <div className="DrProfileLeftTableCell__Tiltle">
+              {" "}
+              <p></p>
+            </div>
+            <div className="DrProfileRightTableCell__Tiltle">
+              <label
+                className="DrProfileFormField__Tiltle"
+                style={{ fontSize: 35 }}
+                htmlFor="f_name"
+              >
+                اطلاعات حساب کاربری
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr class="divider"></hr>
         <div className="DrProfileInfoTable">
           {" "}
           <div className="DrProfileTableRow">
@@ -252,13 +306,31 @@ export default class EditDrProfile extends Component {
             <div className="DrProfileLeftTableCell">
               {" "}
               <div className="DrProfileFormField">
-
-                <label htmlFor="l_name" className="DrProfileFormField__Label">
-                  نام خانوداگی
-                </label>
                 <input
                   type="text"
-                  className="DrProfileFormField__Input"
+                  className="DrProfileFormField__Input__Right"
+                  id="f_name"
+                  name="f_name"
+                  value={this.state.f_name}
+                  placeholder={this.state.drInfo.f_name}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+            <div className="DrProfileRightTableCell">
+              <label className="DrProfileFormField__Label" htmlFor="f_name">
+                نام
+              </label>
+            </div>
+          </div>
+          <div className="DrProfileTableRow">
+            {" "}
+            <div className="DrProfileLeftTableCell">
+              {" "}
+              <div className="DrProfileFormField">
+                <input
+                  type="text"
+                  className="DrProfileFormField__Input__Right"
                   id="l_name"
                   name="l_name"
                   value={this.state.l_name}
@@ -270,30 +342,46 @@ export default class EditDrProfile extends Component {
             <div className="DrProfileRightTableCell">
               {" "}
               <div className="DrProfileFormField">
-                <label className="DrProfileFormField__Label" htmlFor="f_name">
-                  نام
+                <label htmlFor="l_name" className="DrProfileFormField__Label">
+                  نام خانوداگی
                 </label>
-                <input
-                  type="text"
-                  className="DrProfileFormField__Input"
-                  id="f_name"
-                  name="f_name"
-                  value={this.state.f_name}
-                  placeholder={this.state.drInfo.f_name}
-                  onChange={this.handleChange}
-                />
               </div>
             </div>
           </div>
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <label className="DrProfileFormField__Label" htmlFor="birth">
-                  تاریخ تولد
-                </label>
+                <div className="DrProfileFormField">
+                  <select
+                    className="DrProfileFormField__Input__Left"
+                    name="gender"
+                    id="gender"
+                    value={this.state.gender}
+                    onChange={this.handleChange}
+                  >
+                    <option value="" selected disabled hidden>
+                      {this.state.drInfo.gender}
+                    </option>
+                    <option value="زن">زن</option>
+                    <option value="مرد">مرد</option>
+                    <option value="سایر">سایر</option>
+                  </select>
+                </div>
+              </div>
+            </div>{" "}
+            <div className="DrProfileRightTableCell">
+              {" "}
+              <label htmlFor="gender" className="DrProfileFormField__Label">
+                جنسیت
+              </label>
+            </div>
+          </div>
+          <div className="DrProfileTableRow">
+            <div className="DrProfileLeftTableCell">
+              <div className="DrProfileFormField">
                 <input
                   type={this.state.dateType}
-                  className="DrProfileFormField__Input"
+                  className="DrProfileFormField__Input__Left"
                   id="birth"
                   name="birth"
                   value={this.state.birth}
@@ -306,37 +394,39 @@ export default class EditDrProfile extends Component {
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
-              <div className="DrProfileFormField">
-                <label htmlFor="gender" className="DrProfileFormField__Label">
-                  جنسیت
-                </label>
-
-                <select
-                  className="FormField__Input"
-                  name="gender"
-                  id="gender"
-                  value={this.state.gender}
-                  onChange={this.handleChange}
-                >
-                  <option value="" selected disabled hidden>
-                    {this.state.drInfo.gender}
-                  </option>
-                  <option value="زن">زن</option>
-                  <option value="مرد">مرد</option>
-                  <option value="سایر">سایر</option>
-                </select>
-              </div>
+              <label className="DrProfileFormField__Label" htmlFor="birth">
+                تاریخ تولد
+              </label>
             </div>
           </div>
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <label className="DrProfileFormField__Label" htmlFor="email">
-                  آدرس ایمیل
-                </label>
+                <input
+                  type="tel"
+                  className="DrProfileFormField__Input__Left"
+                  id="phone"
+                  name="phone"
+                  pattern="[0][9]\d{9}$"
+                  value={this.state.phone}
+                  placeholder={this.state.drInfo.phone}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>{" "}
+            <div className="DrProfileRightTableCell">
+              {" "}
+              <label className="DrProfileFormField__Label" htmlFor="phone">
+                شماره ی موبایل
+              </label>
+            </div>
+          </div>
+          <div className="DrProfileTableRow">
+            <div className="DrProfileLeftTableCell">
+              <div className="DrProfileFormField">
                 <input
                   type="email"
-                  className="DrProfileFormField__Input"
+                  className="DrProfileFormField__Input__Left"
                   id="email"
                   name="email"
                   value={this.state.email}
@@ -347,34 +437,19 @@ export default class EditDrProfile extends Component {
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
-              <div className="DrProfileFormField">
-                <label className="DrProfileFormField__Label" htmlFor="phone">
-                  شماره ی موبایل
-                </label>
-                <input
-                  type="tel"
-                  className="DrProfileFormField__Input"
-                  id="phone"
-                  name="phone"
-                  pattern="[0][9]\d{9}$"
-                  value={this.state.phone}
-                  placeholder={this.state.drInfo.phone}
-                  onChange={this.handleChange}
-                />
-              </div>
+              <label className="DrProfileFormField__Label" htmlFor="email">
+                آدرس ایمیل
+              </label>
             </div>
           </div>
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               {" "}
               <div className="DrProfileFormField">
-                <label htmlFor="field" className="DrProfileFormField__Label">
-                  تخصص
-                </label>
                 <select
                   name="field"
                   id="field"
-                  className="FormField__Input"
+                  className="DrProfileFormField__Input__Left"
                   value={this.state.field}
                   onChange={this.handleChange}
                 >
@@ -401,12 +476,17 @@ export default class EditDrProfile extends Component {
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
+              <label htmlFor="field" className="DrProfileFormField__Label">
+                تخصص
+              </label>
+            </div>
+          </div>
+          <div className="DrProfileTableRow">
+            <div className="DrProfileLeftTableCell">
+              {" "}
               <div className="DrProfileFormField">
-                <label htmlFor="edu" className="DrProfileFormField__Label">
-                  تحصیلات
-                </label>
                 <select
-                  className="FormField__Input"
+                  className="DrProfileFormField__Input__Left"
                   name="edu"
                   id="edu"
                   value={this.state.edu}
@@ -419,17 +499,43 @@ export default class EditDrProfile extends Component {
                   <option value="phd">دکتری</option>
                 </select>
               </div>
+            </div>{" "}
+            <div className="DrProfileRightTableCell">
+              {" "}
+              <label htmlFor="edu" className="DrProfileFormField__Label">
+                تحصیلات
+              </label>
             </div>
           </div>
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <label className="DrProfileFormField__Label" htmlFor="code">
-                  کد نظام پزشکی
-                </label>
+                <input
+                  type={this.state.dateType}
+                  className="DrProfileFormField__Input__Left"
+                  id="activetime"
+                  name="activetime"
+                  value={this.state.activetime}
+                  onFocus={(e) => this.setState({ dateType: "date" })}
+                  onBlur={(e) => this.setState({ dateType: "text" })}
+                  placeholder={this.state.drInfo.activetime}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>{" "}
+            <div className="DrProfileRightTableCell">
+              {" "}
+              <label className="DrProfileFormField__Label" htmlFor="activetime">
+                شروع فعالیت پزشکی
+              </label>
+            </div>
+          </div>
+          <div className="DrProfileTableRow">
+            <div className="DrProfileLeftTableCell">
+              <div className="DrProfileFormField">
                 <input
                   type="text"
-                  className="DrProfileFormField__Input"
+                  className="DrProfileFormField__Input__Left"
                   id="code"
                   name="code"
                   value={this.state.code}
@@ -440,40 +546,62 @@ export default class EditDrProfile extends Component {
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
-              <div className="DrProfileFormField">
-                <label
-                  className="DrProfileFormField__Label"
-                  htmlFor="activetime"
-                >
-                  تاریخ شروع فعالیت پزشکی
-                </label>
-                <input
-                  type={this.state.dateType}
-                  className="DrProfileFormField__Input"
-                  id="activetime"
-                  name="activetime"
-                  value={this.state.activetime}
-                  onFocus={(e) => this.setState({ dateType: "date" })}
-                  onBlur={(e) => this.setState({ dateType: "text" })}
-                  placeholder={this.state.drInfo.activetime}
-                  onChange={this.handleChange}
-                />
-              </div>
+              <label className="DrProfileFormField__Label" htmlFor="code">
+                کد نظام پزشکی
+              </label>
             </div>
           </div>
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               {" "}
               <div className="DrProfileFormField">
-                <label
-                  className="DrProfileFormField__Label"
-                  htmlFor="newPassword"
-                >
-                  رمز ورود جدید
-                </label>
+                <input
+                  type="text"
+                  className="DrProfileFormField__Input__Left"
+                  id="username"
+                  name="username"
+                  value={this.state.username}
+                  placeholder={this.state.drInfo.username}
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>{" "}
+            <div className="DrProfileRightTableCell">
+              {" "}
+              <label className="DrProfileFormField__Label" htmlFor="username">
+                نام کاربری
+              </label>
+            </div>
+          </div>
+        </div>
+        <div className="DrProfileInfoTable__Tiltle">
+          {" "}
+          <div className="DrProfileTableRow__Tiltle">
+            {" "}
+            <div className="DrProfileLeftTableCell__Tiltle">
+              {" "}
+              <p></p>
+            </div>
+            <div className="DrProfileRightTableCell__Tiltle">
+              <label
+                className="DrProfileFormField__Tiltle"
+                style={{ fontSize: 35 }}
+                htmlFor="f_name"
+              >
+                تغییر رمز عبور
+              </label>
+            </div>
+          </div>
+        </div>
+        <hr class="divider"></hr>
+        <div className="DrProfileInfoTable">
+          <div className="DrProfileTableRow">
+            <div className="DrProfileLeftTableCell">
+              {" "}
+              <div className="DrProfileFormField">
                 <input
                   type="password"
-                  className="DrProfileFormField__Input"
+                  className="DrProfileFormField__Input__Right"
                   id="newPassword"
                   name="newPassword"
                   value={this.state.newPassword}
@@ -484,35 +612,21 @@ export default class EditDrProfile extends Component {
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
-              <div className="DrProfileFormField">
-                <label className="DrProfileFormField__Label" htmlFor="username">
-                  نام کاربری
-                </label>
-                <input
-                  type="text"
-                  className="DrProfileFormField__Input"
-                  id="username"
-                  name="username"
-                  value={this.state.username}
-                  placeholder={this.state.drInfo.username}
-                  onChange={this.handleChange}
-                />
-              </div>
+              <label
+                className="DrProfileFormField__Label"
+                htmlFor="newPassword"
+              >
+                رمز ورود جدید
+              </label>
             </div>
-          </div>
+          </div>{" "}
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               {" "}
               <div className="DrProfileFormField">
-                <label
-                  className="DrProfileFormField__Label"
-                  htmlFor="confirmNewPassword"
-                >
-                  تکرار رمز عبور جدید
-                </label>
                 <input
                   type="password"
-                  className="DrProfileFormField__Input"
+                  className="DrProfileFormField__Input__Right"
                   id="confirmNewPassword"
                   name="confirmNewPassword"
                   value={this.state.confirmNewPassword}
@@ -521,12 +635,22 @@ export default class EditDrProfile extends Component {
                 />
               </div>
             </div>{" "}
+            <div className="DrProfileRightTableCell">
+              {" "}
+              <label
+                className="DrProfileFormField__Label"
+                htmlFor="confirmNewPassword"
+              >
+                تکرار رمز عبور جدید
+              </label>
+            </div>
           </div>
         </div>
         <button
           className="editProfileButton"
           id="3"
-          /* if edit profile button is clicked ProfileButtonOnClick is called */
+          //  if edit profile button is clicked ProfileButtonOnClick is called
+
           onClick={this.handleEdit}
           variant="primary"
         >
