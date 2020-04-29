@@ -7,6 +7,7 @@ import Filter from "./Filtering";
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import avatar from './avatarpic.png';
 
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
@@ -86,7 +87,14 @@ updatedr(items){
                   
                   {/* <img>hii</img> */}
                   <div>
-                   
+
+                  {postdetail.pp !== null ? (
+           
+           <img src={ postdetail.pp } className="avatar"/>
+           
+         ) : (
+           <img src= {avatar} className="avatar"/>
+         )} 
                     <div className="Drlistlable">{postdetail.f_name} {postdetail.l_name} </div>
                   </div>
                   <div>
