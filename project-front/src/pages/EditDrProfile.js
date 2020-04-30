@@ -252,7 +252,7 @@ export default class EditDrProfile extends Component {
             </div>
           </div>
         </div>
-        <hr class="divider"></hr>
+        <hr class="divider__EditProfile"></hr>
         <div className="DrProfileInfoTable__Picture">
           {" "}
           <div className="DrProfileTableRow__Picture">
@@ -298,7 +298,7 @@ export default class EditDrProfile extends Component {
             </div>
           </div>
         </div>
-        <hr class="divider"></hr>
+        <hr class="divider__EditProfile"></hr>
         <div className="DrProfileInfoTable">
           {" "}
           <div className="DrProfileTableRow">
@@ -593,7 +593,7 @@ export default class EditDrProfile extends Component {
             </div>
           </div>
         </div>
-        <hr class="divider"></hr>
+        <hr class="divider__EditProfile"></hr>
         <div className="DrProfileInfoTable">
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">

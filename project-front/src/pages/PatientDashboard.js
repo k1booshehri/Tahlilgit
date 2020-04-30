@@ -80,7 +80,7 @@ class PatientDashboard extends Component {
           )}
           {/* conditions ends */}
           {/* down navbar starts */}
-          <nav className="nav  fixed-bottom up-navbar down-nav-style">
+          <nav className="nav  fixed-bottom down-navbar down-nav-style">
             <a
               className="nav-link active"
               type="click"

@@ -441,21 +441,24 @@
 
 /* main container */
 .DrProfileView {
-  width: 700px;
+  width: 850px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
-  background-color: #eceff1;
-  margin-top: 20px;
+  background-color: white;
+  margin-top: 8%;
+  margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 0.5em;
+
+  border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
+  font-size: 1.3em;
 }
 
 /* blue border container for each part */
-.infoWrap {
+/* .infoWrap {
   border: 0.5px solid #0097a7;
   background-color: #fdf2f4;
   border-width: 0.1em;
@@ -464,43 +467,88 @@
   justify-content: right;
   width: 100%;
   margin-bottom: 3em;
-}
+} */
 /* avatar css */
-.avatar {
-  display: flex;
-  justify-content: center;
+.ProfileViewAvatar {
   margin: auto;
-  margin-top: 5%;
-  margin-right: 40%;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   vertical-align: middle;
-  width: 25%;
-  height: 25%;
+  width: 60%;
+  height: 20%;
+  min-width: 20vh;
+  min-height: 30vh;
+
+  z-index: +1;
+  position: relative;
+}
+.avatar {
+  margin: auto;
+
+  vertical-align: middle;
+  width: 60%;
+  height: 20%;
+  min-width: 20vh;
+  min-height: 30vh;
   border: solid;
   border-width: 0.8px;
-  border-radius: 70%;
+  border-color: #00507a;
+
   z-index: +1;
   position: relative;
 }
 /* table with one cell for showing name */
 .nameInfoTable {
+  width: 100%;
   display: table;
+  padding-top: 5%;
 }
 .nameTableRow {
+  width: 100%;
   display: table-row;
-}
-.nameCompleteTableCell {
-  display: table-cell;
-  color: #000000;
-  text-align: center;
-  padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  font-size: 1.8em;
+  background-color: #eefaff;
+  border-top: 0.5px solid rgb(196, 189, 189);
+  border-bottom: 0.5px solid rgb(196, 189, 189);
 }
 
+.namerightTableCell {
+  width: 50%;
+  display: table-cell;
+  padding-top: 10%;
+  text-align: right;
+  font-size: 2.1em;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  color: #00355e;
+  padding-right: 3%;
+  border-top: 0.5px solid rgb(196, 189, 189);
+  border-bottom: 0.5px solid rgb(196, 189, 189);
+}
+.nameleftTableCell {
+  width: 50%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  display: table-cell;
+  padding-left: 6%;
+  text-align: left;
+  border-top: 0.5px solid rgb(196, 189, 189);
+  border-bottom: 0.5px solid rgb(196, 189, 189);
+}
+.nameDisplay {
+  margin-bottom: 0em;
+}
+.DrProfileViewStar {
+  display: flex;
+  padding-top: -20%;
+  justify-content: right;
+  position: relative;
+  margin-left: 10%;
+}
 /* table with two cells for showing personal information */
 .infoTable1 {
   display: table;
+  width: 100%;
+  padding-top: 6%;
+  padding-bottom: 6%;
 }
 .tableRow1 {
   display: table-row;
@@ -508,82 +556,97 @@
 .rightTableCell {
   width: 50%;
   display: table-cell;
-  color: #006064;
-  border-top: 0.5px solid #0097a7;
-  border-top-width: 0.1em;
+  color: rgb(73, 73, 75);
+
   text-align: right;
   padding-right: 5%;
-  padding-top: 3%;
+
   padding-bottom: 3%;
   font-size: 1.4em;
-  background-color: #eceff1;
-  /* background-color: #eceff1; */
+
+  /* border: 0.5px solid; */
 }
 .leftTableCell {
   width: 50%;
   display: table-cell;
-  color: #006064;
-  border-top: 0.5px solid #0097a7;
-  border-top-width: 0.1em;
+  color: rgb(73, 73, 75);
+  /* border: 0.5px solid; */
   text-align: right;
   padding-right: 5%;
-  padding-top: 3%;
+
   padding-bottom: 3%;
   font-size: 1.4em;
-  background-color: #eceff1;
+}
+.divider__ViewProfile {
+  width: 95%;
+
+  margin-top: 5%;
 }
 /* table with one cell for showing "clinic" word */
+.infoWrap {
+  border: 0.5px solid rgb(196, 189, 189);
+  margin-bottom: 8%;
+}
 .infoTable0 {
+  width: 100%;
   display: table;
 }
 .tableRow0 {
+  width: 100%;
   display: table-row;
+  background-color: #eefaff;
 }
 .completeTableCell0 {
   display: table-cell;
   color: #000000;
-  text-align: center;
+  text-align: right;
   padding-right: 5%;
   padding-top: 3%;
   padding-bottom: 3%;
-  font-size: 1.8em;
+  font-size: 2em;
+
+  border-bottom: 0.5px solid rgb(196, 189, 189);
 }
 /* table with one cell for showing "اطلاعات تکمیلی" words */
 .infoTable2 {
+  width: 100%;
   display: table;
 }
 .tableRow2 {
+  width: 100%;
   display: table-row;
+  background-color: #eefaff;
 }
 .completeTableCell1 {
   display: table-cell;
   color: #000000;
-  border-top: 0.5px solid #0097a7;
-  border-top-width: 0.1em;
-  text-align: center;
+  text-align: right;
   padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  font-size: 1.5em;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+  font-size: 1.7em;
+
+  border-top: 0.5px solid rgb(196, 189, 189);
+  border-bottom: 0.5px solid rgb(196, 189, 189);
 }
 /* table with one cell for showing extra information about a clinic */
 .infoTable3 {
   display: table;
+  width: 100%;
+  padding-top: 6%;
 }
 .tableRow3 {
   display: table-row;
 }
 .completeTableCell2 {
   display: table-cell;
-  color: #006064;
-  border-top: 0.5px solid #0097a7;
-  border-top-width: 0.1em;
+  color: rgb(73, 73, 75);
+
   text-align: right;
   padding-right: 5%;
-  padding-top: 3%;
+  padding-top: 0%;
   padding-bottom: 3%;
   font-size: 1.4em;
-  background-color: #eceff1;
 }
 /* css for extra information about a clinic lists */
 .infoList {
@@ -592,6 +655,47 @@
 .listItem {
   margin-bottom: 3%;
 }
+/*table for rating*/
+.infoTableRating {
+  display: table;
+  width: 100%;
+
+  border: 0.5px solid rgb(196, 189, 189);
+}
+.tableRowRating {
+  display: table-row;
+}
+.rightTableCellRating {
+  width: 50%;
+  display: table-cell;
+  color: rgb(73, 73, 75);
+  padding-bottom: 3.5%;
+  text-align: right;
+  padding-right: 5%;
+
+  font-size: 1.4em;
+
+  /* border: 0.5px solid; */
+}
+.leftTableCellRating {
+  width: 50%;
+  display: table-cell;
+  color: rgb(73, 73, 75);
+  /* border: 0.5px solid; */
+  text-align: center;
+
+  font-size: 1.4em;
+}
+
+.Rating {
+  display: flex;
+  margin-left: -10%;
+  padding-top: 5%;
+  margin-bottom: -8%;
+  justify-content: center;
+  position: relative;
+}
+
 /* End of doctor profile view for user */
 
 /* edit profile css starts */
@@ -775,7 +879,7 @@
   padding: 5% 5% 5% 5%;
   display: block;
 }
-.divider {
+.divider__EditProfile {
   width: 95%;
   margin-left: 4%;
 }

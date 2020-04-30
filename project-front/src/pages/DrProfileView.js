@@ -35,7 +35,7 @@ export default class DrProfileView extends Component {
       transportResultString: "",
       parkResultString: "",
       rate: "",
-      image : "",
+      image: "",
       rating: 0,
     };
     this.onStarClick = this.onStarClick.bind(this);
@@ -48,11 +48,18 @@ export default class DrProfileView extends Component {
     // initializing this states with responses
     this.state.drInfo = information.user;
     this.state.clinicInfo = information.offices;
+    //conditions for education value
+    let persianEdu = "";
+    if (this.state.drInfo.edu === "phd") {
+      persianEdu = "دکتری";
+    } else if (this.state.drInfo.edu === "masters") {
+      persianEdu = "کارشناسی ارشد";
+    }
     this.state.f_name = this.state.drInfo.f_name;
     this.state.l_name = this.state.drInfo.l_name;
     this.state.email = this.state.drInfo.email;
     this.state.field = this.state.drInfo.field;
-    this.state.edu = this.state.drInfo.edu;
+    this.state.edu = persianEdu;
     this.state.gender = this.state.drInfo.gender;
     this.state.activetime = this.state.drInfo.activetime;
     this.state.rate = this.state.drInfo.rate;
@@ -121,21 +128,38 @@ export default class DrProfileView extends Component {
   render() {
     return (
       <div className="DrProfileView">
-        <div className="infoWrap">
+        <div>
           {/* showing doctor info  */}
 
-          <img className='tc br3' alt='none' src={ this.state.image }className="avatar" />
-          <Rating value={this.state.rate} readOnly></Rating>
-          <div className="nameDisplay"></div>
+          {/* <img className='tc br3' alt='none' src={ this.state.image }className="ProfileViewAvatar" /> */}
+          {/* <Rating value={this.state.rate} readOnly></Rating> */}
 
           <div className="nameInfoTable">
             <div class="nameTableRow">
-              <div class="nameCompleteTableCell">
-                {this.state.f_name + " " + this.state.l_name}
+              <div class="nameleftTableCell">
+                <img
+                  className="tc br3"
+                  alt="none"
+                  src={this.state.image}
+                  className="ProfileViewAvatar"
+                />
+              </div>
+              <div class="namerightTableCell">
+                <div className="nameDisplay">
+                  {this.state.f_name + " " + this.state.l_name}
+                </div>
+                <div>
+                  <Rating
+                    className="DrProfileViewStar"
+                    value={this.state.rate}
+                    size="small"
+                    readOnly
+                  ></Rating>
+                </div>
               </div>
             </div>
           </div>
-
+          {/* <hr class="divider__ViewProfile"></hr> */}
           <div className="infoTable1">
             <div class="tableRow1">
               <div class="leftTableCell">{this.state.field}</div>
@@ -152,14 +176,13 @@ export default class DrProfileView extends Component {
           </div>
         </div>
 
-        {/* showing clinics info  */}
         {this.state.clinicInfo.map((postdetail, index) => {
           return (
             <div className="infoWrap">
               <div className="infoTable0">
                 {" "}
                 <div className="tableRow0">
-                  <div class="completeTableCell0">مطب</div>
+                  <div class="completeTableCell0">اطلاعات مطب</div>
                 </div>
               </div>
               <div className="infoTable1">
@@ -178,7 +201,7 @@ export default class DrProfileView extends Component {
               </div>
               <div className="infoTable2">
                 <div className="tableRow2">
-                  <div class="completeTableCell1">اطلاعات تکمیلی</div>
+                  <div class="completeTableCell1">توضیحات</div>
                 </div>
               </div>
               <div className="infoTable3">
@@ -195,16 +218,26 @@ export default class DrProfileView extends Component {
                   </div>
                 </div>
               </div>
-
-              <StarRatingComponent
-                name="rating"
-                starCount={5}
-                value={this.state.rating}
-                onStarClick={this.onStarClick}
-              />
             </div>
           );
         })}
+        <div className="infoTableRating">
+          <div className="tableRowRating">
+            <div class="leftTableCellRating">
+              {" "}
+              <div>
+                <StarRatingComponent
+                  className="Rating"
+                  name="rating"
+                  starCount={5}
+                  value={this.state.rating}
+                  onStarClick={this.onStarClick}
+                />
+              </div>
+            </div>
+            <div class="rightTableCellRating">امتیاز خود را ثبت کنید</div>
+          </div>
+        </div>
       </div>
     );
   }
