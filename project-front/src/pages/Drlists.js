@@ -4,10 +4,10 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 import Filter from "./Filtering";
-import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import avatar from './avatarpic.png';
+import Rating from "@material-ui/lab/Rating";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import avatar from "./avatarpic.png";
 
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
@@ -36,25 +36,19 @@ export default class Drlist extends Component {
       .then((results) => results.json())
       .then((results) => this.setState({ Drlist: results }));
   }
- /* state = {
+  /* state = {
     search : ""
   }
   onchange = e =>{
     this.setState({ search : e.target.value });
 }*/
-updatedr(items){
- 
-  this.setState({Drlist:items})
-}
+  updatedr(items) {
+    this.setState({ Drlist: items });
+  }
 
-  
-  render () {
-   
-
+  render() {
     return (
-      
-   
-    /*  <input label="Search Country" icon="search" onChange={this.onchange}
+      /*  <input label="Search Country" icon="search" onChange={this.onchange}
       type="search"
       id="search"
       className="Drsearch"
@@ -63,53 +57,39 @@ updatedr(items){
       value={this.state.search}
   
       />*/
-   
-      
-   <div >
-       
-       
-       <Filter data = {
-        {
-          Drlist: this.state.Drlist,
-          updatedr:this.updatedr.bind(this)
-        }
-      }/>
-     
-       <div className="Drlist">
-        
-     
+
+      <div>
+        <Filter
+          data={{
+            Drlist: this.state.Drlist,
+            updatedr: this.updatedr.bind(this),
+          }}
+        />
+
+        <div className="Drlist">
           {this.state.Drlist.map((postdetail, index) => {
             return (
-            
-               
-              
-                <div className="Drlistcard">
-               
-                  
-                  {/* <img>hii</img> */}
-                  <div>
-
+              <div className="Drlistcard">
+                {/* <img>hii</img> */}
+                <div>
                   {postdetail.pp !== null ? (
-           
-           <img src={ postdetail.pp } className="Drlistimg"/>
-           
-         ) : (
-           <img src= {avatar} className="Drlistimg"/>
-         )} 
-                    <div className="Drlistlable">{postdetail.f_name} {postdetail.l_name} </div>
+                    <img src={postdetail.pp} className="Drlistimg" />
+                  ) : (
+                    <img src={avatar} className="Drlistimg" />
+                  )}
+                  <div className="Drlistlable">
+                    {postdetail.f_name} {postdetail.l_name}{" "}
                   </div>
-                  <div className="container">
-                    
-                    <div >  تخصص :  {postdetail.field}</div>
-                    </div>
-                    <div className="container">
-                    <Box className="rate"   borderColor="transparent">
-        
-                  <Rating  value={postdetail.rate} readOnly ></Rating>
+                </div>
+                <div className="container">
+                  <div> تخصص : {postdetail.field}</div>
+                </div>
+                <div className="container">
+                  <Box className="rate" borderColor="transparent">
+                    <Rating value={postdetail.rate} readOnly></Rating>
                   </Box>
-                  </div>
-                
-              
+                </div>
+
                 <button
                   className="locationbutton"
                   id="2-1"
@@ -120,15 +100,11 @@ updatedr(items){
                 >
                   اطلاعات بیشتر
                 </button>
-           </div>
-              
+              </div>
             );
           })}
         </div>
-       
       </div>
-      
-     
     );
   }
 }
