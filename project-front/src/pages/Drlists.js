@@ -74,7 +74,8 @@ updatedr(items){
           updatedr:this.updatedr.bind(this)
         }
       }/>
-        <div className = "Drlistdashboard">
+     
+       <div className="Drlist">
         
      
           {this.state.Drlist.map((postdetail, index) => {
@@ -90,16 +91,18 @@ updatedr(items){
 
                   {postdetail.pp !== null ? (
            
-           <img src={ postdetail.pp } className="avatar"/>
+           <img src={ postdetail.pp } className="Drlistimg"/>
            
          ) : (
-           <img src= {avatar} className="avatar"/>
+           <img src= {avatar} className="Drlistimg"/>
          )} 
                     <div className="Drlistlable">{postdetail.f_name} {postdetail.l_name} </div>
                   </div>
-                  <div>
+                  <div className="container">
                     
-                    <div className="container">  تخصص :  {postdetail.field}</div>
+                    <div >  تخصص :  {postdetail.field}</div>
+                    </div>
+                    <div className="container">
                     <Box className="rate"   borderColor="transparent">
         
                   <Rating  value={postdetail.rate} readOnly ></Rating>
@@ -115,7 +118,7 @@ updatedr(items){
                   onClick={this.ProfileButtonOnClick}
                   variant="primary"
                 >
-                  profile
+                  اطلاعات بیشتر
                 </button>
            </div>
               

@@ -85,7 +85,13 @@ export default class DoctorProfile extends Component {
         <div className="infoWrap">
           {/* showing doctor info  */}
 
-          <img className='tc br3' alt='none' src={ this.state.image}className="avatar" />
+          {this.state.image !== null ? (
+           
+           <img src={ this.state.image } className="avatar"/>
+           
+         ) : (
+           <img src= {avatar} className="avatar"/>
+         )} 
           <div className="nameDisplay"></div>
 
           <div className="nameInfoTable">

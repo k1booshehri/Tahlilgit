@@ -23,13 +23,13 @@
 }
 
 .PageSwitcher__Item:first-child {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   text-align: left;
 }
 .PageSwitcher__Item:last-child {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   text-align: left;
 }
 
@@ -58,9 +58,10 @@
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
+  padding-top: 50px;
   background-color: #ffffff;
   margin-top: 20px;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
 }
@@ -105,7 +106,7 @@
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 0.3em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
@@ -120,7 +121,7 @@
   color: white;
   border: none;
   outline: none;
-  border-radius: 25px;
+  border-radius: 0.3em;
   padding: 15px 70px;
   font-size: 1em;
   font-weight: 500;
@@ -142,48 +143,57 @@
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 0.3em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
   color: #cdcdcd;
 }
 .dashboard {
-  background-color: #ffffff;
+  background-color: #f8feff;
   justify-content: right;
-  align-items: right;
   width: 100%;
   height: 100%;
-  margin-top: 60px;
-  margin-bottom: 45px;
+  min-height: 100vh;
+  padding-top: 40px;
+
+}
+.Drlist{
+ 
+  padding-right: 16%;
+ padding-top: 2%;
+ justify-content: center;
+ 
 }
 
 .up-navbar {
-  background-color: #d0e8ee;
-  border-radius: 0em;
-  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.096);
+  background-color: #01579b;
+  
+  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.315);
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
 
-  height: 8%;
+  height: 7%;
   float: left;
-  color: #797e85;
+  color: #ffffff;
   text-align: center;
-
+  padding-right: 80px;
   text-decoration: none;
   font-size: 20px;
 }
 .up-nav-style :hover {
-  background-color: rgb(230, 230, 230);
+  background-color: #81d4fa;
+  
   cursor: pointer;
 }
 .down-navbar {
-  background-color: #d0e8ee;
-
-  border-radius: 0.5em;
-  box-shadow: 20px 11px 10px 15px rgba(0, 0, 0, 0.096);
+ 
+  background-color: #ffffff;
+  padding-left: 80px;
+  border-radius: 0.3em;
+  box-shadow: 20px 15px 8px 15px rgba(0, 0, 0, 0.096);
 }
 .down-nav-style {
   display: flex;
@@ -202,7 +212,7 @@
   border: none;
 }
 .nav-txt {
-  color: #949ba5;
+  color: #1a4888;
 }
 .clinicFormInput-checkbox {
   background-color: transparent;
@@ -229,7 +239,7 @@
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 0.3em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
@@ -278,7 +288,7 @@
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
 }
@@ -288,78 +298,101 @@
   text-align: right;
 }
 
-.titleOffice {
-  color: rgb(49, 48, 48);
-  font-size: 18px;
+.officecardtitle {
+ display: flex;
+  color: #01579b;
+  font-size: 30px;
   margin-bottom: 0.5em;
+  border-bottom: solid 0.3px;
+  justify-content: center;
+}
+.Officecardinfo{
+  font-size: 25px;
+  color: #5d6166;
+  padding-top: 1px;
+
 }
 .locationbutton {
-  border: none;
+  border: 0.1;
   outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: rgb(255, 251, 251);
-  background-color: #88bbd6;
+
+  color: #5d6166;
+  background-color: #cfd8dc21;
   text-align: center;
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-  border-radius: 10px;
+  margin-top: 20px;
+  padding : 3px;
+  
  
 }
 .locationbutton:hover {
   background: rgb(174, 198, 214);
+  cursor: pointer;
 }
 .Drlistlable {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
 }
 .newoffice {
-  width: 700px;
-  height: 100px;
-  padding: 20px 40px;
-  margin: 5px;
-  background-color: transparent;
-  border: transparent;
-  border-bottom: 1px solid;
-  transition: 0.3s;
-  text-align: right;
+  
+  width: 50%;
+  font-size: 20px;
+ margin-top: 10px;
+  padding: 20px 30px;
+  background-color: #ffffff;
   color: #5d6166;
-  font-size: 30px;
+  text-align: center;
   float: right;
-  margin: 5px;
-  margin-bottom: 2em;
+   margin-right: 18px;
+  margin-bottom: 45px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+ 
+  
 }
 .newoffice:hover {
-  background-color: rgb(141, 224, 224);
+  background: #81d4fa;
   cursor: pointer;
+
 }
 .Drofficecard {
-  width: 700px;
-  padding: 20px 40px;
-
+  width: 50%;
+  
+ margin-top: 5px;
+  padding: 20px 30px;
+  background-color: #ffffff;
   color: #5d6166;
   text-align: right;
   float: right;
-  border-bottom: 1px solid;
-  margin: 5px;
-
+   margin-right: 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  
+}
+.Drlistimg{
+  width: 100%;
+  height: 180px;
+}
+.container{
+  padding-top: 10px;
 }
 
 .Drlistcard {
-  width: 320px;
-  padding: 20px 40px;
-  background-color: #f8feff;
+  width: 255px;
+  padding: 20px 30px;
+  background-color: #ffffff;
   color: #5d6166;
-  text-align: right;
+  text-align: center;
   float: right;
-  margin-top: 20px;
+  
 
   margin-right: 10px;
   margin-bottom: 10px;
   min-height: 300px;
-  font-size: 20px;
+  font-size: 18px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
@@ -370,36 +403,35 @@
   margin-top: 30px;
 }
 .sidenav {
-  height: 650px;
-  width: 200px;
+  height: 700px;
+  width: 180px;
   position: absolute;
   right: 0px;
-
-  background-color: #f8feff;
+ margin-right: 1%;
+ padding-right: 0.3%;
+ padding-top: 15px;
+  background-color: #ffffff;
   overflow-x: hidden;
   box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.096);
   float: right;
   text-align: right;
 }
-.Drlistdashboard {
-  height: 100%;
-  flex-direction: column;
-  margin-right: 230px;
-  background-color: #ffffff;
-}
+
 .filteringlable {
   margin: 10px;
   margin-bottom: 30px;
   text-transform: uppercase;
   font-size: 1.6em;
-  color: rgb(105, 105, 107);
+  color: #01579b;
+  border-bottom:solid 0.02px;
+  padding: 5px;
   text-align: right;
 }
 .Filtering__Label {
   display: block;
   text-transform: uppercase;
   font-size: 1.2em;
-  color: rgb(105, 105, 107);
+  color: #5d6166;
   text-align: right;
   margin-right: 10px;
 }
@@ -413,7 +445,7 @@
   text-align: right;
   margin-bottom: 10px;
   background: rgba(136, 126, 126, 0.04);
-  border-radius: 5px;
+  border-radius: 0.3em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
@@ -422,15 +454,16 @@
   color: #cdcdcd;
 }
 .Filtering__Button {
-  background-color: #88bbd6;
+  background-color: #01579b;
   color: white;
-
-  border-radius: 10px;
+  
+  border-radius: 0.3em;
   padding: 5px 20px;
   font-size: 1em;
   font-weight: 300;
   justify-content: left;
   margin-top: 20px;
+  margin-right: 10px;
 }
 .Filtering__Button:hover {
   background: rgb(174, 198, 214);
@@ -448,9 +481,10 @@
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
+  
 }
 
 /* blue border container for each part */
@@ -474,9 +508,7 @@
   vertical-align: middle;
   width: 25%;
   height: 25%;
-  border: solid;
-  border-width: 0.8px;
-  border-radius: 70%;
+ 
   z-index: +1;
   position: relative;
 }
@@ -601,7 +633,7 @@
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 0.5em;
+  border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 20px;
   font-size: 1.3em;
@@ -644,7 +676,7 @@
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 0.3em;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);

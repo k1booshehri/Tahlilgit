@@ -124,7 +124,13 @@ export default class DrProfileView extends Component {
         <div className="infoWrap">
           {/* showing doctor info  */}
 
-          <img className='tc br3' alt='none' src={ this.state.image }className="avatar" />
+          {this.state.image !== null ? (
+           
+           <img src={ this.state.image } className="avatar"/>
+           
+         ) : (
+           <img src= {avatar} className="avatar"/>
+         )} 
           <Rating value={this.state.rate} readOnly></Rating>
           <div className="nameDisplay"></div>
 

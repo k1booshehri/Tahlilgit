@@ -48,7 +48,7 @@ class PatientDashboard extends Component {
               onClick={this.navOnClick}
               id="0"
             >
-              میزکار<WorkIcon></WorkIcon>
+              میزکار    <WorkIcon></WorkIcon>
               <span className="sr-only">(current)</span>
             </a>
             <a
@@ -56,14 +56,14 @@ class PatientDashboard extends Component {
               onClick={this.navOnClick}
               id="2"
             >
-              پزشکان<LocalHospitalIcon></LocalHospitalIcon>
+              پزشکان   <LocalHospitalIcon></LocalHospitalIcon>
             </a>
             <a
               className=" nav-link active nav-txt"
               onClick={this.navOnClick}
               id="0"
             >
-              مقاله ها<PagesIcon></PagesIcon>
+              مقاله ها   <PagesIcon></PagesIcon>
             </a>
           </nav>
           {/* up navbar ends */}
@@ -80,7 +80,7 @@ class PatientDashboard extends Component {
           )}
           {/* conditions ends */}
           {/* down navbar starts */}
-          <nav className="nav  fixed-bottom up-navbar down-nav-style">
+          <nav className="nav  fixed-bottom down-navbar down-nav-style">
             <a
               className="nav-link active"
               type="click"

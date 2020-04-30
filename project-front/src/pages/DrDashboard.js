@@ -55,8 +55,7 @@ class DrDashboard extends Component {
               onClick={this.navOnClick}
               id="0"
             >
-              میزکار
-              <WorkIcon></WorkIcon>
+              میزکار   <WorkIcon></WorkIcon>
               <span className="sr-only">(current)</span>
             </a>
             <a
@@ -64,16 +63,14 @@ class DrDashboard extends Component {
               onClick={this.navOnClick}
               id="1"
             >
-              مطب ها
-              <BusinessIcon></BusinessIcon>
+             مطب ها    <BusinessIcon></BusinessIcon>
             </a>
             <a
               className=" nav-link active nav-txt"
               onClick={this.navOnClick}
               id="0"
             >
-              مقاله ها
-              <PagesIcon></PagesIcon>
+                مقاله ها   <PagesIcon></PagesIcon>
             </a>
           </nav>
           {/* up navbar ends */}
@@ -109,7 +106,7 @@ class DrDashboard extends Component {
               <span className="nav-txt" id="0">
                 {" "}
                 ارتباط با ما
-                <MailIcon></MailIcon>
+                  <MailIcon></MailIcon>
               </span>
             </a>
             <a className="nav-link active" id="0">

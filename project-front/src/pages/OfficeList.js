@@ -25,34 +25,37 @@ export default class OfficeList extends Component {
 
   render() {
     return (
-      <div className="dashboard">
+      <div >
         {this.state.officeList.map((postdetail, index) => {
           return (
-            <h1>
+           
               <div className="Drofficecard">
-                <div>
+                <div className = "officecardtitle">
                   <div> {postdetail.info}</div>
                 </div>
 
                 <div>
-                  <div className="titleOffice">{postdetail.city} :شهر</div>
+                  <div className="Officecardinfo">  شهر :  {postdetail.city} </div>
                 </div>
 
                 <div>
-                  <div className="titleOffice">{postdetail.address} :آدرس</div>
+                  <div className="Officecardinfo">   آدرس : {postdetail.address} </div>
                 </div>
 
-                <div>
-                  <div className="titleOffice">{postdetail.phone} :تلفن</div>
-                </div>
 
                 <div>
-                  <div className="titleOffice">
-                    {postdetail.transport} :حمل و نقل
+                  <div className="Officecardinfo">
+                   
+                تلفن : {postdetail.phone}      
+                   
                   </div>
+                  <div className="Officecardinfo">
+                  حمل و نقل : {postdetail.transport} 
+                  </div>
+                  <div className="Officecardinfo"></div>
                 </div>
               </div>
-            </h1>
+           
           );
         })}
         <button
