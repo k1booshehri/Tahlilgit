@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import avatar from "./avatarpic.png";
+import StarRatingComponent from "react-star-rating-component";
+import Rating from "@material-ui/lab/Rating";
 
 export default class DoctorProfile extends Component {
   constructor(props) {
@@ -29,7 +31,7 @@ export default class DoctorProfile extends Component {
       username: "",
       code: "",
       startYear: "",
-      image : "",
+      image: "",
       isStateSet: false,
     };
     this.EditProfileButtonOnClick = this.EditProfileButtonOnClick.bind(this);
@@ -82,51 +84,76 @@ export default class DoctorProfile extends Component {
   render() {
     return (
       <div className="DrProfileView">
-        <div className="infoWrap">
+        <div>
           {/* showing doctor info  */}
 
           {this.state.image !== null ? (
-           
-           <img src={ this.state.image } className="avatar"/>
-           
-         ) : (
-           <img src= {avatar} className="avatar"/>
-         )} 
-          <div className="nameDisplay"></div>
+            <img src={this.state.image} className="avatar" />
+          ) : (
+            <img src={avatar} className="avatar" />
+          )}
 
           <div className="nameInfoTable">
-            <div className="nameTableRow">
-              <div className="nameCompleteTableCell">
-                {this.state.f_name + " " + this.state.l_name}
+            <div class="nameTableRow ">
+              <div class="nameleftTableCell ">
+                {this.state.image !== null ? (
+                  <img
+                    className="tc br3"
+                    alt="none"
+                    src={this.state.image}
+                    className="ProfileViewAvatar"
+                  />
+                ) : (
+                  <img src={avatar} className="avatar" />
+                )}
+                <img
+                  className="tc br3"
+                  alt="none"
+                  src={this.state.image}
+                  className="ProfileViewAvatar"
+                />
+              </div>
+              <div class="namerightTableCell ">
+                <div className="nameDisplay">
+                  {this.state.f_name + " " + this.state.l_name}
+                </div>
+                <div style={{ fontSize: 30 }}>{this.state.username}</div>
               </div>
             </div>
           </div>
 
-          <div className="infoTable1">
-            <div className="tableRow1">
-              <div className="leftTableCell">{this.state.field}</div>
-              <div className="rightTableCell">تخصص</div>
+          <div className="infoTable1 borderProfile ">
+            <div class="tableRow1">
+              <div class="leftTableCell">{this.state.field}</div>
+              <div class="rightTableCell">تخصص</div>
             </div>
-            <div className="tableRow1">
-              <div className="leftTableCell">{this.state.edu}</div>
-              <div className="rightTableCell">تحصیلات</div>
+            <div class="tableRow1">
+              <div class="leftTableCell">{this.state.edu}</div>
+              <div class="rightTableCell">تحصیلات</div>
             </div>
-            <div className="tableRow1">
-              <div className="leftTableCell">{this.state.startYear}</div>
-              <div className="rightTableCell">شروع فعالیت</div>
+            <div class="tableRow1">
+              <div class="leftTableCell">{this.state.startYear}</div>
+              <div class="rightTableCell">شروع فعالیت</div>
+            </div>
+            <div class="tableRow1">
+              <div class="leftTableCell">{this.state.code}</div>
+              <div class="rightTableCell">کد نظام پزشکی</div>
+            </div>
+            <div class="tableRow1">
+              <div class="leftTableCell">{this.state.email}</div>
+              <div class="rightTableCell">آدرس ایمیل</div>
             </div>
           </div>
-
-          <button
-            className="editProfileButton"
-            id="3-1"
-            /* if edit profile button is clicked ProfileButtonOnClick is called */
-            onClick={this.EditProfileButtonOnClick}
-            variant="primary"
-          >
-            ویرایش
-          </button>
         </div>
+        <button
+          className="editProfileButton0"
+          id="3-1"
+          /* if edit profile button is clicked ProfileButtonOnClick is called */
+          onClick={this.EditProfileButtonOnClick}
+          variant="primary"
+        >
+          ویرایش
+        </button>
       </div>
     );
   }
