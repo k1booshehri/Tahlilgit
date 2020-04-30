@@ -26,6 +26,7 @@ export default class ClinicForm extends Component {
     // this.onSelect = this.onSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(e) {
     let target = e.target;
     // let value = target.type === "checkbox" ? target.checked : target.value;
