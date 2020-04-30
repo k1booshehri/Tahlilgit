@@ -15,6 +15,7 @@
   display: inline-block;
   text-decoration: none;
   text-align: left;
+  font-size: 1em;
 }
 
 .PageSwitcher__Item--Active {
@@ -90,7 +91,7 @@
 .FormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.2em;
+  font-size: 1.6em;
   color: rgb(105, 105, 107);
   text-align: right;
 }
@@ -102,6 +103,7 @@
   margin-top: 10px;
   text-align: right;
   font-weight: 700;
+  font-size: 0.8em;
   letter-spacing: 1px;
   background: rgba(136, 126, 126, 0.04);
   padding: 10px 20px;
@@ -113,7 +115,8 @@
 }
 
 .FormField__Input::placeholder {
-  color: #cdcdcd;
+  color: #c0bdbd;
+  font-size: 1.3em;
 }
 
 .FormField__Button {
@@ -123,8 +126,8 @@
   outline: none;
   border-radius: 0.3em;
   padding: 15px 70px;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: 1.3em;
+  font-weight: 600;
   justify-content: left;
 }
 

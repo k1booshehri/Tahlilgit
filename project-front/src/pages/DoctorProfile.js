@@ -87,12 +87,6 @@ export default class DoctorProfile extends Component {
         <div>
           {/* showing doctor info  */}
 
-          {this.state.image !== null ? (
-            <img src={this.state.image} className="avatar" />
-          ) : (
-            <img src={avatar} className="avatar" />
-          )}
-
           <div className="nameInfoTable">
             <div class="nameTableRow ">
               <div class="nameleftTableCell ">
@@ -106,12 +100,6 @@ export default class DoctorProfile extends Component {
                 ) : (
                   <img src={avatar} className="avatar" />
                 )}
-                <img
-                  className="tc br3"
-                  alt="none"
-                  src={this.state.image}
-                  className="ProfileViewAvatar"
-                />
               </div>
               <div class="namerightTableCell ">
                 <div className="nameDisplay">
