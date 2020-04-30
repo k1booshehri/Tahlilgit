@@ -211,33 +211,34 @@
   border: none;
   color: rgb(39, 36, 36);
   outline: none;
-
-  font-size: 1em;
-  font-weight: 300;
+  margin-left: 2em;
+  font-size: 1.6em;
+  font-weight: 500;
   padding-bottom: 10px;
   margin-top: 10px;
 
   text-align: right;
 }
 .clinicFormInput {
-  width: 100%;
-  font-size: 0.7em;
+  width: 90%;
+  font-size: 0.9em;
   font-weight: 300;
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
   font-weight: 700;
+  color: black;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background: rgba(216, 210, 210, 0.04);
   padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
+  border-radius: 0.3em;
+  margin-right: 4%;
   outline: none;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
 }
 .clinicFormInput-info {
-  width: 100%;
+  width: 90%;
   background: rgba(136, 126, 126, 0.04);
   border: none;
   color: black;
@@ -249,30 +250,28 @@
   padding-bottom: 10px;
   margin-top: 10px;
   text-align: right;
+  margin-right: 4%;
 }
 .clinicFormCheckbox {
-  margin-left: 7em;
+  margin-left: 0.5em;
+  margin-right: 4%;
 }
 .clinicFormTitle {
-  display: inline-block;
-  font-weight: lighter;
+  display: block;
+  text-transform: uppercase;
+  font-size: 2em;
+  color: #00355e;
   text-align: right;
-  font-size: 1.5em;
-  text-justify: right;
-  height: 2em;
-  width: 55%;
-  color: #157085;
-  margin-top: 0.5em;
-  border-bottom: solid;
-  margin-bottom: 1.5em;
-  /* border: solid; */
-  margin-left: auto;
-  margin-right: 0em;
-
-  justify-content: center;
+  margin-right: 4%;
+  padding-top: 5%;
+}
+.divider__clinic {
+  width: 90%;
+  margin-left: 6%;
+  margin-bottom: 10%;
 }
 .clinicForm {
-  width: 800px;
+  width: 700px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
@@ -282,14 +281,40 @@
   margin-left: auto;
   border-radius: 0.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+.clinicFormLable {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: rgb(51, 51, 51);
+  text-align: right;
+  margin-right: 4%;
+  font-weight: 600;
 }
 
 .FormField3 {
   margin-bottom: 40px;
   text-align: right;
 }
-
+.clinicButton {
+  border: 0.1;
+  outline: 0;
+  border-radius: 0.3em;
+  color: white;
+  background-color: #00355e;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 5px;
+  margin-left: 10%;
+  font-size: 1em;
+}
+.clinicButton:hover {
+  background: rgb(174, 198, 214);
+}
 .titleOffice {
   color: rgb(49, 48, 48);
   font-size: 18px;
@@ -457,17 +482,6 @@
   font-size: 1.3em;
 }
 
-/* blue border container for each part */
-/* .infoWrap {
-  border: 0.5px solid #0097a7;
-  background-color: #fdf2f4;
-  border-width: 0.1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: right;
-  width: 100%;
-  margin-bottom: 3em;
-} */
 /* avatar css */
 .ProfileViewAvatar {
   margin: auto;
@@ -506,7 +520,7 @@
   width: 100%;
   display: table-row;
   background-color: #eefaff;
-  border-top: 0.5px solid rgb(196, 189, 189);
+
   border-bottom: 0.5px solid rgb(196, 189, 189);
 }
 
@@ -520,7 +534,7 @@
   padding-top: 5%;
   color: #00355e;
   padding-right: 3%;
-  border-top: 0.5px solid rgb(196, 189, 189);
+
   border-bottom: 0.5px solid rgb(196, 189, 189);
 }
 .nameleftTableCell {
@@ -530,7 +544,7 @@
   display: table-cell;
   padding-left: 6%;
   text-align: left;
-  border-top: 0.5px solid rgb(196, 189, 189);
+
   border-bottom: 0.5px solid rgb(196, 189, 189);
 }
 .nameDisplay {
@@ -586,6 +600,12 @@
 .infoWrap {
   border: 0.5px solid rgb(196, 189, 189);
   margin-bottom: 8%;
+}
+
+.borderProfile {
+  border-right: 0.5px solid rgb(196, 189, 189);
+  border-bottom: 0.5px solid rgb(196, 189, 189);
+  border-left: 0.5px solid rgb(196, 189, 189);
 }
 .infoTable0 {
   width: 100%;
@@ -835,35 +855,42 @@
 /* picture */
 .DrProfileInfoTable__Picture {
   display: table;
+  width: 98%;
   padding-top: 5%;
   padding-bottom: 5%;
+  padding-left: 3%;
 }
 .DrProfileTableRow__Picture {
   display: table-row;
+  background-color: #eefaff;
 }
 .DrProfileRightTableCell__Picture {
   width: 50%;
   display: table-cell;
-  padding-right: 3%;
+  padding-top: 10%;
   text-align: right;
+  font-size: 2.1em;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  color: #000000;
+  padding-right: 3%;
 }
 .DrProfileLeftTableCell__Picture {
-  width: 0%;
+  width: 50%;
+  padding-bottom: 5%;
+  padding-top: 5%;
   display: table-cell;
-  padding-left: 10%;
-  text-align: right;
+  padding-left: 6%;
+  text-align: left;
 }
 .EditProfileAvatar {
   margin: auto;
-
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   vertical-align: middle;
   width: 60%;
   height: 20%;
   min-width: 20vh;
   min-height: 30vh;
-  border: solid;
-  border-width: 0.8px;
-  border-color: #00507a;
 
   z-index: +1;
   position: relative;
@@ -871,35 +898,56 @@
 .ChosePicture {
   width: 5%;
   position: relative;
-  padding-left: 45%;
-  padding-top: 5%;
+  padding-left: 6%;
+  padding-top: 6%;
+  font-size: 0.8em;
 }
 .ChosePictureButton {
   border: solid;
   padding: 5% 5% 5% 5%;
   display: block;
+  font-size: 0.5em;
 }
 .divider__EditProfile {
   width: 95%;
   margin-left: 4%;
 }
-.editProfileButton {
+.editProfileButton0 {
   border: 0.1;
   outline: 0;
   border-radius: 0.3em;
-  color: #263238;
-  background-color: #cfd8dc21;
+  color: white;
+  background-color: #00355e;
   text-align: center;
   cursor: pointer;
   width: 20%;
   font-size: 18px;
   margin-top: 20px;
   padding: 5px;
-  margin-left: 4.4%;
+  margin-left: -0.4%;
   font-size: 1em;
   margin-bottom: 4%;
 }
-.editProfileButton:hover {
+.editProfileButton1 {
+  border: 0.1;
+  outline: 0;
+  border-radius: 0.3em;
+  color: white;
+  background-color: #00355e;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 5px;
+  margin-left: 3.8%;
+  font-size: 1em;
+  margin-bottom: 4%;
+}
+.editProfileButton0:hover {
+  background: rgb(174, 198, 214);
+}
+.editProfileButton1:hover {
   background: rgb(174, 198, 214);
 }
 /* end of picture */

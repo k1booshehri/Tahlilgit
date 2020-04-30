@@ -226,42 +226,9 @@ export default class EditDrProfile extends Component {
   render() {
     return (
       <div className="DrProfileForm">
-        {/* {this.state.drInfo.image !== null ? (
-           
-            <img src={ this.state.drInfo.image } className="avatar"/>
-            
-          ) : (
-            <img src= {avatar} className="avatar"/>
-          )} 
-            <div>
-             <FileBase64  onDone={ this.getFiles.bind(this) } />
-           
-          </div> */}
-        <div className="DrProfileInfoTable__Tiltle">
-          {" "}
-          <div className="DrProfileTableRow__Tiltle">
-            {" "}
-            <div className="DrProfileLeftTableCell__Tiltle">
-              {" "}
-              <p></p>
-            </div>
-            <div className="DrProfileRightTableCell__Tiltle">
-              <label className="DrProfileFormField__Tiltle" htmlFor="f_name">
-                ویرایش حساب کاربری
-              </label>
-            </div>
-          </div>
-        </div>
-        <hr class="divider__EditProfile"></hr>
         <div className="DrProfileInfoTable__Picture">
-          {" "}
-          <div className="DrProfileTableRow__Picture">
-            {" "}
-            <div className="DrProfileLeftTableCell__Picture">
-              {" "}
-              <p></p>
-            </div>
-            <div className="DrProfileRightTableCell__Picture">
+          <div class="DrProfileTableRow__Picture ">
+            <div class="DrProfileLeftTableCell__Picture">
               {this.state.drInfo.image !== null ? (
                 <img
                   src={this.state.drInfo.image}
@@ -277,8 +244,15 @@ export default class EditDrProfile extends Component {
                 ></FileBase64>
               </div>
             </div>
+            <div class="DrProfileRightTableCell__Picture ">
+              <div className="nameDisplay">
+                {this.state.drInfo.f_name + " " + this.state.drInfo.l_name}
+              </div>
+              <div style={{ fontSize: 30 }}>{this.state.drInfo.username}</div>
+            </div>
           </div>
         </div>
+
         <div className="DrProfileInfoTable__Tiltle">
           {" "}
           <div className="DrProfileTableRow__Tiltle">
@@ -293,7 +267,7 @@ export default class EditDrProfile extends Component {
                 style={{ fontSize: 35 }}
                 htmlFor="f_name"
               >
-                اطلاعات حساب کاربری
+                ویرایش اطلاعات حساب کاربری
               </label>
             </div>
           </div>
@@ -647,7 +621,7 @@ export default class EditDrProfile extends Component {
           </div>
         </div>
         <button
-          className="editProfileButton"
+          className="editProfileButton1"
           id="3"
           //  if edit profile button is clicked ProfileButtonOnClick is called
 

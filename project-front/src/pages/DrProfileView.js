@@ -131,9 +131,6 @@ export default class DrProfileView extends Component {
         <div>
           {/* showing doctor info  */}
 
-          {/* <img className='tc br3' alt='none' src={ this.state.image }className="ProfileViewAvatar" /> */}
-          {/* <Rating value={this.state.rate} readOnly></Rating> */}
-
           <div className="nameInfoTable">
             <div class="nameTableRow">
               <div class="nameleftTableCell">
@@ -159,7 +156,7 @@ export default class DrProfileView extends Component {
               </div>
             </div>
           </div>
-          {/* <hr class="divider__ViewProfile"></hr> */}
+
           <div className="infoTable1">
             <div class="tableRow1">
               <div class="leftTableCell">{this.state.field}</div>
