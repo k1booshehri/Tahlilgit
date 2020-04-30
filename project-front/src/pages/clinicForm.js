@@ -26,6 +26,7 @@ export default class ClinicForm extends Component {
     // this.onSelect = this.onSelect.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(e) {
     let target = e.target;
     // let value = target.type === "checkbox" ? target.checked : target.value;
@@ -101,8 +102,9 @@ export default class ClinicForm extends Component {
               {" "}
               برای ثبت مطب جدید اطلاعات زیر را تکمیل کنید
             </p>
+            <hr className="divider__clinic"></hr>
             <div className="FormField3">
-              <label className="FormField__Label" htmlFor="address">
+              <label className="clinicFormLable" htmlFor="address">
                 آدرس مطب خود را وارد کنید
               </label>
               <input
@@ -117,7 +119,7 @@ export default class ClinicForm extends Component {
               />
             </div>
             <div className="FormField3">
-              <label className="FormField__Label" htmlFor="city">
+              <label className="clinicFormLable" htmlFor="city">
                 استان مطب را انتخاب کنید
               </label>
               <select
@@ -163,7 +165,7 @@ export default class ClinicForm extends Component {
               </select>
             </div>
             <div className="FormField3">
-              <label className="FormField__Label" htmlFor="phone">
+              <label className="clinicFormLable" htmlFor="phone">
                 شماره ی تلفن مطب را با رعایت کد پیش شماره ی استان مورد نظر وارد
                 کنید
               </label>
@@ -180,17 +182,10 @@ export default class ClinicForm extends Component {
               />
             </div>
             <div className="FormField3">
-              <label className="FormField__Label" htmlFor="transport">
+              <label className="clinicFormLable" htmlFor="transport">
                 مطب شما با کدام وسایل حمل و نقل عمومی دسترسی آسان تری دارد؟
               </label>
               <div>
-                <input
-                  className="clinicFormCheckbox"
-                  type="checkbox"
-                  name="transport"
-                  value="تاکسی"
-                  onChange={this.handleChange}
-                />
                 <label className="clinicFormInput-checkbox" htmlFor="transport">
                   تاکسی
                 </label>
@@ -198,7 +193,7 @@ export default class ClinicForm extends Component {
                   className="clinicFormCheckbox"
                   type="checkbox"
                   name="transport"
-                  value="اتوبوس"
+                  value="تاکسی"
                   onChange={this.handleChange}
                 />
                 <label className="clinicFormInput-checkbox" htmlFor="transport">
@@ -209,20 +204,30 @@ export default class ClinicForm extends Component {
                   className="clinicFormCheckbox"
                   type="checkbox"
                   name="transport"
-                  value="مترو"
+                  value="اتوبوس"
                   onChange={this.handleChange}
                 />
                 <label className="clinicFormInput-checkbox" htmlFor="transport">
                   {" "}
                   مترو
                 </label>
+                <input
+                  className="clinicFormCheckbox"
+                  type="checkbox"
+                  name="transport"
+                  value="مترو"
+                  onChange={this.handleChange}
+                />
               </div>
             </div>
             <div className="FormField3">
-              <label className="FormField__Label" htmlFor="park">
+              <label className="clinicFormLable" htmlFor="park">
                 آیا پارک خودروی شخصی در اطراف مطب شما به زمان زیادی احتیاج دارد؟
               </label>
               <div>
+                <label className="clinicFormInput-checkbox" htmlFor="park">
+                  بله
+                </label>
                 <input
                   className="clinicFormCheckbox"
                   type="checkbox"
@@ -232,7 +237,8 @@ export default class ClinicForm extends Component {
                   //onClick={this.onClick}
                 />
                 <label className="clinicFormInput-checkbox" htmlFor="park">
-                  بله
+                  {" "}
+                  خیر
                 </label>
                 <input
                   className="clinicFormCheckbox"
@@ -242,14 +248,10 @@ export default class ClinicForm extends Component {
                   onChange={this.handleChange}
                   //onClick={this.onClick}
                 />
-                <label className="clinicFormInput-checkbox" htmlFor="park">
-                  {" "}
-                  خیر
-                </label>
               </div>
             </div>
             <div className="FormField3">
-              <label className="FormField__Label" htmlFor="info">
+              <label className="clinicFormLable" htmlFor="info">
                 توضیخات تکمیلی درمورد مطب خود را وارد کنید
               </label>
               <textarea
@@ -270,7 +272,7 @@ export default class ClinicForm extends Component {
           ></textarea> */}
             </div>
             <div className="FormField1">
-              <button className="FormField__Button mr-20">ثبت مطب</button>{" "}
+              <button className="clinicButton mr-20">ثبت مطب</button>{" "}
             </div>
           </form>
         </div>
