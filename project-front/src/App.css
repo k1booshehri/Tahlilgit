@@ -410,9 +410,10 @@
   color: #5d6166;
   text-align: center;
   float: right;
-  margin: 3%;
+  margin: 1%;
   /* margin-right: 10px;
   margin-bottom: 10px; */
+  flex: 1 0 21%;
   min-height: 300px;
   font-size: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -422,7 +423,7 @@
   padding-right: 16%;
   padding-top: 2%;
   justify-content: center;
-  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   background-color: #f8feff;
 }
