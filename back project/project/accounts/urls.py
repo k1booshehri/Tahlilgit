@@ -23,4 +23,6 @@ urlpatterns = [
          FilterViewset.as_view()),
     path('api/auth/setrate/', RateSetAPI.as_view()),
     path('user/username=<str:username>', views.user_detail),
+    path('api/startchat/', StartChatAPI.as_view()),
+    path('api/getchats/', views.chats_detail),
 ]
