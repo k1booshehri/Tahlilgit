@@ -111,7 +111,6 @@ class UserAPI2(generics.RetrieveAPIView):
         return self.request.user
 
 
-
 class FilterViewset(generics.ListAPIView):
 
     queryset = User.objects.all()
@@ -142,9 +141,11 @@ class FilterViewset(generics.ListAPIView):
             qset1 = functools.reduce(operator.__or__, [Q(f_name_icontains=query) | Q(
                 l_name__icontains=query) for query in esm])
             queryset = queryset.filter(qset1).distinct()
-        return queryset        
+        return queryset
 
-#update api
+# update api
+
+
 class UpdateAPI(generics.GenericAPIView):
     permission_classes = [
         permissions.IsAuthenticated,
@@ -159,8 +160,6 @@ class UpdateAPI(generics.GenericAPIView):
         return Response({
             "user updated"
         })
-        
-
 
 
 class RateSetAPI(generics.GenericAPIView):
@@ -180,3 +179,22 @@ class RateSetAPI(generics.GenericAPIView):
         return Response({
             "Rate": RateSerializer(off, context=self.get_serializer_context()).data
         })
+
+
+class TimeAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = TimeSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({"done"})
+
+    def delete(self, request, format=None):
+        pk = request.query_params.get('timeid')
+        snippet = TimeTable.objects.get(pk=pk)
+        snippet.delete()
+        return Response({"done"})
