@@ -43,3 +43,9 @@ class Rates (models.Model):
         User, on_delete=models.CASCADE, related_name='patient')
 
     doctorusername = models.CharField(null=True, max_length=30)
+
+class ChatTable (models.Model):
+    src = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='src')
+    dest = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='dest')
