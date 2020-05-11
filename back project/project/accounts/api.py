@@ -198,3 +198,19 @@ class TimeAPI(generics.GenericAPIView):
         snippet = TimeTable.objects.get(pk=pk)
         snippet.delete()
         return Response({"done"})
+
+
+class TimeSetAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = TimeSetSerializer
+
+    def put(self, request, *args, **kwargs):
+        p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "time added"
+        })
