@@ -159,3 +159,17 @@ class TimeSerializer(serializers.ModelSerializer):
                 pk=q.query_params.get('officeid')))
 
         return cr
+
+
+class TimeShowSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeTable
+        fields = ('id', 'start', 'end', 'reservetime', 'office')
+
+
+class TimeSetSerializer(serializers.Serializer):
+    def update(self, instance, validated_data):
+        instance.reservetime = datetime.datetime.now()
+        instance.patient = self.context['request'].user
+        instance.save()
+        return instance
