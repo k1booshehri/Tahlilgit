@@ -9,14 +9,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'birth', 'gender', 'f_name', 'l_name',
-                  'phone', 'insurance', 'city','pp')
+                  'phone', 'insurance', 'city', 'pp')
 
 
 class UserSerializer2(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'birth', 'gender', 'f_name', 'l_name',
-                  'phone', 'edu', 'code', 'activetime', 'field', 'insurance','pp')
+                  'phone', 'edu', 'code', 'activetime', 'field', 'insurance', 'pp')
 
 # office creation serializer
 
@@ -82,10 +82,10 @@ class UserSerializer3(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'gender', 'f_name',
-                  'l_name', 'edu', 'activetime', 'field','pp')
+                  'l_name', 'edu', 'activetime', 'field', 'pp')
 
 
-#update serializer
+# update serializer
 class UpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -117,7 +117,6 @@ class UpdateSerializer(serializers.ModelSerializer):
         return instance
 
 
-
 class RateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rates
@@ -144,3 +143,19 @@ class RateUpdateSerializer(serializers.Serializer):
             username=validated_data['doctorusername'], defaults={'rate': rate},)
 
         return off
+
+
+class TimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeTable
+        fields = ('id', 'start', 'end', 'reservetime')
+
+    def create(self, validated_data):
+        p = self.context['request'].user
+        q = self.context['request']
+
+        cr = TimeTable.objects.create(
+            start=validated_data['start'], end=validated_data['end'], doctor=p, office=office.objects.get(
+                pk=q.query_params.get('officeid')))
+
+        return cr
