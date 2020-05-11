@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import User, office, Rates
+from .models import User, office, Rates, TimeTable
 from django.contrib.auth import authenticate
-
+import datetime
 # user serializer
 
 
