@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer,ChatTableSerializer,ChatContentSerializer
-from .models import office, User
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3,UpdateSerializer ,RateSerializer, RateUpdateSerializer,ChatTableSerializer,ChatContentSerializer
+from .models import office, User,ChatContent,ChatTable
 from django.db.models import Q
 import operator
 import functools

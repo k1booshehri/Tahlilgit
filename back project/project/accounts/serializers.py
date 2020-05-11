@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, office, Rates
+from .models import User, office, Rates,ChatContent,ChatTable
 from django.contrib.auth import authenticate
 
 # user serializer
@@ -144,3 +144,17 @@ class RateUpdateSerializer(serializers.Serializer):
             username=validated_data['doctorusername'], defaults={'rate': rate},)
 
         return off
+
+class ChatTableSerializer(serializers.Serializer):
+
+    def create(self, validated_data):
+        q = self.context['request']
+        cr, created = ChatTable.objects.get_or_create(src=self.context['request'].user, dest=User.objects.get(
+            pk=q.query_params.get('doctorid')))
+        return cr
+
+
+class ChatContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatContent
+        fields = ('id', 'time', 'message')
