@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer,ChatTableSerializer,ChatContentSerializer
 from .models import office, User
 from django.db.models import Q
 import operator
@@ -179,4 +179,21 @@ class RateSetAPI(generics.GenericAPIView):
         on = perializer.save()
         return Response({
             "Rate": RateSerializer(off, context=self.get_serializer_context()).data
+        })
+
+
+class StartChatAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = ChatTableSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        cr = ChatTable.objects.get_or_create(dest=request.user, src=User.objects.get(
+            pk=request.query_params.get('doctorid')))
+        return Response({
+            "chat"
         })
