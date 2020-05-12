@@ -10,7 +10,9 @@ import PagesIcon from "@material-ui/icons/Pages";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import WorkIcon from "@material-ui/icons/Work";
 import PersonIcon from "@material-ui/icons/Person";
+import ChatBubble from "@material-ui/icons/ChatBubble";
 import DrProfileView from "./DrProfileView";
+import Chat from "./Chat";
 
 class PatientDashboard extends Component {
   constructor() {
@@ -65,9 +67,22 @@ class PatientDashboard extends Component {
             >
               مقاله ها   <PagesIcon></PagesIcon>
             </a>
+            <a
+              className=" nav-link active nav-txt"
+              onClick={this.navOnClick}
+              id="5"
+            >
+            گفتگو ها     <ChatBubble></ChatBubble>
+            </a>
           </nav>
           {/* up navbar ends */}
           {/* conditions starts */}
+          {localStorage.getItem("eventKey") === "5" ? (
+            <Chat updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+         
           {localStorage.getItem("eventKey") === "2" ? (
             <Drlist updateState={this.navOnClick} />
           ) : (
@@ -75,6 +90,11 @@ class PatientDashboard extends Component {
           )}
           {localStorage.getItem("eventKey") === "2-1" ? (
             <DrProfileView />
+          ) : (
+            <p> </p>
+          )}
+          {localStorage.getItem("eventKey") === "2-2" ? (
+            <Chat />
           ) : (
             <p> </p>
           )}

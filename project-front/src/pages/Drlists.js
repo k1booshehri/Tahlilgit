@@ -18,10 +18,21 @@ export default class Drlist extends Component {
       Drlist: [],
     };
     this.ProfileButtonOnClick = this.ProfileButtonOnClick.bind(this);
+    this.ChatButtonOnClick = this.ChatButtonOnClick.bind(this);
   }
   componentDidMount() {
     this.getItems();
   }
+ 
+ //if chat button is clicked
+ 
+  ChatButtonOnClick(e){
+   
+    sessionStorage.setItem("DrOnChatUsernam", e.target.name);
+    this.props.updateState(e);
+  }
+ 
+ 
   // if a profile button from a card is clicked
   ProfileButtonOnClick(e) {
     //the username of that card is saved in sessionStorage
@@ -31,6 +42,9 @@ export default class Drlist extends Component {
      so a new component (DrProfileView.js) is rendered.*/
     this.props.updateState(e);
   }
+
+
+ 
   getItems() {
     fetch("http://localhost:8000/filter/")
       .then((results) => results.json())
@@ -81,10 +95,10 @@ export default class Drlist extends Component {
                     {postdetail.f_name} {postdetail.l_name}{" "}
                   </div>
                 </div>
-                <div className="container">
+                <div className="containerlist">
                   <div> تخصص : {postdetail.field}</div>
                 </div>
-                <div className="container">
+                <div className="containerlist">
                   <Box className="rate" borderColor="transparent">
                     <Rating value={postdetail.rate} readOnly></Rating>
                   </Box>
@@ -100,6 +114,10 @@ export default class Drlist extends Component {
                 >
                   اطلاعات بیشتر
                 </button>
+
+                
+              <button id="2-2" onClick={this.ChatButtonOnClick}     className="locationbutton">گفتگو</button>
+          
               </div>
             );
           })}
