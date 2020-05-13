@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import $ from "jquery";
+import ClinicTime from "./ClinicTime";
 
 export default class OfficeList extends Component {
   constructor(props) {
@@ -10,6 +12,7 @@ export default class OfficeList extends Component {
   componentDidMount() {
     this.getItems();
   }
+
   getItems() {
     fetch("http://localhost:8000/api/auth/officelist", {
       method: "GET",
@@ -53,6 +56,19 @@ export default class OfficeList extends Component {
                   حمل و نقل : {postdetail.transport}
                 </div>
                 <div className="Officecardinfo"></div>
+              </div>
+              {/* button for calender */}
+
+              <button
+                type="button"
+                class="calenderButton"
+                data-toggle="collapse"
+                data-target="#demo"
+              >
+                تقویم
+              </button>
+              <div id="demo" class="collapse">
+                <ClinicTime></ClinicTime>
               </div>
             </div>
           );
