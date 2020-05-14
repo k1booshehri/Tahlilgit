@@ -61,13 +61,13 @@ export default class OfficeList extends Component {
 
               <button
                 type="button"
-                class="calenderButton"
+                className="calenderButton"
                 data-toggle="collapse"
                 data-target="#demo"
               >
                 تقویم
               </button>
-              <div id="demo" class="collapse">
+              <div id="demo" className="collapse">
                 <ClinicTime></ClinicTime>
               </div>
             </div>

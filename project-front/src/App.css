@@ -1,3 +1,5 @@
+@import "react-big-calendar/lib/sass/styles";
+
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
@@ -1001,6 +1003,7 @@
   border: solid 0.3px #01579b;
   margin-top: 3%;
   padding: 1%;
+  height: 100vh;
 }
 
 .calenderButton {
