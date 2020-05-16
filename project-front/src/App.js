@@ -15,6 +15,7 @@ import DoctorSignInForm from "./pages/DoctorSignInForm";
 import Drlist from "./pages/Drlists";
 
 import "./App.css";
+import "./App.scss";
 import DrDashboard from "./pages/DrDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
 import ClinicForm from "./pages/ClinicForm";
@@ -23,6 +24,7 @@ import DrProfileView from "./pages/DrProfileView";
 import DoctorProfile from "./pages/DoctorProfile";
 import EditDrProfile from "./pages/EditDrProfile";
 import ClinicTime from "./pages/ClinicTime";
+import ClinicRes from "./pages/ClinicRes";
 
 class App extends Component {
   render() {
@@ -52,6 +54,7 @@ class App extends Component {
           <Route exact path="/DoctorProfile" component={DoctorProfile}></Route>
           <Route exact path="/EditDrProfile" component={EditDrProfile}></Route>
           <Route exact path="/ClinicTime" component={ClinicTime}></Route>
+          <Route exact path="/ClinicRes" component={ClinicRes}></Route>
         </div>
       </Router>
     );

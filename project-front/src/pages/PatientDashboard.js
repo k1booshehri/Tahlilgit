@@ -11,6 +11,7 @@ import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import WorkIcon from "@material-ui/icons/Work";
 import PersonIcon from "@material-ui/icons/Person";
 import DrProfileView from "./DrProfileView";
+import ClinicRes from "./ClinicRes";
 
 class PatientDashboard extends Component {
   constructor() {
@@ -48,7 +49,7 @@ class PatientDashboard extends Component {
               onClick={this.navOnClick}
               id="0"
             >
-              میزکار    <WorkIcon></WorkIcon>
+              میزکار <WorkIcon></WorkIcon>
               <span className="sr-only">(current)</span>
             </a>
             <a
@@ -56,14 +57,14 @@ class PatientDashboard extends Component {
               onClick={this.navOnClick}
               id="2"
             >
-              پزشکان   <LocalHospitalIcon></LocalHospitalIcon>
+              پزشکان <LocalHospitalIcon></LocalHospitalIcon>
             </a>
             <a
               className=" nav-link active nav-txt"
               onClick={this.navOnClick}
               id="0"
             >
-              مقاله ها   <PagesIcon></PagesIcon>
+              مقاله ها <PagesIcon></PagesIcon>
             </a>
           </nav>
           {/* up navbar ends */}
@@ -78,6 +79,7 @@ class PatientDashboard extends Component {
           ) : (
             <p> </p>
           )}
+          {localStorage.getItem("eventKey") === "6" ? <ClinicRes /> : <p> </p>}
           {/* conditions ends */}
           {/* down navbar starts */}
           <nav className="nav  fixed-bottom down-navbar down-nav-style">
