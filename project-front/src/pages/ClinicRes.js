@@ -29,10 +29,16 @@ export default class ClinicRes extends Component {
       savedEvents: [], // events to be saved
       clinicInfo: [],
       clinicCities: [],
+      getEvents: [], // events that are get from get request
+      city: "",
+      isClicked: false,
     };
 
-    this.parsingInformation = this.parsingInformation.bind(this);
+    this.parsingCitiesInformation = this.parsingCitiesInformation.bind(this);
     this.createSelectItems = this.createSelectItems.bind(this);
+    this.handleDropChange = this.handleDropChange.bind(this);
+    this.parsingClinicsEvents = this.parsingClinicsEvents.bind(this);
+    this.ChangeSavedEventsFormat = this.ChangeSavedEventsFormat.bind(this);
   }
 
   //events CSS
@@ -70,11 +76,11 @@ export default class ClinicRes extends Component {
     return null;
   }
 
-  parsingInformation(res) {
+  parsingCitiesInformation(res) {
     let clinicInfo = res;
     this.state.clinicInfo = clinicInfo.offices;
     this.state.clinicCities = this.state.clinicInfo.map((e) => e.city);
-    console.log(this.state.clinicCities);
+    //console.log(this.state.clinicCities);
   }
 
   componentDidMount() {
@@ -93,24 +99,66 @@ export default class ClinicRes extends Component {
     })
       .then((res) => res.json())
       .then((res) => {
-        this.parsingInformation(res);
+        this.parsingCitiesInformation(res);
         this.setState({ isClicked: true });
       })
       .catch((error) => console.error("Error:", error));
   }
 
+  getEventItems() {
+    let url =
+      "http://localhost:8000/api/times/?doctorusername=" +
+      sessionStorage.getItem("DrProfileUsername") +
+      "&city=" +
+      this.state.city;
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ isClicked: true });
+        this.parsingClinicsEvents(res);
+      })
+      .catch((error) => console.error("Error:", error));
+  }
   createSelectItems() {
     let items = [];
     for (let i = 0; i <= this.state.clinicCities.length; i++) {
       items.push(
-        <option key={i} value={i}>
+        <option key={i} value={this.state.clinicCities[i]}>
           {this.state.clinicCities[i]}
         </option>
       );
-      //here I will be creating my options dynamically based on
-      //what props are currently passed to the parent component
     }
+    // console.log(items);
     return items;
+  }
+  handleDropChange(e) {
+    let target = e.target;
+    let value = target.value;
+    this.state.city = value;
+    // console.log(this.state.city);
+    this.getEventItems();
+  }
+
+  //function for initializing getEvents array with datas came from database
+  parsingClinicsEvents(res) {
+    let getArr = res;
+    let getArrinfo = getArr.info;
+    this.state.getEvents = getArrinfo.map(this.ChangeSavedEventsFormat); // Call ChangeSavedEventsFormat function for changing the format to Iran daylight format
+    console.log(this.state.getEvents);
+    this.setState({ isClicked: true });
+  }
+  //function for changing the events came from get request format to Iran daylight format
+  ChangeSavedEventsFormat(e) {
+    let end = moment(e.end);
+    let start = moment(e.start);
+
+    var event = { start: start._d, end: end._d, id: e.id };
+    return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
   render() {
     return (
@@ -121,28 +169,21 @@ export default class ClinicRes extends Component {
           </label>
           <select
             value={this.state.city}
-            // onChange={this.handleChange}
+            onChange={this.handleDropChange}
             required
             className="clinicFormInput"
             id="city"
-            placeholder=""
             name="city"
           >
             {this.createSelectItems()}
           </select>
         </div>
 
-        {/* <Input type="select" onChange={this.onDropdownSelected} label="Multiple Select" multiple>
-       {this.createSelectItems()}
-  </Input> */}
-
         <div className="Clinic__App_Res">
           <Calendar
-            selectable={"ignoreEvents"} // doesnt let one slot being selected twice
             localizer={localizer}
-            events={this.state.events} // events to be shown
+            events={this.state.getEvents} // events to be shown
             // step={30}
-            // timeslots={10}
             timeslots={1}
             views={["week"]}
             toolbar={true}
@@ -150,17 +191,14 @@ export default class ClinicRes extends Component {
             max={maxTime}
             defaultDate={new Date()} // shaded column
             defaultView="week"
+            startAccessor="start"
+            endAccessor="end"
+            //titleAccessor="id"
+            tooltipAccessor={this.tooltipAccessor}
             eventPropGetter={this.eventPropGetter}
-            events={this.state.events}
-            // style={{ height: "100vh" }}
-            //  onSelectEvent={this.onSelectEvent}
-
-            // startAccessor="start"
-            // endAccessor="end"
-
             slotPropGetter={this.slotPropGetter}
             dayPropGetter={this.dayPropGetter}
-            tooltipAccessor={this.tooltipAccessor}
+            //onSelectEvent={this.onSelectEvent}
           />
         </div>
       </div>

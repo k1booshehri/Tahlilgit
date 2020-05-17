@@ -153,7 +153,7 @@ export default class ClinicTime extends Component {
     let getArr = res;
     let getArrinfo = getArr.info;
     this.state.getEvents = getArrinfo.map(this.ChangeSavedEventsFormat); // Call ChangeSavedEventsFormat function for changing the format to Iran daylight format
-    // console.log(this.state.getEvents);
+    console.log(this.state.getEvents);
   }
 
   //function for changing the events came from get request format to Iran daylight format
