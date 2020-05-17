@@ -19,6 +19,7 @@ class PatientDashboard extends Component {
     super();
     this.state = { eventKeyChanged: false };
     this.navOnClick = this.navOnClick.bind(this);
+    this.ChatComponentOnCLick=this.ChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
@@ -30,6 +31,13 @@ class PatientDashboard extends Component {
     localStorage.setItem("eventKey", target);
 
     this.setState({ eventKeyChanged: true });
+   
+  }
+  ChatComponentOnCLick(e){
+    let target = e.target.id;
+    localStorage.setItem("eventKey", target);
+   localStorage.setItem("DrOnChatUsername", 'null');
+   this.setState({ eventKeyChanged: true });
   }
   render() {
     return (
@@ -69,7 +77,7 @@ class PatientDashboard extends Component {
             </a>
             <a
               className=" nav-link active nav-txt"
-              onClick={this.navOnClick}
+              onClick={this.ChatComponentOnCLick}
               id="5"
             >
             گفتگو ها     <ChatBubble></ChatBubble>
@@ -78,7 +86,7 @@ class PatientDashboard extends Component {
           {/* up navbar ends */}
           {/* conditions starts */}
           {localStorage.getItem("eventKey") === "5" ? (
-            <Chat updateState={this.navOnClick} />
+            <Chat updateState={this.ChatComponentOnCLick} />
           ) : (
             <p> </p>
           )}
@@ -94,7 +102,7 @@ class PatientDashboard extends Component {
             <p> </p>
           )}
           {localStorage.getItem("eventKey") === "2-2" ? (
-            <Chat />
+            <Chat  onClick={this.navOnClick}/>
           ) : (
             <p> </p>
           )}

@@ -30,15 +30,49 @@ export default class ChatMsgs extends Component {
       handleSubmit(e) {
         e.preventDefault();
     
-        console.log(this.state.current_message)
+      /*  axios
+        .post(
+          "http://localhost:8000/api/auth/setrate/",
+          {
+            Value: currentValue,
+            doctorusername: sessionStorage.getItem("DrProfileUsername"),
+          },
+          {
+            headers: {
+              "content-type": "application/json",
+              Authorization: "token " + sessionStorage.getItem("token"),
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("امتیاز شما ثبت شد");
+            this.setState({ rating: currentValue, isStateSet: true });
+          }
+        })
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+          }
+        });*/
       
       
       }
 
+    /*  componentDidMount() {
+        
+        this.interval = setInterval(() => { console.log('running') }, 1000);
+      }*/
+
       render(){
+   
           return(
             <div class="mesgs">
           <div class="msg_history">
+
+
             <div class="incoming_msg">
               <div class="incoming_msg_img"> <img src={avatar} alt="sunil"/> </div>
               <div class="received_msg">
@@ -47,10 +81,20 @@ export default class ChatMsgs extends Component {
                   <span class="time_date"> ساعت   |   تاریخ</span></div>
               </div>
             </div>
-          
+           <div class="outgoing_msg">
+              <div class="sent_msg">
+                <p>Apollo University, Delhi, India Test</p>
+                <span class="time_date"> 11:01 AM    |    Today</span> </div>
             </div>
             
-          
+           
+           
+            </div>
+            
+    {/***********************send button***********************************/}  
+        
+        
+        
           <form onSubmit={this.handleSubmit}>
           <div class="type_msg">
             <div class="input_msg_write">

@@ -28,7 +28,9 @@ export default class Drlist extends Component {
  
   ChatButtonOnClick(e){
    
-    sessionStorage.setItem("DrOnChatUsernam", e.target.name);
+    localStorage.setItem("DrOnChatUsername", e.target.name);
+    console.log(localStorage.getItem("DrOnChatUsername"))
+    
     this.props.updateState(e);
   }
  
@@ -116,7 +118,7 @@ export default class Drlist extends Component {
                 </button>
 
                 
-              <button id="2-2" onClick={this.ChatButtonOnClick}     className="locationbutton">گفتگو</button>
+              <button id="2-2" onClick={this.ChatButtonOnClick}   name={postdetail.id}   className="locationbutton">گفتگو</button>
           
               </div>
             );
