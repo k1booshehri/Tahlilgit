@@ -12,8 +12,13 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/sass/styles.scss";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.scss";
+import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 const localizer = momentLocalizer(moment); //defining localizer
+
+const DragAndDropCalendar = withDragAndDrop(Calendar); //making calender a DND
 
 //example for min and max of the calender
 const minTime = new Date();
@@ -25,54 +30,59 @@ export default class ClinicTime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: [], // events to be shown
-      savedEvents: [], // events to be saved
+      events: [],
+      savedEvents: [],
+      getEvents: [], // events that are get from get request
+      isClicked: false,
     };
+
     this.handleSelect = this.handleSelect.bind(this);
     this.onSelectEvent = this.onSelectEvent.bind(this);
+    this.parsingInformation = this.parsingInformation.bind(this);
+    this.ChangeSavedEventsFormat = this.ChangeSavedEventsFormat.bind(this);
   }
 
-  // called when solt(s) are selected
+  // called when solt(s) are selected, where post request happens
   handleSelect = ({ start, end }) => {
     //creating savedStart for saving in savedEvents
-    let startMomentFormat = moment(start);
+    // let startMomentFormat = moment(start);
+    // console.log(startMomentFormat);
+    // let savedStart =
+    //   startMomentFormat.get("year") +
+    //   "-" +
+    //   (startMomentFormat.get("month") + 1) +
+    //   "-" +
+    //   startMomentFormat.get("D") +
+    //   " " +
+    //   startMomentFormat.get("hour") +
+    //   ":" +
+    //   startMomentFormat.get("minute") +
+    //   ":" +
+    //   startMomentFormat.get("second");
 
-    let savedStart =
-      startMomentFormat.get("year") +
-      "-" +
-      (startMomentFormat.get("month") + 1) +
-      "-" +
-      startMomentFormat.get("D") +
-      " " +
-      startMomentFormat.get("hour") +
-      ":" +
-      startMomentFormat.get("minute") +
-      ":" +
-      startMomentFormat.get("second");
-
-    //creating savedEnd for saving in savedEvents
-    let endMomentFormat = moment(end);
-    let savedEnd =
-      endMomentFormat.get("year") +
-      "-" +
-      (endMomentFormat.get("month") + 1) +
-      "-" +
-      endMomentFormat.get("D") +
-      " " +
-      endMomentFormat.get("hour") +
-      ":" +
-      endMomentFormat.get("minute") +
-      ":" +
-      endMomentFormat.get("second");
+    // //creating savedEnd for saving in savedEvents
+    // let endMomentFormat = moment(end);
+    // let savedEnd =
+    //   endMomentFormat.get("year") +
+    //   "-" +
+    //   (endMomentFormat.get("month") + 1) +
+    //   "-" +
+    //   endMomentFormat.get("D") +
+    //   " " +
+    //   endMomentFormat.get("hour") +
+    //   ":" +
+    //   endMomentFormat.get("minute") +
+    //   ":" +
+    //   endMomentFormat.get("second");
 
     this.setState({
-      savedEvents: [
-        ...this.state.savedEvents,
-        {
-          savedStart: savedStart,
-          savedEnd: savedEnd,
-        },
-      ],
+      // savedEvents: [
+      //   ...this.state.savedEvents,
+      //   {
+      //     savedStart: savedStart,
+      //     savedEnd: savedEnd,
+      //   },
+      // ],
       events: [
         ...this.state.events,
         {
@@ -81,9 +91,79 @@ export default class ClinicTime extends Component {
         },
       ],
     });
-    console.log(this.state.events);
-    console.log(this.state.savedEvents);
+
+    // post request for adding a new event in database
+    axios
+      .post(
+        "http://localhost:8000/api/time/?officeid=" +
+          sessionStorage.getItem("officeid"), // sending office id
+        {
+          //sending end and start of the new event (format => Iran Daylight)
+          end: end,
+          start: start,
+        },
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"), //doctor's token
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          alert("زمان جدید ثبت شد");
+          this.setState({ isClicked: true });
+          this.getItems(); // call get request after post to show the latest added event
+        }
+      })
+      .catch(function (error) {
+        if (error.response) {
+          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+        }
+      });
   };
+
+  componentDidMount() {
+    this.getItems();
+  }
+
+  // get request for showing events in database
+  getItems() {
+    fetch(
+      "http://localhost:8000/api/timesview/?officeid=" +
+        sessionStorage.getItem("officeid"), //sending office id
+      {
+        method: "GET",
+        headers: {
+          Authorization: "token " + sessionStorage.getItem("token"), //doctor's token
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        this.parsingInformation(res); // call parsing information on datas came from database
+        this.setState({ isClicked: true }); // re-render
+      })
+      .catch((error) => console.error("Error:", error));
+  }
+
+  //function for initializing getEvents array with datas came from database
+  parsingInformation(res) {
+    let getArr = res;
+    let getArrinfo = getArr.info;
+    this.state.getEvents = getArrinfo.map(this.ChangeSavedEventsFormat); // Call ChangeSavedEventsFormat function for changing the format to Iran daylight format
+    // console.log(this.state.getEvents);
+  }
+
+  //function for changing the events came from get request format to Iran daylight format
+  ChangeSavedEventsFormat(e) {
+    let end = moment(e.end);
+    let start = moment(e.start);
+
+    var event = { start: start._d, end: end._d, id: e.id };
+    return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
+  }
 
   //events CSS
   eventPropGetter(e, start, end, isSelected) {
@@ -102,6 +182,7 @@ export default class ClinicTime extends Component {
       style: style,
     };
   }
+
   slotPropGetter(e) {
     var style = {
       fontSize: "1em",
@@ -109,6 +190,7 @@ export default class ClinicTime extends Component {
     };
     return { style: style };
   }
+
   dayPropGetter(e) {
     var style = {
       fontSize: "1em",
@@ -116,9 +198,12 @@ export default class ClinicTime extends Component {
     };
     return { style: style };
   }
+
   tooltipAccessor(e) {
     return null;
   }
+
+  //called when an event is clicked , used for deleting
   onSelectEvent(e) {
     const r = window.confirm("Would you like to remove this event?");
     if (r === true) {
@@ -139,15 +224,32 @@ export default class ClinicTime extends Component {
       console.log(this.state.savedEvents);
     }
   }
+
+  resizeEvent = ({ event, start, end }) => {
+    let events = this.state.getEvents;
+
+    const nextEvents = events.map((existingEvent) => {
+      return existingEvent.id == event.id
+        ? { ...existingEvent, start, end }
+        : existingEvent;
+    });
+
+    this.setState({
+      getEvents: nextEvents,
+    });
+
+    //alert(`${event.title} was resized to ${start}-${end}`)
+  };
+
   render() {
     return (
       <div className="Clinic__App">
-        <Calendar
+        <DragAndDropCalendar
           selectable={"ignoreEvents"} // doesnt let one slot being selected twice
+          resizable={true}
           localizer={localizer}
-          events={this.state.events} // events to be shown
+          events={this.state.getEvents} // events to be shown
           // step={30}
-          // timeslots={10}
           timeslots={1}
           views={["week"]}
           toolbar={true}
@@ -155,17 +257,18 @@ export default class ClinicTime extends Component {
           max={maxTime}
           defaultDate={new Date()} // shaded column
           defaultView="week"
-          eventPropGetter={this.eventPropGetter}
-          events={this.state.events}
-          // style={{ height: "100vh" }}
-          onSelectEvent={this.onSelectEvent}
-          onSelectSlot={this.handleSelect}
           startAccessor="start"
           endAccessor="end"
-          titleAccessor="title"
+          // titleAccessor="id"
+          onEventDrop={this.moveEvent}
+          tooltipAccessor={this.tooltipAccessor}
+          onEventResize={this.resizeEvent}
+          onDragStart={console.log}
+          eventPropGetter={this.eventPropGetter}
           slotPropGetter={this.slotPropGetter}
           dayPropGetter={this.dayPropGetter}
-          tooltipAccessor={this.tooltipAccessor}
+          onSelectEvent={this.onSelectEvent}
+          onSelectSlot={this.handleSelect}
         />
       </div>
     );

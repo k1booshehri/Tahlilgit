@@ -64,6 +64,9 @@ export default class OfficeList extends Component {
                 className="calenderButton"
                 data-toggle="collapse"
                 data-target="#demo"
+                onClick={(e) =>
+                  sessionStorage.setItem("officeid", postdetail.id)
+                }
               >
                 تقویم
               </button>
