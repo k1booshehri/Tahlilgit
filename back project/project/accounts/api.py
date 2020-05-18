@@ -195,9 +195,21 @@ class TimeAPI(generics.GenericAPIView):
 
     def delete(self, request, format=None):
         pk = request.query_params.get('timeid')
+        if TimeTable.objects.get(pk=request.query_params.get('timeid')).patient is not None:
+            N = Notif.objects.create(notiftype="4", was_seen="no", notifmessage="یک وقت کنسل شد", rec=User.objects.get(
+                pk=TimeTable.objects.get(pk=request.query_params.get('timeid')).patient.pk))
         snippet = TimeTable.objects.get(pk=pk)
         snippet.delete()
         return Response({"done"})
+
+    def put(self, request, *args, **kwargs):
+        p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "time updated"
+        })
 
 
 class TimeSetAPI(generics.GenericAPIView):
@@ -208,9 +220,29 @@ class TimeSetAPI(generics.GenericAPIView):
 
     def put(self, request, *args, **kwargs):
         p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        N = Notif.objects.create(notiftype="1", was_seen="no", notifmessage="یک وقت رزرو شد", rec=User.objects.get(
+            pk=TimeTable.objects.get(pk=request.query_params.get('timeid')).doctor.pk))
         serializer = self.get_serializer(p, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response({
             "time added"
+        })
+
+
+class TimeCancelAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = TimeCancelSerializer
+
+    def put(self, request, *args, **kwargs):
+        p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        N = Notif.objects.create(notiftype="2", was_seen="no", notifmessage="یک وقت کنسل شد", rec=User.objects.get(
+            pk=TimeTable.objects.get(pk=request.query_params.get('timeid')).doctor.pk))
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "time cancelled"
         })
