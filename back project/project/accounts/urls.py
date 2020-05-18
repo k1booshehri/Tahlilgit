@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorsViewset, FilterViewset,RateSetAPI
+from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorsViewset, FilterViewset,RateSetAPI,ChatAPI
 from knox import views as knox_views
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
@@ -23,6 +23,10 @@ urlpatterns = [
          FilterViewset.as_view()),
     path('api/auth/setrate/', RateSetAPI.as_view()),
     path('user/username=<str:username>', views.user_detail),
-    path('api/startchat/', StartChatAPI.as_view()),
-    path('api/getchats/', views.chats_detail),
+    path('api/ptgetchat/', views.chats_starta),
+    path('api/drgetchat/', views.chats_startb),
+    path('api/chatlist', views.chats_list),
+    path('api/sendchat/', ChatAPI.as_view()),
+    path('api/notifnum', views.notif_num),
+    path('api/notifget', views.notif_get)
 ]
