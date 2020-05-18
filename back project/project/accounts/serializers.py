@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, office, Rates,ChatContent,ChatTable
+from .models import User, office, Rates,ChatContent,ChatTable,Notif
 from django.contrib.auth import authenticate
 
 # user serializer
