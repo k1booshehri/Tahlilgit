@@ -173,3 +173,11 @@ class TimeSetSerializer(serializers.Serializer):
         instance.patient = self.context['request'].user
         instance.save()
         return instance
+
+
+class TimeCancelSerializer(serializers.Serializer):
+    def update(self, instance, validated_data):
+        instance.reservetime = None
+        instance.patient = None
+        instance.save()
+        return instance
