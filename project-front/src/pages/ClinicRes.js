@@ -32,6 +32,7 @@ export default class ClinicRes extends Component {
       getEvents: [], // events that are get from get request
       city: "",
       isClicked: false,
+      is: false,
     };
 
     this.parsingCitiesInformation = this.parsingCitiesInformation.bind(this);
@@ -39,21 +40,38 @@ export default class ClinicRes extends Component {
     this.handleDropChange = this.handleDropChange.bind(this);
     this.parsingClinicsEvents = this.parsingClinicsEvents.bind(this);
     this.ChangeSavedEventsFormat = this.ChangeSavedEventsFormat.bind(this);
+    this.onSelectEvent = this.onSelectEvent.bind(this);
   }
 
   //events CSS
   eventPropGetter(e, start, end, isSelected) {
-    var style = {
-      backgroundColor: "#e1f5fe",
-      borderRadius: "0px",
-      opacity: 1,
-      color: "black",
-      border: "0px",
-      fontSize: "1em",
-      width: "100%",
-      display: "inline-block",
-      textAlign: "center",
-    };
+    if (e.reservetime !== null) {
+      var style = {
+        backgroundColor: "#ef9a9a",
+        borderRadius: "0px",
+        opacity: 1,
+        color: "black",
+        border: "0px",
+        fontSize: "1em",
+        width: "100%",
+        display: "inline-block",
+        textAlign: "center",
+      };
+    }
+    if (e.reservetime === null) {
+      var style = {
+        backgroundColor: "#e1f5fe",
+        borderRadius: "0px",
+        opacity: 1,
+        color: "black",
+        border: "0px",
+        fontSize: "1em",
+        width: "100%",
+        display: "inline-block",
+        textAlign: "center",
+      };
+    }
+
     return {
       style: style,
     };
@@ -149,7 +167,7 @@ export default class ClinicRes extends Component {
     let getArr = res;
     let getArrinfo = getArr.info;
     this.state.getEvents = getArrinfo.map(this.ChangeSavedEventsFormat); // Call ChangeSavedEventsFormat function for changing the format to Iran daylight format
-    console.log(this.state.getEvents);
+    // console.log(this.state.getEvents);
     this.setState({ isClicked: true });
   }
   //function for changing the events came from get request format to Iran daylight format
@@ -157,9 +175,82 @@ export default class ClinicRes extends Component {
     let end = moment(e.end);
     let start = moment(e.start);
 
-    var event = { start: start._d, end: end._d, id: e.id };
+    var event = {
+      start: start._d,
+      end: end._d,
+      id: e.id,
+      patient: e.patient,
+      reservetime: e.reservetime,
+    };
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
+  //called when an event is clicked , used for reserving
+  onSelectEvent(e) {
+    console.log(e.reservetime);
+    //the event is reserved
+    if (e.reservetime !== null) {
+      this.setState({ isClicked: false });
+
+      const r = window.confirm("Would you like to cancel this event?");
+      if (r === true) {
+        axios
+          .put(
+            "http://localhost:8000/api/timecancel/?timeid=" + e.id,
+            {},
+            {
+              headers: {
+                "content-type": "application/json",
+                Authorization: "token " + sessionStorage.getItem("token"),
+              },
+            }
+          )
+          .then((res) => {
+            if (res.status === 200) {
+              this.getEventItems();
+
+              alert("موفقیت آمیز بود");
+            }
+          })
+          .catch(function (error) {
+            if (error.response) {
+              alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+            }
+          });
+      }
+    }
+    //the event is not reserved
+    if (e.reservetime === null) {
+      this.setState({ isClicked: false });
+
+      const r = window.confirm("Would you like to reserve this event?");
+      if (r === true) {
+        axios
+          .put(
+            "http://localhost:8000/api/timeset/?timeid=" + e.id,
+            {},
+            {
+              headers: {
+                "content-type": "application/json",
+                Authorization: "token " + sessionStorage.getItem("token"),
+              },
+            }
+          )
+          .then((res) => {
+            if (res.status === 200) {
+              this.getEventItems();
+
+              alert("موفقیت آمیز بود");
+            }
+          })
+          .catch(function (error) {
+            if (error.response) {
+              alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+            }
+          });
+      }
+    }
+  }
+
   render() {
     return (
       <div className="CalenContainer">
@@ -198,7 +289,7 @@ export default class ClinicRes extends Component {
             eventPropGetter={this.eventPropGetter}
             slotPropGetter={this.slotPropGetter}
             dayPropGetter={this.dayPropGetter}
-            //onSelectEvent={this.onSelectEvent}
+            onSelectEvent={this.onSelectEvent}
           />
         </div>
       </div>
