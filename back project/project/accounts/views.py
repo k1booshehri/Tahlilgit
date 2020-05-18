@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Rates, User, office,ChatTable, ChatContent, Notif
-from .serializers import RateSerializer, OfficeSerializer, UserSerializer3,UserSerializer4, ChatListSerializer, NotifSerializer
+from .serializers import RateSerializer, OfficeSerializer, UserSerializer3,UserSerializer4, ChatListSerializer, NotifSerializer,ChatContentSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
