@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import Rates, User, office
-from .serializers import RateSerializer, OfficeSerializer, UserSerializer3
+from .models import Rates, User, office, TimeTable
+from .serializers import RateSerializer, OfficeSerializer, UserSerializer3, TimeShowSerializer
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
