@@ -49,9 +49,13 @@ class ChatTable (models.Model):
         User, on_delete=models.CASCADE, related_name='src')
     dest = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='dest')
+    destusername = models.CharField(null=True, max_length=30)
+    destpp = models.TextField(null=True)
+    destid = models.CharField(null=True, max_length=30)
 
 class ChatContent (models.Model):
     time = models.DateTimeField(null=True)
     message = models.TextField(null=True)
     table = models.ForeignKey(
         ChatTable, on_delete=models.CASCADE, related_name='table')
+    sender = models.TextField(null=True)
