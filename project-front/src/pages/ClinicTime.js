@@ -34,6 +34,7 @@ export default class ClinicTime extends Component {
       savedEvents: [],
       getEvents: [], // events that are get from get request
       isClicked: false,
+      is: false,
     };
 
     this.handleSelect = this.handleSelect.bind(this);
@@ -143,7 +144,7 @@ export default class ClinicTime extends Component {
       .then((res) => res.json())
       .then((res) => {
         this.parsingInformation(res); // call parsing information on datas came from database
-        this.setState({ isClicked: true }); // re-render
+        this.setState({ is: true }); // re-render
       })
       .catch((error) => console.error("Error:", error));
   }
@@ -161,23 +162,44 @@ export default class ClinicTime extends Component {
     let end = moment(e.end);
     let start = moment(e.start);
 
-    var event = { start: start._d, end: end._d, id: e.id };
+    var event = {
+      start: start._d,
+      end: end._d,
+      id: e.id,
+      patient: e.patient,
+      reservetime: e.reservetime,
+    };
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
 
   //events CSS
   eventPropGetter(e, start, end, isSelected) {
-    var style = {
-      backgroundColor: "#e1f5fe",
-      borderRadius: "0px",
-      opacity: 1,
-      color: "black",
-      border: "0px",
-      fontSize: "1em",
-      width: "100%",
-      display: "inline-block",
-      textAlign: "center",
-    };
+    if (e.reservetime !== null) {
+      var style = {
+        backgroundColor: "#ef9a9a",
+        borderRadius: "0px",
+        opacity: 1,
+        color: "black",
+        border: "0px",
+        fontSize: "1em",
+        width: "100%",
+        display: "inline-block",
+        textAlign: "center",
+      };
+    }
+    if (e.reservetime === null) {
+      var style = {
+        backgroundColor: "#e1f5fe",
+        borderRadius: "0px",
+        opacity: 1,
+        color: "black",
+        border: "0px",
+        fontSize: "1em",
+        width: "100%",
+        display: "inline-block",
+        textAlign: "center",
+      };
+    }
     return {
       style: style,
     };
@@ -206,37 +228,93 @@ export default class ClinicTime extends Component {
   //called when an event is clicked , used for deleting
   onSelectEvent(e) {
     const r = window.confirm("Would you like to remove this event?");
+    this.setState({ is: false });
+
+    // delete request for deleting an event in database
     if (r === true) {
-      //remove chosen event from events
-      var removeIndex = this.state.events
-        .map(function (item) {
-          return item.start;
+      axios
+        .delete(
+          "http://localhost:8000/api/time/?timeid=" + e.id,
+
+          {
+            headers: {
+              "content-type": "application/json",
+              Authorization: "token " + sessionStorage.getItem("token"), //doctor's token
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("موفقیت آمیز بود");
+
+            this.getItems(); // call get request after post to show the latest added event
+          }
         })
-        .indexOf(e.start);
-      this.state.events.splice(removeIndex, 1);
-      //remove chosen event from savedEvents
-      var removeIndex = this.state.savedEvents
-        .map(function (item) {
-          return item.start;
-        })
-        .indexOf(e.start);
-      this.state.savedEvents.splice(removeIndex, 1);
-      console.log(this.state.savedEvents);
+        .catch(function (error) {
+          if (error.response) {
+            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+          }
+        });
     }
+    // if (r === true) {
+    //   //remove chosen event from events
+    //   var removeIndex = this.state.events
+    //     .map(function (item) {
+    //       return item.start;
+    //     })
+    //     .indexOf(e.start);
+    //   this.state.events.splice(removeIndex, 1);
+    //   //remove chosen event from savedEvents
+    //   var removeIndex = this.state.savedEvents
+    //     .map(function (item) {
+    //       return item.start;
+    //     })
+    //     .indexOf(e.start);
+    //   this.state.savedEvents.splice(removeIndex, 1);
+    //   console.log(this.state.savedEvents);
+    // }
   }
 
   resizeEvent = ({ event, start, end }) => {
-    let events = this.state.getEvents;
+    this.setState({ is: false });
+    console.log(start, end);
+    axios
+      .put(
+        "http://localhost:8000/api/time/?timeid=" + event.id,
+        {
+          start: start,
+          end: end,
+        },
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          this.getItems();
 
-    const nextEvents = events.map((existingEvent) => {
-      return existingEvent.id == event.id
-        ? { ...existingEvent, start, end }
-        : existingEvent;
-    });
+          alert("موفقیت آمیز بود");
+        }
+      })
+      .catch(function (error) {
+        if (error.response) {
+          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+        }
+      });
+    // let events = this.state.getEvents;
 
-    this.setState({
-      getEvents: nextEvents,
-    });
+    // const nextEvents = events.map((existingEvent) => {
+    //   return existingEvent.id == event.id
+    //     ? { ...existingEvent, start, end }
+    //     : existingEvent;
+    // });
+
+    // this.setState({
+    //   getEvents: nextEvents,
+    // });
 
     //alert(`${event.title} was resized to ${start}-${end}`)
   };
