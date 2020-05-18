@@ -182,18 +182,14 @@ class RateSetAPI(generics.GenericAPIView):
         })
 
 
-class StartChatAPI(generics.GenericAPIView):
+class ChatAPI(generics.GenericAPIView):
     permission_classes = [
         permissions.IsAuthenticated,
     ]
-    serializer_class = ChatTableSerializer
+    serializer_class = ChatContentSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
-        cr = ChatTable.objects.get_or_create(dest=request.user, src=User.objects.get(
-            pk=request.query_params.get('doctorid')))
-        return Response({
-            "chat"
-        })
+        return Response({"done"})
