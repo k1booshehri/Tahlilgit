@@ -56,8 +56,8 @@ export default class ChatList extends Component {
   ChatListOnClick(e){
     
   
-    this.props.data.updatedrChat(localStorage.setItem("DrOnChatUsername", e.target.name));
-      console.log(localStorage.getItem("DrOnChatUsername"))
+    this.props.data.updatedrChat(localStorage.setItem("PatientOnChatUsername", e.target.name));
+      console.log(localStorage.getItem("PatientOnChatUsername"))
  
   
   }

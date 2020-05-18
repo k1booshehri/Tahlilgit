@@ -1,10 +1,9 @@
-
 import React, { Component } from "react";
 import { Link, useHistory } from "react-router-dom";
 import avatar from "./avatarpic.png";
 import Send from "@material-ui/icons/Send";
-import ChatMsgs from "./ChatMsgs";
-import ChatList from "./ChatLlist";
+import DrChatMsgs from "./DrChatMsgs.js";
+import DrChatList from "./DrChatList";
 
 
 
@@ -22,7 +21,7 @@ export default class DoctorProfile extends Component {
 
   updatedrChat(items) {
     this.setState({ DrChat: items });
-    console.log(localStorage.getItem("DrOnChatUsername"))
+    console.log(localStorage.getItem("PatientOnChatUsername"))
   }
   updatedrmsgs(items) {
     this.setState({ DrChat: items });
@@ -38,16 +37,16 @@ export default class DoctorProfile extends Component {
 
 
           <div>
-            <ChatList 
+            <DrChatList 
             
             data={{
             DrChat: this.state.DrChat,
             updatedrChat: this.updatedrChat.bind(this),
           }}>
 
-          </ChatList>
+          </DrChatList>
 
-          { localStorage.getItem("DrOnChatUsername")==='null'? (
+          { localStorage.getItem("PatientOnChatUsername")==='null'? (
              <div>
                
                 
@@ -61,12 +60,12 @@ export default class DoctorProfile extends Component {
            
 
           
-            <ChatMsgs 
+            <DrChatMsgs 
             data={{
               Drmsgs: this.state.DrChat,
               updatedrmsgs: this.updatedrChat.bind(this),
             }}
-            ></ChatMsgs>
+            ></DrChatMsgs>
      
         
           )}

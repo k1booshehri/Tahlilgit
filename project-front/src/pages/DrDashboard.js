@@ -7,6 +7,8 @@ import WorkIcon from "@material-ui/icons/Work";
 import PersonIcon from "@material-ui/icons/Person";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import MailIcon from "@material-ui/icons/Mail";
+import DrChat from "./DrChat";
+import ChatBubble from "@material-ui/icons/ChatBubble";
 
 import {
   HashRouter as Router,
@@ -24,6 +26,7 @@ class DrDashboard extends Component {
     super(props);
     this.state = { eventKeyChanged: false };
     this.navOnClick = this.navOnClick.bind(this);
+    this.DrChatComponentOnCLick=this.DrChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
@@ -35,6 +38,13 @@ class DrDashboard extends Component {
     localStorage.setItem("eventKey", target);
 
     this.setState({ eventKeyChanged: true });
+  }
+  DrChatComponentOnCLick(e){
+    let target = e.target.id;
+    localStorage.setItem("eventKey", target);
+    this.setState({ eventKeyChanged: true });
+   localStorage.setItem("PatientOnChatUsername", 'null');
+  
   }
   render() {
     return (
@@ -72,9 +82,22 @@ class DrDashboard extends Component {
             >
                 مقاله ها   <PagesIcon></PagesIcon>
             </a>
+            <a
+              className=" nav-link active nav-txt"
+              onClick={this.DrChatComponentOnCLick}
+              id="5"
+            >
+            گفتگو ها     <ChatBubble></ChatBubble>
+            </a>
           </nav>
           {/* up navbar ends */}
           {/* conditions starts */}
+          {localStorage.getItem("eventKey") === "5" ? (
+            <DrChat updateState={this.DrChatComponentOnCLick} />
+          ) : (
+            <p> </p>
+          )}
+         
           {localStorage.getItem("eventKey") === "1" ? (
             <OfficeList updateState={this.navOnClick} />
           ) : (

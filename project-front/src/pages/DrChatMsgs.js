@@ -47,7 +47,7 @@ componentWillUnmount() {
       
       getItems(){
        
-          fetch("http://localhost:8000/api/ptgetchat/?" + "doctorid="+ localStorage.getItem("DrOnChatUsername"), {
+          fetch("http://localhost:8000/api/drgetchat/?" + "patientid="+ localStorage.getItem("PatientOnChatUsername"), {
             method: "GET",
             headers: {
               Authorization: "token " + sessionStorage.getItem("token"),
@@ -80,7 +80,7 @@ componentWillUnmount() {
     
         axios
         .post(
-          "http://localhost:8000/api/sendchat/?" +"destid="+localStorage.getItem("DrOnChatUsername"),
+          "http://localhost:8000/api/sendchat/?" +"destid="+localStorage.getItem("PatientOnChatUsername"),
           {
             message: this.state.current_message,
           },
@@ -119,7 +119,7 @@ componentWillUnmount() {
 
              <div>
 
-          {this.state.drid=== postdetail.sender ? (
+          {this.state.patientid === postdetail.sender ? (
              <div class="incoming_msg">
               <div class="incoming_msg_img"> <img src={avatar} alt="sunil"/> </div>
               <div class="received_msg">

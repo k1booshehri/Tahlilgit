@@ -23,6 +23,7 @@ import DrProfileView from "./pages/DrProfileView";
 import DoctorProfile from "./pages/DoctorProfile";
 import EditDrProfile from "./pages/EditDrProfile";
 import chat from "./pages/Chat";
+import Drchat from "./pages/DrChat";
 import test from "./pages/test";
 
 class App extends Component {
@@ -54,6 +55,8 @@ class App extends Component {
           <Route exact path="/EditDrProfile" component={EditDrProfile}></Route>
           <Route exact path="/chat" component={chat}></Route>
           <Route exact path="/test" component={test}></Route>
+          <Route exact path="/Drchat" component={Drchat}></Route>
+          
         </div>
       </Router>
     );
