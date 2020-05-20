@@ -124,13 +124,14 @@ export default class ClinicTime extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getItems();
+  async componentWillMount() {
+    await this.getItems();
+    console.log("hi");
   }
 
   // get request for showing events in database
-  getItems() {
-    fetch(
+  async getItems() {
+    await fetch(
       "http://localhost:8000/api/timesview/?officeid=" +
         sessionStorage.getItem("officeid"), //sending office id
       {
@@ -172,14 +173,14 @@ export default class ClinicTime extends Component {
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
 
-  //events CSS
+  // events CSS
   eventPropGetter(e, start, end, isSelected) {
     if (e.reservetime !== null) {
       var style = {
-        backgroundColor: "#ef9a9a",
-        borderRadius: "0px",
+        backgroundColor: "#f48fb1",
+        // borderRadius: "0px",
         opacity: 1,
-        color: "black",
+        //  color: "black",
         border: "0px",
         fontSize: "1em",
         width: "100%",
@@ -189,10 +190,10 @@ export default class ClinicTime extends Component {
     }
     if (e.reservetime === null) {
       var style = {
-        backgroundColor: "#e1f5fe",
-        borderRadius: "0px",
+        // backgroundColor: "#e1f5fe",
+        // borderRadius: "0px",
         opacity: 1,
-        color: "black",
+        // color: "black",
         border: "0px",
         fontSize: "1em",
         width: "100%",
@@ -217,6 +218,7 @@ export default class ClinicTime extends Component {
     var style = {
       fontSize: "1em",
       width: "100%",
+      backgroundColor: "white",
     };
     return { style: style };
   }
@@ -320,6 +322,7 @@ export default class ClinicTime extends Component {
   };
 
   render() {
+    console.log("hi");
     return (
       <div className="Clinic__App">
         <DragAndDropCalendar
