@@ -43,3 +43,15 @@ class Rates (models.Model):
         User, on_delete=models.CASCADE, related_name='patient')
 
     doctorusername = models.CharField(null=True, max_length=30)
+
+
+class TimeTable (models.Model):
+    start = models.DateTimeField(null=True)
+    end = models.DateTimeField(null=True)
+    reservetime = models.DateTimeField(null=True)
+    doctor = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='doctor2')
+    patient = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='patient2', null=True)
+    office = models.ForeignKey(
+        office, on_delete=models.CASCADE, related_name='office2')
