@@ -47,12 +47,12 @@ export default class ClinicRes extends Component {
   eventPropGetter(e, start, end, isSelected) {
     if (e.reservetime !== null) {
       var style = {
-        backgroundColor: "#ef9a9a",
-        borderRadius: "0px",
+        backgroundColor: "#f48fb1",
+        // borderRadius: "0px",
         opacity: 1,
-        color: "black",
+        //  color: "black",
         border: "0px",
-        fontSize: "1em",
+        fontSize: "1.2em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -60,12 +60,12 @@ export default class ClinicRes extends Component {
     }
     if (e.reservetime === null) {
       var style = {
-        backgroundColor: "#e1f5fe",
-        borderRadius: "0px",
+        backgroundColor: "#0277bd",
+        // borderRadius: "0px",
         opacity: 1,
-        color: "black",
+        // color: "black",
         border: "0px",
-        fontSize: "1em",
+        fontSize: "1.2em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -87,6 +87,7 @@ export default class ClinicRes extends Component {
     var style = {
       fontSize: "1em",
       width: "100%",
+      backgroundColor: "white",
     };
     return { style: style };
   }

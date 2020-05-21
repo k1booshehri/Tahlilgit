@@ -3,6 +3,8 @@ import $ from "jquery";
 import ClinicTime from "./ClinicTime";
 import { Collapse, Button, CardBody, Card } from "reactstrap";
 
+// const style = { backgroundColor: "#00bcd4" };
+
 export default class OfficeList extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +14,24 @@ export default class OfficeList extends Component {
       isOpen: {},
       info: "",
       item: "",
+      collapse: false,
+      officIdCollapse: {},
+      isReq: false,
+      isTog: false,
     };
-    this.mapInfo = this.mapInfo.bind(this);
-    this.collapseFunc = this.collapseFunc.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.parsingInformation = this.parsingInformation.bind(this);
   }
   componentDidMount() {
     this.getItems();
   }
 
+  toggle(id) {
+    sessionStorage.setItem("officeid", id);
+    this.state.officIdCollapse[id] = !this.state.officIdCollapse[id];
+    var isTog = !this.state.isTog;
+    this.setState({ isTog: isTog });
+  }
   getItems() {
     fetch("http://localhost:8000/api/auth/officelist", {
       method: "GET",
@@ -29,93 +41,81 @@ export default class OfficeList extends Component {
       },
     })
       .then((res) => res.json())
-      .then((results) => this.mapInfo(results))
+      .then((results) => {
+        this.parsingInformation(results);
+        this.setState({ isReq: true });
+      })
       .catch((error) => console.error("Error:", error));
   }
 
-  mapInfo(results) {
+  parsingInformation(results) {
+    this.state.officeList = results;
+    console.log(this.state.officeList);
     for (var i = 0; i < results.length; i++) {
-      this.state.isOpen[results[i].id] = false;
+      this.state.officIdCollapse[results[i].id] = false;
     }
-    var info = results.map((postdetail, index) => {
-      return (
-        <div className="Drofficecard">
-          <div className="officecardtitle">
-            <div> {postdetail.info}</div>
-          </div>
-
-          <div>
-            <div className="Officecardinfo"> استان : {postdetail.city} </div>
-          </div>
-
-          <div>
-            <div className="Officecardinfo"> آدرس : {postdetail.address} </div>
-          </div>
-
-          <div>
-            <div className="Officecardinfo">تلفن : {postdetail.phone}</div>
-            <div className="Officecardinfo">
-              حمل و نقل : {postdetail.transport}
-            </div>
-            <div className="Officecardinfo"></div>
-          </div>
-          {/* button for calender */}
-
-          <div className="card clinicCard">
-            <div className="card-header" id="headingOne">
-              <h5 className="mb-0">
-                <button
-                  className="calenderButton"
-                  //  type="button"
-                  data-toggle="collapse"
-                  data-target={"#Collapsible" + postdetail.id}
-                  onClick={(e) => {
-                    sessionStorage.setItem("officeid", postdetail.id);
-
-                    var a = postdetail.id;
-                    this.state.isOpen[postdetail.id] = true;
-                    {
-                      this.collapseFunc();
-                    }
-                  }}
-                  aria-expanded="true"
-                  aria-controls={"Collapsible" + postdetail.id}
-                >
-                  وقت دهی آنلاین
-                </button>
-              </h5>
-            </div>
-
-            <div
-              id={"Collapsible" + postdetail.id}
-              className="collapse"
-              aria-labelledby={"Collapsible" + postdetail.id}
-            >
-              {/* {this.state.isOpen[postdetail.id] === true ? ( */}
-              <div className="card-body">
-                {/* <ClinicTime /> */}
-                {this.collapseFunc()}
-              </div>
-              {/* // ) : (
-              //   <p>ih</p>
-              // )} */}
-            </div>
-          </div>
-        </div>
-      );
-    });
-    this.setState({ info: info });
+    //  console.log(this.state.officIdCollapse);
   }
-
-  collapseFunc() {
-    let item = <ClinicTime />;
-    this.setState({ item: item });
-  }
-
   render() {
     return (
       <div>
-        {this.state.info}
+        {this.state.officeList.map((postdetail, index) => {
+          return (
+            <div key={postdetail.id} className="Drofficecard">
+              <div className="officecardtitle">
+                <div> {postdetail.info}</div>
+              </div>
+
+              <div>
+                <div className="Officecardinfo">
+                  {" "}
+                  استان : {postdetail.city}{" "}
+                </div>
+              </div>
+
+              <div>
+                <div className="Officecardinfo">
+                  {" "}
+                  آدرس : {postdetail.address}{" "}
+                </div>
+              </div>
+
+              <div>
+                <div className="Officecardinfo">تلفن : {postdetail.phone}</div>
+                <div className="Officecardinfo">
+                  حمل و نقل : {postdetail.transport}
+                </div>
+                <div className="Officecardinfo"></div>
+              </div>
+              {/* button for calender */}
+              <div className="card clinicCard ">
+                <div className="card-header">
+                  <h5 className="mb-0 ">
+                    <button
+                      className="calenderButton"
+                      onClick={() => this.toggle(postdetail.id)}
+                    >
+                      وقت دهی آنلاین
+                    </button>
+                  </h5>
+                </div>
+
+                <Collapse
+                  isOpen={this.state.officIdCollapse[postdetail.id]}
+                  onEntering={console.log(
+                    this.state.officIdCollapse[postdetail.id]
+                  )}
+                >
+                  {this.state.officIdCollapse[postdetail.id] === true ? (
+                    <div className="card-body">
+                      <ClinicTime />
+                    </div>
+                  ) : null}
+                </Collapse>
+              </div>
+            </div>
+          );
+        })}
         <button
           className="newoffice"
           id="1-1"
@@ -126,4 +126,43 @@ export default class OfficeList extends Component {
       </div>
     );
   }
+}
+{
+  /* 
+              <div className="card clinicCard">
+                <div className="card-header" id="headingOne">
+                  <h5 className="mb-0">
+                    <button
+                      className="calenderButton"
+                      //  type="button"
+                      data-toggle="collapse"
+                      data-target={"#Collapsible" + postdetail.id}
+                      onClick={(e) => {
+                        sessionStorage.setItem("officeid", postdetail.id);
+
+                        var a = postdetail.id;
+                        this.state.isOpen[postdetail.id] = true;
+                        {
+                          this.collapseFunc();
+                        }
+                      }}
+                      aria-expanded="true"
+                      aria-controls={"Collapsible" + postdetail.id}
+                    >
+                      وقت دهی آنلاین
+                    </button>
+                  </h5>
+                </div>
+
+                <div
+                  id={"Collapsible" + postdetail.id}
+                  className="collapse"
+                  aria-labelledby="headingOne"
+                >
+                  <div className="card-body">
+                    <ClinicTime />
+                    {this.collapseFunc()}
+                  </div>
+                </div>
+              </div> */
 }

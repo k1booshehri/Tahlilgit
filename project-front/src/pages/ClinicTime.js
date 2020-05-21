@@ -15,7 +15,7 @@ import "react-big-calendar/lib/sass/styles.scss";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.scss";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 const localizer = momentLocalizer(moment); //defining localizer
 
 const DragAndDropCalendar = withDragAndDrop(Calendar); //making calender a DND
@@ -35,12 +35,15 @@ export default class ClinicTime extends Component {
       getEvents: [], // events that are get from get request
       isClicked: false,
       is: false,
+      isModal: false,
+      eDel: null,
     };
 
     this.handleSelect = this.handleSelect.bind(this);
     this.onSelectEvent = this.onSelectEvent.bind(this);
     this.parsingInformation = this.parsingInformation.bind(this);
     this.ChangeSavedEventsFormat = this.ChangeSavedEventsFormat.bind(this);
+    this.onModal = this.onModal.bind(this);
   }
 
   // called when solt(s) are selected, where post request happens
@@ -112,7 +115,6 @@ export default class ClinicTime extends Component {
       )
       .then((res) => {
         if (res.status === 200) {
-          alert("زمان جدید ثبت شد");
           this.setState({ isClicked: true });
           this.getItems(); // call get request after post to show the latest added event
         }
@@ -124,14 +126,14 @@ export default class ClinicTime extends Component {
       });
   };
 
-  async componentWillMount() {
-    await this.getItems();
-    console.log("hi");
+  componentDidMount() {
+    this.getItems();
+    //console.log("hi");
   }
 
   // get request for showing events in database
-  async getItems() {
-    await fetch(
+  getItems() {
+    fetch(
       "http://localhost:8000/api/timesview/?officeid=" +
         sessionStorage.getItem("officeid"), //sending office id
       {
@@ -182,7 +184,7 @@ export default class ClinicTime extends Component {
         opacity: 1,
         //  color: "black",
         border: "0px",
-        fontSize: "1em",
+        fontSize: "1.2em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -190,12 +192,12 @@ export default class ClinicTime extends Component {
     }
     if (e.reservetime === null) {
       var style = {
-        // backgroundColor: "#e1f5fe",
+        backgroundColor: "#0277bd",
         // borderRadius: "0px",
         opacity: 1,
         // color: "black",
         border: "0px",
-        fontSize: "1em",
+        fontSize: "1.2em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -226,38 +228,38 @@ export default class ClinicTime extends Component {
   tooltipAccessor(e) {
     return null;
   }
-
+  onModal(e) {
+    this.setState({ isModal: true, eDel: e });
+  }
   //called when an event is clicked , used for deleting
   onSelectEvent(e) {
-    const r = window.confirm("Would you like to remove this event?");
-    this.setState({ is: false });
+    //const r = window.confirm("Would you like to remove this event?");
+    this.setState({ is: false, isModal: false });
 
     // delete request for deleting an event in database
-    if (r === true) {
-      axios
-        .delete(
-          "http://localhost:8000/api/time/?timeid=" + e.id,
+    //  if (r === true) {
+    axios
+      .delete(
+        "http://localhost:8000/api/time/?timeid=" + this.state.eDel.id,
 
-          {
-            headers: {
-              "content-type": "application/json",
-              Authorization: "token " + sessionStorage.getItem("token"), //doctor's token
-            },
-          }
-        )
-        .then((res) => {
-          if (res.status === 200) {
-            alert("موفقیت آمیز بود");
-
-            this.getItems(); // call get request after post to show the latest added event
-          }
-        })
-        .catch(function (error) {
-          if (error.response) {
-            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
-          }
-        });
-    }
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"), //doctor's token
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          this.getItems(); // call get request after post to show the latest added event
+        }
+      })
+      .catch(function (error) {
+        if (error.response) {
+          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+        }
+      });
+    //  }
     // if (r === true) {
     //   //remove chosen event from events
     //   var removeIndex = this.state.events
@@ -279,7 +281,7 @@ export default class ClinicTime extends Component {
 
   resizeEvent = ({ event, start, end }) => {
     this.setState({ is: false });
-    console.log(start, end);
+    // console.log(start, end);
     axios
       .put(
         "http://localhost:8000/api/time/?timeid=" + event.id,
@@ -297,8 +299,6 @@ export default class ClinicTime extends Component {
       .then((res) => {
         if (res.status === 200) {
           this.getItems();
-
-          alert("موفقیت آمیز بود");
         }
       })
       .catch(function (error) {
@@ -322,36 +322,58 @@ export default class ClinicTime extends Component {
   };
 
   render() {
-    console.log("hi");
-    return (
-      <div className="Clinic__App">
-        <DragAndDropCalendar
-          selectable={"ignoreEvents"} // doesnt let one slot being selected twice
-          resizable={true}
-          localizer={localizer}
-          events={this.state.getEvents} // events to be shown
-          // step={30}
-          timeslots={1}
-          views={["week"]}
-          toolbar={true}
-          min={minTime}
-          max={maxTime}
-          defaultDate={new Date()} // shaded column
-          defaultView="week"
-          startAccessor="start"
-          endAccessor="end"
-          // titleAccessor="id"
-          onEventDrop={this.moveEvent}
-          tooltipAccessor={this.tooltipAccessor}
-          onEventResize={this.resizeEvent}
-          onDragStart={console.log}
-          eventPropGetter={this.eventPropGetter}
-          slotPropGetter={this.slotPropGetter}
-          dayPropGetter={this.dayPropGetter}
-          onSelectEvent={this.onSelectEvent}
-          onSelectSlot={this.handleSelect}
-        />
-      </div>
-    );
+    if (this.state.isModal) {
+      return (
+        <div>
+          <Modal isOpen={this.state.isModal} toggle={this.onModal}>
+            <ModalBody className="modalbodCalender">
+              آیا می خواهید این وقت را لغو کنید؟
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.onSelectEvent}>
+                بله
+              </Button>{" "}
+              <Button
+                color="secondary"
+                onClick={() => this.setState({ isModal: false })}
+              >
+                خیر
+              </Button>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    } else if (!this.state.isModal) {
+      return (
+        <div className="Clinic__App">
+          <DragAndDropCalendar
+            selectable={"ignoreEvents"} // doesnt let one slot being selected twice
+            resizable={true}
+            localizer={localizer}
+            events={this.state.getEvents} // events to be shown
+            // step={30}
+            timeslots={1}
+            views={["week"]}
+            toolbar={true}
+            min={minTime}
+            max={maxTime}
+            defaultDate={new Date()} // shaded column
+            defaultView="week"
+            startAccessor="start"
+            endAccessor="end"
+            // titleAccessor="id"
+            onEventDrop={this.moveEvent}
+            tooltipAccessor={this.tooltipAccessor}
+            onEventResize={this.resizeEvent}
+            onDragStart={console.log}
+            eventPropGetter={this.eventPropGetter}
+            slotPropGetter={this.slotPropGetter}
+            dayPropGetter={this.dayPropGetter}
+            onSelectEvent={this.onModal}
+            onSelectSlot={this.handleSelect}
+          />
+        </div>
+      );
+    }
   }
 }
