@@ -22,7 +22,7 @@ export default class DoctorProfile extends Component {
 
   updatedrChat(items) {
     this.setState({ DrChat: items });
-    console.log(localStorage.getItem("DrOnChatUsername"))
+  
   }
   updatedrmsgs(items) {
     this.setState({ DrChat: items });
@@ -33,7 +33,7 @@ export default class DoctorProfile extends Component {
            
         return(
           <div>
-          <h3 class="header">گفتگو</h3>
+        
           <div class="chat">
 
 

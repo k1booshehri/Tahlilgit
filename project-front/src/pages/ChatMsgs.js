@@ -59,6 +59,7 @@ componentWillUnmount() {
               this.parsingInformation(res);
             })
             .then((res) => {this.props.data.updatedrmsgs(res)})
+            .then( window.history.replaceState(null, "", "/PatientDashboard/" + "doctorid=" + localStorage.getItem("DrOnChatUsername")))
             .catch((error) => console.error("Error:", error));
         
       }
@@ -121,7 +122,9 @@ componentWillUnmount() {
 
           {this.state.drid=== postdetail.sender ? (
              <div class="incoming_msg">
-              <div class="incoming_msg_img"> <img src={avatar} alt="sunil"/> </div>
+              <div class="incoming_msg_img">
+                 <img src={avatar} alt="sunil"/>
+                  </div>
               <div class="received_msg">
                 <div class="received_withd_msg">
                   <p>{postdetail.message}</p>
@@ -159,6 +162,7 @@ componentWillUnmount() {
             name="current_message"
             value={this.state.current_message}
             onChange={this.handleChange}
+            autoComplete = "off"
           />
 
 

@@ -13,17 +13,27 @@ import PersonIcon from "@material-ui/icons/Person";
 import ChatBubble from "@material-ui/icons/ChatBubble";
 import DrProfileView from "./DrProfileView";
 import Chat from "./Chat";
+import Notif from "@material-ui/icons/Notifications";
+import Notifications from "./Notif";
+import Popup from "reactjs-popup";
+
 
 class PatientDashboard extends Component {
   constructor() {
     super();
-    this.state = { eventKeyChanged: false };
+    this.state = { eventKeyChanged: false,
+      modalOpen: false,
+      update: '', };
     this.navOnClick = this.navOnClick.bind(this);
     this.ChatComponentOnCLick=this.ChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");
+  }
+  updatenotif(items) {
+    this.setState({ update: items });
+    
   }
 
   navOnClick(e) {
@@ -39,6 +49,17 @@ class PatientDashboard extends Component {
    localStorage.setItem("DrOnChatUsername", 'null');
    this.setState({ eventKeyChanged: true });
   }
+  state = {
+   
+ }
+
+ handleModalOpen = () => {
+    this.setState((prevState) => {
+       return{
+          modalOpen: !prevState.modalOpen
+       }
+    })
+ }
   render() {
     return (
       <div className="dashboard">
@@ -82,7 +103,35 @@ class PatientDashboard extends Component {
             >
             گفتگو ها     <ChatBubble></ChatBubble>
             </a>
+      {/*************************************************/} 
+      <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
+       اعلانات <Notif></Notif>
+         
+        </button>
+ 
           </nav>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+          <div class="modalheader">
+       
+         <button  type="button" class="close modalheader" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <Notifications   data={{
+            update: this.state.update,
+            updatenotif: this.updatenotif.bind(this),
+            
+          }}updateState={this.navOnClick} ></Notifications>
+      </div>
+     
+         </div>
+      </div>
+     </div>
+      {/*************************************************/}      
+         
           {/* up navbar ends */}
           {/* conditions starts */}
           {localStorage.getItem("eventKey") === "5" ? (
@@ -125,6 +174,7 @@ class PatientDashboard extends Component {
                 <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما
               </span>
             </a>
+           
           </nav>
           {/* down navbar ends */}
         </div>

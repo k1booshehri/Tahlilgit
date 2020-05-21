@@ -21,7 +21,7 @@ export default class DoctorProfile extends Component {
 
   updatedrChat(items) {
     this.setState({ DrChat: items });
-    console.log(localStorage.getItem("PatientOnChatUsername"))
+  
   }
   updatedrmsgs(items) {
     this.setState({ DrChat: items });
@@ -31,10 +31,8 @@ export default class DoctorProfile extends Component {
           render(){
            
         return(
-          <div>
-          <h3 class="header">گفتگو</h3>
-          <div class="chat">
-
+      
+         
 
           <div>
             <DrChatList 
@@ -70,8 +68,7 @@ export default class DoctorProfile extends Component {
         
           )}
           </div>
-          </div>
-    </div>
+         
           
          
            )}}

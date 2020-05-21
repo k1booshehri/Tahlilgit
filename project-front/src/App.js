@@ -25,6 +25,7 @@ import EditDrProfile from "./pages/EditDrProfile";
 import chat from "./pages/Chat";
 import Drchat from "./pages/DrChat";
 import test from "./pages/test";
+import Notif from "./pages/Notif";
 
 class App extends Component {
   render() {
@@ -56,6 +57,7 @@ class App extends Component {
           <Route exact path="/chat" component={chat}></Route>
           <Route exact path="/test" component={test}></Route>
           <Route exact path="/Drchat" component={Drchat}></Route>
+          <Route exact path="/Notif" component={Notif}></Route>
           
         </div>
       </Router>

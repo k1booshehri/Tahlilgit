@@ -9,6 +9,8 @@ import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
 import MailIcon from "@material-ui/icons/Mail";
 import DrChat from "./DrChat";
 import ChatBubble from "@material-ui/icons/ChatBubble";
+import Notif from "@material-ui/icons/Notifications";
+import Notifications from "./Notif";
 
 import {
   HashRouter as Router,
@@ -24,7 +26,7 @@ import EditDrProfile from "./EditDrProfile";
 class DrDashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { eventKeyChanged: false };
+    this.state = { eventKeyChanged: false , update: '', };
     this.navOnClick = this.navOnClick.bind(this);
     this.DrChatComponentOnCLick=this.DrChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
@@ -32,6 +34,11 @@ class DrDashboard extends Component {
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");
   }
+  updatenotif(items) {
+    this.setState({ update: items });
+ 
+  }
+
 
   navOnClick(e) {
     let target = e.target.id;
@@ -43,7 +50,8 @@ class DrDashboard extends Component {
     let target = e.target.id;
     localStorage.setItem("eventKey", target);
     this.setState({ eventKeyChanged: true });
-   localStorage.setItem("PatientOnChatUsername", 'null');
+    localStorage.setItem("PatientOnChatUsername", 'null');
+ 
   
   }
   render() {
@@ -89,7 +97,36 @@ class DrDashboard extends Component {
             >
             گفتگو ها     <ChatBubble></ChatBubble>
             </a>
+
+          
+          {/*************************************************/} 
+      <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
+       اعلانات <Notif></Notif>
+         
+        </button>
+ 
           </nav>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+          <div class="modalheader">
+       
+         <button  type="button" class="close modalheader" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <Notifications   data={{
+            update: this.state.update,
+            updatenotif: this.updatenotif.bind(this),
+            
+          }}updateState={this.navOnClick} ></Notifications>
+      </div>
+     
+         </div>
+      </div>
+     </div>
+      {/*************************************************/}     
           {/* up navbar ends */}
           {/* conditions starts */}
           {localStorage.getItem("eventKey") === "5" ? (

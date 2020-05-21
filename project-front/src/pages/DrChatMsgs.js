@@ -159,6 +159,7 @@ componentWillUnmount() {
             name="current_message"
             value={this.state.current_message}
             onChange={this.handleChange}
+            autoComplete = "off"
           />
 
 
