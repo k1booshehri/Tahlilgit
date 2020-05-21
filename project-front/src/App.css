@@ -1221,6 +1221,7 @@ grid-row-end: 190;
   color: white;
   padding-bottom: 12px;
   outline: none;
+  margin-top: 8px;
 }
 .modalheader{
   margin-right: 3px;
@@ -1238,7 +1239,7 @@ grid-row-end: 190;
   margin-top: 6px;
   border-radius: 4px;
   color: white;
-
+  cursor: pointer;
 
 }
 .notif3{
@@ -1247,7 +1248,7 @@ grid-row-end: 190;
   margin-top: 6px;
   border-radius: 4px;
   color: white;
-
+  cursor: pointer;
 
 }
 .notif4{
@@ -1255,6 +1256,7 @@ grid-row-end: 190;
   padding: 5px;
   margin-top: 6px;
   border-radius: 4px;
+  cursor: pointer;
   
   color: white;
 
@@ -1267,7 +1269,15 @@ grid-row-end: 190;
   
   border-radius: 4px;
   color: white;
+  cursor: pointer;
+}
+.notifbadge {
 
+  
+  padding: 0px 8px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.678);
+  color: white;
 }
 .notif1:hover {
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);

@@ -24,7 +24,7 @@ class PatientDashboard extends Component {
     super();
     this.state = { eventKeyChanged: false,
       modalOpen: false,
-      update: '', };
+      update: 0, };
     this.navOnClick = this.navOnClick.bind(this);
     this.ChatComponentOnCLick=this.ChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
@@ -61,6 +61,8 @@ class PatientDashboard extends Component {
        }
     })
  }
+
+ 
   render() {
     return (
       <div className="dashboard">
@@ -105,10 +107,16 @@ class PatientDashboard extends Component {
             گفتگو ها     <ChatBubble></ChatBubble>
             </a>
       {/*************************************************/} 
+   <div >
       <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
-       اعلانات <Notif></Notif>
-         
+     
+   
+      <span class="notifbadge">{this.state.update}</span>
+       <Notif></Notif>
+      
         </button>
+       
+        </div>
  
           </nav>
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

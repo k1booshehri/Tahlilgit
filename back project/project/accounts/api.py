@@ -1,6 +1,8 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3,UpdateSerializer ,RateSerializer, RateUpdateSerializer,ChatTableSerializer,ChatContentSerializer
+from .models import office, User,ChatContent,ChatTable
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer, TimeSerializer, TimeSetSerializer, TimeShowSerializer
 from .models import office, User, TimeTable
 from django.db.models import Q
@@ -181,6 +183,11 @@ class RateSetAPI(generics.GenericAPIView):
         })
 
 
+class ChatAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = ChatContentSerializer
 class TimeAPI(generics.GenericAPIView):
     permission_classes = [
         permissions.IsAuthenticated,
@@ -192,6 +199,7 @@ class TimeAPI(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response({"done"})
+     
 
     def delete(self, request, format=None):
         pk = request.query_params.get('timeid')

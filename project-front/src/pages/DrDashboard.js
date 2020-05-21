@@ -26,7 +26,7 @@ import EditDrProfile from "./EditDrProfile";
 class DrDashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { eventKeyChanged: false , update: '', };
+    this.state = { eventKeyChanged: false , update:0, };
     this.navOnClick = this.navOnClick.bind(this);
     this.DrChatComponentOnCLick=this.DrChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
@@ -100,10 +100,16 @@ class DrDashboard extends Component {
 
           
           {/*************************************************/} 
+          <div >
       <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
-       اعلانات <Notif></Notif>
-         
+     
+   
+      <span class="notifbadge">{this.state.update}</span>
+       <Notif></Notif>
+      
         </button>
+       
+        </div>
  
           </nav>
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, office, Rates, TimeTable
+from .models import User, office, Rates,ChatContent,ChatTable,Notif
 from django.contrib.auth import authenticate
 import datetime
 # user serializer
@@ -144,6 +144,39 @@ class RateUpdateSerializer(serializers.Serializer):
 
         return off
 
+class ChatContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatContent
+        fields = ('id', 'message', 'time', 'sender')
+
+    def create(self, validated_data):
+        q = self.context['request']
+        t = ChatTable.objects.get(src=self.context['request'].user, dest=User.objects.get(
+            pk=q.query_params.get('destid')))
+        N = Notif.objects.create(notiftype="3", was_seen="no", notifmessage="یک پیام دارید", rec=User.objects.get(
+            pk=q.query_params.get('destid')))
+        user = ChatContent.objects.create(
+            message=validated_data['message'], table=t, time=datetime.datetime.now(), sender=self.context['request'].user)
+
+        return user
+
+
+class UserSerializer4(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'pp')
+
+
+class ChatListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatTable
+        fields = ('id', 'destusername', 'destpp', 'destid')
+
+
+class NotifSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notif
+        fields = ('id', 'notiftype', 'was_seen', 'notifmessage', 'rec')
 
 class TimeSerializer(serializers.ModelSerializer):
     class Meta:

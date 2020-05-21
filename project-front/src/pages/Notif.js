@@ -11,10 +11,19 @@ export default class Notif extends Component {
           Notifs: [],
         };
         this.notifonclick = this.notifonclick.bind(this);
-        this.redirectnotifs = this.redirectnotifs.bind(this);
+        this.redirectnotif = this.redirectnotif.bind(this);
+       
     }
     notifonclick(){
         this.state.Notifs =[];
+        this.props.data.updatenotif(0)
+
+    }
+    redirectnotif(e){
+      
+      this.props.updateState(e);
+      localStorage.setItem("DrOnChatUsername", 'null');
+      localStorage.setItem("PatientOnChatUsername", 'null');
 
     }
 
@@ -27,11 +36,7 @@ export default class Notif extends Component {
           localStorage.setItem("notificatians" , null)
       }
 
-      redirectnotifs(e){
-      
-        this.props.updateState(e);
-
-      }
+     
       
       componentWillUnmount() {
         clearInterval(this.interval);
@@ -51,21 +56,21 @@ export default class Notif extends Component {
             .then((res) => {
               this.parsingInformation(res);
             })
-            .then((res)=>{
-                this.props.data.updatenotif(res);
-              })
-        
-           
+            
             .catch((error) => console.error("Error:", error));
         
       }
 
       parsingInformation(res) {
         var information = res;
+        console.log(information.notifs);
        
         if(Object.entries(information.notifs).length !== 0){
       this.state.Notifs.push(information.notifs);
-       console.log(this.state.Notifs);}
+       console.log(this.state.Notifs);
+       this.props.data.updatenotif(Object.entries(information.notifs).length)
+       console.log(Object.entries(information.notifs).length);
+      }
     
         
       }
@@ -86,29 +91,30 @@ export default class Notif extends Component {
             
          
             
-            <div className="notif1" >
-                im a notification :))) 
+            <div className="notif1" onClick={this.redirectnotif}   id="1">
+                {val.notifmessage}
             </div>
            
 
           ):( val.notiftype=== "2" ? (
-            <div className="notif2" >
+            <div className="notif2" onClick={this.redirectnotif}   id="1">
            
-           im another notification :)
+           {val.notifmessage}
             </div>
 
             ) : ( val.notiftype=== "3" ? (
       
-              <div className="notif3" onClick={this.redirectnotifs}   id="5"  >
+              <div className="notif3" onClick={this.redirectnotif}   id="5"  >
                
-               im another :)
+               {val.notifmessage}
+               
                 </div>
              
                 ) : (
                 
-                    <div className="notif4" >
+                    <div className="notif4" onClick={this.redirectnotif}   id="1">
            
-                    and another another :)
+           {val.notifmessage}
                      </div>
              
                 ) 
