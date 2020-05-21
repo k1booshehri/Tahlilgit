@@ -74,7 +74,7 @@ export default class Drlist extends Component {
   
       />*/
 
-      <div className = "backgrounddrlist">
+      <div className="backgrounddrlist">
         <Filter
           data={{
             Drlist: this.state.Drlist,
@@ -120,6 +120,16 @@ export default class Drlist extends Component {
                 
               <button id="2-2" onClick={this.ChatButtonOnClick}   name={postdetail.id}   className="locationbutton">گفتگو</button>
           
+                <button
+                  className="locationbutton"
+                  id="6"
+                  /* if profile button is clicked ProfileButtonOnClick is called */
+                  onClick={this.ProfileButtonOnClick}
+                  name={postdetail.username}
+                  variant="primary"
+                >
+                  وقت گیری آنلاین
+                </button>
               </div>
             );
           })}
