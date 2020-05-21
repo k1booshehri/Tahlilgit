@@ -326,6 +326,7 @@
 .clinicButton:hover {
   background: rgb(174, 198, 214);
 }
+
 .titleOffice {
   color: rgb(49, 48, 48);
   font-size: 18px;
@@ -1031,9 +1032,28 @@
   margin-top: 5%;
   color: #000000;
 }
+.CalenDrop {
+  width: 100%;
+  height: 100%;
+  font-size: 1.6em;
+  font-weight: 300;
+
+  text-align: right;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 1px;
+  background: rgba(216, 210, 210, 0.04);
+
+  border-radius: 0.3em;
+  margin-right: 4%;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  /* border: 2px solid rgba(216, 210, 210, 0.04); */
+}
 
 .CalenContainer {
-  width: 1000px;
+  width: 70%;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
@@ -1052,12 +1072,8 @@
   color: #002a4b;
   text-align: right;
 }
-.modalYButton {
-  color: #013963;
-  font-size: 1.5em;
-}
-.modalNButton {
+/* .clinicFormInput::placeholder {
   color: black;
-  font-size: 1em;
-}
+} */
+
 /* clinic calender css ends */

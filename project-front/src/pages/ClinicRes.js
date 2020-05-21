@@ -12,6 +12,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/sass/styles.scss";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const localizer = momentLocalizer(moment); //defining localizer
 
@@ -33,6 +34,8 @@ export default class ClinicRes extends Component {
       city: "",
       isClicked: false,
       is: false,
+      isModal: false,
+      eDel: null,
     };
 
     this.parsingCitiesInformation = this.parsingCitiesInformation.bind(this);
@@ -41,6 +44,8 @@ export default class ClinicRes extends Component {
     this.parsingClinicsEvents = this.parsingClinicsEvents.bind(this);
     this.ChangeSavedEventsFormat = this.ChangeSavedEventsFormat.bind(this);
     this.onSelectEvent = this.onSelectEvent.bind(this);
+    this.removeDuplicates = this.removeDuplicates.bind(this);
+    this.onModal = this.onModal.bind(this);
   }
 
   //events CSS
@@ -52,7 +57,7 @@ export default class ClinicRes extends Component {
         opacity: 1,
         //  color: "black",
         border: "0px",
-        fontSize: "1.2em",
+        fontSize: "1.1em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -65,7 +70,7 @@ export default class ClinicRes extends Component {
         opacity: 1,
         // color: "black",
         border: "0px",
-        fontSize: "1.2em",
+        fontSize: "1.1em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -99,9 +104,18 @@ export default class ClinicRes extends Component {
     let clinicInfo = res;
     this.state.clinicInfo = clinicInfo.offices;
     this.state.clinicCities = this.state.clinicInfo.map((e) => e.city);
+    this.state.clinicCities = this.removeDuplicates(this.state.clinicCities);
     //console.log(this.state.clinicCities);
   }
-
+  removeDuplicates(array) {
+    let a = [];
+    array.map((x) => {
+      if (!a.includes(x)) {
+        a.push(x);
+      }
+    });
+    return a;
+  }
   componentDidMount() {
     this.getItems();
   }
@@ -145,13 +159,21 @@ export default class ClinicRes extends Component {
   }
   createSelectItems() {
     let items = [];
-    for (let i = 0; i <= this.state.clinicCities.length; i++) {
+    items.push(
+      <option value="" disabled selected hidden>
+        استان مطب را انتخاب کنید
+      </option>
+    );
+    for (let i = 0; i < this.state.clinicCities.length; i++) {
+      //  if (items.includes(this.state.clinicCities[i]) === false)
+      //console.log(items.includes(this.state.clinicCities[i]));
       items.push(
         <option key={i} value={this.state.clinicCities[i]}>
           {this.state.clinicCities[i]}
         </option>
       );
     }
+
     // console.log(items);
     return items;
   }
@@ -185,115 +207,135 @@ export default class ClinicRes extends Component {
     };
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
-  //called when an event is clicked , used for reserving
-  onSelectEvent(e) {
-    console.log(e.reservetime);
-    //the event is reserved
+
+  onModal(e) {
     if (e.reservetime !== null) {
-      this.setState({ isClicked: false });
-
-      const r = window.confirm("Would you like to cancel this event?");
-      if (r === true) {
-        axios
-          .put(
-            "http://localhost:8000/api/timecancel/?timeid=" + e.id,
-            {},
-            {
-              headers: {
-                "content-type": "application/json",
-                Authorization: "token " + sessionStorage.getItem("token"),
-              },
-            }
-          )
-          .then((res) => {
-            if (res.status === 200) {
-              this.getEventItems();
-
-              alert("موفقیت آمیز بود");
-            }
-          })
-          .catch(function (error) {
-            if (error.response) {
-              alert("موفقیت آمیز نبود . دوباره امتحان کنید");
-            }
-          });
-      }
+      this.setState({ isModal: true, eDel: e });
     }
-    //the event is not reserved
     if (e.reservetime === null) {
+      this.state.eDel = e;
+      this.onSelectEvent();
+    }
+  }
+
+  onSelectEvent(e) {
+    if (this.state.eDel.reservetime !== null) {
+      this.setState({ isClicked: false, isModal: false });
+
+      axios
+        .put(
+          "http://localhost:8000/api/timecancel/?timeid=" + this.state.eDel.id,
+          {},
+          {
+            headers: {
+              "content-type": "application/json",
+              Authorization: "token " + sessionStorage.getItem("token"),
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            this.getEventItems();
+          }
+        })
+        .catch(function (error) {
+          if (error.response) {
+            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+          }
+        });
+    }
+    if (this.state.eDel.reservetime === null) {
       this.setState({ isClicked: false });
 
-      const r = window.confirm("Would you like to reserve this event?");
-      if (r === true) {
-        axios
-          .put(
-            "http://localhost:8000/api/timeset/?timeid=" + e.id,
-            {},
-            {
-              headers: {
-                "content-type": "application/json",
-                Authorization: "token " + sessionStorage.getItem("token"),
-              },
-            }
-          )
-          .then((res) => {
-            if (res.status === 200) {
-              this.getEventItems();
-
-              alert("موفقیت آمیز بود");
-            }
-          })
-          .catch(function (error) {
-            if (error.response) {
-              alert("موفقیت آمیز نبود . دوباره امتحان کنید");
-            }
-          });
-      }
+      axios
+        .put(
+          "http://localhost:8000/api/timeset/?timeid=" + this.state.eDel.id,
+          {},
+          {
+            headers: {
+              "content-type": "application/json",
+              Authorization: "token " + sessionStorage.getItem("token"),
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            this.getEventItems();
+          }
+        })
+        .catch(function (error) {
+          if (error.response) {
+            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+          }
+        });
     }
   }
 
   render() {
-    return (
-      <div className="CalenContainer">
-        <div className="FormField3">
-          <label className="clinicFormLable" htmlFor="city">
-            استان مطب را انتخاب کنید
-          </label>
-          <select
-            value={this.state.city}
-            onChange={this.handleDropChange}
-            required
-            className="clinicFormInput"
-            id="city"
-            name="city"
-          >
-            {this.createSelectItems()}
-          </select>
+    if (this.state.isModal) {
+      return (
+        <div>
+          <Modal isOpen={this.state.isModal}>
+            <ModalBody className="modalbodCalender">
+              آیا می خواهید این وقت را لغو کنید؟
+            </ModalBody>
+            <ModalFooter>
+              <Button color="primary" onClick={this.onSelectEvent}>
+                بله
+              </Button>{" "}
+              <Button
+                color="secondary"
+                onClick={() => this.setState({ isModal: false })}
+              >
+                خیر
+              </Button>
+            </ModalFooter>
+          </Modal>
         </div>
-
-        <div className="Clinic__App_Res">
-          <Calendar
-            localizer={localizer}
-            events={this.state.getEvents} // events to be shown
-            // step={30}
-            timeslots={1}
-            views={["week"]}
-            toolbar={true}
-            min={minTime}
-            max={maxTime}
-            defaultDate={new Date()} // shaded column
-            defaultView="week"
-            startAccessor="start"
-            endAccessor="end"
-            //titleAccessor="id"
-            tooltipAccessor={this.tooltipAccessor}
-            eventPropGetter={this.eventPropGetter}
-            slotPropGetter={this.slotPropGetter}
-            dayPropGetter={this.dayPropGetter}
-            onSelectEvent={this.onSelectEvent}
-          />
+      );
+    } else if (!this.state.isModal) {
+      return (
+        <div className="CalenContainer">
+          <div className="card clinicCard ">
+            <div className="card-header">
+              <select
+                value={this.state.city}
+                onChange={this.handleDropChange}
+                required
+                className="CalenDrop"
+                id="city"
+                name="city"
+              >
+                {this.createSelectItems()}
+              </select>
+            </div>
+            <div className="card-body">
+              <div className="Clinic__App_Res">
+                <Calendar
+                  localizer={localizer}
+                  events={this.state.getEvents} // events to be shown
+                  // step={30}
+                  timeslots={1}
+                  views={["week"]}
+                  toolbar={true}
+                  min={minTime}
+                  max={maxTime}
+                  defaultDate={new Date()} // shaded column
+                  defaultView="week"
+                  startAccessor="start"
+                  endAccessor="end"
+                  //titleAccessor="id"
+                  tooltipAccessor={this.tooltipAccessor}
+                  eventPropGetter={this.eventPropGetter}
+                  slotPropGetter={this.slotPropGetter}
+                  dayPropGetter={this.dayPropGetter}
+                  onSelectEvent={this.onModal}
+                />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
