@@ -37,6 +37,7 @@ export default class ClinicTime extends Component {
       is: false,
       isModal: false,
       eDel: null,
+      hi: "hi",
     };
 
     this.handleSelect = this.handleSelect.bind(this);
@@ -371,6 +372,8 @@ export default class ClinicTime extends Component {
             dayPropGetter={this.dayPropGetter}
             onSelectEvent={this.onModal}
             onSelectSlot={this.handleSelect}
+            popup={false}
+            //  onShowMore={(events, date) => this.setState({ hi: "bye" })}
           />
         </div>
       );
