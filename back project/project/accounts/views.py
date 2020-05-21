@@ -67,6 +67,12 @@ def chats_list(request):
     if request.method == 'GET':
         chats = ChatTable.objects.filter(src=request.user)
         serializer = ChatListSerializer(chats, many=True)
+def time_detail(request):
+    if request.method == 'GET':
+        times = TimeTable.objects.filter(
+            doctor=User.objects.get(username=request.GET.get('doctorusername', None)))
+        times = times.filter(office__city=request.GET.get('city', None))
+        serializer = TimeShowSerializer(times, many=True)
         return Response({"info": serializer.data})
 
 
@@ -87,3 +93,9 @@ def notif_get(request):
         data = serializer.data
         num.update(was_seen="yes")
         return Response({"notifs": data})
+def time_view(request):
+    if request.method == 'GET':
+        times = TimeTable.objects.filter(
+            office=office.objects.get(pk=request.query_params.get('officeid')))
+        serializer = TimeShowSerializer(times, many=True)
+        return Response({"info": serializer.data})
