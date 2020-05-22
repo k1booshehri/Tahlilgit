@@ -22,11 +22,9 @@ import ClinicRes from "./ClinicRes";
 class PatientDashboard extends Component {
   constructor() {
     super();
-    this.state = { eventKeyChanged: false,
-      modalOpen: false,
-      update: 0, };
+    this.state = { eventKeyChanged: false, modalOpen: false, update: 0 };
     this.navOnClick = this.navOnClick.bind(this);
-    this.ChatComponentOnCLick=this.ChatComponentOnCLick.bind(this);
+    this.ChatComponentOnCLick = this.ChatComponentOnCLick.bind(this);
     localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
@@ -34,7 +32,6 @@ class PatientDashboard extends Component {
   }
   updatenotif(items) {
     this.setState({ update: items });
-    
   }
 
   navOnClick(e) {
@@ -42,27 +39,22 @@ class PatientDashboard extends Component {
     localStorage.setItem("eventKey", target);
 
     this.setState({ eventKeyChanged: true });
-   
   }
-  ChatComponentOnCLick(e){
+  ChatComponentOnCLick(e) {
     let target = e.target.id;
     localStorage.setItem("eventKey", target);
-   localStorage.setItem("DrOnChatUsername", 'null');
-   this.setState({ eventKeyChanged: true });
+    localStorage.setItem("DrOnChatUsername", "null");
+    this.setState({ eventKeyChanged: true });
   }
-  state = {
-   
- }
 
- handleModalOpen = () => {
+  handleModalOpen = () => {
     this.setState((prevState) => {
-       return{
-          modalOpen: !prevState.modalOpen
-       }
-    })
- }
+      return {
+        modalOpen: !prevState.modalOpen,
+      };
+    });
+  };
 
- 
   render() {
     return (
       <div className="dashboard">
@@ -104,43 +96,55 @@ class PatientDashboard extends Component {
               onClick={this.ChatComponentOnCLick}
               id="5"
             >
-            گفتگو ها     <ChatBubble></ChatBubble>
+              گفتگو ها <ChatBubble></ChatBubble>
             </a>
-      {/*************************************************/} 
-   <div >
-      <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
-     
-   
-      <span class="notifbadge">{this.state.update}</span>
-       <Notif></Notif>
-      
-        </button>
-       
-        </div>
- 
+            {/*************************************************/}
+            <div>
+              <button
+                className="notifbutton "
+                type="button"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                <span class="notifbadge">{this.state.update}</span>
+                <Notif></Notif>
+              </button>
+            </div>
           </nav>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog" role="document">
-         <div class="modal-content">
-          <div class="modalheader">
-       
-         <button  type="button" class="close modalheader" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <Notifications   data={{
-            update: this.state.update,
-            updatenotif: this.updatenotif.bind(this),
-            
-          }}updateState={this.navOnClick} ></Notifications>
-      </div>
-     
-         </div>
-      </div>
-     </div>
-      {/*************************************************/}      
-         
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modalheader">
+                  <button
+                    type="button"
+                    class="close modalheader"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <Notifications
+                    data={{
+                      update: this.state.update,
+                      updatenotif: this.updatenotif.bind(this),
+                    }}
+                    updateState={this.navOnClick}
+                  ></Notifications>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/*************************************************/}
+
           {/* up navbar ends */}
           {/* conditions starts */}
           {localStorage.getItem("eventKey") === "5" ? (
@@ -148,7 +152,7 @@ class PatientDashboard extends Component {
           ) : (
             <p> </p>
           )}
-         
+
           {localStorage.getItem("eventKey") === "2" ? (
             <Drlist updateState={this.navOnClick} />
           ) : (
@@ -160,7 +164,7 @@ class PatientDashboard extends Component {
             <p> </p>
           )}
           {localStorage.getItem("eventKey") === "2-2" ? (
-            <Chat  onClick={this.navOnClick}/>
+            <Chat onClick={this.navOnClick} />
           ) : (
             <p> </p>
           )}
@@ -184,7 +188,6 @@ class PatientDashboard extends Component {
                 <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما
               </span>
             </a>
-           
           </nav>
           {/* down navbar ends */}
         </div>
