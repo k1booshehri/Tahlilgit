@@ -43,3 +43,30 @@ class Rates (models.Model):
         User, on_delete=models.CASCADE, related_name='patient')
 
     doctorusername = models.CharField(null=True, max_length=30)
+
+class ChatTable (models.Model):
+    src = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='src')
+    dest = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='dest')
+    destusername = models.CharField(null=True, max_length=30)
+    destpp = models.TextField(null=True)
+    destid = models.CharField(null=True, max_length=30)
+
+class ChatContent (models.Model):
+    time = models.DateTimeField(null=True)
+    message = models.TextField(null=True)
+    table = models.ForeignKey(
+        ChatTable, on_delete=models.CASCADE, related_name='table')
+    sender = models.TextField(null=True)
+
+class TimeTable (models.Model):
+    start = models.DateTimeField(null=True)
+    end = models.DateTimeField(null=True)
+    reservetime = models.DateTimeField(null=True)
+    doctor = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='doctor2')
+    patient = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='patient2', null=True)
+    office = models.ForeignKey(
+        office, on_delete=models.CASCADE, related_name='office2')

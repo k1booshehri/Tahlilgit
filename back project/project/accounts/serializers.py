@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import User, office, Rates
+from .models import User, office, Rates,ChatContent,ChatTable,Notif
 from django.contrib.auth import authenticate
-
+import datetime
 # user serializer
 
 
@@ -9,14 +9,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'birth', 'gender', 'f_name', 'l_name',
-                  'phone', 'insurance', 'city','pp')
+                  'phone', 'insurance', 'city', 'pp')
 
 
 class UserSerializer2(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'birth', 'gender', 'f_name', 'l_name',
-                  'phone', 'edu', 'code', 'activetime', 'field', 'insurance','pp')
+                  'phone', 'edu', 'code', 'activetime', 'field', 'insurance', 'pp')
 
 # office creation serializer
 
@@ -82,10 +82,10 @@ class UserSerializer3(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'gender', 'f_name',
-                  'l_name', 'edu', 'activetime', 'field','pp')
+                  'l_name', 'edu', 'activetime', 'field', 'pp')
 
 
-#update serializer
+# update serializer
 class UpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -117,7 +117,6 @@ class UpdateSerializer(serializers.ModelSerializer):
         return instance
 
 
-
 class RateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Rates
@@ -144,3 +143,74 @@ class RateUpdateSerializer(serializers.Serializer):
             username=validated_data['doctorusername'], defaults={'rate': rate},)
 
         return off
+
+class ChatContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatContent
+        fields = ('id', 'message', 'time', 'sender')
+
+    def create(self, validated_data):
+        q = self.context['request']
+        t = ChatTable.objects.get(src=self.context['request'].user, dest=User.objects.get(
+            pk=q.query_params.get('destid')))
+        N = Notif.objects.create(notiftype="3", was_seen="no", notifmessage="یک پیام دارید", rec=User.objects.get(
+            pk=q.query_params.get('destid')))
+        user = ChatContent.objects.create(
+            message=validated_data['message'], table=t, time=datetime.datetime.now(), sender=self.context['request'].user)
+
+        return user
+
+
+class UserSerializer4(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'pp')
+
+
+class ChatListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChatTable
+        fields = ('id', 'destusername', 'destpp', 'destid')
+
+
+class NotifSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notif
+        fields = ('id', 'notiftype', 'was_seen', 'notifmessage', 'rec')
+
+class TimeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeTable
+        fields = ('id', 'start', 'end', 'reservetime')
+
+    def create(self, validated_data):
+        p = self.context['request'].user
+        q = self.context['request']
+
+        cr = TimeTable.objects.create(
+            start=validated_data['start'], end=validated_data['end'], doctor=p, office=office.objects.get(
+                pk=q.query_params.get('officeid')))
+
+        return cr
+
+
+class TimeShowSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeTable
+        fields = ('id', 'start', 'end', 'reservetime', 'office')
+
+
+class TimeSetSerializer(serializers.Serializer):
+    def update(self, instance, validated_data):
+        instance.reservetime = datetime.datetime.now()
+        instance.patient = self.context['request'].user
+        instance.save()
+        return instance
+
+
+class TimeCancelSerializer(serializers.Serializer):
+    def update(self, instance, validated_data):
+        instance.reservetime = None
+        instance.patient = None
+        instance.save()
+        return instance

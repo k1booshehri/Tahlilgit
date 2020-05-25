@@ -1,7 +1,1 @@
--Modify Rate feature
-
--deleted DrRating.js
--Add rating code to DrProfileView.js
--Handle post request for rate
--Add read only rate component to and drlists
--Save patient token from sign up and sign in
+Starting chat 

@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorsViewset, FilterViewset,RateSetAPI
+from .api import RegisterAPI, LoginAPI, UserAPI, RegisterAPI2, UserAPI2, OfficeAPI, DoctorsViewset, OfficeViewSet, DoctorsViewset, FilterViewset, RateSetAPI, TimeSetAPI, TimeAPI, TimeCancelAPI
 from knox import views as knox_views
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
@@ -19,8 +19,19 @@ urlpatterns = [
     path('api/auth/offices/id=<id>/',
          OfficesViewset.as_view({'get': 'list'})),
     path('api/auth/update-user', UpdateAPI.as_view()),
-     path('filter/',
+    path('filter/',
          FilterViewset.as_view()),
     path('api/auth/setrate/', RateSetAPI.as_view()),
     path('user/username=<str:username>', views.user_detail),
+    path('api/ptgetchat/', views.chats_starta),
+    path('api/drgetchat/', views.chats_startb),
+    path('api/chatlist', views.chats_list),
+    path('api/sendchat/', ChatAPI.as_view()),
+    path('api/notifnum', views.notif_num),
+    path('api/notifget', views.notif_get),
+    path('api/time/', TimeAPI.as_view()),
+    path('api/times/', views.time_detail),
+    path('api/timesview/', views.time_view),
+    path('api/timeset/', TimeSetAPI.as_view()),
+    path('api/timecancel/', TimeCancelAPI.as_view())
 ]

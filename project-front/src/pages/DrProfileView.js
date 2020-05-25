@@ -35,8 +35,9 @@ export default class DrProfileView extends Component {
       transportResultString: "",
       parkResultString: "",
       rate: "",
-      image : "",
+      image: "",
       rating: 0,
+      isStateSet: false,
     };
     this.onStarClick = this.onStarClick.bind(this);
     this.parsingInformation = this.parsingInformation.bind(this);
@@ -48,11 +49,18 @@ export default class DrProfileView extends Component {
     // initializing this states with responses
     this.state.drInfo = information.user;
     this.state.clinicInfo = information.offices;
+    //conditions for education value
+    let persianEdu = "";
+    if (this.state.drInfo.edu === "phd") {
+      persianEdu = "دکتری";
+    } else if (this.state.drInfo.edu === "masters") {
+      persianEdu = "کارشناسی ارشد";
+    }
     this.state.f_name = this.state.drInfo.f_name;
     this.state.l_name = this.state.drInfo.l_name;
     this.state.email = this.state.drInfo.email;
     this.state.field = this.state.drInfo.field;
-    this.state.edu = this.state.drInfo.edu;
+    this.state.edu = persianEdu;
     this.state.gender = this.state.drInfo.gender;
     this.state.activetime = this.state.drInfo.activetime;
     this.state.rate = this.state.drInfo.rate;
@@ -106,7 +114,8 @@ export default class DrProfileView extends Component {
       )
       .then((res) => {
         if (res.status === 200) {
-          this.setState({ rating: currentValue });
+          alert("امتیاز شما ثبت شد");
+          this.setState({ rating: currentValue, isStateSet: true });
         }
       })
       .catch(function (error) {
@@ -119,93 +128,130 @@ export default class DrProfileView extends Component {
   }
 
   render() {
-    return (
-      <div className="DrProfileView">
-        <div className="infoWrap">
-          {/* showing doctor info  */}
+    if (this.state.isStateSet === true) {
+      // redirect to dashboard if signed up
+      localStorage.setItem("eventKey", "2");
+      return <Redirect to={{ pathname: "/PatientDashboard" }} />;
+    }
+    if (!this.state.isStateSet) {
+      return (
+        <div className="DrProfileView">
+          <div>
+            {/* showing doctor info  */}
 
-          <img className='tc br3' alt='none' src={ this.state.image }className="avatar" />
-          <Rating value={this.state.rate} readOnly></Rating>
-          <div className="nameDisplay"></div>
-
-          <div className="nameInfoTable">
-            <div class="nameTableRow">
-              <div class="nameCompleteTableCell">
-                {this.state.f_name + " " + this.state.l_name}
-              </div>
-            </div>
-          </div>
-
-          <div className="infoTable1">
-            <div class="tableRow1">
-              <div class="leftTableCell">{this.state.field}</div>
-              <div class="rightTableCell">تخصص</div>
-            </div>
-            <div class="tableRow1">
-              <div class="leftTableCell">{this.state.edu}</div>
-              <div class="rightTableCell">تحصیلات</div>
-            </div>
-            <div class="tableRow1">
-              <div class="leftTableCell">{this.state.startYear}</div>
-              <div class="rightTableCell">شروع فعالیت</div>
-            </div>
-          </div>
-        </div>
-
-        {/* showing clinics info  */}
-        {this.state.clinicInfo.map((postdetail, index) => {
-          return (
-            <div className="infoWrap">
-              <div className="infoTable0">
-                {" "}
-                <div className="tableRow0">
-                  <div class="completeTableCell0">مطب</div>
+            <div className="nameInfoTable">
+              <div class="nameTableRow">
+                <div class="nameleftTableCell">
+                  {this.state.image !== null ? (
+                    <img
+                      className="tc br3"
+                      alt="none"
+                      src={this.state.image}
+                      className="ProfileViewAvatar"
+                    />
+                  ) : (
+                    <img src={avatar} className="avatar" />
+                  )}
                 </div>
-              </div>
-              <div className="infoTable1">
-                <div className="tableRow1">
-                  <div class="leftTableCell">{postdetail.city}</div>
-                  <div class="rightTableCell">استان</div>
-                </div>
-                <div className="tableRow1">
-                  <div class="leftTableCell">{postdetail.address}</div>
-                  <div class="rightTableCell">آدرس</div>
-                </div>
-                <div className="tableRow1">
-                  <div class="leftTableCell">{postdetail.phone}</div>
-                  <div class="rightTableCell">شماره ی مطب</div>
-                </div>
-              </div>
-              <div className="infoTable2">
-                <div className="tableRow2">
-                  <div class="completeTableCell1">اطلاعات تکمیلی</div>
-                </div>
-              </div>
-              <div className="infoTable3">
-                <div className="tableRow3">
-                  {this.extraClinicInfo(postdetail.transport, postdetail.park)}
-                  <div class="completeTableCell2">
-                    <ul className="infoList">
-                      <li className="listItem">
-                        {this.state.transportResultString}
-                      </li>
-
-                      <li>{this.state.parkResultString}</li>
-                    </ul>
+                <div class="namerightTableCell">
+                  <div className="nameDisplay">
+                    {this.state.f_name + " " + this.state.l_name}
+                  </div>
+                  <div>
+                    <Rating
+                      className="DrProfileViewStar"
+                      value={this.state.rate}
+                      size="small"
+                      readOnly
+                    ></Rating>
                   </div>
                 </div>
               </div>
-
-              <StarRatingComponent
-                name="rating"
-                starCount={5}
-                value={this.state.rating}
-                onStarClick={this.onStarClick}
-              />
             </div>
-          );
-        })}
-      </div>
-    );
+
+            <div className="infoTable1">
+              <div class="tableRow1">
+                <div class="leftTableCell">{this.state.field}</div>
+                <div class="rightTableCell">تخصص</div>
+              </div>
+              <div class="tableRow1">
+                <div class="leftTableCell">{this.state.edu}</div>
+                <div class="rightTableCell">تحصیلات</div>
+              </div>
+              <div class="tableRow1">
+                <div class="leftTableCell">{this.state.startYear}</div>
+                <div class="rightTableCell">شروع فعالیت</div>
+              </div>
+            </div>
+          </div>
+
+          {this.state.clinicInfo.map((postdetail, index) => {
+            return (
+              <div className="infoWrap">
+                <div className="infoTable0">
+                  {" "}
+                  <div className="tableRow0">
+                    <div class="completeTableCell0">اطلاعات مطب</div>
+                  </div>
+                </div>
+                <div className="infoTable1">
+                  <div className="tableRow1">
+                    <div class="leftTableCell">{postdetail.city}</div>
+                    <div class="rightTableCell">استان</div>
+                  </div>
+                  <div className="tableRow1">
+                    <div class="leftTableCell">{postdetail.address}</div>
+                    <div class="rightTableCell">آدرس</div>
+                  </div>
+                  <div className="tableRow1">
+                    <div class="leftTableCell">{postdetail.phone}</div>
+                    <div class="rightTableCell">شماره ی مطب</div>
+                  </div>
+                </div>
+                <div className="infoTable2">
+                  <div className="tableRow2">
+                    <div class="completeTableCell1">توضیحات</div>
+                  </div>
+                </div>
+                <div className="infoTable3">
+                  <div className="tableRow3">
+                    {this.extraClinicInfo(
+                      postdetail.transport,
+                      postdetail.park
+                    )}
+                    <div class="completeTableCell2">
+                      <ul className="infoList">
+                        <li className="listItem">
+                          {this.state.transportResultString}
+                        </li>
+
+                        <li>{this.state.parkResultString}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <div className="infoTableRating">
+            <div className="tableRowRating">
+              <div class="leftTableCellRating">
+                {" "}
+                <div>
+                  <StarRatingComponent
+                    className="Rating"
+                    name="rating"
+                    starCount={5}
+                    value={this.state.rating}
+                    onStarClick={this.onStarClick}
+                  />
+                </div>
+              </div>
+              <div class="rightTableCellRating">امتیاز خود را ثبت کنید</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
