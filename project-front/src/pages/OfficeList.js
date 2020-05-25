@@ -63,7 +63,11 @@ export default class OfficeList extends Component {
           return (
             <div key={postdetail.id} className="Drofficecard">
               <div className="officecardtitle">
-                <div> {postdetail.info}</div>
+                <div>
+                  {" "}
+                  {postdetail.info}
+                  {/* {postdetail.title} */}
+                </div>
               </div>
 
               <div>
