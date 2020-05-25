@@ -15,6 +15,7 @@ import DoctorSignInForm from "./pages/DoctorSignInForm";
 import Drlist from "./pages/Drlists";
 
 import "./App.css";
+import "./App.scss";
 import DrDashboard from "./pages/DrDashboard";
 import PatientDashboard from "./pages/PatientDashboard";
 import ClinicForm from "./pages/ClinicForm";
@@ -22,8 +23,12 @@ import OfficeList from "./pages/OfficeList";
 import DrProfileView from "./pages/DrProfileView";
 import DoctorProfile from "./pages/DoctorProfile";
 import EditDrProfile from "./pages/EditDrProfile";
-
-
+import chat from "./pages/Chat";
+import Drchat from "./pages/DrChat";
+import test from "./pages/test";
+import Notif from "./pages/Notif";
+import ClinicTime from "./pages/ClinicTime";
+import ClinicRes from "./pages/ClinicRes";
 
 class App extends Component {
   render() {
@@ -47,12 +52,18 @@ class App extends Component {
 
           <Route exact path="/DrDashboard" component={DrDashboard}></Route>
           <Route exact path="/OfficeList" component={OfficeList}></Route>
-
+          <Route exact path="/DrList" component={Drlist}></Route>
           <Route exact path="/ClinicForm" component={ClinicForm}></Route>
           <Route exact path="/DrProfileView" component={DrProfileView}></Route>
           <Route exact path="/DoctorProfile" component={DoctorProfile}></Route>
           <Route exact path="/EditDrProfile" component={EditDrProfile}></Route>
-         
+          <Route exact path="/chat" component={chat}></Route>
+          <Route exact path="/test" component={test}></Route>
+          <Route exact path="/Drchat" component={Drchat}></Route>
+          <Route exact path="/Notif" component={Notif}></Route>
+          
+          <Route exact path="/ClinicTime" component={ClinicTime}></Route>
+          <Route exact path="/ClinicRes" component={ClinicRes}></Route>
         </div>
       </Router>
     );

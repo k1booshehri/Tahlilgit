@@ -1,8 +1,10 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer
-from .models import office, User
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3,UpdateSerializer ,RateSerializer, RateUpdateSerializer,ChatTableSerializer,ChatContentSerializer
+from .models import office, User,ChatContent,ChatTable
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, RegisterSerializer2, UserSerializer2, OfficeSerializer, UserSerializer3, RateSerializer, RateUpdateSerializer, TimeSerializer, TimeSetSerializer, TimeShowSerializer
+from .models import office, User, TimeTable
 from django.db.models import Q
 import operator
 import functools
@@ -111,7 +113,6 @@ class UserAPI2(generics.RetrieveAPIView):
         return self.request.user
 
 
-
 class FilterViewset(generics.ListAPIView):
 
     queryset = User.objects.all()
@@ -142,9 +143,11 @@ class FilterViewset(generics.ListAPIView):
             qset1 = functools.reduce(operator.__or__, [Q(f_name_icontains=query) | Q(
                 l_name__icontains=query) for query in esm])
             queryset = queryset.filter(qset1).distinct()
-        return queryset        
+        return queryset
 
-#update api
+# update api
+
+
 class UpdateAPI(generics.GenericAPIView):
     permission_classes = [
         permissions.IsAuthenticated,
@@ -159,8 +162,6 @@ class UpdateAPI(generics.GenericAPIView):
         return Response({
             "user updated"
         })
-        
-
 
 
 class RateSetAPI(generics.GenericAPIView):
@@ -179,4 +180,77 @@ class RateSetAPI(generics.GenericAPIView):
         on = perializer.save()
         return Response({
             "Rate": RateSerializer(off, context=self.get_serializer_context()).data
+        })
+
+
+class ChatAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = ChatContentSerializer
+class TimeAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = TimeSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({"done"})
+     
+
+    def delete(self, request, format=None):
+        pk = request.query_params.get('timeid')
+        if TimeTable.objects.get(pk=request.query_params.get('timeid')).patient is not None:
+            N = Notif.objects.create(notiftype="4", was_seen="no", notifmessage="یک وقت کنسل شد", rec=User.objects.get(
+                pk=TimeTable.objects.get(pk=request.query_params.get('timeid')).patient.pk))
+        snippet = TimeTable.objects.get(pk=pk)
+        snippet.delete()
+        return Response({"done"})
+
+    def put(self, request, *args, **kwargs):
+        p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "time updated"
+        })
+
+
+class TimeSetAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = TimeSetSerializer
+
+    def put(self, request, *args, **kwargs):
+        p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        N = Notif.objects.create(notiftype="1", was_seen="no", notifmessage="یک وقت رزرو شد", rec=User.objects.get(
+            pk=TimeTable.objects.get(pk=request.query_params.get('timeid')).doctor.pk))
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "time added"
+        })
+
+
+class TimeCancelAPI(generics.GenericAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = TimeCancelSerializer
+
+    def put(self, request, *args, **kwargs):
+        p = TimeTable.objects.get(pk=request.query_params.get('timeid'))
+        N = Notif.objects.create(notiftype="2", was_seen="no", notifmessage="یک وقت کنسل شد", rec=User.objects.get(
+            pk=TimeTable.objects.get(pk=request.query_params.get('timeid')).doctor.pk))
+        serializer = self.get_serializer(p, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "time cancelled"
         })

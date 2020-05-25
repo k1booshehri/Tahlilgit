@@ -111,12 +111,13 @@ export default class Filtering extends Component {
 
   render() {
     return (
-      <div className=" sidenav t">
+     
+     <div className=" sidenav ">
         {/*************************/}
 
-        <div className="filteringlable">: جستجو</div>
+        <div className="filteringlable"> جستجو</div>
         <label className="Filtering__Label" htmlFor="rate">
-          : اسم و فامیل
+           اسم و فامیل
         </label>
         <input
           id="contains"
@@ -127,12 +128,12 @@ export default class Filtering extends Component {
           onChange={this.handleChange}
         />
 
-        <div className="filteringlable">: دسته بندی </div>
+        <div className="filteringlable"> دسته بندی </div>
 
         {/*****************************/}
         <form onSubmit={this.handleSubmit}>
           <label className="Filtering__Label" htmlFor="city">
-            : استان
+             استان
           </label>
           <select
             value={this.state.city}
@@ -178,7 +179,7 @@ export default class Filtering extends Component {
           {/*********************************/}
 
           <label htmlFor="gender" className="Filtering__Label">
-            : جنسیت
+             جنسیت
           </label>
           <select
             className="Filtering__Input"
@@ -195,7 +196,7 @@ export default class Filtering extends Component {
           {/*******************************/}
 
           <label htmlFor="field" className="Filtering__Label">
-            : تخصص
+             تخصص
           </label>
           <select
             name="field"
@@ -221,7 +222,7 @@ export default class Filtering extends Component {
           {/**********************************/}
 
           <label className="Filtering__Label" htmlFor="rate">
-            : امتیاز
+           امتیاز
           </label>
           <input
             id="rate"
@@ -232,9 +233,10 @@ export default class Filtering extends Component {
             onChange={this.handleChange}
           />
           {/**************/}
-          <button className="Filtering__Button mr-20">جستجو</button>
+          <button className=" Filtering__Button">جستجو</button>
         </form>
       </div>
+     
     );
   }
 }

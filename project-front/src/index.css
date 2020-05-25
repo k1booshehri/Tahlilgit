@@ -1,5 +1,7 @@
 @import url("https://fonts.google.com/specimen/Jomhuria/?subset=arabic");
 @import url("https://fonts.googleapis.com/css2?family=Lateef&display=swap");
+/* @import "react-big-calendar/lib/sass/styles";
+@import "react-big-calendar/lib/css/react-big-calendar.css"; */
 
 * {
   box-sizing: border-box;
