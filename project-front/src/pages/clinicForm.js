@@ -15,6 +15,7 @@ export default class ClinicForm extends Component {
     this.state = {
       address: "",
       city: "",
+      title: "",
       phone: "",
       park: "",
       transport: "",
@@ -64,6 +65,7 @@ export default class ClinicForm extends Component {
           park: this.state.park,
           transport: this.state.transport,
           info: this.state.info,
+          //title : this.state.title,
         },
         {
           headers: {
@@ -103,6 +105,21 @@ export default class ClinicForm extends Component {
               برای ثبت مطب جدید اطلاعات زیر را تکمیل کنید
             </p>
             <hr className="divider__clinic"></hr>
+            <div className="FormField3">
+              <label className="clinicFormLable" htmlFor="title">
+                نام مطب خود را وارد کنید
+              </label>
+              <input
+                type="text"
+                className="clinicFormInput"
+                id="title"
+                name="title"
+                placeholder="نام مطب"
+                value={this.state.title}
+                onChange={this.handleChange}
+                required
+              />
+            </div>
             <div className="FormField3">
               <label className="clinicFormLable" htmlFor="address">
                 آدرس مطب خود را وارد کنید
