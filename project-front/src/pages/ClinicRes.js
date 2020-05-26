@@ -53,10 +53,10 @@ export default class ClinicRes extends Component {
     if (e.reservetime !== null) {
       var style = {
         backgroundColor: "#f48fb1",
-        // borderRadius: "0px",
+        borderRadius: "0px",
         opacity: 1,
-        //  color: "black",
-        border: "0px",
+        border: "1px solid rgba(0, 0, 0, 0.048)",
+
         fontSize: "1.1em",
         width: "100%",
         display: "inline-block",
@@ -66,10 +66,10 @@ export default class ClinicRes extends Component {
     if (e.reservetime === null) {
       var style = {
         backgroundColor: "#0277bd",
-        // borderRadius: "0px",
+        borderRadius: "0px",
         opacity: 1,
-        // color: "black",
-        border: "0px",
+        border: "1px solid black",
+
         fontSize: "1.1em",
         width: "100%",
         display: "inline-block",
@@ -204,6 +204,7 @@ export default class ClinicRes extends Component {
       id: e.id,
       patient: e.patient,
       reservetime: e.reservetime,
+      //title: e.title,
     };
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
@@ -324,7 +325,7 @@ export default class ClinicRes extends Component {
                   defaultView="week"
                   startAccessor="start"
                   endAccessor="end"
-                  //titleAccessor="id"
+                  //titleAccessor="title"
                   tooltipAccessor={this.tooltipAccessor}
                   eventPropGetter={this.eventPropGetter}
                   slotPropGetter={this.slotPropGetter}
