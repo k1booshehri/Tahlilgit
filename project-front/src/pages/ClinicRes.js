@@ -9,6 +9,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import InfoIcon from "@material-ui/icons/Info";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/sass/styles.scss";
@@ -36,6 +37,7 @@ export default class ClinicRes extends Component {
       is: false,
       isModal: false,
       eDel: null,
+      info: false,
     };
 
     this.parsingCitiesInformation = this.parsingCitiesInformation.bind(this);
@@ -55,7 +57,7 @@ export default class ClinicRes extends Component {
         backgroundColor: "#f48fb1",
         borderRadius: "0px",
         opacity: 1,
-        border: "1px solid rgba(0, 0, 0, 0.048)",
+        border: "1px solid black",
 
         fontSize: "1.1em",
         width: "100%",
@@ -273,29 +275,29 @@ export default class ClinicRes extends Component {
   }
 
   render() {
-    if (this.state.isModal) {
-      return (
-        <div>
-          <Modal isOpen={this.state.isModal}>
-            <ModalBody className="modalbodCalender">
-              آیا می خواهید این وقت را لغو کنید؟
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.onSelectEvent}>
-                بله
-              </Button>{" "}
-              <Button
-                color="secondary"
-                onClick={() => this.setState({ isModal: false })}
-              >
-                خیر
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </div>
-      );
-    } else if (!this.state.isModal) {
-      return (
+    return (
+      <div>
+        {" "}
+        <button
+          className="calenInfoButton"
+          onClick={() => this.setState({ info: true })}
+        >
+          {/* <InfoIcon fontSize="large"></InfoIcon> */}
+          اطلاعات بیشتر
+        </button>
+        <Modal isOpen={this.state.info}>
+          <ModalBody className="modalbodCalender">
+            آیا می خواهید این وقت را لغو کنید؟
+          </ModalBody>
+          <ModalFooter>
+            <Button
+              color="secondary"
+              onClick={() => this.setState({ info: false })}
+            >
+              بستن
+            </Button>
+          </ModalFooter>
+        </Modal>
         <div className="CalenContainer">
           <div className="card clinicCard ">
             <div className="card-header">
@@ -336,7 +338,23 @@ export default class ClinicRes extends Component {
             </div>
           </div>
         </div>
-      );
-    }
+        <Modal isOpen={this.state.isModal}>
+          <ModalBody className="modalbodCalender">
+            آیا می خواهید این وقت را لغو کنید؟
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.onSelectEvent}>
+              بله
+            </Button>{" "}
+            <Button
+              color="secondary"
+              onClick={() => this.setState({ isModal: false })}
+            >
+              خیر
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
   }
 }
