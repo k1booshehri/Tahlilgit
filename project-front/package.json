@@ -33,6 +33,6 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "homepage": "."
+    "homepage": "myravanyar.ir"
   }
 }
