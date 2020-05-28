@@ -52,14 +52,26 @@ export default class Notif extends Component {
 
   parsingInformation(res) {
     var information = res;
-    console.log(information.notifs);
+  
+   this.state.Notifs = JSON.parse(localStorage.getItem('notifications'))
+   console.log(this.state.Notifs );
+   this.props.data.updatenotif(this.state.Notifs.length);
 
     if (Object.entries(information.notifs).length !== 0) {
+     
       this.state.Notifs.push(information.notifs);
-      console.log(this.state.Notifs);
+     
+      localStorage.setItem("notifications", JSON.stringify(this.state.Notifs))
+      
       this.props.data.updatenotif(this.state.Notifs.length);
-      console.log(Object.entries(information.notifs).length);
+     
+     
     }
+
+    this.state.Notifs = JSON.parse(localStorage.getItem('notifications'));
+  
+
+
   }
 
   render() {
