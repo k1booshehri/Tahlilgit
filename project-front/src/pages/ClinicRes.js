@@ -16,7 +16,6 @@ import "react-big-calendar/lib/sass/styles.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const localizer = momentLocalizer(moment); //defining localizer
-
 //example for min and max of the calender
 const minTime = new Date();
 minTime.setHours(12, 0, 0);
@@ -37,7 +36,6 @@ export default class ClinicRes extends Component {
       is: false,
       isModal: false,
       eDel: null,
-      info: false,
     };
 
     this.parsingCitiesInformation = this.parsingCitiesInformation.bind(this);
@@ -277,27 +275,6 @@ export default class ClinicRes extends Component {
   render() {
     return (
       <div>
-        {" "}
-        <button
-          className="calenInfoButton"
-          onClick={() => this.setState({ info: true })}
-        >
-          {/* <InfoIcon fontSize="large"></InfoIcon> */}
-          اطلاعات بیشتر
-        </button>
-        <Modal isOpen={this.state.info}>
-          <ModalBody className="modalbodCalender">
-            آیا می خواهید این وقت را لغو کنید؟
-          </ModalBody>
-          <ModalFooter>
-            <Button
-              color="secondary"
-              onClick={() => this.setState({ info: false })}
-            >
-              بستن
-            </Button>
-          </ModalFooter>
-        </Modal>
         <div className="CalenContainer">
           <div className="card clinicCard ">
             <div className="card-header">
@@ -312,7 +289,16 @@ export default class ClinicRes extends Component {
                 {this.createSelectItems()}
               </select>
             </div>
+
             <div className="card-body">
+              <div>
+                <ul className="moreInfoCalenList">
+                  <li>.شهر مورد نظر خود را برای رزرو وقت انتخاب کنید</li>
+                  <li>.برای رزرو یک وقت روی آن کلیک کنید</li>
+                  <li>.برای لغو کردن یک وقت روی آن کلیک کنید</li>
+                </ul>
+              </div>
+              <hr className="divider__calenFromInfo"></hr>
               <div className="Clinic__App_Res">
                 <Calendar
                   localizer={localizer}

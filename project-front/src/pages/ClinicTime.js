@@ -325,6 +325,17 @@ export default class ClinicTime extends Component {
   render() {
     return (
       <div>
+        <div>
+          <ul className="moreInfoCalenList">
+            <li>.برای ثبت وقت جدید یک بازه ی زمانی را روی تقویم مشخص کنید</li>
+            <li>.برای پاک کردن یک وقت روی آن کلیک کنید</li>
+            <li>
+              .می توانید با تغییر زمان شروع و پایان یک وقت روی تقویم بازه ی
+              زمانی آن را تغییر دهید
+            </li>
+          </ul>
+        </div>
+        <hr className="divider__calenFromInfo"></hr>
         <div className="Clinic__App">
           <DragAndDropCalendar
             selectable={"ignoreEvents"} // doesnt let one slot being selected twice
