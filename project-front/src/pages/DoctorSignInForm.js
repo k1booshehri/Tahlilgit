@@ -38,7 +38,7 @@ class DoctorSignInForm extends Component {
 
     axios
       .post(
-        "http://localhost:8000/api/auth/login",
+        "http://myravanyar.ir/api/auth/login",
         { username: this.state.username, password: this.state.password },
         { headers: { "content-type": "application/json" } }
       )
