@@ -51,30 +51,38 @@ export default class Notif extends Component {
   }
 
   parsingInformation(res) {
-    var information = res;
   
-   this.state.Notifs = JSON.parse(localStorage.getItem('notifications'))
-   console.log(this.state.Notifs );
-   this.props.data.updatenotif(this.state.Notifs.length);
+    var information = res;
+    if (information!== null){
 
+   this.state.Notifs = JSON.parse(localStorage.getItem('notifications'))
+
+   console.log(this.state.Notifs );
+   
+   this.props.data.updatenotif(this.state.Notifs.length);
+   
     if (Object.entries(information.notifs).length !== 0) {
      
       this.state.Notifs.push(information.notifs);
+
+     
      
       localStorage.setItem("notifications", JSON.stringify(this.state.Notifs))
       
       this.props.data.updatenotif(this.state.Notifs.length);
-     
+      
      
     }
 
     this.state.Notifs = JSON.parse(localStorage.getItem('notifications'));
-  
+    console.log(this.state.Notifs );
 
 
   }
+}
 
   render() {
+    if (this.state.Notifs !== null){
     return (
       <div className="notifs">
         {Object.keys(this.state.Notifs).map((key) => {
@@ -111,5 +119,16 @@ export default class Notif extends Component {
         </button>
       </div>
     );
+  } 
+  if(this.state.Notifs === null){
+    return( <button
+      type="button"
+      class="btn btn-secondary clearbutton"
+      onClick={this.notifonclick}
+    >
+      Clear
+    </button>)
   }
+}
+
 }

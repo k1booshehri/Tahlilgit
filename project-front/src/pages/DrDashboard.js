@@ -103,8 +103,8 @@ class DrDashboard extends Component {
           <div >
       <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
      
-   
-      <span class="notifbadge">{this.state.update}</span>
+      {(this.state.update !== 0 ?(
+                <span class="notifbadge">{this.state.update}</span> ) : ( <div></div> ))}
        <Notif></Notif>
       
         </button>
