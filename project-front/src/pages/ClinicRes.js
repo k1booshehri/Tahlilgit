@@ -9,13 +9,13 @@ import {
   Redirect,
 } from "react-router-dom";
 import { Calendar, momentLocalizer } from "react-big-calendar";
+import InfoIcon from "@material-ui/icons/Info";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/sass/styles.scss";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const localizer = momentLocalizer(moment); //defining localizer
-
 //example for min and max of the calender
 const minTime = new Date();
 minTime.setHours(12, 0, 0);
@@ -55,7 +55,7 @@ export default class ClinicRes extends Component {
         backgroundColor: "#f48fb1",
         borderRadius: "0px",
         opacity: 1,
-        border: "1px solid rgba(0, 0, 0, 0.048)",
+        border: "1px solid black",
 
         fontSize: "1.1em",
         width: "100%",
@@ -273,29 +273,8 @@ export default class ClinicRes extends Component {
   }
 
   render() {
-    if (this.state.isModal) {
-      return (
-        <div>
-          <Modal isOpen={this.state.isModal}>
-            <ModalBody className="modalbodCalender">
-              آیا می خواهید این وقت را لغو کنید؟
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.onSelectEvent}>
-                بله
-              </Button>{" "}
-              <Button
-                color="secondary"
-                onClick={() => this.setState({ isModal: false })}
-              >
-                خیر
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </div>
-      );
-    } else if (!this.state.isModal) {
-      return (
+    return (
+      <div>
         <div className="CalenContainer">
           <div className="card clinicCard ">
             <div className="card-header">
@@ -310,7 +289,16 @@ export default class ClinicRes extends Component {
                 {this.createSelectItems()}
               </select>
             </div>
+
             <div className="card-body">
+              <div>
+                <ul className="moreInfoCalenList">
+                  <li>.شهر مورد نظر خود را برای رزرو وقت انتخاب کنید</li>
+                  <li>.برای رزرو یک وقت روی آن کلیک کنید</li>
+                  <li>.برای لغو کردن یک وقت روی آن کلیک کنید</li>
+                </ul>
+              </div>
+              <hr className="divider__calenFromInfo"></hr>
               <div className="Clinic__App_Res">
                 <Calendar
                   localizer={localizer}
@@ -336,7 +324,23 @@ export default class ClinicRes extends Component {
             </div>
           </div>
         </div>
-      );
-    }
+        <Modal isOpen={this.state.isModal}>
+          <ModalBody className="modalbodCalender">
+            آیا می خواهید این وقت را لغو کنید؟
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.onSelectEvent}>
+              بله
+            </Button>{" "}
+            <Button
+              color="secondary"
+              onClick={() => this.setState({ isModal: false })}
+            >
+              خیر
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
   }
 }

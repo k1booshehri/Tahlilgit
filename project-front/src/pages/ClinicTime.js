@@ -181,10 +181,10 @@ export default class ClinicTime extends Component {
     if (e.reservetime !== null) {
       var style = {
         backgroundColor: "#f48fb1",
-        // borderRadius: "0px",
+        borderRadius: "0px",
         opacity: 1,
-        //  color: "black",
-        border: "0px",
+        border: "1px solid black",
+
         fontSize: "1.1em",
         width: "100%",
         display: "inline-block",
@@ -194,10 +194,10 @@ export default class ClinicTime extends Component {
     if (e.reservetime === null) {
       var style = {
         backgroundColor: "#0277bd",
-        // borderRadius: "0px",
+        borderRadius: "0px",
         opacity: 1,
-        // color: "black",
-        border: "0px",
+        border: "1px solid black",
+
         fontSize: "1.1em",
         width: "100%",
         display: "inline-block",
@@ -323,29 +323,19 @@ export default class ClinicTime extends Component {
   };
 
   render() {
-    if (this.state.isModal) {
-      return (
+    return (
+      <div>
         <div>
-          <Modal isOpen={this.state.isModal} toggle={this.onModal}>
-            <ModalBody className="modalbodCalender">
-              آیا می خواهید این وقت را لغو کنید؟
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.onSelectEvent}>
-                بله
-              </Button>{" "}
-              <Button
-                color="secondary"
-                onClick={() => this.setState({ isModal: false })}
-              >
-                خیر
-              </Button>
-            </ModalFooter>
-          </Modal>
+          <ul className="moreInfoCalenList">
+            <li>.برای ثبت وقت جدید یک بازه ی زمانی را روی تقویم مشخص کنید</li>
+            <li>.برای پاک کردن یک وقت روی آن کلیک کنید</li>
+            <li>
+              .می توانید با تغییر زمان شروع و پایان یک وقت روی تقویم بازه ی
+              زمانی آن را تغییر دهید
+            </li>
+          </ul>
         </div>
-      );
-    } else if (!this.state.isModal) {
-      return (
+        <hr className="divider__calenFromInfo"></hr>
         <div className="Clinic__App">
           <DragAndDropCalendar
             selectable={"ignoreEvents"} // doesnt let one slot being selected twice
@@ -376,7 +366,23 @@ export default class ClinicTime extends Component {
             //  onShowMore={(events, date) => this.setState({ hi: "bye" })}
           />
         </div>
-      );
-    }
+        <Modal isOpen={this.state.isModal} toggle={this.onModal}>
+          <ModalBody className="modalbodCalender">
+            آیا می خواهید این وقت را لغو کنید؟
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.onSelectEvent}>
+              بله
+            </Button>{" "}
+            <Button
+              color="secondary"
+              onClick={() => this.setState({ isModal: false })}
+            >
+              خیر
+            </Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+    );
   }
 }
