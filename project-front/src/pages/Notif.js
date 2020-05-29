@@ -14,7 +14,9 @@ export default class Notif extends Component {
   }
   notifonclick() {
     this.state.Notifs = [];
-    this.props.data.updatenotif(0);
+    
+    localStorage.setItem('notifications', JSON.stringify(this.state.Notifs))
+    console.log(localStorage.getItem('notifications'));
   }
   redirectnotif(e) {
     this.props.updateState(e);
@@ -27,7 +29,7 @@ export default class Notif extends Component {
       this.getItems();
     }, 1000);
 
-    localStorage.setItem("notificatians", null);
+   
   }
 
   componentWillUnmount() {
@@ -67,7 +69,7 @@ export default class Notif extends Component {
 
      
      
-      localStorage.setItem("notifications", JSON.stringify(this.state.Notifs))
+      localStorage.setItem('notifications', JSON.stringify(this.state.Notifs))
       
       this.props.data.updatenotif(this.state.Notifs.length);
       
