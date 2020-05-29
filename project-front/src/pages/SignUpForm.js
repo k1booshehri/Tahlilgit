@@ -52,11 +52,12 @@ class SignUpForm extends Component {
           f_name: this.state.f_name,
           l_name: this.state.l_name,
           username: this.state.username,
-          birth: this.state.birth,
-          gender: this.state.gender,
-          phone: this.state.phone,
-          insurance: this.state.insurance,
-          city: this.state.city,
+          // birth: this.state.birth,
+          // gender: this.state.gender,
+          // phone: this.state.phone,
+          // insurance: this.state.insurance,
+          // city: this.state.city,
+          email: this.state.email,
         },
         { headers: { "content-type": "application/json" } }
       )
@@ -155,7 +156,7 @@ class SignUpForm extends Component {
                     required
                   />
                 </div>
-
+                {/* 
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="birth">
                     تاریخ تولد خود را انتخاب کنید
@@ -274,7 +275,7 @@ class SignUpForm extends Component {
                     required
                     onChange={this.handleChange}
                   />
-                </div>
+                </div> */}
 
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="email">
