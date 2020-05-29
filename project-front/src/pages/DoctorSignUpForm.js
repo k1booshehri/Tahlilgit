@@ -49,20 +49,6 @@ class DoctorSignUpForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const data = {
-      email: this.state.email,
-      f_name: this.state.f_name,
-      l_name: this.state.l_name,
-      edu: this.state.edu,
-      gender: this.state.gender,
-      field: this.state.field,
-      birth: this.state.birth,
-      phone: this.state.phone,
-      password: this.state.password,
-      activetime: this.state.activetime,
-      username: this.state.username,
-      code: this.state.code,
-    };
 
     axios
       .post(
@@ -71,15 +57,15 @@ class DoctorSignUpForm extends Component {
           email: this.state.email,
           f_name: this.state.f_name,
           l_name: this.state.l_name,
-          edu: this.state.edu,
-          gender: this.state.gender,
-          field: this.state.field,
-          birth: this.state.birth,
-          phone: this.state.phone,
+          // edu: this.state.edu,
+          // gender: this.state.gender,
+          // field: this.state.field,
+          // birth: this.state.birth,
+          // phone: this.state.phone,
           password: this.state.password,
-          activetime: this.state.activetime,
+          // activetime: this.state.activetime,
           username: this.state.username,
-          code: this.state.code,
+          // code: this.state.code,
         },
         { headers: { "content-type": "application/json" } }
       )
@@ -157,7 +143,7 @@ class DoctorSignUpForm extends Component {
                     required
                   />
                 </div>
-                <div className="FormField">
+                {/* <div className="FormField">
                   <label htmlFor="gender" className="FormField__Label">
                     جنسیت خود را وارد کنید
                   </label>
@@ -189,17 +175,7 @@ class DoctorSignUpForm extends Component {
                   />
                 </div>
 
-                {/* <div className="custom-file">
-            <input
-              type="file"
-              className="custom-file-input"
-              id="pictureFile"
-              ref={this.fileInput}
-            />
-            <label className="custom-file-label" htmlFor="pictureFile">
-              عکس خود را انتخاب کنید
-            </label>
-          </div> */}
+             
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="phone">
                     شماره ی موبایل خود را وارد کنید
@@ -215,7 +191,7 @@ class DoctorSignUpForm extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                </div>
+                </div> */}
 
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="email">
@@ -247,7 +223,7 @@ class DoctorSignUpForm extends Component {
                     required
                   />
                 </div>
-                <div className="FormField">
+                {/* <div className="FormField">
                   <label htmlFor="edu" className="FormField__Label">
                     تحصیلات خود را انتخاب کنید
                   </label>
@@ -327,7 +303,7 @@ class DoctorSignUpForm extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                </div>
+                </div> */}
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="password">
                     رمز ورود
