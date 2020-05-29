@@ -35,7 +35,7 @@ export default class Notif extends Component {
   }
 
   getItems() {
-    fetch("http://localhost:8000/api/notifget", {
+    fetch("http://myravanyar.ir/api/notifget", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),

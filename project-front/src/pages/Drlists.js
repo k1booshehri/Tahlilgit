@@ -23,18 +23,16 @@ export default class Drlist extends Component {
   componentDidMount() {
     this.getItems();
   }
- 
- //if chat button is clicked
- 
-  ChatButtonOnClick(e){
-   
+
+  //if chat button is clicked
+
+  ChatButtonOnClick(e) {
     localStorage.setItem("DrOnChatUsername", e.target.name);
-    console.log(localStorage.getItem("DrOnChatUsername"))
-    
+    console.log(localStorage.getItem("DrOnChatUsername"));
+
     this.props.updateState(e);
   }
- 
- 
+
   // if a profile button from a card is clicked
   ProfileButtonOnClick(e) {
     //the username of that card is saved in sessionStorage
@@ -45,10 +43,8 @@ export default class Drlist extends Component {
     this.props.updateState(e);
   }
 
-
- 
   getItems() {
-    fetch("http://localhost:8000/filter/")
+    fetch("http://myravanyar.ir/api/filter/")
       .then((results) => results.json())
       .then((results) => this.setState({ Drlist: results }));
   }
@@ -117,9 +113,15 @@ export default class Drlist extends Component {
                   اطلاعات بیشتر
                 </button>
 
-                
-              <button id="2-2" onClick={this.ChatButtonOnClick}   name={postdetail.id}   className="locationbutton">گفتگو</button>
-          
+                <button
+                  id="2-2"
+                  onClick={this.ChatButtonOnClick}
+                  name={postdetail.id}
+                  className="locationbutton"
+                >
+                  گفتگو
+                </button>
+
                 <button
                   className="locationbutton"
                   id="6"

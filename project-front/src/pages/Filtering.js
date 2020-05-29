@@ -76,7 +76,7 @@ export default class Filtering extends Component {
 
     window.history.replaceState(null, "", "/PatientDashboard/" + p);
 
-    return fetch("http://localhost:8000/filter/?" + p, {})
+    return fetch("http://myravanyar.ir/api/filter/?" + p, {})
       .then((results) => results.json())
       .then((results) => this.props.data.updatedr(results));
 
@@ -111,13 +111,12 @@ export default class Filtering extends Component {
 
   render() {
     return (
-     
-     <div className=" sidenav ">
+      <div className=" sidenav ">
         {/*************************/}
 
         <div className="filteringlable"> جستجو</div>
         <label className="Filtering__Label" htmlFor="rate">
-           اسم و فامیل
+          اسم و فامیل
         </label>
         <input
           id="contains"
@@ -133,7 +132,7 @@ export default class Filtering extends Component {
         {/*****************************/}
         <form onSubmit={this.handleSubmit}>
           <label className="Filtering__Label" htmlFor="city">
-             استان
+            استان
           </label>
           <select
             value={this.state.city}
@@ -179,7 +178,7 @@ export default class Filtering extends Component {
           {/*********************************/}
 
           <label htmlFor="gender" className="Filtering__Label">
-             جنسیت
+            جنسیت
           </label>
           <select
             className="Filtering__Input"
@@ -196,7 +195,7 @@ export default class Filtering extends Component {
           {/*******************************/}
 
           <label htmlFor="field" className="Filtering__Label">
-             تخصص
+            تخصص
           </label>
           <select
             name="field"
@@ -222,7 +221,7 @@ export default class Filtering extends Component {
           {/**********************************/}
 
           <label className="Filtering__Label" htmlFor="rate">
-           امتیاز
+            امتیاز
           </label>
           <input
             id="rate"
@@ -236,7 +235,6 @@ export default class Filtering extends Component {
           <button className=" Filtering__Button">جستجو</button>
         </form>
       </div>
-     
     );
   }
 }

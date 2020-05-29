@@ -33,7 +33,7 @@ export default class OfficeList extends Component {
     this.setState({ isTog: isTog });
   }
   getItems() {
-    fetch("http://localhost:8000/api/auth/officelist", {
+    fetch("http://myravanyar.ir/api/auth/officelist", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),

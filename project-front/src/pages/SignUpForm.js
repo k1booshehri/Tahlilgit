@@ -46,7 +46,7 @@ class SignUpForm extends Component {
 
     axios
       .post(
-        "http://localhost:8000/api/auth/patient-register",
+        "http://myravanyar.ir/api/auth/patient-register",
         {
           password: this.state.password,
           f_name: this.state.f_name,

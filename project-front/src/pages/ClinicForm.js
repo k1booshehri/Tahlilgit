@@ -57,7 +57,7 @@ export default class ClinicForm extends Component {
 
     axios
       .post(
-        "http://localhost:8000/api/auth/office-register",
+        "http://myravanyar.ir/api/auth/office-register",
         {
           address: this.state.address,
           city: this.state.city,

@@ -67,7 +67,7 @@ export default class DoctorProfile extends Component {
     this.getItems();
   }
   getItems() {
-    fetch("http://localhost:8000/api/auth/doctor-user", {
+    fetch("http://myravanyar.ir/api/auth/doctor-user", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),

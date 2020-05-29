@@ -100,7 +100,7 @@ export default class ClinicTime extends Component {
     // post request for adding a new event in database
     axios
       .post(
-        "http://localhost:8000/api/time/?officeid=" +
+        "http://myravanyar.ir/api/time/?officeid=" +
           sessionStorage.getItem("officeid"), // sending office id
         {
           //sending end and start of the new event (format => Iran Daylight)
@@ -135,7 +135,7 @@ export default class ClinicTime extends Component {
   // get request for showing events in database
   getItems() {
     fetch(
-      "http://localhost:8000/api/timesview/?officeid=" +
+      "http://myravanyar.ir/api/timesview/?officeid=" +
         sessionStorage.getItem("officeid"), //sending office id
       {
         method: "GET",
@@ -241,7 +241,7 @@ export default class ClinicTime extends Component {
     //  if (r === true) {
     axios
       .delete(
-        "http://localhost:8000/api/time/?timeid=" + this.state.eDel.id,
+        "http://myravanyar.ir/api/time/?timeid=" + this.state.eDel.id,
 
         {
           headers: {
@@ -285,7 +285,7 @@ export default class ClinicTime extends Component {
     // console.log(start, end);
     axios
       .put(
-        "http://localhost:8000/api/time/?timeid=" + event.id,
+        "http://myravanyar.ir/api/api/time/?timeid=" + event.id,
         {
           start: start,
           end: end,

@@ -54,7 +54,7 @@ export default class EditDrProfile extends Component {
 
   //get request for getting current profile informations
   getItems() {
-    fetch("http://localhost:8000/api/auth/doctor-user", {
+    fetch("http://myravanyar.ir/api/auth/doctor-user", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),
@@ -168,7 +168,7 @@ export default class EditDrProfile extends Component {
 
       axios
         .put(
-          "http://localhost:8000/api/auth/update-user",
+          "http://myravanyar.ir/api/auth/update-user",
 
           changedDrInfo,
 
@@ -197,7 +197,7 @@ export default class EditDrProfile extends Component {
     } else if (this.state.confirmNewPassword === "") {
       axios
         .put(
-          "http://localhost:8000/api/auth/update-user",
+          "http://myravanyar.ir/api/auth/update-user",
 
           changedDrInfo,
 

@@ -52,7 +52,7 @@ class DoctorSignUpForm extends Component {
 
     axios
       .post(
-        "http://localhost:8000/api/auth/doctor-register",
+        "http://myravanyar.ir/api/auth/doctor-register",
         {
           email: this.state.email,
           f_name: this.state.f_name,

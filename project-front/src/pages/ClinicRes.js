@@ -122,7 +122,7 @@ export default class ClinicRes extends Component {
   // get request for doctor info
   getItems() {
     let url =
-      "http://localhost:8000/user/username=" +
+      "http://myravanyar.ir/api/username=" +
       sessionStorage.getItem("DrProfileUsername");
     fetch(url, {
       method: "GET",
@@ -140,7 +140,7 @@ export default class ClinicRes extends Component {
 
   getEventItems() {
     let url =
-      "http://localhost:8000/api/times/?doctorusername=" +
+      "http://myravanyar.ir/api/?doctorusername=" +
       sessionStorage.getItem("DrProfileUsername") +
       "&city=" +
       this.state.city;
@@ -225,7 +225,7 @@ export default class ClinicRes extends Component {
 
       axios
         .put(
-          "http://localhost:8000/api/timecancel/?timeid=" + this.state.eDel.id,
+          "http://myravanyar.ir/api/timecancel/?timeid=" + this.state.eDel.id,
           {},
           {
             headers: {
@@ -250,7 +250,7 @@ export default class ClinicRes extends Component {
 
       axios
         .put(
-          "http://localhost:8000/api/timeset/?timeid=" + this.state.eDel.id,
+          "http://myravanyar.ir/api/timeset/?timeid=" + this.state.eDel.id,
           {},
           {
             headers: {

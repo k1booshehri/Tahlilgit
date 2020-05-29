@@ -45,7 +45,7 @@ export default class ChatMsgs extends Component {
 
   getItems() {
     fetch(
-      "http://localhost:8000/api/drgetchat/?" +
+      "http://myravanyar.ir/api/drgetchat/?" +
         "patientid=" +
         localStorage.getItem("PatientOnChatUsername"),
       {
@@ -83,7 +83,7 @@ export default class ChatMsgs extends Component {
 
     axios
       .post(
-        "http://localhost:8000/api/sendchat/?" +
+        "http://myravanyar.ir/api/sendchat/?" +
           "destid=" +
           localStorage.getItem("PatientOnChatUsername"),
         {

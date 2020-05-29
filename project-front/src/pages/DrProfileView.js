@@ -82,7 +82,7 @@ export default class DrProfileView extends Component {
   // get request for doctor info
   getItems() {
     let url =
-      "http://localhost:8000/user/username=" +
+      "http://myravanyar.ir/api/user/username=" +
       sessionStorage.getItem("DrProfileUsername");
     fetch(url, {
       method: "GET",
@@ -100,7 +100,7 @@ export default class DrProfileView extends Component {
   onStarClick(currentValue, oldValue, name) {
     axios
       .post(
-        "http://localhost:8000/api/auth/setrate/",
+        "http://myravanyar.ir/api/auth/setrate/",
         {
           Value: currentValue,
           doctorusername: sessionStorage.getItem("DrProfileUsername"),

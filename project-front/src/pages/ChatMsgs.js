@@ -46,7 +46,7 @@ export default class ChatMsgs extends Component {
 
   getItems() {
     fetch(
-      "http://localhost:8000/api/ptgetchat/?" +
+      "http://myravanyar.ir/api/ptgetchat/?" +
         "doctorid=" +
         localStorage.getItem("DrOnChatUsername"),
       {
@@ -94,7 +94,7 @@ export default class ChatMsgs extends Component {
 
     axios
       .post(
-        "http://localhost:8000/api/sendchat/?" +
+        "http://myravanyar.ir/api/sendchat/?" +
           "destid=" +
           localStorage.getItem("DrOnChatUsername"),
         {
