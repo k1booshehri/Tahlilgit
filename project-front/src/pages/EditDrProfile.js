@@ -38,6 +38,7 @@ export default class EditDrProfile extends Component {
       newPassword: "",
       confirmNewPassword: "",
       username: "",
+      nullString: "ثبت نشده است",
 
       dateType: "text",
 
@@ -74,7 +75,7 @@ export default class EditDrProfile extends Component {
     let information = res;
 
     //conditions for education value
-    let persianEdu0 = "";
+    let persianEdu0 = null;
     if (information.edu === "phd") {
       persianEdu0 = "دکتری";
     } else if (information.edu === "masters") {
@@ -288,6 +289,7 @@ export default class EditDrProfile extends Component {
                   value={this.state.f_name}
                   placeholder={this.state.drInfo.f_name}
                   onChange={this.handleChange}
+                  autocomplete="off"
                 />
               </div>
             </div>
@@ -310,6 +312,7 @@ export default class EditDrProfile extends Component {
                   value={this.state.l_name}
                   placeholder={this.state.drInfo.l_name}
                   onChange={this.handleChange}
+                  autocomplete="off"
                 />
               </div>
             </div>
@@ -326,20 +329,37 @@ export default class EditDrProfile extends Component {
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
                 <div className="DrProfileFormField">
-                  <select
-                    className="DrProfileFormField__Input__Left"
-                    name="gender"
-                    id="gender"
-                    value={this.state.gender}
-                    onChange={this.handleChange}
-                  >
-                    <option value="" selected disabled hidden>
-                      {this.state.drInfo.gender}
-                    </option>
-                    <option value="زن">زن</option>
-                    <option value="مرد">مرد</option>
-                    <option value="سایر">سایر</option>
-                  </select>
+                  {this.state.drInfo.gender !== null ? (
+                    <select
+                      className="DrProfileFormField__Input__Left"
+                      name="gender"
+                      id="gender"
+                      value={this.state.gender}
+                      onChange={this.handleChange}
+                    >
+                      <option value="" selected disabled hidden>
+                        {this.state.drInfo.gender}
+                      </option>
+                      <option value="زن">زن</option>
+                      <option value="مرد">مرد</option>
+                      <option value="سایر">سایر</option>
+                    </select>
+                  ) : (
+                    <select
+                      className="DrProfileFormField__Input__Left"
+                      name="gender"
+                      id="gender"
+                      value={this.state.gender}
+                      onChange={this.handleChange}
+                    >
+                      <option value="" selected disabled hidden>
+                        {this.state.nullString}
+                      </option>
+                      <option value="زن">زن</option>
+                      <option value="مرد">مرد</option>
+                      <option value="سایر">سایر</option>
+                    </select>
+                  )}
                 </div>
               </div>
             </div>{" "}
@@ -353,17 +373,31 @@ export default class EditDrProfile extends Component {
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <input
-                  type={this.state.dateType}
-                  className="DrProfileFormField__Input__Left"
-                  id="birth"
-                  name="birth"
-                  value={this.state.birth}
-                  onFocus={(e) => this.setState({ dateType: "date" })}
-                  onBlur={(e) => this.setState({ dateType: "text" })}
-                  placeholder={this.state.drInfo.birth}
-                  onChange={this.handleChange}
-                />
+                {this.state.drInfo.birth !== null ? (
+                  <input
+                    type={this.state.dateType}
+                    className="DrProfileFormField__Input__Left"
+                    id="birth"
+                    name="birth"
+                    value={this.state.birth}
+                    onFocus={(e) => this.setState({ dateType: "date" })}
+                    onBlur={(e) => this.setState({ dateType: "text" })}
+                    placeholder={this.state.drInfo.birth}
+                    onChange={this.handleChange}
+                  />
+                ) : (
+                  <input
+                    type={this.state.dateType}
+                    className="DrProfileFormField__Input__Left"
+                    id="birth"
+                    name="birth"
+                    value={this.state.birth}
+                    onFocus={(e) => this.setState({ dateType: "date" })}
+                    onBlur={(e) => this.setState({ dateType: "text" })}
+                    placeholder={this.state.nullString}
+                    onChange={this.handleChange}
+                  />
+                )}
               </div>
             </div>{" "}
             <div className="DrProfileRightTableCell">
@@ -376,16 +410,31 @@ export default class EditDrProfile extends Component {
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <input
-                  type="tel"
-                  className="DrProfileFormField__Input__Left"
-                  id="phone"
-                  name="phone"
-                  pattern="[0][9]\d{9}$"
-                  value={this.state.phone}
-                  placeholder={this.state.drInfo.phone}
-                  onChange={this.handleChange}
-                />
+                {this.state.drInfo.phone !== null ? (
+                  <input
+                    type="tel"
+                    className="DrProfileFormField__Input__Left"
+                    id="phone"
+                    name="phone"
+                    pattern="[0][9]\d{9}$"
+                    value={this.state.phone}
+                    placeholder={this.state.drInfo.phone}
+                    onChange={this.handleChange}
+                    autocomplete="off"
+                  />
+                ) : (
+                  <input
+                    type="tel"
+                    className="DrProfileFormField__Input__Left"
+                    id="phone"
+                    name="phone"
+                    pattern="[0][9]\d{9}$"
+                    value={this.state.phone}
+                    placeholder={this.state.nullString}
+                    onChange={this.handleChange}
+                    autocomplete="off"
+                  />
+                )}
               </div>
             </div>{" "}
             <div className="DrProfileRightTableCell">
@@ -406,6 +455,7 @@ export default class EditDrProfile extends Component {
                   value={this.state.email}
                   placeholder={this.state.drInfo.email}
                   onChange={this.handleChange}
+                  autocomplete="off"
                 />
               </div>
             </div>{" "}
@@ -427,9 +477,16 @@ export default class EditDrProfile extends Component {
                   value={this.state.field}
                   onChange={this.handleChange}
                 >
-                  <option value="" selected disabled hidden>
-                    {this.state.drInfo.field}
-                  </option>
+                  {this.state.drInfo.field !== null ? (
+                    <option value="" selected disabled hidden>
+                      {this.state.drInfo.field}
+                    </option>
+                  ) : (
+                    <option value="" selected disabled hidden>
+                      {this.state.nullString}
+                    </option>
+                  )}
+
                   <option value="روان شناسی بالینی">روان شناسی بالینی</option>
                   <option value="روان شناسی مشاوره">روان شناسی مشاوره </option>
                   <option value="روان شناسی خانواده">
@@ -466,9 +523,15 @@ export default class EditDrProfile extends Component {
                   value={this.state.edu}
                   onChange={this.handleChange}
                 >
-                  <option value="" selected disabled hidden>
-                    {this.state.drInfo.persianEdu}
-                  </option>
+                  {this.state.drInfo.persianEdu !== null ? (
+                    <option value="" selected disabled hidden>
+                      {this.state.drInfo.persianEdu}
+                    </option>
+                  ) : (
+                    <option value="" selected disabled hidden>
+                      {this.state.nullString}
+                    </option>
+                  )}
                   <option value="masters">کارشناسی ارشد</option>
                   <option value="phd">دکتری</option>
                 </select>
@@ -484,17 +547,31 @@ export default class EditDrProfile extends Component {
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <input
-                  type={this.state.dateType}
-                  className="DrProfileFormField__Input__Left"
-                  id="activetime"
-                  name="activetime"
-                  value={this.state.activetime}
-                  onFocus={(e) => this.setState({ dateType: "date" })}
-                  onBlur={(e) => this.setState({ dateType: "text" })}
-                  placeholder={this.state.drInfo.activetime}
-                  onChange={this.handleChange}
-                />
+                {this.state.drInfo.activetime !== null ? (
+                  <input
+                    type={this.state.dateType}
+                    className="DrProfileFormField__Input__Left"
+                    id="activetime"
+                    name="activetime"
+                    value={this.state.activetime}
+                    onFocus={(e) => this.setState({ dateType: "date" })}
+                    onBlur={(e) => this.setState({ dateType: "text" })}
+                    placeholder={this.state.drInfo.activetime}
+                    onChange={this.handleChange}
+                  />
+                ) : (
+                  <input
+                    type={this.state.dateType}
+                    className="DrProfileFormField__Input__Left"
+                    id="activetime"
+                    name="activetime"
+                    value={this.state.activetime}
+                    onFocus={(e) => this.setState({ dateType: "date" })}
+                    onBlur={(e) => this.setState({ dateType: "text" })}
+                    placeholder={this.state.nullString}
+                    onChange={this.handleChange}
+                  />
+                )}
               </div>
             </div>{" "}
             <div className="DrProfileRightTableCell">
@@ -507,15 +584,29 @@ export default class EditDrProfile extends Component {
           <div className="DrProfileTableRow">
             <div className="DrProfileLeftTableCell">
               <div className="DrProfileFormField">
-                <input
-                  type="text"
-                  className="DrProfileFormField__Input__Left"
-                  id="code"
-                  name="code"
-                  value={this.state.code}
-                  placeholder={this.state.drInfo.code}
-                  onChange={this.handleChange}
-                />
+                {this.state.drInfo.code ? (
+                  <input
+                    type="text"
+                    className="DrProfileFormField__Input__Left"
+                    id="code"
+                    name="code"
+                    value={this.state.code}
+                    placeholder={this.state.drInfo.code}
+                    onChange={this.handleChange}
+                    autocomplete="off"
+                  />
+                ) : (
+                  <input
+                    type="text"
+                    className="DrProfileFormField__Input__Left"
+                    id="code"
+                    name="code"
+                    value={this.state.code}
+                    placeholder={this.state.nullString}
+                    onChange={this.handleChange}
+                    autocomplete="off"
+                  />
+                )}
               </div>
             </div>{" "}
             <div className="DrProfileRightTableCell">
@@ -537,6 +628,7 @@ export default class EditDrProfile extends Component {
                   value={this.state.username}
                   placeholder={this.state.drInfo.username}
                   onChange={this.handleChange}
+                  autocomplete="off"
                 />
               </div>
             </div>{" "}

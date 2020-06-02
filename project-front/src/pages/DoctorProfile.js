@@ -18,21 +18,22 @@ export default class DoctorProfile extends Component {
     super(props);
     this.state = {
       drInfo: [],
-      email: "",
-      f_name: "",
-      l_name: "",
-      edu: "",
-      gender: "",
-      field: "",
-      birth: "",
-      phone: "",
-      password: "",
-      activetime: "",
-      username: "",
-      code: "",
-      startYear: "",
-      image: "",
+      email: null,
+      f_name: null,
+      l_name: null,
+      edu: null,
+      gender: null,
+      field: null,
+      birth: null,
+      phone: null,
+      password: null,
+      activetime: null,
+      username: null,
+      code: null,
+      startYear: null,
+      image: null,
       isStateSet: false,
+      nullString: "ثبت نشده است",
     };
     this.EditProfileButtonOnClick = this.EditProfileButtonOnClick.bind(this);
   }
@@ -54,14 +55,18 @@ export default class DoctorProfile extends Component {
     this.state.birth = information.birth;
     this.state.phone = information.phone;
     this.state.image = information.pp;
-    if (information.edu === "phd") {
-      this.state.edu = "دکتری";
+    if (this.state.edu !== null) {
+      if (information.edu === "phd") {
+        this.state.edu = "دکتری";
+      }
+      if (information.edu === "masters") {
+        this.state.edu = "کارشناسی ارشد";
+      }
     }
-    if (information.edu === "masters") {
-      this.state.edu = "کارشناسی ارشد";
+    if (this.state.activetime !== null) {
+      let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
+      this.state.startYear = split[0];
     }
-    let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
-    this.state.startYear = split[0];
   }
   componentDidMount() {
     this.getItems();
@@ -112,19 +117,46 @@ export default class DoctorProfile extends Component {
 
           <div className="infoTable1 borderProfile ">
             <div class="tableRow1">
-              <div class="leftTableCell">{this.state.field}</div>
+              <div class="leftTableCell">
+                {this.state.field !== null ? (
+                  <div>{this.state.field}</div>
+                ) : (
+                  <div>{this.state.nullString}</div>
+                )}
+              </div>
               <div class="rightTableCell">تخصص</div>
             </div>
             <div class="tableRow1">
-              <div class="leftTableCell">{this.state.edu}</div>
+              <div class="leftTableCell">
+                {" "}
+                {this.state.edu !== null ? (
+                  <div>{this.state.edu}</div>
+                ) : (
+                  <div>{this.state.nullString}</div>
+                )}
+              </div>
               <div class="rightTableCell">تحصیلات</div>
             </div>
             <div class="tableRow1">
-              <div class="leftTableCell">{this.state.startYear}</div>
+              <div class="leftTableCell">
+                {" "}
+                {this.state.startYear !== null ? (
+                  <div>{this.state.startYear}</div>
+                ) : (
+                  <div>{this.state.nullString}</div>
+                )}
+              </div>
               <div class="rightTableCell">شروع فعالیت</div>
             </div>
             <div class="tableRow1">
-              <div class="leftTableCell">{this.state.code}</div>
+              <div class="leftTableCell">
+                {" "}
+                {this.state.code !== null ? (
+                  <div>{this.state.code}</div>
+                ) : (
+                  <div>{this.state.nullString}</div>
+                )}
+              </div>
               <div class="rightTableCell">کد نظام پزشکی</div>
             </div>
             <div class="tableRow1">
