@@ -16,6 +16,7 @@ export default class Drlist extends Component {
     super(props);
     this.state = {
       Drlist: [],
+      nullString: "ثبت نشده است",
     };
     this.ProfileButtonOnClick = this.ProfileButtonOnClick.bind(this);
     this.ChatButtonOnClick = this.ChatButtonOnClick.bind(this);
@@ -94,7 +95,11 @@ export default class Drlist extends Component {
                   </div>
                 </div>
                 <div className="containerlist">
-                  <div> تخصص : {postdetail.field}</div>
+                  {postdetail.field !== null ? (
+                    <div> تخصص : {postdetail.field}</div>
+                  ) : (
+                    <div>{this.state.nullString}</div>
+                  )}
                 </div>
                 <div className="containerlist">
                   <Box className="rate" borderColor="transparent">
