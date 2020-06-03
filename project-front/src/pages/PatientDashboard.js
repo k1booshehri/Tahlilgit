@@ -18,6 +18,8 @@ import Notifications from "./Notif";
 import Popup from "reactjs-popup";
 
 import ClinicRes from "./ClinicRes";
+import PatientProfile from "./PatientProfile";
+import EditPaProfile from "./EditPaProfile";
 
 class PatientDashboard extends Component {
   constructor() {
@@ -64,7 +66,7 @@ class PatientDashboard extends Component {
             <a
               className="nav-link active  nav-txt "
               onClick={this.navOnClick}
-              id="0"
+              id="7"
             >
               <PersonIcon></PersonIcon>
               <span className="sr-only">(current)</span>
@@ -165,6 +167,16 @@ class PatientDashboard extends Component {
           )}
           {localStorage.getItem("eventKey") === "2-2" ? (
             <Chat onClick={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+          {localStorage.getItem("eventKey") === "7" ? (
+            <PatientProfile updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+          {localStorage.getItem("eventKey") === "7-1" ? (
+            <EditPaProfile updateState={this.navOnClick} />
           ) : (
             <p> </p>
           )}

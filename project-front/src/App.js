@@ -29,6 +29,8 @@ import test from "./pages/test";
 import Notif from "./pages/Notif";
 import ClinicTime from "./pages/ClinicTime";
 import ClinicRes from "./pages/ClinicRes";
+import PatientProfile from "./pages/PatientProfile";
+import EditPaProfile from "./pages/EditPaProfile";
 
 class App extends Component {
   render() {
@@ -56,12 +58,19 @@ class App extends Component {
           <Route exact path="/ClinicForm" component={ClinicForm}></Route>
           <Route exact path="/DrProfileView" component={DrProfileView}></Route>
           <Route exact path="/DoctorProfile" component={DoctorProfile}></Route>
+          <Route
+            exact
+            path="/PatientProfile"
+            component={PatientProfile}
+          ></Route>
+
           <Route exact path="/EditDrProfile" component={EditDrProfile}></Route>
+          <Route exact path="/EditPaProfile" component={EditPaProfile}></Route>
           <Route exact path="/chat" component={chat}></Route>
           <Route exact path="/test" component={test}></Route>
           <Route exact path="/Drchat" component={Drchat}></Route>
           <Route exact path="/Notif" component={Notif}></Route>
-          
+
           <Route exact path="/ClinicTime" component={ClinicTime}></Route>
           <Route exact path="/ClinicRes" component={ClinicRes}></Route>
         </div>
