@@ -98,7 +98,7 @@ export default class Drlist extends Component {
                   {postdetail.field !== null ? (
                     <div> تخصص : {postdetail.field}</div>
                   ) : (
-                    <div>{this.state.nullString}</div>
+                    <div> تخصص : {this.state.nullString}</div>
                   )}
                 </div>
                 <div className="containerlist">

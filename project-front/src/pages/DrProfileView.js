@@ -29,7 +29,7 @@ export default class DrProfileView extends Component {
       phone: "",
       password: "",
       activetime: "",
-      startYear: "",
+      startYear: null,
       username: "",
       code: "",
       transportResultString: "",

@@ -55,7 +55,7 @@ export default class DoctorProfile extends Component {
     this.state.birth = information.birth;
     this.state.phone = information.phone;
     this.state.image = information.pp;
-    if (this.state.edu !== null) {
+    if (information.edu !== null) {
       if (information.edu === "phd") {
         this.state.edu = "دکتری";
       }
