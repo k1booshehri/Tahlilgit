@@ -214,7 +214,7 @@ export default class DrProfileView extends Component {
                 <div className="infoTable0">
                   {" "}
                   <div className="tableRow0">
-                    <div class="completeTableCell0">اطلاعات مطب</div>
+                    <div class="completeTableCell0">{postdetail.title}</div>
                   </div>
                 </div>
                 <div className="infoTable1">

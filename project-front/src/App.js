@@ -31,6 +31,7 @@ import ClinicTime from "./pages/ClinicTime";
 import ClinicRes from "./pages/ClinicRes";
 import PatientProfile from "./pages/PatientProfile";
 import EditPaProfile from "./pages/EditPaProfile";
+import PaProfileView from "./pages/PaProfileView";
 
 class App extends Component {
   render() {
@@ -57,6 +58,8 @@ class App extends Component {
           <Route exact path="/DrList" component={Drlist}></Route>
           <Route exact path="/ClinicForm" component={ClinicForm}></Route>
           <Route exact path="/DrProfileView" component={DrProfileView}></Route>
+          <Route exact path="/PaProfileView" component={PaProfileView}></Route>
+
           <Route exact path="/DoctorProfile" component={DoctorProfile}></Route>
           <Route
             exact

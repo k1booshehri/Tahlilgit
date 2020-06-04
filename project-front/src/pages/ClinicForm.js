@@ -65,7 +65,7 @@ export default class ClinicForm extends Component {
           park: this.state.park,
           transport: this.state.transport,
           info: this.state.info,
-          //title : this.state.title,
+          title: this.state.title,
         },
         {
           headers: {
