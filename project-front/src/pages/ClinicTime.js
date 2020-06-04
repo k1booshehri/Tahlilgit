@@ -38,6 +38,7 @@ export default class ClinicTime extends Component {
       isModal: false,
       eDel: null,
       hi: "hi",
+      proSet: false,
     };
 
     this.handleSelect = this.handleSelect.bind(this);
@@ -45,49 +46,12 @@ export default class ClinicTime extends Component {
     this.parsingInformation = this.parsingInformation.bind(this);
     this.ChangeSavedEventsFormat = this.ChangeSavedEventsFormat.bind(this);
     this.onModal = this.onModal.bind(this);
+    this.onPaProfileClick = this.onPaProfileClick.bind(this);
   }
 
   // called when solt(s) are selected, where post request happens
   handleSelect = ({ start, end }) => {
-    //creating savedStart for saving in savedEvents
-    // let startMomentFormat = moment(start);
-    // console.log(startMomentFormat);
-    // let savedStart =
-    //   startMomentFormat.get("year") +
-    //   "-" +
-    //   (startMomentFormat.get("month") + 1) +
-    //   "-" +
-    //   startMomentFormat.get("D") +
-    //   " " +
-    //   startMomentFormat.get("hour") +
-    //   ":" +
-    //   startMomentFormat.get("minute") +
-    //   ":" +
-    //   startMomentFormat.get("second");
-
-    // //creating savedEnd for saving in savedEvents
-    // let endMomentFormat = moment(end);
-    // let savedEnd =
-    //   endMomentFormat.get("year") +
-    //   "-" +
-    //   (endMomentFormat.get("month") + 1) +
-    //   "-" +
-    //   endMomentFormat.get("D") +
-    //   " " +
-    //   endMomentFormat.get("hour") +
-    //   ":" +
-    //   endMomentFormat.get("minute") +
-    //   ":" +
-    //   endMomentFormat.get("second");
-
     this.setState({
-      // savedEvents: [
-      //   ...this.state.savedEvents,
-      //   {
-      //     savedStart: savedStart,
-      //     savedEnd: savedEnd,
-      //   },
-      // ],
       events: [
         ...this.state.events,
         {
@@ -172,6 +136,8 @@ export default class ClinicTime extends Component {
       id: e.id,
       patient: e.patient,
       reservetime: e.reservetime,
+      ptusername: e.ptusername,
+      offtitle: e.offtitle,
     };
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
   }
@@ -230,6 +196,8 @@ export default class ClinicTime extends Component {
     return null;
   }
   onModal(e) {
+    sessionStorage.setItem("PaUsername", e.ptusername);
+    console.log(sessionStorage.getItem("PaUsername"));
     this.setState({ isModal: true, eDel: e });
   }
   //called when an event is clicked , used for deleting
@@ -260,24 +228,6 @@ export default class ClinicTime extends Component {
           alert("موفقیت آمیز نبود . دوباره امتحان کنید");
         }
       });
-    //  }
-    // if (r === true) {
-    //   //remove chosen event from events
-    //   var removeIndex = this.state.events
-    //     .map(function (item) {
-    //       return item.start;
-    //     })
-    //     .indexOf(e.start);
-    //   this.state.events.splice(removeIndex, 1);
-    //   //remove chosen event from savedEvents
-    //   var removeIndex = this.state.savedEvents
-    //     .map(function (item) {
-    //       return item.start;
-    //     })
-    //     .indexOf(e.start);
-    //   this.state.savedEvents.splice(removeIndex, 1);
-    //   console.log(this.state.savedEvents);
-    // }
   }
 
   resizeEvent = ({ event, start, end }) => {
@@ -307,21 +257,10 @@ export default class ClinicTime extends Component {
           alert("موفقیت آمیز نبود . دوباره امتحان کنید");
         }
       });
-    // let events = this.state.getEvents;
-
-    // const nextEvents = events.map((existingEvent) => {
-    //   return existingEvent.id == event.id
-    //     ? { ...existingEvent, start, end }
-    //     : existingEvent;
-    // });
-
-    // this.setState({
-    //   getEvents: nextEvents,
-    // });
-
-    //alert(`${event.title} was resized to ${start}-${end}`)
   };
-
+  onPaProfileClick(e) {
+    this.props.updateState(e);
+  }
   render() {
     return (
       <div>
@@ -329,6 +268,7 @@ export default class ClinicTime extends Component {
           <ul className="moreInfoCalenList">
             <li>.برای ثبت وقت جدید یک بازه ی زمانی را روی تقویم مشخص کنید</li>
             <li>.برای پاک کردن یک وقت روی آن کلیک کنید</li>
+            <li>.برای مشاهده ی پروفایل کاربر روی وقت رزرو شده کلیک کنید</li>
             <li>
               .می توانید با تغییر زمان شروع و پایان یک وقت روی تقویم بازه ی
               زمانی آن را تغییر دهید
@@ -352,7 +292,7 @@ export default class ClinicTime extends Component {
             defaultView="week"
             startAccessor="start"
             endAccessor="end"
-            // titleAccessor="id"
+            titleAccessor="ptusername"
             onEventDrop={this.moveEvent}
             tooltipAccessor={this.tooltipAccessor}
             onEventResize={this.resizeEvent}
@@ -367,19 +307,52 @@ export default class ClinicTime extends Component {
           />
         </div>
         <Modal isOpen={this.state.isModal} toggle={this.onModal}>
-          <ModalBody className="modalbodCalender">
+          <ModalHeader
+            close={
+              <Button onClick={() => this.setState({ isModal: false })}>
+                &times;
+              </Button>
+            }
+          ></ModalHeader>
+          {/* <ModalBody className="modalbodCalender">
             آیا می خواهید این وقت را لغو کنید؟
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.onSelectEvent}>
-              بله
-            </Button>{" "}
+          </ModalBody> */}
+          <ModalFooter
+            close={
+              <Button
+                outline
+                color="info"
+                onClick={() => this.setState({ isModal: false })}
+              >
+                &times;
+              </Button>
+            }
+          >
             <Button
+              id="7-2"
+              outline
+              color="info"
+              size="lg"
+              block
+              onClick={this.onPaProfileClick}
+            >
+              مشاهده ی پروفایل کاربر
+            </Button>
+            <Button
+              outline
+              color="info"
+              size="lg"
+              block
+              onClick={this.onSelectEvent}
+            >
+              حذف وقت
+            </Button>{" "}
+            {/* <Button
               color="secondary"
               onClick={() => this.setState({ isModal: false })}
             >
               خیر
-            </Button>
+            </Button> */}
           </ModalFooter>
         </Modal>
       </div>
