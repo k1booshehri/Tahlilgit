@@ -28,6 +28,8 @@ class PatientDashboard extends Component {
     this.state = { eventKeyChanged: false, modalOpen: false, update: 0 };
     this.navOnClick = this.navOnClick.bind(this);
     this.ChatComponentOnCLick = this.ChatComponentOnCLick.bind(this);
+    this.logout = this.logout.bind(this);
+
     localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
@@ -57,7 +59,10 @@ class PatientDashboard extends Component {
       };
     });
   };
-
+  logout() {
+    localStorage.clear();
+    window.location.href = "/";
+  }
   render() {
     return (
       <div className="dashboard">
@@ -113,6 +118,9 @@ class PatientDashboard extends Component {
                 <Notif></Notif>
               </button>
             </div>
+            <a className="nav-link active nav-txt" onClick={this.logout}>
+              خروج
+            </a>
           </nav>
           <div
             class="modal fade"

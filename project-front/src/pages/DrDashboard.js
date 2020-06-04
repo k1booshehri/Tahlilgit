@@ -30,6 +30,7 @@ class DrDashboard extends Component {
     this.state = { eventKeyChanged: false, update: 0 };
     this.navOnClick = this.navOnClick.bind(this);
     this.DrChatComponentOnCLick = this.DrChatComponentOnCLick.bind(this);
+    this.logout = this.logout.bind(this);
     localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
@@ -50,6 +51,10 @@ class DrDashboard extends Component {
     localStorage.setItem("eventKey", target);
     this.setState({ eventKeyChanged: true });
     localStorage.setItem("PatientOnChatUsername", "null");
+  }
+  logout() {
+    localStorage.clear();
+    window.location.href = "/";
   }
   render() {
     return (
@@ -80,6 +85,7 @@ class DrDashboard extends Component {
             >
               مطب ها <BusinessIcon></BusinessIcon>
             </a>
+
             <a
               className=" nav-link active nav-txt"
               onClick={this.navOnClick}
@@ -107,6 +113,9 @@ class DrDashboard extends Component {
                 <Notif></Notif>
               </button>
             </div>
+            <a className="nav-link active nav-txt" onClick={this.logout}>
+              خروج
+            </a>
           </nav>
           <div
             class="modal fade"
@@ -140,6 +149,7 @@ class DrDashboard extends Component {
               </div>
             </div>
           </div>
+
           {/*************************************************/}
           {/* up navbar ends */}
           {/* conditions starts */}
