@@ -55,7 +55,7 @@ export default class PatientProfile extends Component {
     this.getItems();
   }
   getItems() {
-    fetch("http://myravanyar.ir/api/auth/doctor-user", {
+    fetch("http://myravanyar.ir/api/auth/patient-user", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),

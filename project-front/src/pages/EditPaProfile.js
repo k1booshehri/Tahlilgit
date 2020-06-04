@@ -48,7 +48,7 @@ export default class EditPaProfile extends Component {
 
   //get request for getting current profile informations
   getItems() {
-    fetch("http://myravanyar.ir/api/auth/doctor-user", {
+    fetch("http://myravanyar.ir/api/auth/patient-user", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),
@@ -147,7 +147,7 @@ export default class EditPaProfile extends Component {
 
       axios
         .put(
-          "http://myravanyar.ir/api/auth/update-user",
+          "http://myravanyar.ir/api/auth/update-user2",
 
           changedDrInfo,
 
@@ -176,7 +176,7 @@ export default class EditPaProfile extends Component {
     } else if (this.state.confirmNewPassword === "") {
       axios
         .put(
-          "http://myravanyar.ir/api/auth/update-user",
+          "http://myravanyar.ir/api/auth/update-user2",
 
           changedDrInfo,
 
@@ -640,7 +640,7 @@ export default class EditPaProfile extends Component {
         </div>
         <button
           className="editProfileButton1"
-          id="3"
+          id="7"
           //  if edit profile button is clicked ProfileButtonOnClick is called
 
           onClick={this.handleEdit}
