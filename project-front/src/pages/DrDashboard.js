@@ -32,7 +32,7 @@ class DrDashboard extends Component {
     this.navOnClick = this.navOnClick.bind(this);
     this.DrChatComponentOnCLick = this.DrChatComponentOnCLick.bind(this);
     this.logout = this.logout.bind(this);
-    localStorage.setItem("eventKey", "");
+    //localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");
@@ -76,6 +76,7 @@ class DrDashboard extends Component {
         }
       });
   }
+
   render() {
     return (
       <div className="dashboard">

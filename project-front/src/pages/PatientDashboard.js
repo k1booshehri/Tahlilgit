@@ -30,7 +30,7 @@ class PatientDashboard extends Component {
     this.ChatComponentOnCLick = this.ChatComponentOnCLick.bind(this);
     this.logout = this.logout.bind(this);
 
-    localStorage.setItem("eventKey", "");
+    //localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");

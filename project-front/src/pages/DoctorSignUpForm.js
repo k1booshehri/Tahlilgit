@@ -72,6 +72,8 @@ class DoctorSignUpForm extends Component {
       .then((res) => {
         if (res.status === 200) {
           sessionStorage.setItem("token", res.data.token);
+          localStorage.setItem("eventKey", "1");
+
           this.setState({ isSignedUp: true });
         }
       })
