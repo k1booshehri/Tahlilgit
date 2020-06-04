@@ -54,6 +54,7 @@ class DrDashboard extends Component {
   }
   logout() {
     localStorage.clear();
+    sessionStorage.clear();
     window.location.href = "/";
   }
   render() {
