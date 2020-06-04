@@ -20,6 +20,7 @@ import Popup from "reactjs-popup";
 import ClinicRes from "./ClinicRes";
 import PatientProfile from "./PatientProfile";
 import EditPaProfile from "./EditPaProfile";
+import PaProfileView from "./PaProfileView";
 
 class PatientDashboard extends Component {
   constructor() {
@@ -180,6 +181,7 @@ class PatientDashboard extends Component {
           ) : (
             <p> </p>
           )}
+
           {localStorage.getItem("eventKey") === "6" ? <ClinicRes /> : <p> </p>}
           {/* conditions ends */}
           {/* down navbar starts */}

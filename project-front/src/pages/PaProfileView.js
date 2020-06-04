@@ -53,7 +53,7 @@ export default class PaProfileView extends Component {
   getItems() {
     let url =
       "http://myravanyar.ir/api/user2/username=" +
-      sessionStorage.getItem("DrProfileUsername");
+      sessionStorage.getItem("PaUsername");
     fetch(url, {
       method: "GET",
       headers: {

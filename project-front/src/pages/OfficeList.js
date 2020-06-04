@@ -20,6 +20,8 @@ export default class OfficeList extends Component {
       isTog: false,
     };
     this.toggle = this.toggle.bind(this);
+    this.navOnClick = this.navOnClick.bind(this);
+
     this.parsingInformation = this.parsingInformation.bind(this);
   }
   componentDidMount() {
@@ -55,6 +57,9 @@ export default class OfficeList extends Component {
       this.state.officIdCollapse[results[i].id] = false;
     }
     //  console.log(this.state.officIdCollapse);
+  }
+  navOnClick(e) {
+    this.props.updateState(e);
   }
   render() {
     return (
@@ -108,7 +113,7 @@ export default class OfficeList extends Component {
                 >
                   {this.state.officIdCollapse[postdetail.id] === true ? (
                     <div className="card-body">
-                      <ClinicTime />
+                      <ClinicTime updateState={this.navOnClick} />
                     </div>
                   ) : null}
                 </Collapse>
