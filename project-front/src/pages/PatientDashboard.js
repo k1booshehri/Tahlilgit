@@ -60,10 +60,27 @@ class PatientDashboard extends Component {
     });
   };
   logout() {
-    localStorage.clear();
-    sessionStorage.clear();
-
-    window.location.href = "/";
+    axios
+      .post(
+        "http://myravanyar.ir/api/auth/logout",
+        {},
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
+      )
+      .then((res) => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = "/";
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log("hi");
+        }
+      });
   }
   render() {
     return (

@@ -11,6 +11,7 @@ import DrChat from "./DrChat";
 import ChatBubble from "@material-ui/icons/ChatBubble";
 import Notif from "@material-ui/icons/Notifications";
 import Notifications from "./Notif";
+import axios from "axios";
 
 import {
   HashRouter as Router,
@@ -53,9 +54,27 @@ class DrDashboard extends Component {
     localStorage.setItem("PatientOnChatUsername", "null");
   }
   logout() {
-    localStorage.clear();
-    sessionStorage.clear();
-    window.location.href = "/";
+    axios
+      .post(
+        "http://myravanyar.ir/api/auth/logout",
+        {},
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
+      )
+      .then((e) => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = "/";
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log("hi");
+        }
+      });
   }
   render() {
     return (
