@@ -49,45 +49,7 @@ export default class ClinicTime extends Component {
 
   // called when solt(s) are selected, where post request happens
   handleSelect = ({ start, end }) => {
-    //creating savedStart for saving in savedEvents
-    // let startMomentFormat = moment(start);
-    // console.log(startMomentFormat);
-    // let savedStart =
-    //   startMomentFormat.get("year") +
-    //   "-" +
-    //   (startMomentFormat.get("month") + 1) +
-    //   "-" +
-    //   startMomentFormat.get("D") +
-    //   " " +
-    //   startMomentFormat.get("hour") +
-    //   ":" +
-    //   startMomentFormat.get("minute") +
-    //   ":" +
-    //   startMomentFormat.get("second");
-
-    // //creating savedEnd for saving in savedEvents
-    // let endMomentFormat = moment(end);
-    // let savedEnd =
-    //   endMomentFormat.get("year") +
-    //   "-" +
-    //   (endMomentFormat.get("month") + 1) +
-    //   "-" +
-    //   endMomentFormat.get("D") +
-    //   " " +
-    //   endMomentFormat.get("hour") +
-    //   ":" +
-    //   endMomentFormat.get("minute") +
-    //   ":" +
-    //   endMomentFormat.get("second");
-
     this.setState({
-      // savedEvents: [
-      //   ...this.state.savedEvents,
-      //   {
-      //     savedStart: savedStart,
-      //     savedEnd: savedEnd,
-      //   },
-      // ],
       events: [
         ...this.state.events,
         {
@@ -260,24 +222,6 @@ export default class ClinicTime extends Component {
           alert("موفقیت آمیز نبود . دوباره امتحان کنید");
         }
       });
-    //  }
-    // if (r === true) {
-    //   //remove chosen event from events
-    //   var removeIndex = this.state.events
-    //     .map(function (item) {
-    //       return item.start;
-    //     })
-    //     .indexOf(e.start);
-    //   this.state.events.splice(removeIndex, 1);
-    //   //remove chosen event from savedEvents
-    //   var removeIndex = this.state.savedEvents
-    //     .map(function (item) {
-    //       return item.start;
-    //     })
-    //     .indexOf(e.start);
-    //   this.state.savedEvents.splice(removeIndex, 1);
-    //   console.log(this.state.savedEvents);
-    // }
   }
 
   resizeEvent = ({ event, start, end }) => {
@@ -307,19 +251,6 @@ export default class ClinicTime extends Component {
           alert("موفقیت آمیز نبود . دوباره امتحان کنید");
         }
       });
-    // let events = this.state.getEvents;
-
-    // const nextEvents = events.map((existingEvent) => {
-    //   return existingEvent.id == event.id
-    //     ? { ...existingEvent, start, end }
-    //     : existingEvent;
-    // });
-
-    // this.setState({
-    //   getEvents: nextEvents,
-    // });
-
-    //alert(`${event.title} was resized to ${start}-${end}`)
   };
 
   render() {
@@ -371,8 +302,9 @@ export default class ClinicTime extends Component {
             آیا می خواهید این وقت را لغو کنید؟
           </ModalBody>
           <ModalFooter>
+            <Button>مشاهده ی پروفایل کاربر</Button>
             <Button color="primary" onClick={this.onSelectEvent}>
-              بله
+              حذف وقت
             </Button>{" "}
             <Button
               color="secondary"

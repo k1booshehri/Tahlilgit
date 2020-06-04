@@ -122,7 +122,7 @@ export default class ClinicRes extends Component {
   // get request for doctor info
   getItems() {
     let url =
-      "http://myravanyar.ir/api/username=" +
+      "http://myravanyar.ir/api/user/username=" +
       sessionStorage.getItem("DrProfileUsername");
     fetch(url, {
       method: "GET",
@@ -140,7 +140,7 @@ export default class ClinicRes extends Component {
 
   getEventItems() {
     let url =
-      "http://myravanyar.ir/api/?doctorusername=" +
+      "http://myravanyar.ir/api/times/?doctorusername=" +
       sessionStorage.getItem("DrProfileUsername") +
       "&city=" +
       this.state.city;
