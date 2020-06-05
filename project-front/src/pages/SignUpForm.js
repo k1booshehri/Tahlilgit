@@ -16,6 +16,8 @@ class SignUpForm extends Component {
     this.state = {
       email: "",
       password: "",
+      confirmNewPassword: "",
+
       f_name: "",
       l_name: "",
       username: "",
@@ -44,38 +46,46 @@ class SignUpForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    axios
-      .post(
-        "http://myravanyar.ir/api/auth/patient-register",
-        {
-          password: this.state.password,
-          f_name: this.state.f_name,
-          l_name: this.state.l_name,
-          username: this.state.username,
-          // birth: this.state.birth,
-          // gender: this.state.gender,
-          // phone: this.state.phone,
-          // insurance: this.state.insurance,
-          // city: this.state.city,
-          email: this.state.email,
-        },
-        { headers: { "content-type": "application/json" } }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          sessionStorage.setItem("token", res.data.token);
-          localStorage.setItem("eventKey", "2");
+    if (
+      this.state.confirmNewPassword !== "" &&
+      this.state.confirmNewPassword === this.state.password
+    ) {
+      axios
+        .post(
+          "http://myravanyar.ir/api/auth/patient-register",
+          {
+            password: this.state.password,
+            f_name: this.state.f_name,
+            l_name: this.state.l_name,
+            username: this.state.username,
+            // birth: this.state.birth,
+            // gender: this.state.gender,
+            // phone: this.state.phone,
+            // insurance: this.state.insurance,
+            // city: this.state.city,
+            email: this.state.email,
+          },
+          { headers: { "content-type": "application/json" } }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            sessionStorage.setItem("token", res.data.token);
+            localStorage.setItem("eventKey", "2");
 
-          this.setState({ isSignedUp: true });
-        }
-      })
-      .catch(function (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
-        }
-      });
+            this.setState({ isSignedUp: true });
+          }
+        })
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+          }
+        });
+    } else if (this.state.confirmNewPassword !== this.state.password) {
+      alert("تکرار رمز ورود اشتباه است");
+      this.setState({ password: "", confirmNewPassword: "" });
+    }
   }
 
   render() {
@@ -320,7 +330,29 @@ class SignUpForm extends Component {
                     name="password"
                     className="FormField__Input"
                     placeholder="رمز خود را انتخاب کنید"
-                    password={this.state.password}
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
+                    required
+                  />
+                </div>
+                <div className="FormField">
+                  <label
+                    className="FormField__Label"
+                    htmlFor="confirmNewPassword"
+                  >
+                    تکرار رمز ورود
+                  </label>
+                  <input
+                    type="password"
+                    id="confirmNewPassword"
+                    name="confirmNewPassword"
+                    className="FormField__Input"
+                    placeholder="رمز خود را تکرار کنید"
+                    value={this.state.confirmNewPassword}
                     onChange={this.handleChange}
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")

@@ -24,6 +24,7 @@ class DoctorSignUpForm extends Component {
       phone: "",
       // insurance: "",
       password: "",
+      confirmNewPassword: "",
       activetime: "",
       username: "",
       code: "",
@@ -49,41 +50,48 @@ class DoctorSignUpForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (
+      this.state.confirmNewPassword !== "" &&
+      this.state.confirmNewPassword === this.state.password
+    ) {
+      axios
+        .post(
+          "http://myravanyar.ir/api/auth/doctor-register",
+          {
+            email: this.state.email,
+            f_name: this.state.f_name,
+            l_name: this.state.l_name,
+            // edu: this.state.edu,
+            // gender: this.state.gender,
+            // field: this.state.field,
+            // birth: this.state.birth,
+            // phone: this.state.phone,
+            password: this.state.password,
+            // activetime: this.state.activetime,
+            username: this.state.username,
+            // code: this.state.code,
+          },
+          { headers: { "content-type": "application/json" } }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            sessionStorage.setItem("token", res.data.token);
+            localStorage.setItem("eventKey", "1");
 
-    axios
-      .post(
-        "http://myravanyar.ir/api/auth/doctor-register",
-        {
-          email: this.state.email,
-          f_name: this.state.f_name,
-          l_name: this.state.l_name,
-          // edu: this.state.edu,
-          // gender: this.state.gender,
-          // field: this.state.field,
-          // birth: this.state.birth,
-          // phone: this.state.phone,
-          password: this.state.password,
-          // activetime: this.state.activetime,
-          username: this.state.username,
-          // code: this.state.code,
-        },
-        { headers: { "content-type": "application/json" } }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          sessionStorage.setItem("token", res.data.token);
-          localStorage.setItem("eventKey", "1");
-
-          this.setState({ isSignedUp: true });
-        }
-      })
-      .catch(function (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
-        }
-      });
+            this.setState({ isSignedUp: true });
+          }
+        })
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+          }
+        });
+    } else if (this.state.confirmNewPassword !== this.state.password) {
+      alert("تکرار رمز ورود اشتباه است");
+      this.setState({ password: "", confirmNewPassword: "" });
+    }
   }
 
   render() {
@@ -332,13 +340,35 @@ class DoctorSignUpForm extends Component {
                     name="password"
                     className="FormField__Input"
                     placeholder="رمز خود را انتخاب کنید"
-                    password={this.state.password}
+                    value={this.state.password}
                     onChange={this.handleChange}
                     required
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
+                  />
+                </div>
+                <div className="FormField">
+                  <label
+                    className="FormField__Label"
+                    htmlFor="confirmNewPassword"
+                  >
+                    تکرار رمز ورود
+                  </label>
+                  <input
+                    type="password"
+                    id="confirmNewPassword"
+                    name="confirmNewPassword"
+                    className="FormField__Input"
+                    placeholder="رمز خود را تکرار کنید"
+                    value={this.state.confirmNewPassword}
+                    onChange={this.handleChange}
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
+                    required
                   />
                 </div>
                 {/* <div className="FormField">
