@@ -124,6 +124,10 @@ class SignUpForm extends Component {
                     value={this.state.f_name}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 
@@ -140,6 +144,10 @@ class SignUpForm extends Component {
                     value={this.state.lastname}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 
@@ -155,6 +163,10 @@ class SignUpForm extends Component {
                     name="username"
                     value={this.state.username}
                     onChange={this.handleChange}
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
                 </div>
@@ -291,6 +303,10 @@ class SignUpForm extends Component {
                     placeholder="name@example.com"
                     value={this.state.email}
                     onChange={this.handleChange}
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
                 </div>
@@ -306,6 +322,10 @@ class SignUpForm extends Component {
                     placeholder="رمز خود را انتخاب کنید"
                     password={this.state.password}
                     onChange={this.handleChange}
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
                 </div>
