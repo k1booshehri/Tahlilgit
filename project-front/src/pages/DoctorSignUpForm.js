@@ -128,6 +128,10 @@ class DoctorSignUpForm extends Component {
                     value={this.state.f_name}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
                 <div className="FormField">
@@ -143,6 +147,10 @@ class DoctorSignUpForm extends Component {
                     value={this.state.l_name}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
                 {/* <div className="FormField">
@@ -208,6 +216,10 @@ class DoctorSignUpForm extends Component {
                     value={this.state.email}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
                 <div className="FormField">
@@ -223,6 +235,10 @@ class DoctorSignUpForm extends Component {
                     value={this.state.username}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
                 {/* <div className="FormField">
@@ -319,6 +335,10 @@ class DoctorSignUpForm extends Component {
                     password={this.state.password}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
                 {/* <div className="FormField">
