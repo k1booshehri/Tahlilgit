@@ -11,6 +11,7 @@ import DrChat from "./DrChat";
 import ChatBubble from "@material-ui/icons/ChatBubble";
 import Notif from "@material-ui/icons/Notifications";
 import Notifications from "./Notif";
+import axios from "axios";
 
 import {
   HashRouter as Router,
@@ -22,23 +23,23 @@ import OfficeList from "./OfficeList";
 import ClinicForm from "./ClinicForm";
 import DoctorProfile from "./DoctorProfile";
 import EditDrProfile from "./EditDrProfile";
+import PaProfileView from "./PaProfileView";
 
 class DrDashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = { eventKeyChanged: false , update:0, };
+    this.state = { eventKeyChanged: false, update: 0 };
     this.navOnClick = this.navOnClick.bind(this);
-    this.DrChatComponentOnCLick=this.DrChatComponentOnCLick.bind(this);
-    localStorage.setItem("eventKey", "");
+    this.DrChatComponentOnCLick = this.DrChatComponentOnCLick.bind(this);
+    this.logout = this.logout.bind(this);
+    //localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");
   }
   updatenotif(items) {
     this.setState({ update: items });
- 
   }
-
 
   navOnClick(e) {
     let target = e.target.id;
@@ -46,14 +47,36 @@ class DrDashboard extends Component {
 
     this.setState({ eventKeyChanged: true });
   }
-  DrChatComponentOnCLick(e){
+  DrChatComponentOnCLick(e) {
     let target = e.target.id;
     localStorage.setItem("eventKey", target);
     this.setState({ eventKeyChanged: true });
-    localStorage.setItem("PatientOnChatUsername", 'null');
- 
-  
+    localStorage.setItem("PatientOnChatUsername", "null");
   }
+  logout() {
+    axios
+      .post(
+        "http://myravanyar.ir/api/auth/logout",
+        {},
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
+      )
+      .then((e) => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = "/";
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log("hi");
+        }
+      });
+  }
+
   render() {
     return (
       <div className="dashboard">
@@ -73,7 +96,7 @@ class DrDashboard extends Component {
               onClick={this.navOnClick}
               id="0"
             >
-              میزکار   <WorkIcon></WorkIcon>
+              میزکار <WorkIcon></WorkIcon>
               <span className="sr-only">(current)</span>
             </a>
             <a
@@ -81,59 +104,74 @@ class DrDashboard extends Component {
               onClick={this.navOnClick}
               id="1"
             >
-             مطب ها    <BusinessIcon></BusinessIcon>
+              مطب ها <BusinessIcon></BusinessIcon>
             </a>
+
             <a
               className=" nav-link active nav-txt"
               onClick={this.navOnClick}
               id="0"
             >
-                مقاله ها   <PagesIcon></PagesIcon>
+              مقاله ها <PagesIcon></PagesIcon>
             </a>
             <a
               className=" nav-link active nav-txt"
               onClick={this.DrChatComponentOnCLick}
               id="5"
             >
-            گفتگو ها     <ChatBubble></ChatBubble>
+              گفتگو ها <ChatBubble></ChatBubble>
             </a>
 
-          
-          {/*************************************************/} 
-          <div >
-      <button className="notifbutton " type="button"data-toggle="modal" data-target="#exampleModal">
-     
-   
-      {(this.state.update !== 0 ?(
-                <span class="notifbadge">{this.state.update}</span>) :(<div></div>))}
-       <Notif></Notif>
-      
-        </button>
-       
-        </div>
- 
+            {/*************************************************/}
+            <div>
+              <button
+                className="notifbutton "
+                type="button"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                <span class="notifbadge">{this.state.update}</span>
+                <Notif></Notif>
+              </button>
+            </div>
+            <a className="nav-link active nav-txt" onClick={this.logout}>
+              خروج
+            </a>
           </nav>
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog" role="document">
-         <div class="modal-content">
-          <div class="modalheader">
-       
-         <button  type="button" class="close modalheader" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-       <Notifications   data={{
-            update: this.state.update,
-            updatenotif: this.updatenotif.bind(this),
-            
-          }}updateState={this.navOnClick} ></Notifications>
-      </div>
-     
-         </div>
-      </div>
-     </div>
-      {/*************************************************/}     
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modalheader">
+                  <button
+                    type="button"
+                    class="close modalheader"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <Notifications
+                    data={{
+                      update: this.state.update,
+                      updatenotif: this.updatenotif.bind(this),
+                    }}
+                    updateState={this.navOnClick}
+                  ></Notifications>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/*************************************************/}
           {/* up navbar ends */}
           {/* conditions starts */}
           {localStorage.getItem("eventKey") === "5" ? (
@@ -141,7 +179,7 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
-         
+
           {localStorage.getItem("eventKey") === "1" ? (
             <OfficeList updateState={this.navOnClick} />
           ) : (
@@ -162,6 +200,11 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
+          {localStorage.getItem("eventKey") === "7-2" ? (
+            <PaProfileView />
+          ) : (
+            <p> </p>
+          )}
           {/* conditions ends */}
           {/* down navbar starts */}
           <nav className="nav  fixed-bottom down-navbar down-nav-style">
@@ -173,7 +216,7 @@ class DrDashboard extends Component {
               <span className="nav-txt" id="0">
                 {" "}
                 ارتباط با ما
-                  <MailIcon></MailIcon>
+                <MailIcon></MailIcon>
               </span>
             </a>
             <a className="nav-link active" id="0">

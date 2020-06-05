@@ -29,7 +29,7 @@ export default class DrProfileView extends Component {
       phone: "",
       password: "",
       activetime: "",
-      startYear: "",
+      startYear: null,
       username: "",
       code: "",
       transportResultString: "",
@@ -38,6 +38,7 @@ export default class DrProfileView extends Component {
       image: "",
       rating: 0,
       isStateSet: false,
+      nullString: "ثبت نشده است",
     };
     this.onStarClick = this.onStarClick.bind(this);
     this.parsingInformation = this.parsingInformation.bind(this);
@@ -66,8 +67,10 @@ export default class DrProfileView extends Component {
     this.state.rate = this.state.drInfo.rate;
     this.state.image = this.state.drInfo.pp;
 
-    let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
-    this.state.startYear = split[0];
+    if (this.state.activetime !== null) {
+      let split = this.state.activetime.split("-"); //spliting activetime date for getting the year
+      this.state.startYear = split[0];
+    }
   }
   //function for creating strings for extra informations about clinics
   extraClinicInfo(transport, park) {
@@ -171,15 +174,35 @@ export default class DrProfileView extends Component {
 
             <div className="infoTable1">
               <div class="tableRow1">
-                <div class="leftTableCell">{this.state.field}</div>
+                <div class="leftTableCell">
+                  {" "}
+                  {this.state.field !== null ? (
+                    <div>{this.state.field}</div>
+                  ) : (
+                    <div>{this.state.nullString}</div>
+                  )}
+                </div>
                 <div class="rightTableCell">تخصص</div>
               </div>
               <div class="tableRow1">
-                <div class="leftTableCell">{this.state.edu}</div>
+                <div class="leftTableCell">
+                  {" "}
+                  {this.state.edu !== null ? (
+                    <div>{this.state.edu}</div>
+                  ) : (
+                    <div>{this.state.nullString}</div>
+                  )}
+                </div>
                 <div class="rightTableCell">تحصیلات</div>
               </div>
               <div class="tableRow1">
-                <div class="leftTableCell">{this.state.startYear}</div>
+                <div class="leftTableCell">
+                  {this.state.startYear !== null ? (
+                    <div>{this.state.startYear}</div>
+                  ) : (
+                    <div>{this.state.nullString}</div>
+                  )}
+                </div>
                 <div class="rightTableCell">شروع فعالیت</div>
               </div>
             </div>
@@ -191,7 +214,7 @@ export default class DrProfileView extends Component {
                 <div className="infoTable0">
                   {" "}
                   <div className="tableRow0">
-                    <div class="completeTableCell0">اطلاعات مطب</div>
+                    <div class="completeTableCell0">{postdetail.title}</div>
                   </div>
                 </div>
                 <div className="infoTable1">

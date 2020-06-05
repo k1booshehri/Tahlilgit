@@ -12,7 +12,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-export default class EditDrProfile extends Component {
+export default class EditPaProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,21 +20,14 @@ export default class EditDrProfile extends Component {
       drInfo: {},
       //variables used for saving new informations
 
+      email: "",
       f_name: "",
       l_name: "",
-
-      birth: "",
       gender: "",
-
-      field: "",
-      edu: "",
-
+      birth: "",
       phone: "",
-      email: "",
-
-      code: "",
-      activetime: "",
-
+      password: "",
+      insurance: "",
       newPassword: "",
       confirmNewPassword: "",
       username: "",
@@ -55,7 +48,7 @@ export default class EditDrProfile extends Component {
 
   //get request for getting current profile informations
   getItems() {
-    fetch("http://myravanyar.ir/api/auth/doctor-user", {
+    fetch("http://myravanyar.ir/api/auth/patient-user", {
       method: "GET",
       headers: {
         Authorization: "token " + sessionStorage.getItem("token"),
@@ -74,26 +67,18 @@ export default class EditDrProfile extends Component {
   parsingInformation(res) {
     let information = res;
 
-    //conditions for education value
-    let persianEdu0 = null;
-    if (information.edu === "phd") {
-      persianEdu0 = "دکتری";
-    } else if (information.edu === "masters") {
-      persianEdu0 = "کارشناسی ارشد";
-    }
     //initializng drInfo
     this.state.drInfo = {
       l_name: information.l_name,
       f_name: information.f_name,
       email: information.email,
-      field: information.field,
+      city: information.city,
       gender: information.gender,
       username: information.username,
-      code: information.code,
+      insurance: information.insurance,
       birth: information.birth,
       phone: information.phone,
-      activetime: information.activetime,
-      persianEdu: persianEdu0,
+
       image: information.pp,
     };
   }
@@ -136,11 +121,11 @@ export default class EditDrProfile extends Component {
     if (this.state.phone !== "") {
       changedDrInfo.phone = this.state.phone;
     }
-    if (this.state.field !== "") {
-      changedDrInfo.field = this.state.field;
+    if (this.state.city !== "") {
+      changedDrInfo.city = this.state.city;
     }
-    if (this.state.edu !== "") {
-      changedDrInfo.edu = this.state.edu;
+    if (this.state.insurance !== "") {
+      changedDrInfo.insurance = this.state.insurance;
     }
     if (this.state.birth !== "") {
       changedDrInfo.birth = this.state.birth;
@@ -148,18 +133,11 @@ export default class EditDrProfile extends Component {
     if (this.state.gender !== "") {
       changedDrInfo.gender = this.state.gender;
     }
-    if (this.state.code !== "") {
-      changedDrInfo.code = this.state.code;
-    }
-    if (this.state.activetime !== "") {
-      changedDrInfo.activetime = this.state.activetime;
-    }
+
     if (this.state.username !== "") {
       changedDrInfo.username = this.state.username;
     }
-    if (this.state.edu !== "") {
-      changedDrInfo.edu = this.state.edu;
-    }
+
     //if password confirming is correct put request happens
     if (
       this.state.confirmNewPassword !== "" &&
@@ -169,7 +147,7 @@ export default class EditDrProfile extends Component {
 
       axios
         .put(
-          "http://myravanyar.ir/api/auth/update-user",
+          "http://myravanyar.ir/api/auth/update-user2",
 
           changedDrInfo,
 
@@ -198,7 +176,7 @@ export default class EditDrProfile extends Component {
     } else if (this.state.confirmNewPassword === "") {
       axios
         .put(
-          "http://myravanyar.ir/api/auth/update-user",
+          "http://myravanyar.ir/api/auth/update-user2",
 
           changedDrInfo,
 
@@ -471,15 +449,15 @@ export default class EditDrProfile extends Component {
               {" "}
               <div className="DrProfileFormField">
                 <select
-                  name="field"
-                  id="field"
+                  name="insurance"
+                  id="insurance"
                   className="DrProfileFormField__Input__Left"
-                  value={this.state.field}
+                  value={this.state.insurance}
                   onChange={this.handleChange}
                 >
-                  {this.state.drInfo.field !== null ? (
+                  {this.state.drInfo.insurance !== null ? (
                     <option value="" selected disabled hidden>
-                      {this.state.drInfo.field}
+                      {this.state.drInfo.insurance}
                     </option>
                   ) : (
                     <option value="" selected disabled hidden>
@@ -487,28 +465,17 @@ export default class EditDrProfile extends Component {
                     </option>
                   )}
 
-                  <option value="روان شناسی بالینی">روان شناسی بالینی</option>
-                  <option value="روان شناسی مشاوره">روان شناسی مشاوره </option>
-                  <option value="روان شناسی خانواده">
-                    روان شناسی خانواده{" "}
-                  </option>
-                  <option value="روان شناسی تحصیلی">روان شناسی تحصیلی </option>
-                  <option value="روان شناسی تربیتی">روان شناسی تربیتی </option>
-                  <option value="روان شناسی شخصیت">روان شناسی شخصیت </option>
-                  <option value="روان شناسی اجتماعی">
-                    روان شناسی اجتماعی{" "}
-                  </option>
-                  <option value="روان شناسی صنعتی و سازمانی">
-                    روان شناسی صنعتی و سازمانی{" "}
-                  </option>
-                  <option value="روان شناسی مصرف">روان شناسی مصرف </option>
+                  <option value="تأمین اجتماعی"> تأمین اجتماعی</option>
+                  <option value="خدمات درمانی">خدمات درمانی</option>
+                  <option value="نیروهای مسلح">نیروهای مسلح</option>
+                  <option value="سایر">سایر</option>
                 </select>
               </div>
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
-              <label htmlFor="field" className="DrProfileFormField__Label">
-                تخصص
+              <label htmlFor="insurance" className="DrProfileFormField__Label">
+                بیمه درمانی
               </label>
             </div>
           </div>
@@ -518,101 +485,60 @@ export default class EditDrProfile extends Component {
               <div className="DrProfileFormField">
                 <select
                   className="DrProfileFormField__Input__Left"
-                  name="edu"
-                  id="edu"
-                  value={this.state.edu}
+                  name="city"
+                  id="city"
+                  value={this.state.city}
                   onChange={this.handleChange}
                 >
-                  {this.state.drInfo.persianEdu !== null ? (
+                  {this.state.drInfo.city !== null ? (
                     <option value="" selected disabled hidden>
-                      {this.state.drInfo.persianEdu}
+                      {this.state.drInfo.city}
                     </option>
                   ) : (
                     <option value="" selected disabled hidden>
                       {this.state.nullString}
                     </option>
                   )}
-                  <option value="masters">کارشناسی ارشد</option>
-                  <option value="phd">دکتری</option>
+                  <option value="آذربایجان شرقی">آذربایجان شرقی</option>
+                  <option value="آذربایجان غربی">آذربایجان غربی</option>
+                  <option value="آردبیل">اردبیل</option>
+                  <option value="اصفهان">اصفهان</option>
+                  <option value="البرز">البرز</option>
+                  <option value="ایلام">ایلام</option>
+                  <option value="بوشهر">بوشهر</option>
+                  <option value="تهران">تهران</option>
+                  <option value="چهارمحال و بختیاری">چهارمحال و بختیاری</option>
+                  <option value="خراسان جنوبی">خراسان جنوبی</option>
+                  <option value="خراسان رضوی">خراسان رضوی</option>
+                  <option value="خراسان شمالی">خراسان شمالی</option>
+                  <option value="خوزستان">خوزستان</option>
+                  <option value="زنجان">زنجان</option>
+                  <option value="سمنان">سمنان</option>
+                  <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
+                  <option value="فارس">فارس</option>
+                  <option value="قزوین">قزوین</option>
+                  <option value="قم">قم</option>
+                  <option value="کردستان">کردستان</option>
+                  <option value="کرمان">کرمان</option>
+                  <option value="کرمانشاه">کرمانشاه</option>
+                  <option value="کهگیلویه و بویراحمد">
+                    کهگیلویه و بویراحمد
+                  </option>
+                  <option value="گلستان">گلستان</option>
+                  <option value="گیلان">گیلان</option>
+                  <option value="لرستان">لرستان</option>
+                  <option value="مازندران">مازندران</option>
+                  <option value="مرکزی">مرکزی</option>
+                  <option value="هرمزگان">هرمزگان</option>
+                  <option value="همدان">همدان</option>
+                  <option value="یزد">یزد</option>
                 </select>
               </div>
             </div>{" "}
             <div className="DrProfileRightTableCell">
               {" "}
-              <label htmlFor="edu" className="DrProfileFormField__Label">
-                تحصیلات
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                {this.state.drInfo.activetime !== null ? (
-                  <input
-                    type={this.state.dateType}
-                    className="DrProfileFormField__Input__Left"
-                    id="activetime"
-                    name="activetime"
-                    value={this.state.activetime}
-                    onFocus={(e) => this.setState({ dateType: "date" })}
-                    onBlur={(e) => this.setState({ dateType: "text" })}
-                    placeholder={this.state.drInfo.activetime}
-                    onChange={this.handleChange}
-                  />
-                ) : (
-                  <input
-                    type={this.state.dateType}
-                    className="DrProfileFormField__Input__Left"
-                    id="activetime"
-                    name="activetime"
-                    value={this.state.activetime}
-                    onFocus={(e) => this.setState({ dateType: "date" })}
-                    onBlur={(e) => this.setState({ dateType: "text" })}
-                    placeholder={this.state.nullString}
-                    onChange={this.handleChange}
-                  />
-                )}
-              </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="activetime">
-                شروع فعالیت پزشکی
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                {this.state.drInfo.code ? (
-                  <input
-                    type="text"
-                    className="DrProfileFormField__Input__Left"
-                    id="code"
-                    name="code"
-                    value={this.state.code}
-                    placeholder={this.state.drInfo.code}
-                    onChange={this.handleChange}
-                    autocomplete="off"
-                  />
-                ) : (
-                  <input
-                    type="text"
-                    className="DrProfileFormField__Input__Left"
-                    id="code"
-                    name="code"
-                    value={this.state.code}
-                    placeholder={this.state.nullString}
-                    onChange={this.handleChange}
-                    autocomplete="off"
-                  />
-                )}
-              </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="code">
-                کد نظام پزشکی
+              <label htmlFor="city" className="DrProfileFormField__Label">
+                شهر
               </label>
             </div>
           </div>
@@ -714,7 +640,7 @@ export default class EditDrProfile extends Component {
         </div>
         <button
           className="editProfileButton1"
-          id="3"
+          id="7"
           //  if edit profile button is clicked ProfileButtonOnClick is called
 
           onClick={this.handleEdit}

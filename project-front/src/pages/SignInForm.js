@@ -49,6 +49,8 @@ class SignInForm extends Component {
       .then((res) => {
         if (res.status === 200) {
           sessionStorage.setItem("token", res.data.token);
+          localStorage.setItem("eventKey", "2");
+
           this.setState({ isLogedIn: true });
         }
       })
