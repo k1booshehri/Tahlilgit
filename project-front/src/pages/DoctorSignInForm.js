@@ -66,8 +66,7 @@ class DoctorSignInForm extends Component {
     if (!this.state.isLogedIn) {
       return (
         <div className="App">
-          <div className="App__Form">
-            <div className="PageSwitcher">
+              <div className="PageSwitcher">
               <NavLink
                 to="/Dr_Sign_In"
                 activeClassName="PageSwitcher__Item--Active"
@@ -84,12 +83,14 @@ class DoctorSignInForm extends Component {
                 ثبت نام
               </NavLink>
             </div>
+          <div className="App__Form">
+        
 
             <div className="FormCenter">
-              <form onSubmit={this.handleSubmit} className="FormField">
+              <form onSubmit={this.handleSubmit} className="FormFields">
                 <div className="FormField">
-                  <label className="FormField__Label" htmlFor="username">
-                    نام کاربری
+                <label className="FormField__Label" htmlFor="username">
+                    نام کاربری{" "}
                   </label>
                   <input
                     type="username"
@@ -101,9 +102,7 @@ class DoctorSignInForm extends Component {
                     onChange={this.handleChange}
                     required
                   />
-                </div>
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="password">
+              <label className="FormField__Label" htmlFor="password">
                     رمز ورود
                   </label>
                   <input
@@ -123,6 +122,7 @@ class DoctorSignInForm extends Component {
                 </div>
               </form>
             </div>
+            <div className="formcenter-part2">روان یار</div>
           </div>
         </div>
       );

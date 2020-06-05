@@ -69,8 +69,7 @@ class SignInForm extends Component {
     if (!this.state.isLogedIn) {
       return (
         <div className="App">
-          <div className="App__Form">
-            <div className="PageSwitcher">
+               <div className="PageSwitcher">
               <NavLink
                 to="/sign-in"
                 activeClassName="PageSwitcher__Item--Active"
@@ -87,6 +86,8 @@ class SignInForm extends Component {
                 ثبت نام
               </NavLink>
             </div>
+          <div className="App__Form">
+       
 
             <div className="FormCenter">
               <form
@@ -137,6 +138,7 @@ class SignInForm extends Component {
                 </div>
               </form>
             </div>
+            <div className="formcenter-part2">روان یار</div>
           </div>
         </div>
       );
