@@ -122,7 +122,7 @@ export default class ClinicRes extends Component {
   // get request for doctor info
   getItems() {
     let url =
-      "http://myravanyar.ir/api/username=" +
+      "http://myravanyar.ir/api/user/username=" +
       sessionStorage.getItem("DrProfileUsername");
     fetch(url, {
       method: "GET",
@@ -140,7 +140,7 @@ export default class ClinicRes extends Component {
 
   getEventItems() {
     let url =
-      "http://myravanyar.ir/api/?doctorusername=" +
+      "http://myravanyar.ir/api/times/?doctorusername=" +
       sessionStorage.getItem("DrProfileUsername") +
       "&city=" +
       this.state.city;
@@ -204,6 +204,8 @@ export default class ClinicRes extends Component {
       id: e.id,
       patient: e.patient,
       reservetime: e.reservetime,
+      ptusername: e.ptusername,
+      offtitle: e.offtitle,
       //title: e.title,
     };
     return event; //return a format like this : //Wed May 20 2020 12:00:00 GMT+0430 (Iran Daylight Time)
@@ -313,7 +315,7 @@ export default class ClinicRes extends Component {
                   defaultView="week"
                   startAccessor="start"
                   endAccessor="end"
-                  //titleAccessor="title"
+                  titleAccessor="offtitle"
                   tooltipAccessor={this.tooltipAccessor}
                   eventPropGetter={this.eventPropGetter}
                   slotPropGetter={this.slotPropGetter}
@@ -325,19 +327,36 @@ export default class ClinicRes extends Component {
           </div>
         </div>
         <Modal isOpen={this.state.isModal}>
-          <ModalBody className="modalbodCalender">
+          <ModalHeader
+            close={
+              <Button onClick={() => this.setState({ isModal: false })}>
+                &times;
+              </Button>
+            }
+          ></ModalHeader>
+          {/* <ModalBody className="modalbodCalender">
             آیا می خواهید این وقت را لغو کنید؟
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.onSelectEvent}>
-              بله
-            </Button>{" "}
+          </ModalBody> */}
+          <ModalFooter
+            close={
+              <Button
+                outline
+                color="info"
+                onClick={() => this.setState({ isModal: false })}
+              >
+                &times;
+              </Button>
+            }
+          >
             <Button
-              color="secondary"
-              onClick={() => this.setState({ isModal: false })}
+              outline
+              color="info"
+              size="lg"
+              block
+              onClick={this.onSelectEvent}
             >
-              خیر
-            </Button>
+              لغو وقت
+            </Button>{" "}
           </ModalFooter>
         </Modal>
       </div>

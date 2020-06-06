@@ -49,6 +49,8 @@ class SignInForm extends Component {
       .then((res) => {
         if (res.status === 200) {
           sessionStorage.setItem("token", res.data.token);
+          localStorage.setItem("eventKey", "2");
+
           this.setState({ isLogedIn: true });
         }
       })
@@ -110,6 +112,10 @@ class SignInForm extends Component {
                     value={this.state.username}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 
@@ -126,6 +132,10 @@ class SignInForm extends Component {
                     password={this.state.password}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 

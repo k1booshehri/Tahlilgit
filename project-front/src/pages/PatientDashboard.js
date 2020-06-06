@@ -18,6 +18,9 @@ import Notifications from "./Notif";
 import Popup from "reactjs-popup";
 
 import ClinicRes from "./ClinicRes";
+import PatientProfile from "./PatientProfile";
+import EditPaProfile from "./EditPaProfile";
+import PaProfileView from "./PaProfileView";
 
 class PatientDashboard extends Component {
   constructor() {
@@ -25,7 +28,9 @@ class PatientDashboard extends Component {
     this.state = { eventKeyChanged: false, modalOpen: false, update: 0 };
     this.navOnClick = this.navOnClick.bind(this);
     this.ChatComponentOnCLick = this.ChatComponentOnCLick.bind(this);
-    localStorage.setItem("eventKey", "");
+    this.logout = this.logout.bind(this);
+
+    //localStorage.setItem("eventKey", "");
   }
   dropdownClick() {
     document.getElementById("dropdownID").classList.toggle("show");
@@ -54,7 +59,29 @@ class PatientDashboard extends Component {
       };
     });
   };
-
+  logout() {
+    axios
+      .post(
+        "http://myravanyar.ir/api/auth/logout",
+        {},
+        {
+          headers: {
+            "content-type": "application/json",
+            Authorization: "token " + sessionStorage.getItem("token"),
+          },
+        }
+      )
+      .then((res) => {
+        localStorage.clear();
+        sessionStorage.clear();
+        window.location.href = "/";
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log("hi");
+        }
+      });
+  }
   render() {
     return (
       <div className="dashboard">
@@ -64,7 +91,7 @@ class PatientDashboard extends Component {
             <a
               className="nav-link active  nav-txt "
               onClick={this.navOnClick}
-              id="0"
+              id="7"
             >
               <PersonIcon></PersonIcon>
               <span className="sr-only">(current)</span>
@@ -110,6 +137,9 @@ class PatientDashboard extends Component {
                 <Notif></Notif>
               </button>
             </div>
+            <a className="nav-link active nav-txt" onClick={this.logout}>
+              خروج
+            </a>
           </nav>
           <div
             class="modal fade"
@@ -168,6 +198,17 @@ class PatientDashboard extends Component {
           ) : (
             <p> </p>
           )}
+          {localStorage.getItem("eventKey") === "7" ? (
+            <PatientProfile updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+          {localStorage.getItem("eventKey") === "7-1" ? (
+            <EditPaProfile updateState={this.navOnClick} />
+          ) : (
+            <p> </p>
+          )}
+
           {localStorage.getItem("eventKey") === "6" ? <ClinicRes /> : <p> </p>}
           {/* conditions ends */}
           {/* down navbar starts */}
