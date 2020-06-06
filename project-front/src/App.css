@@ -586,11 +586,11 @@
 }
 
 .DrProfileViewStar {
-  display: flex;
-  padding-top: -20%;
-  justify-content: right;
+  width: 5%;
   position: relative;
-  margin-left: 10%;
+  padding-left: 37%;
+  padding-top: 6%;
+  font-size: 0.8em;
 }
 /* table with two cells for showing personal information */
 .infoTable1 {
