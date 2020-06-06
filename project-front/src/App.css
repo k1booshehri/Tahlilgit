@@ -194,7 +194,7 @@ justify-content: center;
 .dashboard {
   background-color: #ffffff;
   justify-content: right;
-  width: 151vh;
+  width: 86%;
   min-height: 92.5vh;
   margin-top: 58px;
   display: inline-block;
@@ -286,7 +286,7 @@ justify-content: center;
   display: flex;
   flex-direction: row-reverse;
 margin-right: 200px;
-  height: 7%;
+  height: 57px;
   float: left;
   color: #ffffff;
   text-align: center;
