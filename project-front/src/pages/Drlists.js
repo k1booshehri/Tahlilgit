@@ -8,6 +8,7 @@ import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import avatar from "./avatarpic.png";
+import ChatBubble from "@material-ui/icons/ChatBubble";
 
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 
@@ -106,9 +107,9 @@ export default class Drlist extends Component {
                     <Rating value={postdetail.rate} readOnly></Rating>
                   </Box>
                 </div>
-
-                <button
-                  className="locationbutton"
+                 <div className="drlistcard__buttons">
+                <a
+                  className="drlistcard__button "
                   id="2-1"
                   name={postdetail.username}
                   /* if profile button is clicked ProfileButtonOnClick is called */
@@ -116,19 +117,19 @@ export default class Drlist extends Component {
                   variant="primary"
                 >
                   اطلاعات بیشتر
-                </button>
+                </a>
 
-                <button
+                <a
                   id="2-2"
                   onClick={this.ChatButtonOnClick}
                   name={postdetail.id}
-                  className="locationbutton"
+                  className="drlistcard__button "
                 >
                   گفتگو
-                </button>
+                </a>
 
-                <button
-                  className="locationbutton"
+                <a
+                  className="drlistcard__button "
                   id="6"
                   /* if profile button is clicked ProfileButtonOnClick is called */
                   onClick={this.ProfileButtonOnClick}
@@ -136,7 +137,8 @@ export default class Drlist extends Component {
                   variant="primary"
                 >
                   وقت گیری آنلاین
-                </button>
+                </a>
+                </div>
               </div>
             );
           })}

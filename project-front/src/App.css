@@ -218,13 +218,15 @@ justify-content: center;
   justify-content: right;
 
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   color: #818181;
   display: block;
 }
 .down-sidenav{
 
-  margin-top: 190%;
+position: fixed;
+bottom: 0px;
+right: 10px;
 
 }
 .logo-sidnav {
@@ -251,7 +253,7 @@ justify-content: center;
   text-align: right;
   justify-content: right;
   
-  padding-right: 10px;
+  padding-right: 30px;
  
 }
 .text-icon-sidenav{
@@ -263,7 +265,7 @@ justify-content: center;
   cursor: pointer;
 }
 .sidnav-components :hover{
-  background-color: #ffe082;
+ color: #ffe082;
  cursor: pointer;
 
 }
@@ -438,22 +440,13 @@ margin-right: 200px;
   color: #484b4e;
   padding-top: 2px;
 }
-.locationbutton {
-  border: 0.1;
-  outline: none;
-
-  color: #5d6166;
-  background-color: #cfd8dc21;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  margin-top: 20px;
-  padding: 3px;
+.drlistcard__button {
+ 
 }
-.locationbutton:hover {
-  background: rgb(174, 198, 214);
-  cursor: pointer;
+
+.drlistcard__buttons{
+ display: flex;
+ flex-direction: row;
 }
 .Drlistlable {
   text-align: center;
@@ -517,11 +510,12 @@ margin-right: 200px;
   flex: 1 0 21%;
   min-height: 300px;
   font-size: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #c4c4c4;
   transition: 0.3s;
 }
 .Drlist {
-  padding-left: 9%;
+  padding-left: 10%;
+  padding-right: 1%;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
@@ -529,7 +523,7 @@ margin-right: 200px;
 }
 
 .Drlistcard:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 }
 .Drsearch {
   margin-top: 30px;
@@ -538,9 +532,7 @@ margin-right: 200px;
   height: 100%;
   width: 200px;
   position: absolute;
-  left: 0px;
-  margin-right: 1%;
-  padding-right: 0.3%;
+
 
   background-color: #ffffff;
   overflow-x: hidden;
@@ -607,18 +599,19 @@ margin-right: 200px;
 
 /* main container */
 .DrProfileView {
-  width: 850px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
-  background-color: white;
+  padding-right: 5%;
+  padding-left: 5%;
+  background-color: none;
 
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
 
   border-radius: 0.3em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); */
   margin-bottom: 20px;
   font-size: 1.3em;
 }
@@ -626,77 +619,68 @@ margin-right: 200px;
 /* avatar css */
 .ProfileViewAvatar {
   margin: auto;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+
   vertical-align: middle;
-  width: 60%;
+  width: 80%;
   height: 20%;
   min-width: 20vh;
   min-height: 30vh;
-
-  z-index: +1;
-  position: relative;
+  margin-right: 5%;
 }
 .avatar {
   margin: auto;
 
   vertical-align: middle;
-  width: 60%;
+  width: 80%;
   height: 20%;
   min-width: 20vh;
   min-height: 30vh;
-  border: solid;
-  border-width: 0.8px;
-  border-color: #00507a;
-
-  z-index: +1;
-  position: relative;
 }
 /* table with one cell for showing name */
 .nameInfoTable {
   width: 100%;
   display: table;
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 .nameTableRow {
   width: 100%;
   display: table-row;
-  background-color: #eefaff;
-
-  border-bottom: 0.5px solid rgb(196, 189, 189);
+  /* background-color: #eefaff; */
+  /* border: solid; */
+  /* border-bottom: 0.5px solid rgb(196, 189, 189); */
 }
 
 .namerightTableCell {
-  width: 50%;
+  width: 20%;
   display: table-cell;
-  padding-top: 10%;
+  padding-top: -3%;
   text-align: right;
-  font-size: 2.1em;
-  padding-bottom: 5%;
-  padding-top: 5%;
-  color: #00355e;
-  padding-right: 3%;
-
-  border-bottom: 0.5px solid rgb(196, 189, 189);
+  margin-right: 5%;
+  /* border-bottom: 0.5px solid rgb(196, 189, 189); */
 }
 .nameleftTableCell {
-  width: 50%;
+  width: 80%;
   padding-bottom: 5%;
-  padding-top: 5%;
+  padding-top: -3%;
   display: table-cell;
   padding-left: 6%;
-  text-align: left;
 
-  border-bottom: 0.5px solid rgb(196, 189, 189);
+  text-align: right;
+  font-size: 2.1em;
+  color: #00355e;
+
+  /* border-bottom: 0.5px solid rgb(196, 189, 189); */
 }
 .nameDisplay {
-  margin-bottom: 0em;
+  margin-top: 2em;
 }
+
 .DrProfileViewStar {
-  display: flex;
-  padding-top: -20%;
-  justify-content: right;
+  width: 5%;
   position: relative;
-  margin-left: 10%;
+  padding-left: 37%;
+  padding-top: 6%;
+  font-size: 0.8em;
 }
 /* table with two cells for showing personal information */
 .infoTable1 {
@@ -743,11 +727,11 @@ margin-right: 200px;
   margin-bottom: 8%;
 }
 
-.borderProfile {
+/* .borderProfile {
   border-right: 0.5px solid rgb(196, 189, 189);
   border-bottom: 0.5px solid rgb(196, 189, 189);
   border-left: 0.5px solid rgb(196, 189, 189);
-}
+} */
 .infoTable0 {
   width: 100%;
   display: table;
@@ -861,17 +845,19 @@ margin-right: 200px;
 
 /* edit profile css starts */
 .DrProfileForm {
-  width: 850px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 40px;
-  background-color: white;
-  margin-top: 8%;
+  padding-right: 5%;
+  padding-left: 5%;
+  background-color: none;
+
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
+
   border-radius: 0.3em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); */
   margin-bottom: 20px;
   font-size: 1.3em;
 }
@@ -936,13 +922,15 @@ margin-right: 200px;
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
 }
+
 .DrProfileFormField__Input::placeholder {
   color: #000000;
 }
 
 .DrProfileInfoTable {
   display: table;
-  padding-top: 5%;
+  padding-top: 2.2%;
+  width: 100%;
 }
 .DrProfileTableRow {
   display: table-row;
@@ -954,7 +942,7 @@ margin-right: 200px;
   text-align: right;
 }
 .DrProfileLeftTableCell {
-  width: 50%;
+  width: 80%;
   display: table-cell;
   padding-left: 4%;
   text-align: right;
@@ -973,7 +961,7 @@ margin-right: 200px;
 
 .DrProfileInfoTable__Tiltle {
   display: table;
-  padding-top: 2%;
+  padding-top: 5%;
 }
 .DrProfileTableRow__Tiltle {
   display: table-row;
@@ -981,64 +969,22 @@ margin-right: 200px;
 .DrProfileRightTableCell__Tiltle {
   width: 50%;
   display: table-cell;
-
+  padding-left: 20%;
   text-align: right;
 }
 
 .DrProfileLeftTableCell__Tiltle {
-  width: 0%;
+  width: 50%;
   display: table-cell;
-  padding-left: 30%;
+
   text-align: right;
 }
 /* end of titles */
-/* picture */
-.DrProfileInfoTable__Picture {
-  display: table;
-  width: 98%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 3%;
-}
-.DrProfileTableRow__Picture {
-  display: table-row;
-  background-color: #eefaff;
-}
-.DrProfileRightTableCell__Picture {
-  width: 50%;
-  display: table-cell;
-  padding-top: 10%;
-  text-align: right;
-  font-size: 2.1em;
-  padding-bottom: 5%;
-  padding-top: 5%;
-  color: #000000;
-  padding-right: 3%;
-}
-.DrProfileLeftTableCell__Picture {
-  width: 50%;
-  padding-bottom: 5%;
-  padding-top: 5%;
-  display: table-cell;
-  padding-left: 6%;
-  text-align: left;
-}
-.EditProfileAvatar {
-  margin: auto;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-  vertical-align: middle;
-  width: 60%;
-  height: 20%;
-  min-width: 20vh;
-  min-height: 30vh;
 
-  z-index: +1;
-  position: relative;
-}
 .ChosePicture {
   width: 5%;
   position: relative;
-  padding-left: 6%;
+  padding-left: 25%;
   padding-top: 6%;
   font-size: 0.8em;
 }
