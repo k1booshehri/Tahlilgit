@@ -115,125 +115,145 @@ export default class DoctorProfile extends Component {
           </div>
           <hr class="divider__EditProfile"></hr>{" "}
           <div className="DrProfileInfoTable ">
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  {" "}
-                  {this.state.field !== null ? (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.field}
-                    />
-                  ) : (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.nullString}
-                    />
-                  )}
+            <div className="DrProfileTableRow_base">
+              <div className="DrProfileLeftTableCell_base">
+                {" "}
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      {this.state.code !== null ? (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.code}
+                        />
+                      ) : (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.nullString}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">
+                      کد نظام پزشکی
+                    </label>
+                  </div>
+                </div>
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      <input
+                        className="DrProfileFormField__Input__Right"
+                        readOnly
+                        placeholder={this.state.email}
+                      />
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">
+                      آدرس ایمیل
+                    </label>
+                  </div>
+                </div>
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      <button
+                        className="editProfileButton1"
+                        id="3-1"
+                        /* if edit profile button is clicked ProfileButtonOnClick is called */
+                        onClick={this.EditProfileButtonOnClick}
+                        variant="primary"
+                      >
+                        ویرایش
+                      </button>
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell"></div>
                 </div>
               </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">تخصص</label>
-              </div>
-            </div>
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  {" "}
-                  {this.state.edu !== null ? (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.edu}
-                    />
-                  ) : (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.nullString}
-                    />
-                  )}
+              <div className="DrProfileRightTableCell_base">
+                {" "}
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      {this.state.field !== null ? (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.field}
+                        />
+                      ) : (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.nullString}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">تخصص</label>
+                  </div>
                 </div>
-              </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">تحصیلات</label>
-              </div>
-            </div>
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  {" "}
-                  {this.state.startYear !== null ? (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.startYear}
-                    />
-                  ) : (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.nullString}
-                    />
-                  )}
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      {this.state.edu !== null ? (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.edu}
+                        />
+                      ) : (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.nullString}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">تحصیلات</label>
+                  </div>
                 </div>
-              </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">شروع فعالیت</label>
-              </div>
-            </div>
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  {" "}
-                  {this.state.code !== null ? (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.code}
-                    />
-                  ) : (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.nullString}
-                    />
-                  )}
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      {this.state.startYear !== null ? (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.startYear}
+                        />
+                      ) : (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.nullString}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">
+                      شروع فعالیت
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">
-                  کد نظام پزشکی
-                </label>
-              </div>
-            </div>
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  <input
-                    className="DrProfileFormField__Input__Right"
-                    readOnly
-                    placeholder={this.state.email}
-                  />
-                </div>
-              </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">آدرس ایمیل</label>
               </div>
             </div>
           </div>
         </div>
-        <button
-          className="editProfileButton1"
-          id="3-1"
-          /* if edit profile button is clicked ProfileButtonOnClick is called */
-          onClick={this.EditProfileButtonOnClick}
-          variant="primary"
-        >
-          ویرایش
-        </button>
       </div>
     );
   }

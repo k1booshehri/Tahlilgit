@@ -784,6 +784,7 @@
   color: rgb(105, 105, 107);
   text-align: right;
   margin-right: 5%;
+  padding-top: 4%;
 }
 
 .DrProfileFormField__Input__Right {
@@ -843,18 +844,37 @@
   width: 100%;
 }
 .DrProfileTableRow {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+.DrProfileTableRow_base {
   display: table-row;
+  width: 100%;
 }
 .DrProfileRightTableCell {
-  width: 20%;
+  width: 30%;
+  display: table-cell;
+  padding-right: 2%;
+  text-align: right;
+}
+.DrProfileLeftTableCell {
+  width: 70%;
+  display: table-cell;
+  text-align: right;
+
+  margin-left: 20%;
+}
+.DrProfileRightTableCell_base {
+  width: 50%;
   display: table-cell;
 
   text-align: right;
 }
-.DrProfileLeftTableCell {
-  width: 80%;
+.DrProfileLeftTableCell_base {
+  width: 50%;
   display: table-cell;
-  padding-left: 4%;
+
   text-align: right;
 }
 
@@ -932,13 +952,9 @@
   background-color: #00355e;
   text-align: center;
   cursor: pointer;
-  width: 20%;
+  width: 50%;
   font-size: 18px;
-  margin-top: 20px;
-  padding: 5px;
-  margin-left: 3.8%;
-  font-size: 1em;
-  margin-bottom: 4%;
+  margin-right: 50%;
 }
 .editProfileButton0:hover {
   background: rgb(174, 198, 214);
