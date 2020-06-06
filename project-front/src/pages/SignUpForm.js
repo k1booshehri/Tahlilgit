@@ -96,8 +96,7 @@ class SignUpForm extends Component {
     if (!this.state.isSignedUp) {
       return (
         <div className="App">
-          <div className="App__Form">
-            <div className="PageSwitcher">
+           <div className="PageSwitcher">
               <NavLink
                 to="/sign-in"
                 activeClassName="PageSwitcher__Item--Active"
@@ -114,8 +113,11 @@ class SignUpForm extends Component {
                 ثبت نام
               </NavLink>
             </div>
+          <div className="App__Form">
+            
 
             <div className="FormCenter">
+           
               <form onSubmit={this.handleSubmit} className="FormFields">
                 {/*            
             <div className="FormTitle">
@@ -180,130 +182,11 @@ class SignUpForm extends Component {
                     required
                   />
                 </div>
-                {/* 
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="birth">
-                    تاریخ تولد خود را انتخاب کنید
-                  </label>
-                  <input
-                    className="FormField__Input__Date"
-                    type="date"
-                    id="birth"
-                    name="birth"
-                    value={this.state.birth}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="city">
-                    استان محل سکونت خود را انتخاب کنید
-                  </label>
-                  <select
-                    value={this.state.city}
-                    onChange={this.handleChange}
-                    required
-                    className="FormField__Input"
-                    id="city"
-                    placeholder=""
-                    name="city"
-                  >
-                    <option value="آذربایجان شرقی">آذربایجان شرقی</option>
-                    <option value="آذربایجان غربی">آذربایجان غربی</option>
-                    <option value="آردبیل">اردبیل</option>
-                    <option value="اصفهان">اصفهان</option>
-                    <option value="البرز">البرز</option>
-                    <option value="ایلام">ایلام</option>
-                    <option value="بوشهر">بوشهر</option>
-                    <option value="تهران">تهران</option>
-                    <option value="چهارمحال و بختیاری">
-                      چهارمحال و بختیاری
-                    </option>
-                    <option value="خراسان جنوبی">خراسان جنوبی</option>
-                    <option value="خراسان رضوی">خراسان رضوی</option>
-                    <option value="خراسان شمالی">خراسان شمالی</option>
-                    <option value="خوزستان">خوزستان</option>
-                    <option value="زنجان">زنجان</option>
-                    <option value="سمنان">سمنان</option>
-                    <option value="سیستان و بلوچستان">سیستان و بلوچستان</option>
-                    <option value="فارس">فارس</option>
-                    <option value="قزوین">قزوین</option>
-                    <option value="قم">قم</option>
-                    <option value="کردستان">کردستان</option>
-                    <option value="کرمان">کرمان</option>
-                    <option value="کرمانشاه">کرمانشاه</option>
-                    <option value="کهگیلویه و بویراحمد">
-                      کهگیلویه و بویراحمد
-                    </option>
-                    <option value="گلستان">گلستان</option>
-                    <option value="گیلان">گیلان</option>
-                    <option value="لرستان">لرستان</option>
-                    <option value="مازندران">مازندران</option>
-                    <option value="مرکزی">مرکزی</option>
-                    <option value="هرمزگان">هرمزگان</option>
-                    <option value="همدان">همدان</option>
-                    <option value="یزد">یزد</option>
-                  </select>
-                </div>
-
-                <div className="FormField">
-                  <label htmlFor="gender" className="FormField__Label">
-                    جنسیت خود را وارد کنید
-                  </label>
-                  <select
-                    className="FormField__Input"
-                    name="gender"
-                    id="gender"
-                    value={this.state.gender}
-                    onChange={this.handleChange}
-                    required
-                  >
-                    <option value="زن">زن</option>
-                    <option value="مرد">مرد</option>
-                    <option value="سایر">سایر</option>
-                  </select>
-                </div>
-
-                <div className="FormField">
-                  <label htmlFor="insurance" className="FormField__Label">
-                    نوع بیمه ی پزشکی خود را وارد کنید
-                  </label>
-                  <select
-                    className="FormField__Input"
-                    name="insurance"
-                    id="insurance"
-                    value={this.state.insurance}
-                    onChange={this.handleChange}
-                    required
-                  >
-                    <option value="تأمین اجتماعی"> تأمین اجتماعی</option>
-                    <option value="خدمات درمانی">خدمات درمانی</option>
-                    <option value="نیروهای مسلح">نیروهای مسلح</option>
-                    <option value="سایر">سایر</option>
-                  </select>
-                </div>
-
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="phone">
-                    شماره ی موبایل خود را وارد کنید
-                  </label>
-                  <input
-                    className="FormField__Input"
-                    placeholder="09*********"
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    pattern="[0][9]\d{9}$"
-                    value={this.state.phone}
-                    required
-                    onChange={this.handleChange}
-                  />
-                </div> */}
+               
 
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="email">
-                    آدرس ایمیل خود را وارد کنید
+                    آدرس ایمیل
                   </label>
                   <input
                     type="email"
@@ -385,7 +268,9 @@ class SignUpForm extends Component {
                 </Link> */}
                 </div>
               </form>
+            
             </div>
+            <div className="formcenter-part2">روان یار</div>
           </div>
         </div>
       );

@@ -1,7 +1,7 @@
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 10%;
+  padding-bottom: 30px;
 }
 
 .PageSwitcher__Item {
@@ -19,7 +19,7 @@
 }
 
 .PageSwitcher__Item--Active {
-  background-color: #01579b;
+  background-color: #0097a7;
   color: white;
 }
 
@@ -46,33 +46,60 @@
 .App {
   height: 100%;
   min-height: 100vh;
+  width: 100vh;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #01579b;
+  background-color: #ffffff;
   display: flex;
 }
 
 .App__Form {
-  width: 600px;
   display: flex;
-  flex-direction: column;
-  padding: 20px 40px;
-  padding-top: 50px;
-  background-color: #ffffff;
-  margin-top: 20px;
-  border-radius: 0.3em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-  margin-bottom: 20px;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
 }
 
 .FormCenter {
   margin-bottom: 100px;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border-right: 1px solid #c4c4c4;
+  margin-bottom: 20px;
+  justify-content: right;
+}
+.FormCenter__welcome {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-right: 1px solid #c4c4c4;
+  justify-content: center;
+}
+.formcenter-part2 {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/22/62/light-bulb-gear-work-idea-logo-vector-5512262.jpg");
+  margin-bottom: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 130%;
+  align-items: center;
+  font-size: 40px;
+  color: #0097a7;
 }
 
 .FormField {
-  margin-bottom: 40px;
   text-align: right;
 }
 
@@ -82,16 +109,19 @@
   padding-top: 2em;
 }
 
-.FormField2 {
-  margin-bottom: 40px;
-  text-align: center;
+.FormField__welcome {
+  margin-top: 3em;
+
+  text-align: left;
   padding-top: 2em;
+  display: flex;
+  justify-content: center;
 }
 
 .FormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.6em;
+  font-size: 1.3em;
   color: rgb(105, 105, 107);
   text-align: right;
 }
@@ -100,7 +130,7 @@
   font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
-  margin-top: 10px;
+
   text-align: right;
   font-weight: 700;
   font-size: 0.8em;
@@ -120,7 +150,7 @@
 }
 
 .FormField__Button {
-  background-color: #01579b;
+  background-color: #0097a7;
   color: white;
   border: none;
   outline: none;
@@ -153,62 +183,110 @@
   color: #cdcdcd;
 }
 .dashboard {
-  background-color: #f8feff;
+  background-color: #ffffff;
   justify-content: right;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  padding-top: 60px;
+  width: 86%;
+  min-height: 92.5vh;
+  margin-top: 58px;
   display: inline-block;
-  padding-bottom: 40px;
+  margin-right: 200px;
+}
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  border-left: 1px solid #c4c4c4;
+  background-color: transparent;
+
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: right;
+
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+.down-sidenav {
+  bottom: 0;
+  position: fixed;
+  right: 0;
+}
+.logo-sidnav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+  background-color: #0097a7;
+  color: #ffe082;
 }
 
-.up-navbar {
-  background-color: #01579b;
+/*******************************************************/
+.sidnav-components {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.sidnav-txt {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: right;
 
-  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.315);
+  padding-right: 10px;
+}
+.text-icon-sidenav {
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  border-bottom: 1px solid #c4c4c4;
+  cursor: pointer;
+}
+.sidnav-components :hover {
+  background-color: #ffe082;
+  cursor: pointer;
+}
+.icon {
+  padding-top: 5px;
+}
+/********************************************************/
+
+.up-navbar {
+  background-color: #0097a7;
+}
+.bell-exit-upnav {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 83%;
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
-
-  height: 7%;
+  margin-right: 200px;
+  height: 57px;
   float: left;
   color: #ffffff;
   text-align: center;
-  padding-right: 80px;
+
   text-decoration: none;
   font-size: 20px;
 }
-.up-nav-style :hover {
-  background-color: #81d4fa;
 
+.up-nav-style :hover {
+  background-color: #ffe082;
   cursor: pointer;
 }
-.down-navbar {
-  background-color: #ffffff;
-  padding-left: 80px;
-  border-radius: 0.3em;
-  box-shadow: 20px 15px 8px 15px rgba(0, 0, 0, 0.096);
-}
-.down-nav-style {
-  display: flex;
-  flex-direction: row;
-  font-size: 25px;
-  height: 5%;
-  float: left;
-  color: #949ba5;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 17px;
-}
+
 .nav-dropdown {
   background: none;
   border: none;
-}
-.nav-txt {
-  color: #1a4888;
 }
 
 .clinicFormInput-checkbox {
@@ -424,7 +502,7 @@
   transition: 0.3s;
 }
 .Drlist {
-  padding-right: 16%;
+  padding-left: 9%;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
@@ -437,17 +515,17 @@
 .Drsearch {
   margin-top: 30px;
 }
-.sidenav {
-  height: 800px;
+.filterin_sidenav {
+  height: 100%;
   width: 200px;
   position: absolute;
-  right: 0px;
+  left: 0px;
   margin-right: 1%;
   padding-right: 0.3%;
 
   background-color: #ffffff;
   overflow-x: hidden;
-  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.096);
+  border-right: 1px solid #c4c4c4;
   float: right;
   text-align: right;
   position: fixed;
@@ -458,7 +536,7 @@
   margin-bottom: 30px;
   text-transform: uppercase;
   font-size: 1.6em;
-  color: #01579b;
+  color: #0097a7;
   border-bottom: solid 0.02px;
   padding: 5px;
   text-align: right;
@@ -490,10 +568,11 @@
   color: #cdcdcd;
 }
 .Filtering__Button {
-  background-color: #01579b;
-  color: white;
-
-  border-radius: 0.3em;
+  background-color: #ffe082;
+  color: #5d6166;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 4px;
   padding: 5px 20px;
   font-size: 1em;
   font-weight: 300;
@@ -1218,14 +1297,7 @@ img {
 .show {
   display: block;
 }
-.notifbutton {
-  background: transparent;
-  border: none;
-  color: white;
-  padding-bottom: 12px;
-  outline: none;
-  margin-top: 8px;
-}
+
 .modalheader {
   margin-right: 3px;
   outline: none;
