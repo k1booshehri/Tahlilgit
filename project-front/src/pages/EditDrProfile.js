@@ -275,370 +275,396 @@ export default class EditDrProfile extends Component {
         </div>
         <hr class="divider__EditProfile"></hr>
         <div className="DrProfileInfoTable">
-          {" "}
-          <div className="DrProfileTableRow">
-            {" "}
-            <div className="DrProfileLeftTableCell">
+          <div className="DrProfileTableRow_base">
+            <div className="DrProfileLeftTableCell_base">
               {" "}
-              <div className="DrProfileFormField">
-                <input
-                  type="text"
-                  className="DrProfileFormField__Input__Right"
-                  id="f_name"
-                  name="f_name"
-                  value={this.state.f_name}
-                  placeholder={this.state.drInfo.f_name}
-                  onChange={this.handleChange}
-                  autocomplete="off"
-                />
-              </div>
-            </div>
-            <div className="DrProfileRightTableCell">
-              <label className="DrProfileFormField__Label" htmlFor="f_name">
-                نام
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            {" "}
-            <div className="DrProfileLeftTableCell">
-              {" "}
-              <div className="DrProfileFormField">
-                <input
-                  type="text"
-                  className="DrProfileFormField__Input__Right"
-                  id="l_name"
-                  name="l_name"
-                  value={this.state.l_name}
-                  placeholder={this.state.drInfo.l_name}
-                  onChange={this.handleChange}
-                  autocomplete="off"
-                />
-              </div>
-            </div>
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <div className="DrProfileFormField">
-                <label htmlFor="l_name" className="DrProfileFormField__Label">
-                  نام خانوداگی
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                <div className="DrProfileFormField">
-                  {this.state.drInfo.gender !== null ? (
-                    <select
-                      className="DrProfileFormField__Input__Left"
-                      name="gender"
-                      id="gender"
-                      value={this.state.gender}
+              <div className="DrProfileTableRow">
+                {" "}
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <input
+                      type="text"
+                      className="DrProfileFormField__Input__Right"
+                      id="l_name"
+                      name="l_name"
+                      value={this.state.l_name}
+                      placeholder={this.state.drInfo.l_name}
                       onChange={this.handleChange}
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <label
+                      htmlFor="l_name"
+                      className="DrProfileFormField__Label"
                     >
-                      <option value="" selected disabled hidden>
-                        {this.state.drInfo.gender}
-                      </option>
-                      <option value="زن">زن</option>
-                      <option value="مرد">مرد</option>
-                      <option value="سایر">سایر</option>
-                    </select>
-                  ) : (
-                    <select
-                      className="DrProfileFormField__Input__Left"
-                      name="gender"
-                      id="gender"
-                      value={this.state.gender}
-                      onChange={this.handleChange}
-                    >
-                      <option value="" selected disabled hidden>
-                        {this.state.nullString}
-                      </option>
-                      <option value="زن">زن</option>
-                      <option value="مرد">مرد</option>
-                      <option value="سایر">سایر</option>
-                    </select>
-                  )}
+                      نام خانوداگی
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label htmlFor="gender" className="DrProfileFormField__Label">
-                جنسیت
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                {this.state.drInfo.birth !== null ? (
-                  <input
-                    type={this.state.dateType}
-                    className="DrProfileFormField__Input__Left"
-                    id="birth"
-                    name="birth"
-                    value={this.state.birth}
-                    onFocus={(e) => this.setState({ dateType: "date" })}
-                    onBlur={(e) => this.setState({ dateType: "text" })}
-                    placeholder={this.state.drInfo.birth}
-                    onChange={this.handleChange}
-                  />
-                ) : (
-                  <input
-                    type={this.state.dateType}
-                    className="DrProfileFormField__Input__Left"
-                    id="birth"
-                    name="birth"
-                    value={this.state.birth}
-                    onFocus={(e) => this.setState({ dateType: "date" })}
-                    onBlur={(e) => this.setState({ dateType: "text" })}
-                    placeholder={this.state.nullString}
-                    onChange={this.handleChange}
-                  />
-                )}
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {this.state.drInfo.birth !== null ? (
+                      <input
+                        type={this.state.dateType}
+                        className="DrProfileFormField__Input__Left"
+                        id="birth"
+                        name="birth"
+                        value={this.state.birth}
+                        onFocus={(e) => this.setState({ dateType: "date" })}
+                        onBlur={(e) => this.setState({ dateType: "text" })}
+                        placeholder={this.state.drInfo.birth}
+                        onChange={this.handleChange}
+                      />
+                    ) : (
+                      <input
+                        type={this.state.dateType}
+                        className="DrProfileFormField__Input__Left"
+                        id="birth"
+                        name="birth"
+                        value={this.state.birth}
+                        onFocus={(e) => this.setState({ dateType: "date" })}
+                        onBlur={(e) => this.setState({ dateType: "text" })}
+                        placeholder={this.state.nullString}
+                        onChange={this.handleChange}
+                      />
+                    )}
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label className="DrProfileFormField__Label" htmlFor="birth">
+                    تاریخ تولد
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="birth">
-                تاریخ تولد
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                {this.state.drInfo.phone !== null ? (
-                  <input
-                    type="tel"
-                    className="DrProfileFormField__Input__Left"
-                    id="phone"
-                    name="phone"
-                    pattern="[0][9]\d{9}$"
-                    value={this.state.phone}
-                    placeholder={this.state.drInfo.phone}
-                    onChange={this.handleChange}
-                    autocomplete="off"
-                  />
-                ) : (
-                  <input
-                    type="tel"
-                    className="DrProfileFormField__Input__Left"
-                    id="phone"
-                    name="phone"
-                    pattern="[0][9]\d{9}$"
-                    value={this.state.phone}
-                    placeholder={this.state.nullString}
-                    onChange={this.handleChange}
-                    autocomplete="off"
-                  />
-                )}
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    <input
+                      type="email"
+                      className="DrProfileFormField__Input__Left"
+                      id="email"
+                      name="email"
+                      value={this.state.email}
+                      placeholder={this.state.drInfo.email}
+                      onChange={this.handleChange}
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label className="DrProfileFormField__Label" htmlFor="email">
+                    آدرس ایمیل
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="phone">
-                شماره ی موبایل
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                <input
-                  type="email"
-                  className="DrProfileFormField__Input__Left"
-                  id="email"
-                  name="email"
-                  value={this.state.email}
-                  placeholder={this.state.drInfo.email}
-                  onChange={this.handleChange}
-                  autocomplete="off"
-                />
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <select
+                      className="DrProfileFormField__Input__Left"
+                      name="edu"
+                      id="edu"
+                      value={this.state.edu}
+                      onChange={this.handleChange}
+                    >
+                      {this.state.drInfo.persianEdu !== null ? (
+                        <option value="" selected disabled hidden>
+                          {this.state.drInfo.persianEdu}
+                        </option>
+                      ) : (
+                        <option value="" selected disabled hidden>
+                          {this.state.nullString}
+                        </option>
+                      )}
+                      <option value="masters">کارشناسی ارشد</option>
+                      <option value="phd">دکتری</option>
+                    </select>
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label htmlFor="edu" className="DrProfileFormField__Label">
+                    تحصیلات
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="email">
-                آدرس ایمیل
-              </label>
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {this.state.drInfo.code ? (
+                      <input
+                        type="text"
+                        className="DrProfileFormField__Input__Left"
+                        id="code"
+                        name="code"
+                        value={this.state.code}
+                        placeholder={this.state.drInfo.code}
+                        onChange={this.handleChange}
+                        autocomplete="off"
+                      />
+                    ) : (
+                      <input
+                        type="text"
+                        className="DrProfileFormField__Input__Left"
+                        id="code"
+                        name="code"
+                        value={this.state.code}
+                        placeholder={this.state.nullString}
+                        onChange={this.handleChange}
+                        autocomplete="off"
+                      />
+                    )}
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label className="DrProfileFormField__Label" htmlFor="code">
+                    کد نظام پزشکی
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
+            <div className="DrProfileRightTableCell_base">
               {" "}
-              <div className="DrProfileFormField">
-                <select
-                  name="field"
-                  id="field"
-                  className="DrProfileFormField__Input__Left"
-                  value={this.state.field}
-                  onChange={this.handleChange}
-                >
-                  {this.state.drInfo.field !== null ? (
-                    <option value="" selected disabled hidden>
-                      {this.state.drInfo.field}
-                    </option>
-                  ) : (
-                    <option value="" selected disabled hidden>
-                      {this.state.nullString}
-                    </option>
-                  )}
+              <div className="DrProfileTableRow">
+                {" "}
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <input
+                      type="text"
+                      className="DrProfileFormField__Input__Right"
+                      id="f_name"
+                      name="f_name"
+                      value={this.state.f_name}
+                      placeholder={this.state.drInfo.f_name}
+                      onChange={this.handleChange}
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div className="DrProfileRightTableCell">
+                  <label className="DrProfileFormField__Label" htmlFor="f_name">
+                    نام
+                  </label>
+                </div>
+              </div>
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    <div className="DrProfileFormField">
+                      {this.state.drInfo.gender !== null ? (
+                        <select
+                          className="DrProfileFormField__Input__Left"
+                          name="gender"
+                          id="gender"
+                          value={this.state.gender}
+                          onChange={this.handleChange}
+                        >
+                          <option value="" selected disabled hidden>
+                            {this.state.drInfo.gender}
+                          </option>
+                          <option value="زن">زن</option>
+                          <option value="مرد">مرد</option>
+                          <option value="سایر">سایر</option>
+                        </select>
+                      ) : (
+                        <select
+                          className="DrProfileFormField__Input__Left"
+                          name="gender"
+                          id="gender"
+                          value={this.state.gender}
+                          onChange={this.handleChange}
+                        >
+                          <option value="" selected disabled hidden>
+                            {this.state.nullString}
+                          </option>
+                          <option value="زن">زن</option>
+                          <option value="مرد">مرد</option>
+                          <option value="سایر">سایر</option>
+                        </select>
+                      )}
+                    </div>
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label htmlFor="gender" className="DrProfileFormField__Label">
+                    جنسیت
+                  </label>
+                </div>
+              </div>
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {this.state.drInfo.phone !== null ? (
+                      <input
+                        type="tel"
+                        className="DrProfileFormField__Input__Left"
+                        id="phone"
+                        name="phone"
+                        pattern="[0][9]\d{9}$"
+                        value={this.state.phone}
+                        placeholder={this.state.drInfo.phone}
+                        onChange={this.handleChange}
+                        autocomplete="off"
+                      />
+                    ) : (
+                      <input
+                        type="tel"
+                        className="DrProfileFormField__Input__Left"
+                        id="phone"
+                        name="phone"
+                        pattern="[0][9]\d{9}$"
+                        value={this.state.phone}
+                        placeholder={this.state.nullString}
+                        onChange={this.handleChange}
+                        autocomplete="off"
+                      />
+                    )}
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label className="DrProfileFormField__Label" htmlFor="phone">
+                    شماره ی موبایل
+                  </label>
+                </div>
+              </div>
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <select
+                      name="field"
+                      id="field"
+                      className="DrProfileFormField__Input__Left"
+                      value={this.state.field}
+                      onChange={this.handleChange}
+                    >
+                      {this.state.drInfo.field !== null ? (
+                        <option value="" selected disabled hidden>
+                          {this.state.drInfo.field}
+                        </option>
+                      ) : (
+                        <option value="" selected disabled hidden>
+                          {this.state.nullString}
+                        </option>
+                      )}
 
-                  <option value="روان شناسی بالینی">روان شناسی بالینی</option>
-                  <option value="روان شناسی مشاوره">روان شناسی مشاوره </option>
-                  <option value="روان شناسی خانواده">
-                    روان شناسی خانواده{" "}
-                  </option>
-                  <option value="روان شناسی تحصیلی">روان شناسی تحصیلی </option>
-                  <option value="روان شناسی تربیتی">روان شناسی تربیتی </option>
-                  <option value="روان شناسی شخصیت">روان شناسی شخصیت </option>
-                  <option value="روان شناسی اجتماعی">
-                    روان شناسی اجتماعی{" "}
-                  </option>
-                  <option value="روان شناسی صنعتی و سازمانی">
-                    روان شناسی صنعتی و سازمانی{" "}
-                  </option>
-                  <option value="روان شناسی مصرف">روان شناسی مصرف </option>
-                </select>
+                      <option value="روان شناسی بالینی">
+                        روان شناسی بالینی
+                      </option>
+                      <option value="روان شناسی مشاوره">
+                        روان شناسی مشاوره{" "}
+                      </option>
+                      <option value="روان شناسی خانواده">
+                        روان شناسی خانواده{" "}
+                      </option>
+                      <option value="روان شناسی تحصیلی">
+                        روان شناسی تحصیلی{" "}
+                      </option>
+                      <option value="روان شناسی تربیتی">
+                        روان شناسی تربیتی{" "}
+                      </option>
+                      <option value="روان شناسی شخصیت">
+                        روان شناسی شخصیت{" "}
+                      </option>
+                      <option value="روان شناسی اجتماعی">
+                        روان شناسی اجتماعی{" "}
+                      </option>
+                      <option value="روان شناسی صنعتی و سازمانی">
+                        روان شناسی صنعتی و سازمانی{" "}
+                      </option>
+                      <option value="روان شناسی مصرف">روان شناسی مصرف </option>
+                    </select>
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label htmlFor="field" className="DrProfileFormField__Label">
+                    تخصص
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label htmlFor="field" className="DrProfileFormField__Label">
-                تخصص
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              {" "}
-              <div className="DrProfileFormField">
-                <select
-                  className="DrProfileFormField__Input__Left"
-                  name="edu"
-                  id="edu"
-                  value={this.state.edu}
-                  onChange={this.handleChange}
-                >
-                  {this.state.drInfo.persianEdu !== null ? (
-                    <option value="" selected disabled hidden>
-                      {this.state.drInfo.persianEdu}
-                    </option>
-                  ) : (
-                    <option value="" selected disabled hidden>
-                      {this.state.nullString}
-                    </option>
-                  )}
-                  <option value="masters">کارشناسی ارشد</option>
-                  <option value="phd">دکتری</option>
-                </select>
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {this.state.drInfo.activetime !== null ? (
+                      <input
+                        type={this.state.dateType}
+                        className="DrProfileFormField__Input__Left"
+                        id="activetime"
+                        name="activetime"
+                        value={this.state.activetime}
+                        onFocus={(e) => this.setState({ dateType: "date" })}
+                        onBlur={(e) => this.setState({ dateType: "text" })}
+                        placeholder={this.state.drInfo.activetime}
+                        onChange={this.handleChange}
+                      />
+                    ) : (
+                      <input
+                        type={this.state.dateType}
+                        className="DrProfileFormField__Input__Left"
+                        id="activetime"
+                        name="activetime"
+                        value={this.state.activetime}
+                        onFocus={(e) => this.setState({ dateType: "date" })}
+                        onBlur={(e) => this.setState({ dateType: "text" })}
+                        placeholder={this.state.nullString}
+                        onChange={this.handleChange}
+                      />
+                    )}
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label
+                    className="DrProfileFormField__Label"
+                    htmlFor="activetime"
+                  >
+                    شروع فعالیت پزشکی
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label htmlFor="edu" className="DrProfileFormField__Label">
-                تحصیلات
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                {this.state.drInfo.activetime !== null ? (
-                  <input
-                    type={this.state.dateType}
-                    className="DrProfileFormField__Input__Left"
-                    id="activetime"
-                    name="activetime"
-                    value={this.state.activetime}
-                    onFocus={(e) => this.setState({ dateType: "date" })}
-                    onBlur={(e) => this.setState({ dateType: "text" })}
-                    placeholder={this.state.drInfo.activetime}
-                    onChange={this.handleChange}
-                  />
-                ) : (
-                  <input
-                    type={this.state.dateType}
-                    className="DrProfileFormField__Input__Left"
-                    id="activetime"
-                    name="activetime"
-                    value={this.state.activetime}
-                    onFocus={(e) => this.setState({ dateType: "date" })}
-                    onBlur={(e) => this.setState({ dateType: "text" })}
-                    placeholder={this.state.nullString}
-                    onChange={this.handleChange}
-                  />
-                )}
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <input
+                      type="text"
+                      className="DrProfileFormField__Input__Left"
+                      id="username"
+                      name="username"
+                      value={this.state.username}
+                      placeholder={this.state.drInfo.username}
+                      onChange={this.handleChange}
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label
+                    className="DrProfileFormField__Label"
+                    htmlFor="username"
+                  >
+                    نام کاربری
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="activetime">
-                شروع فعالیت پزشکی
-              </label>
             </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              <div className="DrProfileFormField">
-                {this.state.drInfo.code ? (
-                  <input
-                    type="text"
-                    className="DrProfileFormField__Input__Left"
-                    id="code"
-                    name="code"
-                    value={this.state.code}
-                    placeholder={this.state.drInfo.code}
-                    onChange={this.handleChange}
-                    autocomplete="off"
-                  />
-                ) : (
-                  <input
-                    type="text"
-                    className="DrProfileFormField__Input__Left"
-                    id="code"
-                    name="code"
-                    value={this.state.code}
-                    placeholder={this.state.nullString}
-                    onChange={this.handleChange}
-                    autocomplete="off"
-                  />
-                )}
-              </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="code">
-                کد نظام پزشکی
-              </label>
-            </div>
-          </div>
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
-              {" "}
-              <div className="DrProfileFormField">
-                <input
-                  type="text"
-                  className="DrProfileFormField__Input__Left"
-                  id="username"
-                  name="username"
-                  value={this.state.username}
-                  placeholder={this.state.drInfo.username}
-                  onChange={this.handleChange}
-                  autocomplete="off"
-                />
-              </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label className="DrProfileFormField__Label" htmlFor="username">
-                نام کاربری
-              </label>
-            </div>
-          </div>
+          </div>{" "}
         </div>
         <div className="DrProfileInfoTable__Tiltle">
           {" "}
@@ -661,67 +687,84 @@ export default class EditDrProfile extends Component {
         </div>
         <hr class="divider__EditProfile"></hr>
         <div className="DrProfileInfoTable">
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
+          <div className="DrProfileTableRow_base">
+            {" "}
+            <div className="DrProfileLeftTableCell_base">
               {" "}
-              <div className="DrProfileFormField">
-                <input
-                  type="password"
-                  className="DrProfileFormField__Input__Right"
-                  id="newPassword"
-                  name="newPassword"
-                  value={this.state.newPassword}
-                  placeholder="رمز ورود جدید را وارد کنید"
-                  onChange={this.handleChange}
-                />
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <input
+                      type="password"
+                      className="DrProfileFormField__Input__Right"
+                      id="confirmNewPassword"
+                      name="confirmNewPassword"
+                      value={this.state.confirmNewPassword}
+                      placeholder="رمز ورود جدید را تکرار کنید"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label
+                    className="DrProfileFormField__Label"
+                    htmlFor="confirmNewPassword"
+                  >
+                    تکرار رمز ورود جدید
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label
-                className="DrProfileFormField__Label"
-                htmlFor="newPassword"
-              >
-                رمز ورود جدید
-              </label>
+              <div class="DrProfileTableRow">
+                <div class="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {" "}
+                    <button
+                      className="editProfileButton1"
+                      id="3"
+                      //  if edit profile button is clicked ProfileButtonOnClick is called
+
+                      onClick={this.handleEdit}
+                      variant="primary"
+                    >
+                      ثبت تغییرات
+                    </button>
+                  </div>
+                </div>
+                <div class="DrProfileRightTableCell"></div>
+              </div>
             </div>
-          </div>{" "}
-          <div className="DrProfileTableRow">
-            <div className="DrProfileLeftTableCell">
+            <div className="DrProfileRightTableCell_base">
               {" "}
-              <div className="DrProfileFormField">
-                <input
-                  type="password"
-                  className="DrProfileFormField__Input__Right"
-                  id="confirmNewPassword"
-                  name="confirmNewPassword"
-                  value={this.state.confirmNewPassword}
-                  placeholder="رمز ورود جدید را تکرار کنید"
-                  onChange={this.handleChange}
-                />
+              <div className="DrProfileTableRow">
+                <div className="DrProfileLeftTableCell">
+                  {" "}
+                  <div className="DrProfileFormField">
+                    <input
+                      type="password"
+                      className="DrProfileFormField__Input__Right"
+                      id="newPassword"
+                      name="newPassword"
+                      value={this.state.newPassword}
+                      placeholder="رمز ورود جدید را وارد کنید"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>{" "}
+                <div className="DrProfileRightTableCell">
+                  {" "}
+                  <label
+                    className="DrProfileFormField__Label"
+                    htmlFor="newPassword"
+                  >
+                    رمز ورود جدید
+                  </label>
+                </div>
               </div>
-            </div>{" "}
-            <div className="DrProfileRightTableCell">
-              {" "}
-              <label
-                className="DrProfileFormField__Label"
-                htmlFor="confirmNewPassword"
-              >
-                تکرار رمز عبور جدید
-              </label>
             </div>
           </div>
         </div>
-        <button
-          className="editProfileButton1"
-          id="3"
-          //  if edit profile button is clicked ProfileButtonOnClick is called
-
-          onClick={this.handleEdit}
-          variant="primary"
-        >
-          ثبت تغییرات
-        </button>
       </div>
     );
   }
