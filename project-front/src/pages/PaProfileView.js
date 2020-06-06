@@ -79,51 +79,76 @@ export default class PaProfileView extends Component {
         <div className="DrProfileView">
           <div>
             {/* showing doctor info  */}
-
             <div className="nameInfoTable">
               <div class="nameTableRow">
                 <div class="nameleftTableCell">
+                  <div className="nameDisplay">
+                    {this.state.f_name + " " + this.state.l_name}
+                    <div style={{ fontSize: 30 }}>{this.state.username}</div>
+                  </div>
+                </div>
+                <div class="namerightTableCell">
                   {this.state.image !== null ? (
                     <img
-                      className="tc br3"
                       alt="none"
                       src={this.state.image}
                       className="ProfileViewAvatar"
                     />
                   ) : (
-                    <img src={avatar} className="avatar" />
+                    <img src={avatar} className="ProfileViewAvatar" />
                   )}
-                </div>
-                <div class="namerightTableCell">
-                  <div className="nameDisplay">
-                    {this.state.f_name + " " + this.state.l_name}
-                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="infoTable1">
-              <div class="tableRow1">
-                <div class="leftTableCell">
-                  {" "}
-                  {this.state.gender !== null ? (
-                    <div>{this.state.gender}</div>
-                  ) : (
-                    <div>{this.state.nullString}</div>
-                  )}
+            <hr class="divider__EditProfile"></hr>
+            <div className="DrProfileInfoTable">
+              <div class="DrProfileTableRow">
+                <div class="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {" "}
+                    {this.state.gender !== null ? (
+                      <input
+                        className="DrProfileFormField__Input__Right"
+                        readOnly
+                        placeholder={this.state.gender}
+                      />
+                    ) : (
+                      <input
+                        className="DrProfileFormField__Input__Right"
+                        readOnly
+                        placeholder={this.state.nullString}
+                      />
+                    )}
+                  </div>
                 </div>
-                <div class="rightTableCell">جنسیت</div>
+                <div class="DrProfileRightTableCell">
+                  <label className="DrProfileFormField__Label">جنسیت</label>
+                </div>
               </div>
-              <div class="tableRow1">
-                <div class="leftTableCell">
-                  {" "}
-                  {this.state.insurance !== null ? (
-                    <div>{this.state.insurance}</div>
-                  ) : (
-                    <div>{this.state.nullString}</div>
-                  )}
+              <div class="DrProfileTableRow">
+                <div class="DrProfileLeftTableCell">
+                  <div className="DrProfileFormField">
+                    {" "}
+                    {this.state.insurance !== null ? (
+                      <input
+                        className="DrProfileFormField__Input__Right"
+                        readOnly
+                        placeholder={this.state.insurance}
+                      />
+                    ) : (
+                      <input
+                        className="DrProfileFormField__Input__Right"
+                        readOnly
+                        placeholder={this.state.nullString}
+                      />
+                    )}
+                  </div>
                 </div>
-                <div class="rightTableCell">بیمه درمانی</div>
+                <div class="DrProfileRightTableCell">
+                  <label className="DrProfileFormField__Label">
+                    بیمه درمانی
+                  </label>
+                </div>
               </div>
             </div>
           </div>
