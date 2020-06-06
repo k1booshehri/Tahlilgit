@@ -102,6 +102,10 @@ class DoctorSignInForm extends Component {
                     value={this.state.username}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
               <label className="FormField__Label" htmlFor="password">
                     رمز ورود
@@ -115,6 +119,10 @@ class DoctorSignInForm extends Component {
                     password={this.state.password}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 

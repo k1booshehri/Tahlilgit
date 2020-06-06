@@ -113,6 +113,10 @@ class SignInForm extends Component {
                     value={this.state.username}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 
@@ -129,6 +133,10 @@ class SignInForm extends Component {
                     password={this.state.password}
                     onChange={this.handleChange}
                     required
+                    onInvalid={(e) =>
+                      e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
 
