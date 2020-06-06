@@ -1,10 +1,7 @@
-
-
-
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
- padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .PageSwitcher__Item {
@@ -61,15 +58,14 @@
 .App__Form {
   display: flex;
   flex-direction: row;
-  justify-content:right ;
+  justify-content: right;
   align-items: right;
- 
 }
 
 .FormCenter {
   margin-bottom: 100px;
-   width: 400px;
-   height: 500px;
+  width: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
@@ -78,35 +74,32 @@
   margin-bottom: 20px;
   justify-content: right;
 }
-.FormCenter__welcome{
-  
+.FormCenter__welcome {
   width: 400px;
   height: 500px;
- display: flex;
- flex-direction: column;
- padding: 20px ;
- background-color: #ffffff;
- border-right: 1px solid #c4c4c4;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-right: 1px solid #c4c4c4;
+  justify-content: center;
 }
-.formcenter-part2{
+.formcenter-part2 {
   width: 400px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
- background-image: url('https://cdn3.vectorstock.com/i/1000x1000/22/62/light-bulb-gear-work-idea-logo-vector-5512262.jpg');
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/22/62/light-bulb-gear-work-idea-logo-vector-5512262.jpg");
   margin-bottom: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 130%;
   align-items: center;
   font-size: 40px;
-  color:#0097a7 ;
-
+  color: #0097a7;
 }
 
 .FormField {
- 
   text-align: right;
 }
 
@@ -118,13 +111,11 @@ justify-content: center;
 
 .FormField__welcome {
   margin-top: 3em;
-  
+
   text-align: left;
   padding-top: 2em;
   display: flex;
   justify-content: center;
-  
- 
 }
 
 .FormField__Label {
@@ -139,7 +130,7 @@ justify-content: center;
   font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
- 
+
   text-align: right;
   font-weight: 700;
   font-size: 0.8em;
@@ -200,18 +191,18 @@ justify-content: center;
   display: inline-block;
   margin-right: 200px;
 }
-.sidenav{
+.sidenav {
   height: 100%;
   width: 200px;
   position: fixed;
   z-index: 1;
   top: 0;
   right: 0;
-  border-left:1px solid #c4c4c4; ;
+  border-left: 1px solid #c4c4c4;
   background-color: transparent;
-  
+
   overflow-x: hidden;
- 
+
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -222,14 +213,12 @@ justify-content: center;
   color: #818181;
   display: block;
 }
-.down-sidenav{
-
-  margin-top: 400px;
-
+.down-sidenav {
+  bottom: 0;
+  position: fixed;
+  right: 0;
 }
 .logo-sidnav {
-  
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -240,44 +229,39 @@ justify-content: center;
 }
 
 /*******************************************************/
-.sidnav-components{
+.sidnav-components {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
 }
-.sidnav-txt  {
+.sidnav-txt {
   display: flex;
   flex-direction: column;
   text-align: right;
   justify-content: right;
-  
-  padding-right: 10px;
- 
-}
-.text-icon-sidenav{
 
+  padding-right: 10px;
+}
+.text-icon-sidenav {
   padding: 10px;
   display: flex;
   flex-direction: row-reverse;
   border-bottom: 1px solid #c4c4c4;
   cursor: pointer;
 }
-.sidnav-components :hover{
+.sidnav-components :hover {
   background-color: #ffe082;
- cursor: pointer;
-
+  cursor: pointer;
 }
-.icon{
+.icon {
   padding-top: 5px;
 }
 /********************************************************/
 
 .up-navbar {
   background-color: #0097a7;
-
- 
 }
-.bell-exit-upnav{
+.bell-exit-upnav {
   display: flex;
   flex-direction: row-reverse;
   margin-right: 83%;
@@ -285,28 +269,25 @@ justify-content: center;
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
-margin-right: 200px;
+  margin-right: 200px;
   height: 57px;
   float: left;
   color: #ffffff;
   text-align: center;
- 
+
   text-decoration: none;
   font-size: 20px;
 }
 
 .up-nav-style :hover {
   background-color: #ffe082;
- cursor: pointer;
+  cursor: pointer;
 }
-
-
 
 .nav-dropdown {
   background: none;
   border: none;
 }
-
 
 .clinicFormInput-checkbox {
   background-color: transparent;
@@ -590,8 +571,8 @@ margin-right: 200px;
   background-color: #ffe082;
   color: #5d6166;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
- border: none;
- border-radius: 4px;
+  border: none;
+  border-radius: 4px;
   padding: 5px 20px;
   font-size: 1em;
   font-weight: 300;
