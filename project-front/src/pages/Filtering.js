@@ -111,7 +111,7 @@ export default class Filtering extends Component {
 
   render() {
     return (
-      <div className=" sidenav ">
+      <div className=" filterin_sidenav ">
         {/*************************/}
 
         <div className="filteringlable"> جستجو</div>

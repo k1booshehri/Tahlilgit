@@ -71,7 +71,7 @@ export default class Drlist extends Component {
   
       />*/
 
-      <div className="backgrounddrlist">
+      <div >
         <Filter
           data={{
             Drlist: this.state.Drlist,

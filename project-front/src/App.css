@@ -1,3 +1,6 @@
+
+
+
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
@@ -46,6 +49,7 @@
 .App {
   height: 100%;
   min-height: 100vh;
+  width: 100vh;
   width: 100%;
   flex-direction: column;
   justify-content: center;
@@ -188,63 +192,121 @@ justify-content: center;
   color: #cdcdcd;
 }
 .dashboard {
-  background-color: #f8feff;
+  background-color: #ffffff;
   justify-content: right;
-  width: 100%;
-  height: 100%;
-  min-height: 100vh;
-  padding-top: 60px;
+  width: 151vh;
+  min-height: 92.5vh;
+  margin-top: 58px;
   display: inline-block;
-  padding-bottom: 40px;
+  margin-right: 200px;
+}
+.sidenav{
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  border-left:1px solid #c4c4c4; ;
+  background-color: transparent;
+  
+  overflow-x: hidden;
+ 
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: right;
+
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+.down-sidenav{
+
+  margin-top: 190%;
+
+}
+.logo-sidnav {
+  
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 38px;
+  background-color: #0097a7;
+  color: #ffe082;
 }
 
-.up-navbar {
-  background-color: #01579b;
+/*******************************************************/
+.sidnav-components{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.sidnav-txt  {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: right;
+  
+  padding-right: 10px;
+ 
+}
+.text-icon-sidenav{
 
-  box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.315);
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  border-bottom: 1px solid #c4c4c4;
+  cursor: pointer;
+}
+.sidnav-components :hover{
+  background-color: #ffe082;
+ cursor: pointer;
+
+}
+.icon{
+  padding-top: 5px;
+}
+/********************************************************/
+
+.up-navbar {
+  background-color: #0097a7;
+
+ 
+}
+.bell-exit-upnav{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 83%;
 }
 .up-nav-style {
   display: flex;
   flex-direction: row-reverse;
-
+margin-right: 200px;
   height: 7%;
   float: left;
   color: #ffffff;
   text-align: center;
-  padding-right: 80px;
+ 
   text-decoration: none;
   font-size: 20px;
 }
-.up-nav-style :hover {
-  background-color: #81d4fa;
 
-  cursor: pointer;
+.up-nav-style :hover {
+  background-color: #ffe082;
+ cursor: pointer;
 }
-.down-navbar {
-  background-color: #ffffff;
-  padding-left: 80px;
-  border-radius: 0.3em;
-  box-shadow: 20px 15px 8px 15px rgba(0, 0, 0, 0.096);
-}
-.down-nav-style {
-  display: flex;
-  flex-direction: row;
-  font-size: 25px;
-  height: 5%;
-  float: left;
-  color: #949ba5;
-  text-align: center;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 17px;
-}
+
+
+
 .nav-dropdown {
   background: none;
   border: none;
 }
-.nav-txt {
-  color: #1a4888;
-}
+
 
 .clinicFormInput-checkbox {
   background-color: transparent;
@@ -459,7 +521,7 @@ justify-content: center;
   transition: 0.3s;
 }
 .Drlist {
-  padding-right: 16%;
+  padding-left: 9%;
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
@@ -472,17 +534,17 @@ justify-content: center;
 .Drsearch {
   margin-top: 30px;
 }
-.sidenav {
-  height: 800px;
+.filterin_sidenav {
+  height: 100%;
   width: 200px;
   position: absolute;
-  right: 0px;
+  left: 0px;
   margin-right: 1%;
   padding-right: 0.3%;
-
+padding-left: -10px;
   background-color: #ffffff;
   overflow-x: hidden;
-  box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.096);
+  border-right: 1px solid #c4c4c4;
   float: right;
   text-align: right;
   position: fixed;
@@ -493,7 +555,7 @@ justify-content: center;
   margin-bottom: 30px;
   text-transform: uppercase;
   font-size: 1.6em;
-  color: #01579b;
+  color: #0097a7;
   border-bottom: solid 0.02px;
   padding: 5px;
   text-align: right;
@@ -525,10 +587,11 @@ justify-content: center;
   color: #cdcdcd;
 }
 .Filtering__Button {
-  background-color: #01579b;
-  color: white;
-
-  border-radius: 0.3em;
+  background-color: #ffe082;
+  color: #5d6166;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+ border: none;
+ border-radius: 4px;
   padding: 5px 20px;
   font-size: 1em;
   font-weight: 300;
@@ -1283,14 +1346,7 @@ img {
 .show {
   display: block;
 }
-.notifbutton {
-  background: transparent;
-  border: none;
-  color: white;
-  padding-bottom: 12px;
-  outline: none;
-  margin-top: 8px;
-}
+
 .modalheader {
   margin-right: 3px;
   outline: none;
