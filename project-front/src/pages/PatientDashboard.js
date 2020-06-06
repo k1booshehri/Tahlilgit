@@ -87,7 +87,13 @@ class PatientDashboard extends Component {
       <div className="dashboard">
         <div>
           {/* up navbar starts */}
-          <nav className="nav  fixed-top up-navbar up-nav-style ">
+      
+      
+      
+      
+          <div className="nav  fixed-top up-navbar up-nav-style ">
+      
+           
             <a
               className="nav-link active  nav-txt "
               onClick={this.navOnClick}
@@ -97,50 +103,112 @@ class PatientDashboard extends Component {
               <span className="sr-only">(current)</span>
             </a>
             <a
-              className="nav-link active  nav-txt "
-              onClick={this.navOnClick}
-              id="0"
-            >
-              میزکار <WorkIcon></WorkIcon>
-              <span className="sr-only">(current)</span>
-            </a>
-            <a
-              className="nav-link active nav-txt"
-              onClick={this.navOnClick}
-              id="2"
-            >
-              پزشکان <LocalHospitalIcon></LocalHospitalIcon>
-            </a>
-            <a
-              className=" nav-link active nav-txt"
-              onClick={this.navOnClick}
-              id="0"
-            >
-              مقاله ها <PagesIcon></PagesIcon>
-            </a>
-            <a
-              className=" nav-link active nav-txt"
-              onClick={this.ChatComponentOnCLick}
-              id="5"
-            >
-              گفتگو ها <ChatBubble></ChatBubble>
-            </a>
-            {/*************************************************/}
-            <div>
-              <button
-                className="notifbutton "
+                className="nav-link active  nav-txt "
                 type="button"
                 data-toggle="modal"
                 data-target="#exampleModal"
+                
               >
-                <span class="notifbadge">{this.state.update}</span>
-                <Notif></Notif>
-              </button>
-            </div>
-            <a className="nav-link active nav-txt" onClick={this.logout}>
+              {(this.state.update !== 0 ?(
+                <span class="notifbadge">{this.state.update}</span>) :(<div></div>))}
+                <Notif ></Notif>
+              </a>
+            
+            <div className="bell-exit-upnav" >
+          
+            <a className="nav-link active " onClick={this.logout}>
               خروج
             </a>
-          </nav>
+            </div>
+            </div>
+
+
+
+
+
+
+            <div class="sidenav">
+        
+            <div className="logo-sidnav ">روان یار</div>
+            <div className="sidnav-components">
+            { /************************************************/}  
+            <div className="text-icon-sidenav">
+              <WorkIcon className="icon"></WorkIcon>
+            <a
+              className="sidnav-txt "
+              onClick={this.navOnClick}
+              id="0"
+            >
+              میزکار 
+              <span className="sr-only">(current)</span>
+            </a>
+            </div>
+            { /************************************************/}  
+            <div className="text-icon-sidenav">
+            <LocalHospitalIcon className="icon"></LocalHospitalIcon>
+            <a
+              className="sidnav-txt "
+              onClick={this.navOnClick}
+              id="2"
+            >
+              پزشکان 
+            </a>
+            </div>
+            { /************************************************/}  
+            <div className="text-icon-sidenav">
+            <PagesIcon  className="icon"></PagesIcon>
+            <a
+              className="sidnav-txt "
+              onClick={this.navOnClick}
+              id="0"
+            >
+              مقاله ها 
+            </a>
+            </div>
+            { /************************************************/}  
+            <div className="text-icon-sidenav">
+            <ChatBubble  className="icon"></ChatBubble>
+            <a
+              className=" sidnav-txt "
+              onClick={this.ChatComponentOnCLick}
+              id="5"
+              
+            >
+              گفتگو ها 
+            </a>
+            </div>
+            </div>
+            {/*************************************************/}
+            <div className= "down-sidenav">
+            <div className="sidnav-components">
+            <div className="text-icon-sidenav">
+            <MailIcon className="icon"></MailIcon>
+            <a
+              className="sidnav-txt"
+              type="click"
+              onClick={this.navOnClick}
+            >
+              <span className="nav-txt" id="0">
+                {" "}
+                 ارتباط با ما
+              </span>
+            </a>
+            </div>
+            <div className="text-icon-sidenav">
+            <EmojiObjectsIcon className="icon"></EmojiObjectsIcon>
+            <a className="sidnav-txt" id="0">
+              <span className="nav-txt">
+                {" "}
+                 درباره ی ما
+              </span>
+            </a>
+         </div>
+            </div>
+            </div>
+            </div>
+       
+       
+       
           <div
             class="modal fade"
             id="exampleModal"
@@ -212,24 +280,7 @@ class PatientDashboard extends Component {
           {localStorage.getItem("eventKey") === "6" ? <ClinicRes /> : <p> </p>}
           {/* conditions ends */}
           {/* down navbar starts */}
-          <nav className="nav  fixed-bottom down-navbar down-nav-style">
-            <a
-              className="nav-link active"
-              type="click"
-              onClick={this.navOnClick}
-            >
-              <span className="nav-txt" id="0">
-                {" "}
-                <MailIcon></MailIcon> ارتباط با ما
-              </span>
-            </a>
-            <a className="nav-link active" id="0">
-              <span className="nav-txt">
-                {" "}
-                <EmojiObjectsIcon></EmojiObjectsIcon> درباره ی ما
-              </span>
-            </a>
-          </nav>
+         
           {/* down navbar ends */}
         </div>
       </div>

@@ -102,8 +102,7 @@ class DoctorSignUpForm extends Component {
     if (!this.state.isSignedUp) {
       return (
         <div className="App">
-          <div className="App__Form">
-            <div className="PageSwitcher">
+           <div className="PageSwitcher">
               <NavLink
                 to="/Dr_Sign_In"
                 activeClassName="PageSwitcher__Item--Active"
@@ -120,11 +119,13 @@ class DoctorSignUpForm extends Component {
                 ثبت نام
               </NavLink>
             </div>
+          <div className="App__Form">
+           
 
             <div className="FormCenter">
-              <form onSubmit={this.handleSubmit} className="FormField">
+              <form onSubmit={this.handleSubmit} className="FormFields">
                 <div className="FormField">
-                  <label className="FormField__Label" htmlFor="f_name">
+                <label className="FormField__Label" htmlFor="f_name">
                     نام
                   </label>
                   <input
@@ -141,11 +142,10 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-                </div>
-                <div className="FormField">
-                  <label htmlFor="l_name" className="FormField__Label">
-                    نام خانوداگی
+                   <label className="FormField__Label" htmlFor="l_name">
+                    نام خانوادگی
                   </label>
+                
                   <input
                     type="text"
                     className="FormField__Input"
@@ -160,7 +160,7 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-                </div>
+             
                 {/* <div className="FormField">
                   <label htmlFor="gender" className="FormField__Label">
                     جنسیت خود را وارد کنید
@@ -211,9 +211,8 @@ class DoctorSignUpForm extends Component {
                   />
                 </div> */}
 
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="email">
-                    آدرس ایمیل خود را وارد کنید
+<label className="FormField__Label" htmlFor="email">
+                    آدرس ایمیل 
                   </label>
                   <input
                     type="email"
@@ -229,10 +228,9 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-                </div>
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="username">
-                    نام کاربری
+              
+               <label className="FormField__Label" htmlFor="username">
+                    نام کاربری{" "}
                   </label>
                   <input
                     type="text"
@@ -248,7 +246,7 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-                </div>
+             
                 {/* <div className="FormField">
                   <label htmlFor="edu" className="FormField__Label">
                     تحصیلات خود را انتخاب کنید
@@ -330,8 +328,7 @@ class DoctorSignUpForm extends Component {
                     required
                   />
                 </div> */}
-                <div className="FormField">
-                  <label className="FormField__Label" htmlFor="password">
+                <label className="FormField__Label" htmlFor="password">
                     رمز ورود
                   </label>
                   <input
@@ -392,6 +389,7 @@ class DoctorSignUpForm extends Component {
                 </div>
               </form>
             </div>
+            <div className="formcenter-part2">روان یار</div>
           </div>
         </div>
       );
