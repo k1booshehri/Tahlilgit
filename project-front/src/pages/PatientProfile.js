@@ -79,7 +79,9 @@ export default class PatientProfile extends Component {
               <div class="nameleftTableCell ">
                 <div className="nameDisplay">
                   {this.state.f_name + " " + this.state.l_name}
-                  <div style={{ fontSize: 30 }}>{this.state.username}</div>
+                  <div style={{ fontSize: 25, fontFamily: "Katibeh" }}>
+                    {this.state.username}
+                  </div>
                 </div>
               </div>
               <div class="namerightTableCell ">
@@ -174,6 +176,7 @@ export default class PatientProfile extends Component {
                     <div className="DrProfileFormField">
                       <input
                         className="DrProfileFormField__Input__Right"
+                        style={{ fontFamily: "Katibeh" }}
                         readOnly
                         placeholder={this.state.email}
                       />
