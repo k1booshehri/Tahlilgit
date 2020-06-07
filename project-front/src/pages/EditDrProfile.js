@@ -227,16 +227,22 @@ export default class EditDrProfile extends Component {
   render() {
     return (
       <div className="DrProfileForm">
-        <div className="DrProfileInfoTable__Picture">
-          <div class="DrProfileTableRow__Picture ">
-            <div class="DrProfileLeftTableCell__Picture">
+        <div className="nameInfoTable">
+          <div class="nameTableRow ">
+            <div class="nameleftTableCell ">
+              <div className="nameDisplay">
+                {this.state.drInfo.f_name + " " + this.state.drInfo.l_name}
+              </div>
+              <div style={{ fontSize: 30 }}>{this.state.drInfo.username}</div>
+            </div>
+            <div class="namerightTableCell">
               {this.state.drInfo.image !== null ? (
                 <img
                   src={this.state.drInfo.image}
-                  className="EditProfileAvatar"
+                  className="ProfileViewAvatar"
                 />
               ) : (
-                <img src={avatar} className="EditProfileAvatar" />
+                <img src={avatar} className="ProfileViewAvatar" />
               )}
               <div className="ChosePicture">
                 <FileBase64
@@ -244,12 +250,6 @@ export default class EditDrProfile extends Component {
                   onDone={this.getFiles.bind(this)}
                 ></FileBase64>
               </div>
-            </div>
-            <div class="DrProfileRightTableCell__Picture ">
-              <div className="nameDisplay">
-                {this.state.drInfo.f_name + " " + this.state.drInfo.l_name}
-              </div>
-              <div style={{ fontSize: 30 }}>{this.state.drInfo.username}</div>
             </div>
           </div>
         </div>
