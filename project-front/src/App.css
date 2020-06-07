@@ -130,7 +130,7 @@ justify-content: center;
 .FormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.3em;
+  font-size: 16px;
   color: rgb(105, 105, 107);
   text-align: right;
 }
@@ -155,7 +155,7 @@ justify-content: center;
 
 .FormField__Input::placeholder {
   color: #c0bdbd;
-  font-size: 1.3em;
+  font-size: 12px;
 }
 
 .FormField__Button {
@@ -218,7 +218,7 @@ justify-content: center;
   justify-content: right;
 
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   color: #818181;
   display: block;
 }
@@ -274,17 +274,15 @@ right: 10px;
 }
 /********************************************************/
 
-.up-navbar {
-  background-color: #0097a7;
 
- 
-}
+
 .bell-exit-upnav{
   display: flex;
   flex-direction: row-reverse;
   margin-right: 83%;
 }
 .up-nav-style {
+  background-color: #0097a7;
   display: flex;
   flex-direction: row-reverse;
 margin-right: 200px;
@@ -292,7 +290,7 @@ margin-right: 200px;
   float: left;
   color: #ffffff;
   text-align: center;
- 
+
   text-decoration: none;
   font-size: 20px;
 }
@@ -450,7 +448,7 @@ margin-right: 200px;
 }
 .Drlistlable {
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
 }
 .newoffice {
   width: 10%;
@@ -508,8 +506,8 @@ margin-right: 200px;
   /* margin-right: 10px;
   margin-bottom: 10px; */
   flex: 1 0 21%;
-  min-height: 300px;
-  font-size: 15px;
+ height: 380px;
+  font-size: 14px;
   border: 1px solid #c4c4c4;
   transition: 0.3s;
 }
@@ -546,7 +544,7 @@ margin-right: 200px;
   margin: 10px;
   margin-bottom: 30px;
   text-transform: uppercase;
-  font-size: 1.6em;
+  font-size: 16px;
   color: #0097a7;
   border-bottom: solid 0.02px;
   padding: 5px;
@@ -555,14 +553,14 @@ margin-right: 200px;
 .Filtering__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.2em;
+  font-size: 16px;
   color: #5d6166;
   text-align: right;
   margin-right: 10px;
 }
 .Filtering__Input {
   width: 85%;
-  font-size: 0.7em;
+  font-size: 13px;
   font-weight: 300;
   padding: 3px;
   margin-right: 10px;
@@ -1062,12 +1060,12 @@ img {
   max-width: 100%;
 }
 .inbox_people {
-  background: #f8feff none repeat scroll 0 0;
+  background: #ffffff none repeat scroll 0 0;
   float: left;
   overflow: hidden;
   width: 30%;
   border-right: 1px solid #c4c4c4;
-  height: 710px;
+  height: 100%;
   padding-top: 10px;
 }
 .inbox_msg {

@@ -91,7 +91,7 @@ class PatientDashboard extends Component {
       
       
       
-          <div className="nav  fixed-top up-navbar up-nav-style ">
+          <div className="nav  fixed-top  up-nav-style ">
       
            
             <a
