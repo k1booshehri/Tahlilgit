@@ -233,7 +233,9 @@ export default class EditDrProfile extends Component {
               <div className="nameDisplay">
                 {this.state.drInfo.f_name + " " + this.state.drInfo.l_name}
               </div>
-              <div style={{ fontSize: 30 }}>{this.state.drInfo.username}</div>
+              <div style={{ fontSize: 25, fontFamily: "Katibeh" }}>
+                {this.state.drInfo.username}
+              </div>
             </div>
             <div class="namerightTableCell">
               {this.state.drInfo.image !== null ? (
@@ -244,7 +246,7 @@ export default class EditDrProfile extends Component {
               ) : (
                 <img src={avatar} className="ProfileViewAvatar" />
               )}
-              <div className="ChosePicture">
+              <div className="ChosePicture" style={{ fontFamily: "Katibeh" }}>
                 <FileBase64
                   className="ChosePictureButton"
                   onDone={this.getFiles.bind(this)}
@@ -350,6 +352,7 @@ export default class EditDrProfile extends Component {
                     <input
                       type="email"
                       className="DrProfileFormField__Input__Left"
+                      style={{ fontFamily: "Katibeh" }}
                       id="email"
                       name="email"
                       value={this.state.email}
@@ -633,7 +636,7 @@ export default class EditDrProfile extends Component {
                     className="DrProfileFormField__Label"
                     htmlFor="activetime"
                   >
-                    شروع فعالیت پزشکی
+                    شروع فعالیت
                   </label>
                 </div>
               </div>
@@ -644,6 +647,7 @@ export default class EditDrProfile extends Component {
                     <input
                       type="text"
                       className="DrProfileFormField__Input__Left"
+                      style={{ fontFamily: "Katibeh" }}
                       id="username"
                       name="username"
                       value={this.state.username}
@@ -712,7 +716,7 @@ export default class EditDrProfile extends Component {
                     className="DrProfileFormField__Label"
                     htmlFor="confirmNewPassword"
                   >
-                    تکرار رمز ورود جدید
+                    تکرار رمز ورود
                   </label>
                 </div>
               </div>

@@ -96,7 +96,9 @@ export default class DoctorProfile extends Component {
               <div class="nameleftTableCell ">
                 <div className="nameDisplay">
                   {this.state.f_name + " " + this.state.l_name}
-                  <div style={{ fontSize: 30 }}>{this.state.username}</div>
+                  <div style={{ fontSize: 25, fontFamily: "Katibeh" }}>
+                    {this.state.username}
+                  </div>
                 </div>
               </div>
               <div class="namerightTableCell ">
@@ -149,6 +151,7 @@ export default class DoctorProfile extends Component {
                       <input
                         className="DrProfileFormField__Input__Right"
                         readOnly
+                        style={{ fontFamily: "Katibeh" }}
                         placeholder={this.state.email}
                       />
                     </div>

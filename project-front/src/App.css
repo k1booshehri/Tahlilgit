@@ -859,11 +859,11 @@
 .DrProfileFormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.4em;
+  font-size: 22px;
   color: rgb(105, 105, 107);
   text-align: right;
   margin-right: 5%;
-  padding-top: 4%;
+  padding-top: 13%;
 }
 
 .DrProfileFormField__Input__Right {
@@ -970,20 +970,20 @@
 
 .DrProfileInfoTable__Tiltle {
   display: table;
-  padding-top: 5%;
+  padding-top: 6%;
 }
 .DrProfileTableRow__Tiltle {
   display: table-row;
 }
 .DrProfileRightTableCell__Tiltle {
-  width: 50%;
+  width: 80%;
   display: table-cell;
   padding-left: 20%;
   text-align: right;
 }
 
 .DrProfileLeftTableCell__Tiltle {
-  width: 50%;
+  width: 20%;
   display: table-cell;
 
   text-align: right;
@@ -993,9 +993,9 @@
 .ChosePicture {
   width: 5%;
   position: relative;
-  padding-left: 25%;
+  padding-left: 22%;
   padding-top: 6%;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 .ChosePictureButton {
   border: solid;
@@ -1004,8 +1004,9 @@
   font-size: 0.5em;
 }
 .divider__EditProfile {
-  width: 95%;
-  margin-left: 4%;
+  width: 90%;
+  right: 0;
+  margin-left: 9%;
 }
 .editProfileButton0 {
   border: 0.1;
