@@ -84,6 +84,9 @@
   background-color: #ffffff;
   border-right: 1px solid #c4c4c4;
   justify-content: center;
+  text-align: right;
+  font-family: "BZar", tahoma;
+  font-size: 1.3em;
 }
 .formcenter-part2 {
   width: 400px;
