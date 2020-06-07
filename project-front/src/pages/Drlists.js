@@ -9,8 +9,10 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import avatar from "./avatarpic.png";
 import ChatBubble from "@material-ui/icons/ChatBubble";
+import Calender from "@material-ui/icons/CalendarToday";
 
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import { IconButton } from "@material-ui/core";
 
 export default class Drlist extends Component {
   constructor(props) {
@@ -108,36 +110,32 @@ export default class Drlist extends Component {
                   </Box>
                 </div>
                  <div className="drlistcard__buttons">
-                <a
-                  className="drlistcard__button "
+              
+                <button class="btn"><i   className="drlistcard__button"
                   id="2-1"
                   name={postdetail.username}
                   /* if profile button is clicked ProfileButtonOnClick is called */
                   onClick={this.ProfileButtonOnClick}
-                  variant="primary"
-                >
-                  اطلاعات بیشتر
-                </a>
+                  variant="primary" class="fa fa-user-circle"></i></button>
 
-                <a
-                  id="2-2"
+
+
+
+             
+                <button class="btn"><i  id="2-2"
                   onClick={this.ChatButtonOnClick}
                   name={postdetail.id}
-                  className="drlistcard__button "
-                >
-                  گفتگو
-                </a>
+                  className="drlistcard__button" class="fa fa-comment"></i></button>
+                
 
-                <a
-                  className="drlistcard__button "
+
+
+                <button class="btn"><i  className="drlistcard__button"
                   id="6"
                   /* if profile button is clicked ProfileButtonOnClick is called */
                   onClick={this.ProfileButtonOnClick}
                   name={postdetail.username}
-                  variant="primary"
-                >
-                  وقت گیری آنلاین
-                </a>
+                  variant="primary"class="fa fa-calendar-o" aria-hidden="true"></i></button>
                 </div>
               </div>
             );
