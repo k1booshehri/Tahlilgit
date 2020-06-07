@@ -71,26 +71,24 @@ class SignInForm extends Component {
     if (!this.state.isLogedIn) {
       return (
         <div className="App">
-               <div className="PageSwitcher">
-              <NavLink
-                to="/sign-in"
-                activeClassName="PageSwitcher__Item--Active"
-                className="PageSwitcher__Item"
-              >
-                ورود
-              </NavLink>
-              <NavLink
-                exact
-                to="/sign-up"
-                activeClassName="PageSwitcher__Item--Active"
-                className="PageSwitcher__Item"
-              >
-                ثبت نام
-              </NavLink>
-            </div>
+          <div className="PageSwitcher">
+            <NavLink
+              to="/sign-in"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              ورود
+            </NavLink>
+            <NavLink
+              exact
+              to="/sign-up"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              ثبت نام
+            </NavLink>
+          </div>
           <div className="App__Form">
-       
-
             <div className="FormCenter">
               <form
                 onSubmit={this.handleSubmit}
