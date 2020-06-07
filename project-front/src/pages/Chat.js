@@ -23,8 +23,8 @@ export default class DoctorProfile extends Component {
 
   render() {
     return (
-      <div>
-        <div class="chat">
+   
+        <div classname="chat">
           <div>
             <ChatList
               data={{
@@ -51,7 +51,7 @@ export default class DoctorProfile extends Component {
             )}
           </div>
         </div>
-      </div>
+   
     );
   }
 }

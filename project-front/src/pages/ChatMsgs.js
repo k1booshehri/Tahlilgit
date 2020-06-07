@@ -159,7 +159,7 @@ export default class ChatMsgs extends Component {
         {/***********************send button***********************************/}
 
         <form onSubmit={this.handleSubmit}>
-          <div class="type_msg">
+          <div className="type_msg">
             <div class="input_msg_write">
               <input
                 id="current_message"
@@ -171,10 +171,11 @@ export default class ChatMsgs extends Component {
                 autoComplete="off"
               />
 
-              <button class="msg_send_btn">
+             
+            </div>
+            <button class="msg_send_btn">
                 <Send></Send>
               </button>
-            </div>
           </div>
         </form>
       </div>

@@ -50,7 +50,7 @@ export default class ChatList extends Component {
   }
   render() {
     return (
-      <div class="inbox_people">
+      <div className="inbox_people">
         <form onSubmit={this.handleSubmit}>
           <div class="headind_srch">
             <div class="recent_heading">
@@ -78,7 +78,7 @@ export default class ChatList extends Component {
         </form>
 
         {/******************************** showing list ***************************************/}
-        <div class="inbox_chat">
+        <div className="inbox_chat">
           {this.state.ChatList.map((postdetail, index) => {
             return (
               <div class="chat_list active_chat">

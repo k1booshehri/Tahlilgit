@@ -111,31 +111,32 @@ export default class Drlist extends Component {
                 </div>
                  <div className="drlistcard__buttons">
               
-                <button class="btn"><i   className="drlistcard__button"
+            <div  className="drlistcard__button">
+              <a  
                   id="2-1"
                   name={postdetail.username}
                   /* if profile button is clicked ProfileButtonOnClick is called */
                   onClick={this.ProfileButtonOnClick}
-                  variant="primary" class="fa fa-user-circle"></i></button>
+                  variant="primary" class="fa fa-user-circle"></a></div>
 
 
 
 
-             
-                <button class="btn"><i  id="2-2"
+             <div className="drlistcard__button">
+              <a  id="2-2"
                   onClick={this.ChatButtonOnClick}
                   name={postdetail.id}
-                  className="drlistcard__button" class="fa fa-comment"></i></button>
+                   class="fa fa-comment"></a></div>
                 
 
 
-
-                <button class="btn"><i  className="drlistcard__button"
+<div className="drlistcard__button">
+               <a  
                   id="6"
                   /* if profile button is clicked ProfileButtonOnClick is called */
                   onClick={this.ProfileButtonOnClick}
                   name={postdetail.username}
-                  variant="primary"class="fa fa-calendar-o" aria-hidden="true"></i></button>
+                  variant="primary"class="fa fa-calendar-o" aria-hidden="true"></a> </div>
                 </div>
               </div>
             );
