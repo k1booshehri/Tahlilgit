@@ -326,7 +326,7 @@ export default class ClinicRes extends Component {
             </div>
           </div>
         </div>
-        <Modal isOpen={this.state.isModal}>
+        <Modal style={{ fontFamily: "BZar" }} isOpen={this.state.isModal}>
           <ModalHeader
             close={
               <Button onClick={() => this.setState({ isModal: false })}>

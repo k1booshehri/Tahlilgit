@@ -53,6 +53,7 @@
   align-items: center;
   background-color: #ffffff;
   display: flex;
+  font-family: "BZar", tahoma;
 }
 
 .App__Form {
@@ -200,7 +201,7 @@
   right: 0;
   border-left: 1px solid #c4c4c4;
   background-color: transparent;
-
+  font-family: "BZar", tahoma;
   overflow-x: hidden;
 
   display: flex;
@@ -274,6 +275,7 @@
   float: left;
   color: #ffffff;
   text-align: center;
+  font-family: "BZar", tahoma;
 
   text-decoration: none;
   font-size: 20px;
@@ -365,6 +367,7 @@
   border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 10px;
+  font-family: "BZar", tahoma;
 }
 .clinicFormLable {
   display: block;
@@ -459,6 +462,7 @@
   transition: 0.3s;
   margin-bottom: 3%;
   margin-left: 15%;
+  font-family: "BZar", tahoma;
 }
 .newoffice:hover {
   background: #81d4fa;
@@ -476,7 +480,6 @@
   /* float: right; */
   display: flex;
   flex-direction: column;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
@@ -507,6 +510,7 @@
   flex-wrap: wrap;
   flex-direction: row;
   background-color: #f8feff;
+  font-family: "BZar", tahoma;
 }
 
 .Drlistcard:hover {
@@ -522,7 +526,7 @@
   left: 0px;
   margin-right: 1%;
   padding-right: 0.3%;
-
+  font-family: "BZar", tahoma;
   background-color: #ffffff;
   overflow-x: hidden;
   border-right: 1px solid #c4c4c4;
@@ -598,7 +602,7 @@
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
-
+  font-family: "BZar", tahoma;
   border-radius: 0.3em;
   /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); */
   margin-bottom: 20px;
@@ -840,7 +844,7 @@
   padding-right: 5%;
   padding-left: 5%;
   background-color: none;
-
+  font-family: "BZar", tahoma;
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
@@ -1052,6 +1056,7 @@
   padding-left: 30px;
   padding-right: 30px;
   height: 630px;
+  font-family: "BZar", tahoma;
 }
 .messaging {
   border-left: none;
@@ -1307,6 +1312,7 @@ img {
 .notifs {
   display: flex;
   flex-direction: column;
+  font-family: "BZar", tahoma;
 }
 .notif1 {
   background-color: #f06292;
@@ -1367,6 +1373,7 @@ img {
   /* margin-top: 3%; */
   padding: 1%;
   height: 120vh;
+  font-family: "Open Sans", sans-serif;
 }
 
 .calenderButton {
@@ -1376,6 +1383,7 @@ img {
   outline: none;
   margin-right: 43%;
   font-size: 1.2em;
+  font-family: "BZar", tahoma;
 }
 .calenderButton:focus {
   outline: none;
@@ -1387,6 +1395,8 @@ img {
   padding: 1%;
   height: 120vh;
   width: 100%;
+  font-family: "Open Sans", sans-serif;
+
   /* margin-left: 14%; */
 }
 .clinicCard {
@@ -1398,6 +1408,7 @@ img {
   height: 100%;
   font-size: 1.6em;
   font-weight: 300;
+  font-family: "BZar", tahoma;
 
   text-align: right;
   font-weight: 700;
@@ -1440,6 +1451,7 @@ img {
   font-size: 1.4em;
   margin-top: 3%;
   text-align: right;
+  font-family: "BZar", tahoma;
 }
 .divider__calenFromInfo {
   width: 100%;
