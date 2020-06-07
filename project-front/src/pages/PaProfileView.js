@@ -42,7 +42,7 @@ export default class PaProfileView extends Component {
     this.state.l_name = this.state.drInfo.l_name;
     this.state.insurance = this.state.drInfo.insurance;
     this.state.gender = this.state.drInfo.gender;
-
+    this.state.username = this.state.drInfo.username;
     this.state.image = this.state.drInfo.pp;
   }
 
@@ -84,7 +84,9 @@ export default class PaProfileView extends Component {
                 <div class="nameleftTableCell">
                   <div className="nameDisplay">
                     {this.state.f_name + " " + this.state.l_name}
-                    <div style={{ fontSize: 30 }}>{this.state.username}</div>
+                    <div style={{ fontSize: 25, fontFamily: "Katibeh" }}>
+                      {this.state.username}
+                    </div>
                   </div>
                 </div>
                 <div class="namerightTableCell">
@@ -102,52 +104,59 @@ export default class PaProfileView extends Component {
             </div>
             <hr class="divider__EditProfile"></hr>
             <div className="DrProfileInfoTable">
-              <div class="DrProfileTableRow">
-                <div class="DrProfileLeftTableCell">
-                  <div className="DrProfileFormField">
-                    {" "}
-                    {this.state.gender !== null ? (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.gender}
-                      />
-                    ) : (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.nullString}
-                      />
-                    )}
+              <div className="DrProfileTableRow_base">
+                <div className="DrProfileLeftTableCell_base">
+                  {" "}
+                  <div class="DrProfileTableRow">
+                    <div class="DrProfileLeftTableCell">
+                      <div className="DrProfileFormField">
+                        {" "}
+                        {this.state.insurance !== null ? (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.insurance}
+                          />
+                        ) : (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.nullString}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <div class="DrProfileRightTableCell">
+                      <label className="DrProfileFormField__Label">
+                        بیمه درمانی
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div class="DrProfileRightTableCell">
-                  <label className="DrProfileFormField__Label">جنسیت</label>
-                </div>
-              </div>
-              <div class="DrProfileTableRow">
-                <div class="DrProfileLeftTableCell">
-                  <div className="DrProfileFormField">
-                    {" "}
-                    {this.state.insurance !== null ? (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.insurance}
-                      />
-                    ) : (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.nullString}
-                      />
-                    )}
+                <div className="DrProfileRightTableCell_base">
+                  <div class="DrProfileTableRow">
+                    <div class="DrProfileLeftTableCell">
+                      <div className="DrProfileFormField">
+                        {" "}
+                        {this.state.gender !== null ? (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.gender}
+                          />
+                        ) : (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.nullString}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <div class="DrProfileRightTableCell">
+                      <label className="DrProfileFormField__Label">جنسیت</label>
+                    </div>
                   </div>
-                </div>
-                <div class="DrProfileRightTableCell">
-                  <label className="DrProfileFormField__Label">
-                    بیمه درمانی
-                  </label>
                 </div>
               </div>
             </div>

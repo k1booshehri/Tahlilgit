@@ -102,30 +102,28 @@ class DoctorSignUpForm extends Component {
     if (!this.state.isSignedUp) {
       return (
         <div className="App">
-           <div className="PageSwitcher">
-              <NavLink
-                to="/Dr_Sign_In"
-                activeClassName="PageSwitcher__Item--Active"
-                className="PageSwitcher__Item"
-              >
-                ورود
-              </NavLink>
-              <NavLink
-                exact
-                to="/Dr_Sign_Up"
-                activeClassName="PageSwitcher__Item--Active"
-                className="PageSwitcher__Item"
-              >
-                ثبت نام
-              </NavLink>
-            </div>
+          <div className="PageSwitcher">
+            <NavLink
+              to="/Dr_Sign_In"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              ورود
+            </NavLink>
+            <NavLink
+              exact
+              to="/Dr_Sign_Up"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              ثبت نام
+            </NavLink>
+          </div>
           <div className="App__Form">
-           
-
             <div className="FormCenter">
               <form onSubmit={this.handleSubmit} className="FormFields">
                 <div className="FormField">
-                <label className="FormField__Label" htmlFor="f_name">
+                  <label className="FormField__Label" htmlFor="f_name">
                     نام
                   </label>
                   <input
@@ -142,10 +140,10 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-                   <label className="FormField__Label" htmlFor="l_name">
+                  <label className="FormField__Label" htmlFor="l_name">
                     نام خانوادگی
                   </label>
-                
+
                   <input
                     type="text"
                     className="FormField__Input"
@@ -160,8 +158,8 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-             
-                {/* <div className="FormField">
+
+                  {/* <div className="FormField">
                   <label htmlFor="gender" className="FormField__Label">
                     جنسیت خود را وارد کنید
                   </label>
@@ -211,12 +209,13 @@ class DoctorSignUpForm extends Component {
                   />
                 </div> */}
 
-<label className="FormField__Label" htmlFor="email">
-                    آدرس ایمیل 
+                  <label className="FormField__Label" htmlFor="email">
+                    آدرس ایمیل
                   </label>
                   <input
                     type="email"
                     className="FormField__Input"
+                    style={{ fontFamily: "Katibeh" }}
                     id="email"
                     name="email"
                     placeholder="name@example.com"
@@ -228,8 +227,8 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-              
-               <label className="FormField__Label" htmlFor="username">
+
+                  <label className="FormField__Label" htmlFor="username">
                     نام کاربری{" "}
                   </label>
                   <input
@@ -246,8 +245,8 @@ class DoctorSignUpForm extends Component {
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
-             
-                {/* <div className="FormField">
+
+                  {/* <div className="FormField">
                   <label htmlFor="edu" className="FormField__Label">
                     تحصیلات خود را انتخاب کنید
                   </label>
@@ -328,7 +327,7 @@ class DoctorSignUpForm extends Component {
                     required
                   />
                 </div> */}
-                <label className="FormField__Label" htmlFor="password">
+                  <label className="FormField__Label" htmlFor="password">
                     رمز ورود
                   </label>
                   <input

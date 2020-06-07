@@ -1,14 +1,15 @@
 @import url("https://fonts.google.com/specimen/Jomhuria/?subset=arabic");
 @import url("https://fonts.google.com/specimen/Scheherazade?subset=arabic&sidebar.open&selection.family=Scheherazade");
+/* @import url("http://www.fontonline.ir/css/BYas.css"); */
 /* @import "react-big-calendar/lib/sass/styles";
 @import "react-big-calendar/lib/css/react-big-calendar.css"; */
 
 * {
   box-sizing: border-box;
-  /* font-family: "Markazi Text", serif; */
-  /* font-family: "Katibeh", cursive; */
-  font-family: "shabnam";
-  font-weight: 200;
+  /* font-family: "Markazi Text", serif; 
+   font-family: "Katibeh", cursive;  */
+  /* font-family: "BZar", tahoma; */
+  font-weight: 600;
 }
 
 

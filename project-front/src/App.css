@@ -1,10 +1,7 @@
-
-
-
 .PageSwitcher {
   display: flex;
   justify-content: flex-end;
- padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .PageSwitcher__Item {
@@ -56,20 +53,20 @@
   align-items: center;
   background-color: #ffffff;
   display: flex;
+  font-family: "BZar", tahoma;
 }
 
 .App__Form {
   display: flex;
   flex-direction: row;
-  justify-content:right ;
+  justify-content: right;
   align-items: right;
- 
 }
 
 .FormCenter {
   margin-bottom: 100px;
-   width: 400px;
-   height: 500px;
+  width: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
@@ -78,35 +75,35 @@
   margin-bottom: 20px;
   justify-content: right;
 }
-.FormCenter__welcome{
-  
+.FormCenter__welcome {
   width: 400px;
   height: 500px;
- display: flex;
- flex-direction: column;
- padding: 20px ;
- background-color: #ffffff;
- border-right: 1px solid #c4c4c4;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #ffffff;
+  border-right: 1px solid #c4c4c4;
+  justify-content: center;
+  text-align: right;
+  font-family: "BZar", tahoma;
+  font-size: 1.3em;
 }
-.formcenter-part2{
+.formcenter-part2 {
   width: 400px;
   display: flex;
   flex-direction: column;
   padding: 20px 40px;
- background-image: url('https://cdn3.vectorstock.com/i/1000x1000/22/62/light-bulb-gear-work-idea-logo-vector-5512262.jpg');
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/22/62/light-bulb-gear-work-idea-logo-vector-5512262.jpg");
   margin-bottom: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 130%;
   align-items: center;
   font-size: 40px;
-  color:#0097a7 ;
-
+  color: #0097a7;
 }
 
 .FormField {
- 
   text-align: right;
 }
 
@@ -118,13 +115,11 @@ justify-content: center;
 
 .FormField__welcome {
   margin-top: 3em;
-  
+
   text-align: left;
   padding-top: 2em;
   display: flex;
   justify-content: center;
-  
- 
 }
 
 .FormField__Label {
@@ -139,7 +134,7 @@ justify-content: center;
   font-size: 0.7em;
   font-weight: 300;
   padding-bottom: 10px;
- 
+
   text-align: right;
   font-weight: 700;
   font-size: 0.8em;
@@ -200,18 +195,18 @@ justify-content: center;
   display: inline-block;
   margin-right: 200px;
 }
-.sidenav{
+.sidenav {
   height: 100%;
   width: 13.9%;
   position: fixed;
   z-index: 1;
   top: 0;
   right: 0;
-  border-left:1px solid #c4c4c4; ;
+  border-left: 1px solid #c4c4c4;
   background-color: transparent;
-  
+  font-family: "BZar", tahoma;
   overflow-x: hidden;
- 
+
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -230,8 +225,6 @@ right: 10px;
 
 }
 .logo-sidnav {
-  
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -242,12 +235,12 @@ right: 10px;
 }
 
 /*******************************************************/
-.sidnav-components{
+.sidnav-components {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 20px;
 }
-.sidnav-txt  {
+.sidnav-txt {
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -255,21 +248,21 @@ right: 10px;
   
   padding-right: 30px;
  
-}
-.text-icon-sidenav{
 
+  padding-right: 10px;
+}
+.text-icon-sidenav {
   padding: 10px;
   display: flex;
   flex-direction: row-reverse;
   border-bottom: 1px solid #c4c4c4;
   cursor: pointer;
 }
-.sidnav-components :hover{
- color: #ffe082;
- cursor: pointer;
-
+.sidnav-components :hover {
+  background-color: #ffe082;
+  cursor: pointer;
 }
-.icon{
+.icon {
   padding-top: 5px;
 }
 /********************************************************/
@@ -290,6 +283,7 @@ margin-right: 13.9%;
   float: left;
   color: #ffffff;
   text-align: center;
+  font-family: "BZar", tahoma;
 
   text-decoration: none;
   font-size: 20px;
@@ -297,16 +291,13 @@ margin-right: 13.9%;
 
 .up-nav-style :hover {
   background-color: #ffe082;
- cursor: pointer;
+  cursor: pointer;
 }
-
-
 
 .nav-dropdown {
   background: none;
   border: none;
 }
-
 
 .clinicFormInput-checkbox {
   background-color: transparent;
@@ -384,6 +375,7 @@ margin-right: 13.9%;
   border-radius: 0.3em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 10px;
+  font-family: "BZar", tahoma;
 }
 .clinicFormLable {
   display: block;
@@ -466,6 +458,7 @@ margin-right: 13.9%;
   transition: 0.3s;
   margin-bottom: 3%;
   margin-left: 15%;
+  font-family: "BZar", tahoma;
 }
 .newoffice:hover {
   background: #81d4fa;
@@ -483,7 +476,6 @@ margin-right: 13.9%;
   /* float: right; */
   display: flex;
   flex-direction: column;
-
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
@@ -515,6 +507,7 @@ margin-right: 13.9%;
   flex-wrap: wrap;
   flex-direction: row;
   background-color: #f8feff;
+  font-family: "BZar", tahoma;
 }
 
 .Drlistcard:hover {
@@ -527,8 +520,10 @@ margin-right: 13.9%;
   height: 100%;
   width: 13.9%;
   position: absolute;
-
-
+  left: 0px;
+  margin-right: 1%;
+  padding-right: 0.3%;
+  font-family: "BZar", tahoma;
   background-color: #ffffff;
   overflow-x: hidden;
   border-right: 1px solid #c4c4c4;
@@ -577,8 +572,8 @@ margin-right: 13.9%;
   background-color: #ffe082;
   color: #5d6166;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
- border: none;
- border-radius: 4px;
+  border: none;
+  border-radius: 4px;
   padding: 5px 20px;
   font-size: 1em;
   font-weight: 300;
@@ -604,7 +599,7 @@ margin-right: 13.9%;
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
-
+  font-family: "BZar", tahoma;
   border-radius: 0.3em;
   /* box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); */
   margin-bottom: 20px;
@@ -846,7 +841,7 @@ margin-right: 13.9%;
   padding-right: 5%;
   padding-left: 5%;
   background-color: none;
-
+  font-family: "BZar", tahoma;
   margin-bottom: 8%;
   margin-right: auto;
   margin-left: auto;
@@ -865,10 +860,11 @@ margin-right: 13.9%;
 .DrProfileFormField__Label {
   display: block;
   text-transform: uppercase;
-  font-size: 1.4em;
+  font-size: 22px;
   color: rgb(105, 105, 107);
   text-align: right;
   margin-right: 5%;
+  padding-top: 13%;
 }
 
 .DrProfileFormField__Input__Right {
@@ -928,18 +924,37 @@ margin-right: 13.9%;
   width: 100%;
 }
 .DrProfileTableRow {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+.DrProfileTableRow_base {
   display: table-row;
+  width: 100%;
 }
 .DrProfileRightTableCell {
-  width: 20%;
+  width: 30%;
+  display: table-cell;
+  padding-right: 2%;
+  text-align: right;
+}
+.DrProfileLeftTableCell {
+  width: 70%;
+  display: table-cell;
+  text-align: right;
+
+  margin-left: 20%;
+}
+.DrProfileRightTableCell_base {
+  width: 50%;
   display: table-cell;
 
   text-align: right;
 }
-.DrProfileLeftTableCell {
-  width: 80%;
+.DrProfileLeftTableCell_base {
+  width: 50%;
   display: table-cell;
-  padding-left: 4%;
+
   text-align: right;
 }
 
@@ -956,20 +971,20 @@ margin-right: 13.9%;
 
 .DrProfileInfoTable__Tiltle {
   display: table;
-  padding-top: 5%;
+  padding-top: 6%;
 }
 .DrProfileTableRow__Tiltle {
   display: table-row;
 }
 .DrProfileRightTableCell__Tiltle {
-  width: 50%;
+  width: 80%;
   display: table-cell;
   padding-left: 20%;
   text-align: right;
 }
 
 .DrProfileLeftTableCell__Tiltle {
-  width: 50%;
+  width: 20%;
   display: table-cell;
 
   text-align: right;
@@ -979,9 +994,9 @@ margin-right: 13.9%;
 .ChosePicture {
   width: 5%;
   position: relative;
-  padding-left: 25%;
+  padding-left: 22%;
   padding-top: 6%;
-  font-size: 0.8em;
+  font-size: 0.6em;
 }
 .ChosePictureButton {
   border: solid;
@@ -990,8 +1005,9 @@ margin-right: 13.9%;
   font-size: 0.5em;
 }
 .divider__EditProfile {
-  width: 95%;
-  margin-left: 4%;
+  width: 90%;
+  right: 0;
+  margin-left: 9%;
 }
 .editProfileButton0 {
   border: 0.1;
@@ -1017,13 +1033,9 @@ margin-right: 13.9%;
   background-color: #00355e;
   text-align: center;
   cursor: pointer;
-  width: 20%;
+  width: 50%;
   font-size: 18px;
-  margin-top: 20px;
-  padding: 5px;
-  margin-left: 3.8%;
-  font-size: 1em;
-  margin-bottom: 4%;
+  margin-right: 50%;
 }
 .editProfileButton0:hover {
   background: rgb(174, 198, 214);
@@ -1041,6 +1053,7 @@ margin-right: 13.9%;
   padding-left: 30px;
   padding-right: 30px;
   height: 630px;
+  font-family: "BZar", tahoma;
 }
 .messaging {
   border-left: none;
@@ -1296,6 +1309,7 @@ img {
 .notifs {
   display: flex;
   flex-direction: column;
+  font-family: "BZar", tahoma;
 }
 .notif1 {
   background-color: #f06292;
@@ -1356,6 +1370,7 @@ img {
   /* margin-top: 3%; */
   padding: 1%;
   height: 120vh;
+  font-family: "Open Sans", sans-serif;
 }
 
 .calenderButton {
@@ -1365,6 +1380,7 @@ img {
   outline: none;
   margin-right: 43%;
   font-size: 1.2em;
+  font-family: "BZar", tahoma;
 }
 .calenderButton:focus {
   outline: none;
@@ -1376,6 +1392,8 @@ img {
   padding: 1%;
   height: 120vh;
   width: 100%;
+  font-family: "Open Sans", sans-serif;
+
   /* margin-left: 14%; */
 }
 .clinicCard {
@@ -1387,6 +1405,7 @@ img {
   height: 100%;
   font-size: 1.6em;
   font-weight: 300;
+  font-family: "BZar", tahoma;
 
   text-align: right;
   font-weight: 700;
@@ -1429,6 +1448,7 @@ img {
   font-size: 1.4em;
   margin-top: 3%;
   text-align: right;
+  font-family: "BZar", tahoma;
 }
 .divider__calenFromInfo {
   width: 100%;

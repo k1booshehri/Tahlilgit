@@ -96,28 +96,25 @@ class SignUpForm extends Component {
     if (!this.state.isSignedUp) {
       return (
         <div className="App">
-           <div className="PageSwitcher">
-              <NavLink
-                to="/sign-in"
-                activeClassName="PageSwitcher__Item--Active"
-                className="PageSwitcher__Item"
-              >
-                ورود
-              </NavLink>
-              <NavLink
-                exact
-                to="/sign-up"
-                activeClassName="PageSwitcher__Item--Active"
-                className="PageSwitcher__Item"
-              >
-                ثبت نام
-              </NavLink>
-            </div>
+          <div className="PageSwitcher">
+            <NavLink
+              to="/sign-in"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              ورود
+            </NavLink>
+            <NavLink
+              exact
+              to="/sign-up"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              ثبت نام
+            </NavLink>
+          </div>
           <div className="App__Form">
-            
-
             <div className="FormCenter">
-           
               <form onSubmit={this.handleSubmit} className="FormFields">
                 {/*            
             <div className="FormTitle">
@@ -182,7 +179,6 @@ class SignUpForm extends Component {
                     required
                   />
                 </div>
-               
 
                 <div className="FormField">
                   <label className="FormField__Label" htmlFor="email">
@@ -191,6 +187,7 @@ class SignUpForm extends Component {
                   <input
                     type="email"
                     className="FormField__Input"
+                    style={{ fontFamily: "Katibeh" }}
                     id="email"
                     name="email"
                     placeholder="name@example.com"
@@ -268,7 +265,6 @@ class SignUpForm extends Component {
                 </Link> */}
                 </div>
               </form>
-            
             </div>
             <div className="formcenter-part2">روان یار</div>
           </div>

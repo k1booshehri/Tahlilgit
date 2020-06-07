@@ -306,7 +306,11 @@ export default class ClinicTime extends Component {
             //  onShowMore={(events, date) => this.setState({ hi: "bye" })}
           />
         </div>
-        <Modal isOpen={this.state.isModal} toggle={this.onModal}>
+        <Modal
+          style={{ fontFamily: "BZar" }}
+          isOpen={this.state.isModal}
+          toggle={this.onModal}
+        >
           <ModalHeader
             close={
               <Button onClick={() => this.setState({ isModal: false })}>
