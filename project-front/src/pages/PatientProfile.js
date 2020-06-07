@@ -98,78 +98,97 @@ export default class PatientProfile extends Component {
           </div>
           <hr class="divider__EditProfile"></hr>{" "}
           <div className="DrProfileInfoTable">
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  {" "}
-                  {this.state.gender !== null ? (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.gender}
-                    />
-                  ) : (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.nullString}
-                    />
-                  )}
+            <div className="DrProfileTableRow_base">
+              <div className="DrProfileLeftTableCell_base">
+                {" "}
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      {this.state.insurance !== null ? (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.insurance}
+                        />
+                      ) : (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.nullString}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">
+                      بیمه درمانی
+                    </label>
+                  </div>
+                </div>
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      <button
+                        className="editProfileButton1"
+                        id="7-1"
+                        /* if edit profile button is clicked ProfileButtonOnClick is called */
+                        onClick={this.EditProfileButtonOnClick}
+                        variant="primary"
+                      >
+                        ویرایش
+                      </button>
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell"></div>
                 </div>
               </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">جنسیت</label>
-              </div>
-            </div>
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  {" "}
-                  {this.state.insurance !== null ? (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.insurance}
-                    />
-                  ) : (
-                    <input
-                      className="DrProfileFormField__Input__Right"
-                      readOnly
-                      placeholder={this.state.nullString}
-                    />
-                  )}
+              <div className="DrProfileRightTableCell_base">
+                {" "}
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      {" "}
+                      {this.state.gender !== null ? (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.gender}
+                        />
+                      ) : (
+                        <input
+                          className="DrProfileFormField__Input__Right"
+                          readOnly
+                          placeholder={this.state.nullString}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">جنسیت</label>
+                  </div>
                 </div>
-              </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">بیمه درمانی</label>
-              </div>
-            </div>
-
-            <div class="DrProfileTableRow">
-              <div class="DrProfileLeftTableCell">
-                <div className="DrProfileFormField">
-                  <input
-                    className="DrProfileFormField__Input__Right"
-                    readOnly
-                    placeholder={this.state.email}
-                  />
+                <div class="DrProfileTableRow">
+                  <div class="DrProfileLeftTableCell">
+                    <div className="DrProfileFormField">
+                      <input
+                        className="DrProfileFormField__Input__Right"
+                        readOnly
+                        placeholder={this.state.email}
+                      />
+                    </div>
+                  </div>
+                  <div class="DrProfileRightTableCell">
+                    <label className="DrProfileFormField__Label">
+                      آدرس ایمیل
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <div class="DrProfileRightTableCell">
-                <label className="DrProfileFormField__Label">آدرس ایمیل</label>
               </div>
             </div>
           </div>
         </div>
-        <button
-          className="editProfileButton1"
-          id="7-1"
-          /* if edit profile button is clicked ProfileButtonOnClick is called */
-          onClick={this.EditProfileButtonOnClick}
-          variant="primary"
-        >
-          ویرایش
-        </button>
       </div>
     );
   }
