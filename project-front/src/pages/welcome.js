@@ -16,7 +16,7 @@ class welcome extends Component {
       <div className="App">
         <div className="App__Form">
           <div className="FormCenter__welcome">
-            <div style={{ top: 0 }}>{this.state.firstP}</div>
+            <div>{this.state.firstP}</div>
             <div>{this.state.secondP}</div>
             <div className="FormField__welcome">
               <Link to="/sign-in">
