@@ -104,7 +104,6 @@ export default class DoctorProfile extends Component {
               <div class="namerightTableCell ">
                 {this.state.image !== null ? (
                   <img
-                    className="tc br3"
                     alt="none"
                     src={this.state.image}
                     className="ProfileViewAvatar"

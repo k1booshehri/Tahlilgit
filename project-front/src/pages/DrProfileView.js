@@ -148,7 +148,9 @@ export default class DrProfileView extends Component {
                 <div class="nameleftTableCell">
                   <div className="nameDisplay">
                     {this.state.f_name + " " + this.state.l_name}
-                    <div style={{ fontSize: 30 }}>{this.state.username}</div>
+                    <div style={{ fontSize: 25, fontFamily: "Katibeh" }}>
+                      {this.state.username}
+                    </div>
                   </div>
                 </div>
                 <div class="namerightTableCell">
@@ -173,75 +175,85 @@ export default class DrProfileView extends Component {
             </div>
             <hr class="divider__EditProfile"></hr>
             <div className="DrProfileInfoTable">
-              <div class="DrProfileTableRow">
-                <div class="DrProfileLeftTableCell">
-                  <div className="DrProfileFormField">
-                    {" "}
-                    {this.state.field !== null ? (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.field}
-                      />
-                    ) : (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.nullString}
-                      />
-                    )}
+              <div className="DrProfileTableRow_base">
+                <div className="DrProfileLeftTableCell_base">
+                  {" "}
+                  <div class="DrProfileTableRow">
+                    <div class="DrProfileLeftTableCell">
+                      <div className="DrProfileFormField">
+                        {" "}
+                        {this.state.edu !== null ? (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.edu}
+                          />
+                        ) : (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.nullString}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <div class="DrProfileRightTableCell">
+                      <label className="DrProfileFormField__Label">
+                        تحصیلات
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div class="DrProfileRightTableCell">
-                  <label className="DrProfileFormField__Label">تخصص</label>
-                </div>
-              </div>
-              <div class="DrProfileTableRow">
-                <div class="DrProfileLeftTableCell">
-                  <div className="DrProfileFormField">
-                    {" "}
-                    {this.state.edu !== null ? (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.edu}
-                      />
-                    ) : (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.nullString}
-                      />
-                    )}
+                <div className="DrProfileRightTableCell_base">
+                  {" "}
+                  <div class="DrProfileTableRow">
+                    <div class="DrProfileLeftTableCell">
+                      <div className="DrProfileFormField">
+                        {" "}
+                        {this.state.field !== null ? (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.field}
+                          />
+                        ) : (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.nullString}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <div class="DrProfileRightTableCell">
+                      <label className="DrProfileFormField__Label">تخصص</label>
+                    </div>
                   </div>
-                </div>
-                <div class="DrProfileRightTableCell">
-                  <label className="DrProfileFormField__Label">تحصیلات</label>
-                </div>
-              </div>
-              <div class="DrProfileTableRow">
-                <div class="DrProfileLeftTableCell">
-                  <div className="DrProfileFormField">
-                    {" "}
-                    {this.state.startYear !== null ? (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.startYear}
-                      />
-                    ) : (
-                      <input
-                        className="DrProfileFormField__Input__Right"
-                        readOnly
-                        placeholder={this.state.nullString}
-                      />
-                    )}
+                  <div class="DrProfileTableRow">
+                    <div class="DrProfileLeftTableCell">
+                      <div className="DrProfileFormField">
+                        {" "}
+                        {this.state.startYear !== null ? (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.startYear}
+                          />
+                        ) : (
+                          <input
+                            className="DrProfileFormField__Input__Right"
+                            readOnly
+                            placeholder={this.state.nullString}
+                          />
+                        )}
+                      </div>
+                    </div>
+                    <div class="DrProfileRightTableCell">
+                      <label className="DrProfileFormField__Label">
+                        شروع فعالیت
+                      </label>
+                    </div>
                   </div>
-                </div>
-                <div class="DrProfileRightTableCell">
-                  <label className="DrProfileFormField__Label">
-                    شروع فعالیت
-                  </label>
                 </div>
               </div>
             </div>
