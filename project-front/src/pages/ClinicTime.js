@@ -311,27 +311,13 @@ export default class ClinicTime extends Component {
           isOpen={this.state.isModal}
           toggle={this.onModal}
         >
-          <ModalHeader
-            close={
-              <Button onClick={() => this.setState({ isModal: false })}>
-                &times;
-              </Button>
-            }
-          ></ModalHeader>
           {/* <ModalBody className="modalbodCalender">
             آیا می خواهید این وقت را لغو کنید؟
           </ModalBody> */}
-          <ModalFooter
-            close={
-              <Button
-                outline
-                color="info"
-                onClick={() => this.setState({ isModal: false })}
-              >
-                &times;
-              </Button>
-            }
-          >
+          <ModalFooter>
+            <Button outline onClick={() => this.setState({ isModal: false })}>
+              &times;
+            </Button>
             <Button
               id="7-2"
               outline
