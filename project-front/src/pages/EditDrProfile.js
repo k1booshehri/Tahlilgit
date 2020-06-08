@@ -11,6 +11,7 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 export default class EditDrProfile extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ export default class EditDrProfile extends Component {
 
       file: null,
       isStateSet: false,
+      isConPassWrong: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -184,7 +186,6 @@ export default class EditDrProfile extends Component {
           if (res.status === 200) {
             //update eventKey at DrDashboard.js and render DoctorProfile.js
             this.props.updateState(e);
-            alert("موفقیت آمیز بود");
           }
         })
         .catch(function (error) {
@@ -193,8 +194,11 @@ export default class EditDrProfile extends Component {
           }
         });
     } else if (this.state.confirmNewPassword !== this.state.newPassword) {
-      alert("تکرار رمز ورود اشتباه است");
-      this.setState({ newPassword: "", confirmNewPassword: "" });
+      this.setState({
+        newPassword: "",
+        confirmNewPassword: "",
+        isConPassWrong: true,
+      });
     } else if (this.state.confirmNewPassword === "") {
       axios
         .put(
@@ -769,6 +773,24 @@ export default class EditDrProfile extends Component {
             </div>
           </div>
         </div>
+
+        <Modal
+          style={{ fontFamily: "BZar" }}
+          isOpen={this.state.isConPassWrong}
+        >
+          <ModalBody>
+            {" "}
+            <Button
+              outline
+              onClick={() => this.setState({ isConPassWrong: false })}
+            >
+              &times;
+            </Button>
+          </ModalBody>
+          <ModalBody className="modalbodCalender">
+            .تکرار رمز ورود اشتباه است
+          </ModalBody>
+        </Modal>
       </div>
     );
   }

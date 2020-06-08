@@ -1171,6 +1171,7 @@ img {
   padding-top: 10px;
   display: flex;
   flex-direction: column;
+  font-family: "BZar", tahoma;
 }
 .inbox_chat {
   display: flex;
