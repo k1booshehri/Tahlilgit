@@ -452,7 +452,7 @@
   color: #018a99;
   font-size: 2em;
   border-bottom: 1px solid #018a9936;
-  text-align: right;
+  text-align: center;
   margin-bottom: 5px;
   font-family: "BZar", tahoma;
 
@@ -486,16 +486,16 @@
   justify-content: center;
 }
 .Officecard_img {
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBC3XvkSuyaVIybUIDch4JfmGciP6cBHFHsGiUht2hZyG5MeS2&usqp=CAU");
+  background-image: url(./pages/loc.png);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
+  background-position: bottom;
+  background-size: 130%;
   width: 40%;
   padding-top: 7%;
   color: rgba(0, 0, 0, 0.308);
   justify-content: center;
   text-align: center;
-  height: 160px;
+  min-height: 30vh;
 }
 .newoffice {
   background: #ffe082 none repeat scroll 0 0;
@@ -521,7 +521,7 @@
 .Drofficecard {
   width: 78%;
   margin: auto;
-  margin-top: 2%;
+  margin-top: 4%;
   min-height: 32vh;
   padding: 20px;
 
@@ -729,7 +729,7 @@
 
   text-align: right;
   font-size: 2.1em;
-  color: #00355e;
+  color: #4b4747;
 
   /* border-bottom: 0.5px solid rgb(196, 189, 189); */
 }
@@ -1060,7 +1060,7 @@
   display: block;
   text-transform: uppercase;
   font-size: 2em;
-  color: #00355e;
+  color: #0097a7;
   text-align: right;
   margin-right: 4%;
   padding-top: 0%;

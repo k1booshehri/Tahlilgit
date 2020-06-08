@@ -175,7 +175,16 @@ export default class OfficeList extends Component {
                   </div>
                 </div>
 
-                <div className="Officecard_img">comming soon</div>
+                <div className="Officecard_img">
+                  <h4
+                    style={{
+                      fontFamily: "BZar",
+                      marginTop: "92px",
+                    }}
+                  >
+                    ... به زودی{" "}
+                  </h4>
+                </div>
               </div>
               {/************************************************************** */}
 
