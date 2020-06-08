@@ -246,8 +246,9 @@
 }
 .down-sidenav {
   position: fixed;
-  bottom: 0px;
-  right: 10px;
+  bottom: 10px;
+  right: 5px;
+  width: 13.5%;
 }
 .logo-sidnav {
   display: flex;
@@ -447,15 +448,18 @@
 }
 /************************************************************/
 .officecardtitle {
-  display: flex;
+  display: inline-block;
   color: #018a99;
-  font-size: 1.6em;
-  border-bottom: 1px solid #018a99;
-  justify-content: center;
+  font-size: 2em;
+  border-bottom: 1px solid #018a9936;
+  text-align: right;
   margin-bottom: 5px;
+  font-family: "BZar", tahoma;
+
+  width: 100%;
 }
 
-.officecardinfo_img{
+.officecardinfo_img {
   display: flex;
   flex-direction: row-reverse;
 }
@@ -466,9 +470,8 @@
   justify-content: center;
   text-align: center;
   height: 40%;
- 
 }
-.Officecardinfo_details{
+.Officecardinfo_details {
   font-size: 16px;
   color: #484b4e;
   padding-top: 10px;
@@ -478,22 +481,21 @@
   justify-content: right;
   width: 100%;
 }
-.Officecardinfo_details_details{
+.Officecardinfo_details_details {
   padding-right: 80px;
   justify-content: center;
 }
-.Officecard_img{
+.Officecard_img {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBC3XvkSuyaVIybUIDch4JfmGciP6cBHFHsGiUht2hZyG5MeS2&usqp=CAU");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50%;
   width: 40%;
- padding-top: 7%;
- color: rgba(0, 0, 0, 0.308);
+  padding-top: 7%;
+  color: rgba(0, 0, 0, 0.308);
   justify-content: center;
   text-align: center;
   height: 160px;
-
 }
 .newoffice {
   background: #ffe082 none repeat scroll 0 0;
@@ -504,7 +506,7 @@
 
   border: medium none;
   border-radius: 50%;
- 
+
   cursor: pointer;
   font-size: 20px;
   height: 80px;
@@ -517,18 +519,16 @@
   cursor: pointer;
 }
 .Drofficecard {
-  width: 70%;
+  width: 78%;
   margin: auto;
   margin-top: 2%;
   min-height: 32vh;
- padding: 20px;
- 
+  padding: 20px;
+
   background-color: #ffffff;
-  border: 1px solid #c4c4c4;
- 
+  /* border: 1px solid #c4c4c4; */
 }
 /************************************************************/
-
 
 .drlistcard__buttons {
   size: 20px;
@@ -1106,22 +1106,7 @@
   right: 0;
   margin-left: 9%;
 }
-.editProfileButton0 {
-  border: 0.1;
-  outline: 0;
-  border-radius: 0.3em;
-  color: white;
-  background-color: #00355e;
-  text-align: center;
-  cursor: pointer;
-  width: 20%;
-  font-size: 18px;
-  margin-top: 20px;
-  padding: 5px;
-  margin-left: -0.4%;
-  font-size: 1em;
-  margin-bottom: 4%;
-}
+
 .editProfileButton1 {
   background: #ffe082 none repeat scroll 0 0;
   position: fixed;
@@ -1139,15 +1124,13 @@
   outline: none;
   width: 80px;
 }
-.editProfileButton0:hover {
-  background: rgb(174, 198, 214);
-}
+
 .editProfileButton1:active {
   outline: none;
   border: none;
 }
 .editProfileButton1:hover {
-  background: rgb(174, 198, 214);
+  background: #0096a7c0;
 }
 .editProfileButton1:visited {
   outline: none;
@@ -1192,8 +1175,8 @@ img {
 .inbox_chat {
   display: flex;
   flex-direction: column;
- 
- height: 81vh;
+
+  height: 81vh;
   overflow-y: scroll;
 }
 .inbox_msg {
@@ -1271,12 +1254,11 @@ img {
 .chat_list {
   border-bottom: 1px solid #c4c4c4;
   height: 65px;
-  padding:  10px;
+  padding: 10px;
 }
 
 .active_chat {
   background: #0096a7b2;
- 
 }
 
 .incoming_msg_img {
@@ -1351,7 +1333,7 @@ img {
   border-top: 1px solid #c4c4c4;
   position: fixed;
   outline: none;
-bottom: 30px;
+  bottom: 30px;
   display: flex;
   width: 57%;
   flex-direction: row-reverse;
