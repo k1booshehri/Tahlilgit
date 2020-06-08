@@ -146,12 +146,12 @@ export default class ClinicTime extends Component {
   eventPropGetter(e, start, end, isSelected) {
     if (e.reservetime !== null) {
       var style = {
-        backgroundColor: "#f48fb1",
+        backgroundColor: "#ffe082",
         borderRadius: "0px",
         opacity: 1,
-        border: "1px solid black",
-
-        fontSize: "1.1em",
+        border: " 1px solid rgba(0, 0, 0, 0.048)",
+        color: "rgb(105, 105, 107)",
+        fontSize: "0.7em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -159,12 +159,12 @@ export default class ClinicTime extends Component {
     }
     if (e.reservetime === null) {
       var style = {
-        backgroundColor: "#0277bd",
+        backgroundColor: "#018a99",
         borderRadius: "0px",
         opacity: 1,
-        border: "1px solid black",
+        border: " 1px solid rgba(0, 0, 0, 0.048)",
 
-        fontSize: "1.1em",
+        fontSize: "0.7em",
         width: "100%",
         display: "inline-block",
         textAlign: "center",
@@ -311,27 +311,13 @@ export default class ClinicTime extends Component {
           isOpen={this.state.isModal}
           toggle={this.onModal}
         >
-          <ModalHeader
-            close={
-              <Button onClick={() => this.setState({ isModal: false })}>
-                &times;
-              </Button>
-            }
-          ></ModalHeader>
           {/* <ModalBody className="modalbodCalender">
             آیا می خواهید این وقت را لغو کنید؟
           </ModalBody> */}
-          <ModalFooter
-            close={
-              <Button
-                outline
-                color="info"
-                onClick={() => this.setState({ isModal: false })}
-              >
-                &times;
-              </Button>
-            }
-          >
+          <ModalFooter>
+            <Button outline onClick={() => this.setState({ isModal: false })}>
+              &times;
+            </Button>
             <Button
               id="7-2"
               outline

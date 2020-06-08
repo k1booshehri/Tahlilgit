@@ -8,6 +8,7 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 class DoctorSignInForm extends Component {
   constructor() {
@@ -17,6 +18,7 @@ class DoctorSignInForm extends Component {
       username: "",
       password: "",
       isLogedIn: false,
+      isnotLoged: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -50,11 +52,12 @@ class DoctorSignInForm extends Component {
           this.setState({ isLogedIn: true });
         }
       })
-      .catch(function (error) {
+      .catch((error) => {
         if (error.response) {
           // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-          alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+
+          this.setState({ isnotLoged: true });
         }
       });
   }
@@ -131,6 +134,20 @@ class DoctorSignInForm extends Component {
             </div>
             <div className="formcenter-part2"></div>
           </div>
+          <Modal style={{ fontFamily: "BZar" }} isOpen={this.state.isnotLoged}>
+            <ModalBody>
+              {" "}
+              <Button
+                outline
+                onClick={() => this.setState({ isnotLoged: false })}
+              >
+                &times;
+              </Button>
+            </ModalBody>
+            <ModalBody className="modalbodCalender">
+              .ورود موفقیت آمیز نبود، دوباره امتحان کنید
+            </ModalBody>
+          </Modal>
         </div>
       );
     }

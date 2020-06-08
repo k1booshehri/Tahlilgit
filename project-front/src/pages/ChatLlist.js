@@ -82,66 +82,65 @@ export default class ChatList extends Component {
           {this.state.ChatList.map((postdetail, index) => {
             return (
               <div>
-             {localStorage.getItem("DrOnChatUsername")===postdetail.destid ? ( <div class="chat_list active_chat">
-             <div class="chat_people">
+                {localStorage.getItem("DrOnChatUsername") ===
+                postdetail.destid ? (
+                  <div class="chat_list active_chat">
+                    <div class="chat_people">
+                      {postdetail.destpp !== null ? (
+                        <img
+                          src={postdetail.destpp}
+                          className="chat_img"
+                          onClick={this.ChatListOnClick}
+                          name={postdetail.destid}
+                        />
+                      ) : (
+                        <img
+                          src={avatar}
+                          className="chat_img"
+                          onClick={this.ChatListOnClick}
+                          name={postdetail.destid}
+                        />
+                      )}
+                      <div class="chat_ib">
+                        <h5>
+                          {postdetail.destusername}
+                          {/* <span class="chat_date">تاریخ</span>*/}
+                        </h5>
 
-               
-               {postdetail.destpp !== null ? (
-               
-                 <img
-                   src={postdetail.destpp}
-                   className="chat_img"
-                   onClick={this.ChatListOnClick}
-                   name={postdetail.destid}
-                 />
-               ) : (
-                 <img
-                   src={avatar}
-                   className="chat_img"
-                   onClick={this.ChatListOnClick}
-                   name={postdetail.destid}
-                 />
-               )}
-               <div class="chat_ib">
-                 <h5>
-                   {postdetail.destusername}
-                   {/* <span class="chat_date">تاریخ</span>*/}
-                 </h5>
+                        {/*    <button id="2-2" onClick={this.ChatButtonOnClick}     className="locationbutton">گفتگو</button>*/}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div class="chat_list ">
+                    <div class="chat_people">
+                      {postdetail.destpp !== null ? (
+                        <img
+                          src={postdetail.destpp}
+                          className="chat_img"
+                          onClick={this.ChatListOnClick}
+                          name={postdetail.destid}
+                        />
+                      ) : (
+                        <img
+                          src={avatar}
+                          className="chat_img"
+                          onClick={this.ChatListOnClick}
+                          name={postdetail.destid}
+                        />
+                      )}
+                      <div class="chat_ib">
+                        <h5>
+                          {postdetail.destusername}
+                          {/* <span class="chat_date">تاریخ</span>*/}
+                        </h5>
 
-                 {/*    <button id="2-2" onClick={this.ChatButtonOnClick}     className="locationbutton">گفتگو</button>*/}
-               </div>
-             </div>
-           </div>) : ( <div class="chat_list ">
-           <div class="chat_people">
-
-             
-             {postdetail.destpp !== null ? (
-             
-               <img
-                 src={postdetail.destpp}
-                 className="chat_img"
-                 onClick={this.ChatListOnClick}
-                 name={postdetail.destid}
-               />
-             ) : (
-               <img
-                 src={avatar}
-                 className="chat_img"
-                 onClick={this.ChatListOnClick}
-                 name={postdetail.destid}
-               />
-             )}
-             <div class="chat_ib">
-               <h5>
-                 {postdetail.destusername}
-                 {/* <span class="chat_date">تاریخ</span>*/}
-               </h5>
-
-               {/*    <button id="2-2" onClick={this.ChatButtonOnClick}     className="locationbutton">گفتگو</button>*/}
-             </div>
-           </div>
-         </div>)}
-         </div>
+                        {/*    <button id="2-2" onClick={this.ChatButtonOnClick}     className="locationbutton">گفتگو</button>*/}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>

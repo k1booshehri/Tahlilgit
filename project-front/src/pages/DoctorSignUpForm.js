@@ -8,6 +8,7 @@ import {
   NavLink,
   Redirect,
 } from "react-router-dom";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 class DoctorSignUpForm extends Component {
   constructor() {
     super();
@@ -30,6 +31,8 @@ class DoctorSignUpForm extends Component {
       code: "",
       isSignedUp: false,
       // hasAgreed: false
+      isnotLoged: false,
+      isConPassWrong: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -81,16 +84,20 @@ class DoctorSignUpForm extends Component {
             this.setState({ isSignedUp: true });
           }
         })
-        .catch(function (error) {
+        .catch((error) => {
           if (error.response) {
             // The request was made and the server responded with a status code
             // that falls out of the range of 2xx
-            alert("موفقیت آمیز نبود . دوباره امتحان کنید");
+
+            this.setState({ isnotLoged: true });
           }
         });
     } else if (this.state.confirmNewPassword !== this.state.password) {
-      alert("تکرار رمز ورود اشتباه است");
-      this.setState({ password: "", confirmNewPassword: "" });
+      this.setState({
+        password: "",
+        confirmNewPassword: "",
+        isConPassWrong: true,
+      });
     }
   }
 
@@ -389,7 +396,38 @@ class DoctorSignUpForm extends Component {
               </form>
             </div>
             <div className="formcenter-part2"></div>
-          </div>
+          </div>{" "}
+          <Modal style={{ fontFamily: "BZar" }} isOpen={this.state.isnotLoged}>
+            <ModalBody>
+              {" "}
+              <Button
+                outline
+                onClick={() => this.setState({ isnotLoged: false })}
+              >
+                &times;
+              </Button>
+            </ModalBody>
+            <ModalBody className="modalbodCalender">
+              .ثبت نام موفقیت آمیز نبود، دوباره امتحان کنید
+            </ModalBody>
+          </Modal>
+          <Modal
+            style={{ fontFamily: "BZar" }}
+            isOpen={this.state.isConPassWrong}
+          >
+            <ModalBody>
+              {" "}
+              <Button
+                outline
+                onClick={() => this.setState({ isConPassWrong: false })}
+              >
+                &times;
+              </Button>
+            </ModalBody>
+            <ModalBody className="modalbodCalender">
+              .تکرار رمز ورود اشتباه است
+            </ModalBody>
+          </Modal>
         </div>
       );
     }

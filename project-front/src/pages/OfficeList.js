@@ -70,19 +70,124 @@ export default class OfficeList extends Component {
               <div className="officecardtitle">
                 <div> {postdetail.title}</div>
               </div>
-              { /************************************************************** */}
+              {/************************************************************** */}
               <div className="officecardinfo_img">
-              <div className="Officecardinfo">
-              
-                <div className="Officecardinfo_details"> <div> استان </div><div className="Officecardinfo_details_details">{postdetail.city} </div></div>
-                <div className="Officecardinfo_details"> <div> آدرس  </div><div className="Officecardinfo_details_details"> {postdetail.address}</div></div>
-                <div className="Officecardinfo_details">  <div>تلفن</div><div  className="Officecardinfo_details_details"> {postdetail.phone}</div></div>
-                <div className="Officecardinfo_details"><div> حمل و نقل</div> <div className="Officecardinfo_details_details">{postdetail.transport} </div></div>
+                <div
+                  className="DrProfileInfoTable"
+                  style={{ fontFamily: "BZar" }}
+                >
+                  <div className="DrProfileTableRow_base">
+                    <div className="DrProfileLeftTableCell_base">
+                      <div class="DrProfileTableRow">
+                        <div class="DrProfileLeftTableCell">
+                          <div
+                            className="DrProfileFormField"
+                            style={{ marginRight: "18px" }}
+                          >
+                            {" "}
+                            <input
+                              className="DrProfileFormField__Input__Right2"
+                              readOnly
+                              placeholder={postdetail.transport}
+                            />
+                          </div>
+                        </div>
+                        <div class="DrProfileRightTableCell">
+                          <label
+                            className="DrProfileFormField__Label"
+                            style={{ marginTop: "5px" }}
+                          >
+                            حمل و نقل
+                          </label>
+                        </div>
+                      </div>
+                      <div class="DrProfileTableRow">
+                        <div class="DrProfileLeftTableCell">
+                          <div
+                            className="DrProfileFormField"
+                            style={{ marginRight: "18px" }}
+                          >
+                            {" "}
+                            <input
+                              className="DrProfileFormField__Input__Right2"
+                              readOnly
+                              placeholder={postdetail.address}
+                            />
+                          </div>
+                        </div>
+                        <div class="DrProfileRightTableCell">
+                          <label
+                            className="DrProfileFormField__Label"
+                            style={{ marginTop: "5px" }}
+                          >
+                            آدرس
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="DrProfileRightTableCell_base">
+                      <div class="DrProfileTableRow">
+                        <div class="DrProfileLeftTableCell">
+                          <div
+                            className="DrProfileFormField"
+                            style={{ marginRight: "18px" }}
+                          >
+                            {" "}
+                            <input
+                              className="DrProfileFormField__Input__Right2"
+                              readOnly
+                              placeholder={postdetail.phone}
+                            />
+                          </div>
+                        </div>
+                        <div class="DrProfileRightTableCell">
+                          <label
+                            className="DrProfileFormField__Label"
+                            style={{ marginTop: "5px" }}
+                          >
+                            تلفن
+                          </label>
+                        </div>
+                      </div>
+                      <div class="DrProfileTableRow">
+                        <div class="DrProfileLeftTableCell">
+                          <div
+                            className="DrProfileFormField"
+                            style={{ marginRight: "18px" }}
+                          >
+                            <input
+                              className="DrProfileFormField__Input__Right2"
+                              readOnly
+                              placeholder={postdetail.city}
+                            />
+                          </div>
+                        </div>
+                        <div class="DrProfileRightTableCell">
+                          <label
+                            className="DrProfileFormField__Label"
+                            style={{ marginTop: "5px" }}
+                          >
+                            شهر
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="Officecard_img">
+                  <h4
+                    style={{
+                      fontFamily: "BZar",
+                      marginTop: "92px",
+                    }}
+                  >
+                    ... به زودی{" "}
+                  </h4>
+                </div>
               </div>
-               <div className="Officecard_img">comming soon</div>
-               </div>
-                 { /************************************************************** */}
-             
+              {/************************************************************** */}
+
               {/* button for calender */}
               <div className="card clinicCard ">
                 <div className="card-header">
@@ -116,8 +221,9 @@ export default class OfficeList extends Component {
           className="newoffice"
           id="1-1"
           onClick={(e) => this.props.updateState(e)}
+          updateState={this.navOnClick}
         >
-         +
+          +
         </button>
       </div>
     );
