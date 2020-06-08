@@ -10,8 +10,9 @@ import {
 } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import avatar from "./avatarpic.png";
-import StarRatingComponent from "react-star-rating-component";
+import StarRatingComponent from 'react-star-rating-component';
 import Rating from "@material-ui/lab/Rating";
+
 
 export default class DrProfileView extends Component {
   constructor(props) {
@@ -318,7 +319,7 @@ export default class DrProfileView extends Component {
           <div className="infoTableRating">
             <div className="tableRowRating">
               <div class="leftTableCellRating">
-                {" "}
+              
                 <div>
                   <StarRatingComponent
                     className="Rating"
@@ -326,8 +327,10 @@ export default class DrProfileView extends Component {
                     starCount={5}
                     value={this.state.rating}
                     onStarClick={this.onStarClick}
+                    starColor={"Green"}
                   />
-                </div>
+                  </div>
+             
               </div>
               <div class="rightTableCellRating">امتیاز خود را ثبت کنید</div>
             </div>
