@@ -1471,8 +1471,9 @@ img {
   /* border: solid 0.3px #01579b; */
   /* margin-top: 3%; */
   padding: 1%;
-  height: 120vh;
+  height: 125vh;
   font-family: "Open Sans", sans-serif;
+  color: rgb(89, 89, 92);
 }
 
 .calenderButton {
@@ -1553,6 +1554,7 @@ img {
   margin-top: 3%;
   text-align: right;
   font-family: "BZar", tahoma;
+  color: rgb(89, 89, 92);
 }
 .divider__calenFromInfo {
   width: 100%;
