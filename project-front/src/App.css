@@ -143,7 +143,7 @@
 
   text-align: right;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 14px;
   letter-spacing: 1px;
   background: rgba(136, 126, 126, 0.04);
 
@@ -155,7 +155,7 @@
 
 .FormField__Input::placeholder {
   color: #c0bdbd;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .FormField__Button {
