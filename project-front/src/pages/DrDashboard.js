@@ -225,7 +225,7 @@ class DrDashboard extends Component {
             <p> </p>
           )}
           {localStorage.getItem("eventKey") === "1-1" ? (
-            <ClinicForm />
+            <ClinicForm updateState={this.navOnClick} />
           ) : (
             <p> </p>
           )}

@@ -221,6 +221,7 @@ export default class OfficeList extends Component {
           className="newoffice"
           id="1-1"
           onClick={(e) => this.props.updateState(e)}
+          updateState={this.navOnClick}
         >
           +
         </button>
