@@ -113,13 +113,13 @@ export default class PaProfileView extends Component {
                         {" "}
                         {this.state.insurance !== null ? (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.insurance}
                           />
                         ) : (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.nullString}
                           />
@@ -140,13 +140,13 @@ export default class PaProfileView extends Component {
                         {" "}
                         {this.state.gender !== null ? (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.gender}
                           />
                         ) : (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.nullString}
                           />

@@ -174,11 +174,28 @@
   text-align: center;
   margin-top: 1em;
 }
+.FormField__Button2 {
+  background-color: #0097a7;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 0.3em;
+  padding: 10px 0px 10px 0px;
+  font-size: 1.3em;
+  font-weight: 600;
+  width: 30%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 
 .FormField__Button:hover {
   background: rgb(174, 198, 214);
 }
-
+.FormField__Button2:hover {
+  background: rgb(174, 198, 214);
+}
 .FormField__Input__Date {
   width: 100%;
   font-size: 0.7em;
@@ -902,6 +919,31 @@
   box-sizing: border-box;
   border: 2px solid rgba(0, 0, 0, 0.048);
 }
+.DrProfileFormField__Input__Right2 {
+  width: 100%;
+  font-size: 0.9em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: right;
+  font-weight: 700;
+  color: black;
+  letter-spacing: 1px;
+  background: white;
+  padding: 10px 20px;
+
+  outline: none;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.075);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.DrProfileFormField__Input__Right2::placeholder {
+  color: black;
+  text-align: right;
+  font-size: 1.1em;
+}
 .DrProfileFormField__Input__Right::placeholder {
   color: black;
   text-align: right;
@@ -1043,22 +1085,35 @@
   margin-bottom: 4%;
 }
 .editProfileButton1 {
-  border: 0.1;
-  outline: 0;
-  border-radius: 0.3em;
-  color: white;
-  background-color: #00355e;
-  text-align: center;
+  background: #ffe082 none repeat scroll 0 0;
+  position: fixed;
+  bottom: 34px;
+  color: #000000;
+  left: 50px;
+
+  border: medium none;
+  border-radius: 50%;
+
   cursor: pointer;
-  width: 50%;
-  font-size: 18px;
-  margin-right: 50%;
+  font-size: 20px;
+  height: 80px;
+  position: left;
+  outline: none;
+  width: 80px;
 }
 .editProfileButton0:hover {
   background: rgb(174, 198, 214);
 }
+.editProfileButton1:active {
+  outline: none;
+  border: none;
+}
 .editProfileButton1:hover {
   background: rgb(174, 198, 214);
+}
+.editProfileButton1:visited {
+  outline: none;
+  border: none;
 }
 /* end of picture */
 /* edit profile css ends */

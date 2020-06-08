@@ -184,13 +184,13 @@ export default class DrProfileView extends Component {
                         {" "}
                         {this.state.edu !== null ? (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.edu}
                           />
                         ) : (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.nullString}
                           />
@@ -212,13 +212,13 @@ export default class DrProfileView extends Component {
                         {" "}
                         {this.state.field !== null ? (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.field}
                           />
                         ) : (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.nullString}
                           />
@@ -235,13 +235,13 @@ export default class DrProfileView extends Component {
                         {" "}
                         {this.state.startYear !== null ? (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.startYear}
                           />
                         ) : (
                           <input
-                            className="DrProfileFormField__Input__Right"
+                            className="DrProfileFormField__Input__Right2"
                             readOnly
                             placeholder={this.state.nullString}
                           />

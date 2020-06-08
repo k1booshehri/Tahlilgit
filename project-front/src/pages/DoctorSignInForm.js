@@ -125,25 +125,7 @@ class DoctorSignInForm extends Component {
                 </div>
 
                 <div className="FormField1">
-                  <button
-                    style={{
-                      backgroundColor: "#0097a7",
-                      color: "white",
-                      border: "none",
-                      outline: "none",
-                      borderRadius: "0.3em",
-                      padding: "10px 0px 10px 0px",
-                      fontSize: "1.3em",
-                      fontWeight: "600",
-                      width: "30%",
-                      height: "100%",
-                      display: "table-cell",
-                      verticalAlign: "middle",
-                      textAlign: "center",
-                    }}
-                  >
-                    ورود
-                  </button>{" "}
+                  <button className="FormField__Button2">ورود</button>{" "}
                 </div>
               </form>
             </div>
