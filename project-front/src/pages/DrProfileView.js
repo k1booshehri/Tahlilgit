@@ -258,33 +258,37 @@ export default class DrProfileView extends Component {
               </div>
             </div>
           </div>
+          <div className="drviewprofile_offices">
 
           {this.state.clinicInfo.map((postdetail, index) => {
             return (
+              <div className="drviewprofile_location_infoWrap">
+              <div className="drviewprofile_location"></div>
+          
               <div className="infoWrap">
-                <div className="infoTable0">
-                  {" "}
-                  <div className="tableRow0">
+                
+           
+                <div className="tableRow0">
                     <div class="completeTableCell0">{postdetail.title}</div>
                   </div>
-                </div>
+
+             
+                
                 <div className="infoTable1">
                   <div className="tableRow1">
+                  <div class="rightTableCell"> : استان</div>
                     <div class="leftTableCell">{postdetail.city}</div>
-                    <div class="rightTableCell">استان</div>
+                    
                   </div>
                   <div className="tableRow1">
+                  <div class="rightTableCell"> : آدرس</div>
                     <div class="leftTableCell">{postdetail.address}</div>
-                    <div class="rightTableCell">آدرس</div>
+                   
                   </div>
                   <div className="tableRow1">
+                  <div class="rightTableCell"> : شماره ی مطب </div>
                     <div class="leftTableCell">{postdetail.phone}</div>
-                    <div class="rightTableCell">شماره ی مطب</div>
-                  </div>
-                </div>
-                <div className="infoTable2">
-                  <div className="tableRow2">
-                    <div class="completeTableCell1">توضیحات</div>
+                 
                   </div>
                 </div>
                 <div className="infoTable3">
@@ -304,9 +308,13 @@ export default class DrProfileView extends Component {
                     </div>
                   </div>
                 </div>
+              
+               
+              </div>
               </div>
             );
           })}
+          </div>
           <div className="infoTableRating">
             <div className="tableRowRating">
               <div class="leftTableCellRating">

@@ -57,7 +57,7 @@ export default class Notif extends Component {
     if (Object.entries(information.notifs).length !== 0) {
       this.state.Notifs.push(information.notifs);
       console.log(this.state.Notifs);
-      this.props.data.updatenotif(this.state.Notifs.length);
+      this.props.data.updatenotif(Object.entries(information.notifs).length);
       console.log(Object.entries(information.notifs).length);
     }
   }

@@ -246,8 +246,9 @@
 }
 .down-sidenav {
   position: fixed;
-  bottom: 0px;
-  right: 10px;
+  bottom: 10px;
+  right: 5px;
+  max-width: 13.5%;
 }
 .logo-sidnav {
   display: flex;
@@ -745,123 +746,99 @@
   font-size: 0.8em;
 }
 /* table with two cells for showing personal information */
-.infoTable1 {
-  display: table;
-  width: 100%;
-  padding-top: 6%;
-  padding-bottom: 6%;
-}
-.tableRow1 {
-  display: table-row;
-}
-.rightTableCell {
-  width: 50%;
-  display: table-cell;
-  color: rgb(73, 73, 75);
 
-  text-align: right;
-  padding-right: 5%;
 
-  padding-bottom: 3%;
-  font-size: 1.4em;
 
-  /* border: 0.5px solid; */
-}
-.leftTableCell {
-  width: 50%;
-  display: table-cell;
-  color: rgb(73, 73, 75);
-  /* border: 0.5px solid; */
-  text-align: right;
-  padding-right: 5%;
-
-  padding-bottom: 3%;
-  font-size: 1.4em;
-}
 .divider__ViewProfile {
   width: 95%;
 
   margin-top: 5%;
 }
 /* table with one cell for showing "clinic" word */
+/********************************************************************/
+.drviewprofile_location_infoWrap{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #c4c4c4;
+  width: 50%;
+  margin-bottom: 30px;
+  margin-left: 15px;
+
+  
+
+}
+.drviewprofile_location{
+  border: 1px solid #c4c4c4;
+  background-color: #0097a7;
+  width: 30%;
+}
+.drviewprofile_offices{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  border-top: 1px solid #c4c4c4;
+  padding-top: 40px;
+}
+
+.leftTableCell {
+  text-align: right;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 18px;
+ 
+}
+.infoTable1 {
+ 
+    text-align: right;
+  justify-content: right;
+  border-bottom: 1px solid #c4c4c4;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+}
+.tableRow1 {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: right;
+  justify-content: right;
+}
 .infoWrap {
-  border: 0.5px solid rgb(196, 189, 189);
-  margin-bottom: 8%;
+
+ 
+  width: 70%;
+  height: 30%;
+
+  justify-content: center;
+  text-align: right;
+
 }
 
-/* .borderProfile {
-  border-right: 0.5px solid rgb(196, 189, 189);
-  border-bottom: 0.5px solid rgb(196, 189, 189);
-  border-left: 0.5px solid rgb(196, 189, 189);
-} */
-.infoTable0 {
-  width: 100%;
-  display: table;
-}
+
 .tableRow0 {
-  width: 100%;
-  display: table-row;
-  background-color: #eefaff;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #c4c4c4;
+ 
 }
-.completeTableCell0 {
-  display: table-cell;
-  color: #000000;
-  text-align: right;
-  padding-right: 5%;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  font-size: 2em;
 
-  border-bottom: 0.5px solid rgb(196, 189, 189);
-}
-/* table with one cell for showing "اطلاعات تکمیلی" words */
-.infoTable2 {
-  width: 100%;
-  display: table;
-}
-.tableRow2 {
-  width: 100%;
-  display: table-row;
-  background-color: #eefaff;
-}
-.completeTableCell1 {
-  display: table-cell;
-  color: #000000;
-  text-align: right;
-  padding-right: 5%;
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
-  font-size: 1.7em;
-
-  border-top: 0.5px solid rgb(196, 189, 189);
-  border-bottom: 0.5px solid rgb(196, 189, 189);
-}
 /* table with one cell for showing extra information about a clinic */
 .infoTable3 {
-  display: table;
-  width: 100%;
-  padding-top: 6%;
-}
-.tableRow3 {
-  display: table-row;
-}
-.completeTableCell2 {
-  display: table-cell;
-  color: rgb(73, 73, 75);
+  padding-right: 20px;
+padding-top: 10px;
 
-  text-align: right;
-  padding-right: 5%;
-  padding-top: 0%;
-  padding-bottom: 3%;
-  font-size: 1.4em;
+
 }
+
+
 /* css for extra information about a clinic lists */
 .infoList {
   list-style-type: none;
+  
 }
-.listItem {
-  margin-bottom: 3%;
-}
+
+
+/*******************************************************************************/
 /*table for rating*/
 .infoTableRating {
   display: table;
@@ -872,6 +849,9 @@
 .tableRowRating {
   display: table-row;
 }
+.tableRow3{
+  font-size: 18px;
+}
 .rightTableCellRating {
   width: 50%;
   display: table-cell;
@@ -880,7 +860,7 @@
   text-align: right;
   padding-right: 5%;
 
-  font-size: 1.4em;
+  font-size: 1em;
 
   /* border: 0.5px solid; */
 }
@@ -1287,9 +1267,10 @@ img {
 .received_msg {
   display: inline-block;
   padding: 0 0 0 10px;
+ 
   vertical-align: top;
   width: 80%;
-  margin-top: 4px;
+  margin-top: 10px;
 }
 .received_withd_msg p {
   background: #ebebeb none repeat scroll 0 0;
@@ -1297,8 +1278,9 @@ img {
   color: #646464;
   font-size: 14px;
   margin: 0;
-  padding: 5px 10px 5px 12px;
+  padding: 9px 10px 5px 12px;
   width: 100%;
+  text-align: right;
 }
 .time_date {
   color: #747474;
@@ -1323,6 +1305,7 @@ img {
   margin: 0;
   color: #fff;
   padding: 5px 10px 5px 12px;
+  padding-top: 9px;
   width: 100%;
   overflow-x: hidden;
 }
@@ -1334,6 +1317,7 @@ img {
   text-align: right;
   float: right;
   width: 50%;
+ 
 }
 .input_msg_write input {
   background: rgba(109, 16, 16, 0) none repeat scroll 0 0;
@@ -1349,11 +1333,13 @@ img {
 
 .type_msg {
   border-top: 1px solid #c4c4c4;
+  background-color: white;
   position: fixed;
   outline: none;
-bottom: 30px;
+bottom: 0px;
+padding-bottom: 30px;
   display: flex;
-  width: 57%;
+  width: 58%;
   flex-direction: row-reverse;
   grid-row-start: 190;
   grid-row-end: 190;
@@ -1364,20 +1350,28 @@ bottom: 30px;
   position: fixed;
   bottom: 34px;
   left: 30%;
-  border: medium none;
+  border: none;
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
   font-size: 17px;
-  height: 33px;
+  height: 35px;
   position: left;
-
-  width: 33px;
+  transform: rotateY(180deg);
+  width: 35px;
+  display: flex;
+  align-items: center;
+  
+}
+.msg_send_btn :active{
+  outline: none;
 }
 
 .msg_history {
-  height: 600px;
-  overflow-y: auto;
+  height: 74vh;
+  overflow-y: hidden;
+  overflow-y: scroll;
+  margin-bottom: 100px;
 }
 .right {
   text-align: right;
@@ -1429,7 +1423,7 @@ bottom: 30px;
 .notifs {
   display: flex;
   flex-direction: column;
-  font-family: "BZar", tahoma;
+  
 }
 .notif1 {
   background-color: #f06292;
