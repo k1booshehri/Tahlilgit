@@ -1154,8 +1154,8 @@ img {
 .inbox_chat {
   display: flex;
   flex-direction: column;
-
-  height: 82.5vh;
+ 
+ height: 81vh;
   overflow-y: scroll;
 }
 .inbox_msg {
@@ -1232,13 +1232,13 @@ img {
 
 .chat_list {
   border-bottom: 1px solid #c4c4c4;
-
-  padding: 18px 16px 10px;
+  height: 65px;
+  padding:  10px;
 }
 
 .active_chat {
-  background: #ffffff;
-  margin-bottom: 2px;
+  background: #0096a7b2;
+ 
 }
 
 .incoming_msg_img {
@@ -1312,7 +1312,7 @@ img {
   border-top: 1px solid #c4c4c4;
   position: fixed;
   outline: none;
-  bottom: 50px;
+bottom: 30px;
   display: flex;
   width: 57%;
   flex-direction: row-reverse;
@@ -1323,7 +1323,7 @@ img {
 .msg_send_btn {
   background: #05728f none repeat scroll 0 0;
   position: fixed;
-  bottom: 50px;
+  bottom: 34px;
   left: 30%;
   border: medium none;
   border-radius: 50%;
