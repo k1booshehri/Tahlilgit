@@ -40,7 +40,7 @@ class welcome extends Component {
                   className="FormField__Button "
                   style={{ marginLeft: "1.4em" }}
                 >
-                  بیمار
+                  کاربر
                 </button>
               </Link>
 
@@ -62,7 +62,7 @@ class welcome extends Component {
               </Link>
             </div>
           </div>
-          <div className="formcenter-part2">روان یار</div>
+          <div className="formcenter-part2"></div>
         </div>
       </div>
     );
