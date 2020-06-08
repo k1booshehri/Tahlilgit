@@ -16,19 +16,53 @@ class welcome extends Component {
       <div className="App">
         <div className="App__Form">
           <div className="FormCenter__welcome">
-            <div>{this.state.firstP}</div>
-            <div>{this.state.secondP}</div>
+            <h3
+              style={{
+                paddingRight: "11%",
+                textAlign: "right",
+              }}
+            >
+              {this.state.firstP}
+            </h3>
+
+            <h3 style={{ paddingRight: "11%" }}>{this.state.secondP}</h3>
             <div className="FormField__welcome">
-              <Link to="/sign-in">
-                <button className="FormField__Button mr-20">بیمار</button>
+              <Link
+                style={{
+                  width: "50%",
+
+                  justifyContent: "left",
+                  textAlign: "center",
+                }}
+                to="/sign-in"
+              >
+                <button
+                  className="FormField__Button "
+                  style={{ marginLeft: "1.4em" }}
+                >
+                  کاربر
+                </button>
               </Link>
 
-              <Link to="/Dr_Sign_In">
-                <button className="FormField__Button mr-20">روانشناس</button>
+              <Link
+                style={{
+                  width: "50%",
+
+                  justifyContent: "right",
+                  textAlign: "center",
+                }}
+                to="/Dr_Sign_In"
+              >
+                <button
+                  className="FormField__Button "
+                  style={{ marginRight: "1.4em" }}
+                >
+                  روانشناس
+                </button>
               </Link>
             </div>
           </div>
-          <div className="formcenter-part2">روان یار</div>
+          <div className="formcenter-part2"></div>
         </div>
       </div>
     );

@@ -235,7 +235,7 @@ export default class ClinicTime extends Component {
     // console.log(start, end);
     axios
       .put(
-        "http://myravanyar.ir/api/api/time/?timeid=" + event.id,
+        "http://myravanyar.ir/api/time/?timeid=" + event.id,
         {
           start: start,
           end: end,
