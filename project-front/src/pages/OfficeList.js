@@ -70,28 +70,19 @@ export default class OfficeList extends Component {
               <div className="officecardtitle">
                 <div> {postdetail.title}</div>
               </div>
-
-              <div>
-                <div className="Officecardinfo">
-                  {" "}
-                  استان : {postdetail.city}{" "}
-                </div>
+              { /************************************************************** */}
+              <div className="officecardinfo_img">
+              <div className="Officecardinfo">
+              
+                <div className="Officecardinfo_details"> <div> استان </div><div className="Officecardinfo_details_details">{postdetail.city} </div></div>
+                <div className="Officecardinfo_details"> <div> آدرس  </div><div className="Officecardinfo_details_details"> {postdetail.address}</div></div>
+                <div className="Officecardinfo_details">  <div>تلفن</div><div  className="Officecardinfo_details_details"> {postdetail.phone}</div></div>
+                <div className="Officecardinfo_details"><div> حمل و نقل</div> <div className="Officecardinfo_details_details">{postdetail.transport} </div></div>
               </div>
-
-              <div>
-                <div className="Officecardinfo">
-                  {" "}
-                  آدرس : {postdetail.address}{" "}
-                </div>
-              </div>
-
-              <div>
-                <div className="Officecardinfo">تلفن : {postdetail.phone}</div>
-                <div className="Officecardinfo">
-                  حمل و نقل : {postdetail.transport}
-                </div>
-                <div className="Officecardinfo"></div>
-              </div>
+               <div className="Officecard_img">comming soon</div>
+               </div>
+                 { /************************************************************** */}
+             
               {/* button for calender */}
               <div className="card clinicCard ">
                 <div className="card-header">
@@ -126,7 +117,7 @@ export default class OfficeList extends Component {
           id="1-1"
           onClick={(e) => this.props.updateState(e)}
         >
-          ثبت مطب جدید
+         +
         </button>
       </div>
     );
