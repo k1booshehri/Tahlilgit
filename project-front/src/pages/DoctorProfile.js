@@ -125,13 +125,13 @@ export default class DoctorProfile extends Component {
                       {" "}
                       {this.state.code !== null ? (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.code}
                         />
                       ) : (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.nullString}
                         />
@@ -148,7 +148,7 @@ export default class DoctorProfile extends Component {
                   <div class="DrProfileLeftTableCell">
                     <div className="DrProfileFormField">
                       <input
-                        className="DrProfileFormField__Input__Right"
+                        className="DrProfileFormField__Input__Right2"
                         readOnly
                         style={{ fontFamily: "Katibeh" }}
                         placeholder={this.state.email}
@@ -187,13 +187,13 @@ export default class DoctorProfile extends Component {
                       {" "}
                       {this.state.field !== null ? (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.field}
                         />
                       ) : (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.nullString}
                         />
@@ -210,13 +210,13 @@ export default class DoctorProfile extends Component {
                       {" "}
                       {this.state.edu !== null ? (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.edu}
                         />
                       ) : (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.nullString}
                         />
@@ -233,13 +233,13 @@ export default class DoctorProfile extends Component {
                       {" "}
                       {this.state.startYear !== null ? (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.startYear}
                         />
                       ) : (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.nullString}
                         />

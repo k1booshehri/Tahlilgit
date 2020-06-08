@@ -259,25 +259,7 @@ class SignUpForm extends Component {
               </div> */}
 
                 <div className="FormField1">
-                  <button
-                    style={{
-                      backgroundColor: "#0097a7",
-                      color: "white",
-                      border: "none",
-                      outline: "none",
-                      borderRadius: "0.3em",
-                      padding: "10px 0px 10px 0px",
-                      fontSize: "1.3em",
-                      fontWeight: "600",
-                      width: "30%",
-                      height: "100%",
-                      display: "table-cell",
-                      verticalAlign: "middle",
-                      textAlign: "center",
-                    }}
-                  >
-                    ثبت نام
-                  </button>
+                  <button className="FormField__Button2">ثبت نام</button>
                   {/* <Link to="/sign-in" className="FormField__Link">
                   قبلا ثبت نام کرده ام
                 </Link> */}

@@ -109,13 +109,13 @@ export default class PatientProfile extends Component {
                       {" "}
                       {this.state.insurance !== null ? (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.insurance}
                         />
                       ) : (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.nullString}
                         />
@@ -154,13 +154,13 @@ export default class PatientProfile extends Component {
                       {" "}
                       {this.state.gender !== null ? (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.gender}
                         />
                       ) : (
                         <input
-                          className="DrProfileFormField__Input__Right"
+                          className="DrProfileFormField__Input__Right2"
                           readOnly
                           placeholder={this.state.nullString}
                         />
@@ -175,7 +175,7 @@ export default class PatientProfile extends Component {
                   <div class="DrProfileLeftTableCell">
                     <div className="DrProfileFormField">
                       <input
-                        className="DrProfileFormField__Input__Right"
+                        className="DrProfileFormField__Input__Right2"
                         style={{ fontFamily: "Katibeh" }}
                         readOnly
                         placeholder={this.state.email}
