@@ -257,6 +257,7 @@
   font-size: 240%;
   background-color: #0097a7;
   color: #ffe082;
+  height: 57px;
 }
 
 /*******************************************************/
@@ -1330,6 +1331,7 @@ img {
   margin: 26px 0 26px;
 }
 .sent_msg {
+  text-align: right;
   float: right;
   width: 50%;
 }
