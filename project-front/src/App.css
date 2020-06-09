@@ -1,15 +1,13 @@
-.landing_txt{
+.landing_txt {
   font-size: 20px;
   text-align: justify;
- 
 }
-.landing{
-  padding-Right: 11%;
-  text-align : right;
-  justify-Content:right;
+.landing {
+  padding-right: 11%;
+  text-align: right;
+  justify-content: right;
   padding-top: 60px;
 }
-
 
 .PageSwitcher {
   display: flex;
@@ -140,7 +138,6 @@
   width: 100%;
   height: 20%;
   padding-right: 40px;
-
 }
 
 .FormField__Label {
@@ -188,7 +185,6 @@
   vertical-align: middle;
   text-align: center;
   margin-top: 1em;
-  
 }
 .FormField__Button2 {
   background-color: #0097a7;
@@ -851,7 +847,7 @@
   margin-top: 3%;
   border: 0.5px solid rgb(196, 189, 189);
   border-radius: 6px;
-  background-color:#0097a7;
+  background-color: #0097a7;
 }
 .tableRowRating {
   display: table-row;
@@ -1077,17 +1073,33 @@
 /* end of titles */
 
 .ChosePicture {
-  width: 5%;
-  position: relative;
-  padding-left: 22%;
-  padding-top: 6%;
-  font-size: 0.6em;
+  text-align: center;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  height: 30%;
 }
 .ChosePictureButton {
-  border: solid;
-  padding: 5% 5% 5% 5%;
-  display: block;
-  font-size: 0.5em;
+  background-color: #ffe082;
+  color: #292929;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 4px;
+  padding: 3px 9px 5px 9px;
+  font-size: 0.8em;
+  font-weight: 700;
+  justify-content: center;
+
+  font-family: "BZar", tahoma;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+.ChosePictureButton:hover {
+  background: rgb(174, 198, 214);
 }
 .divider__EditProfile {
   width: 90%;

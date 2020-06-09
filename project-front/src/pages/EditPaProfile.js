@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import ReactFileReader from "react-file-reader";
 
 import axios from "axios";
 import FileBase64 from "react-file-base64";
@@ -42,6 +43,7 @@ export default class EditPaProfile extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.getFiles = this.getFiles.bind(this);
   }
 
   componentDidMount() {
@@ -229,11 +231,10 @@ export default class EditPaProfile extends Component {
               ) : (
                 <img src={avatar} className="ProfileViewAvatar" />
               )}
-              <div className="ChosePicture" style={{ fontFamily: "Katibeh" }}>
-                <FileBase64
-                  className="ChosePictureButton"
-                  onDone={this.getFiles.bind(this)}
-                ></FileBase64>
+              <div className="ChosePicture">
+                <ReactFileReader base64={true} handleFiles={this.getFiles}>
+                  <button className="ChosePictureButton">ویرایش </button>
+                </ReactFileReader>
               </div>
             </div>
           </div>
