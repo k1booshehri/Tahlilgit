@@ -10,9 +10,9 @@ import {
 } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import avatar from "./avatarpic.png";
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from "react-star-rating-component";
 import Rating from "@material-ui/lab/Rating";
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 export default class DrProfileView extends Component {
   constructor(props) {
@@ -40,6 +40,7 @@ export default class DrProfileView extends Component {
       rating: 0,
       isStateSet: false,
       nullString: "ثبت نشده است",
+      isnotLoged: false,
     };
     this.onStarClick = this.onStarClick.bind(this);
     this.parsingInformation = this.parsingInformation.bind(this);
@@ -119,8 +120,7 @@ export default class DrProfileView extends Component {
       )
       .then((res) => {
         if (res.status === 200) {
-          alert("امتیاز شما ثبت شد");
-          this.setState({ rating: currentValue, isStateSet: true });
+          this.setState({ rating: currentValue, isnotLoged: true });
         }
       })
       .catch(function (error) {
@@ -133,11 +133,6 @@ export default class DrProfileView extends Component {
   }
 
   render() {
-    if (this.state.isStateSet === true) {
-      // redirect to dashboard if signed up
-      localStorage.setItem("eventKey", "2");
-      return <Redirect to={{ pathname: "/PatientDashboard" }} />;
-    }
     if (!this.state.isStateSet) {
       return (
         <div className="DrProfileView">
@@ -152,6 +147,12 @@ export default class DrProfileView extends Component {
                     <div style={{ fontSize: 25, fontFamily: "Katibeh" }}>
                       {this.state.username}
                     </div>
+
+                    <Rating
+                      value={this.state.rate}
+                      size="small"
+                      readOnly
+                    ></Rating>
                   </div>
                 </div>
                 <div class="namerightTableCell">
@@ -164,17 +165,17 @@ export default class DrProfileView extends Component {
                   ) : (
                     <img src={avatar} className="ProfileViewAvatar" />
                   )}
-                  <div className="DrProfileViewStar">
+                  {/* <div className="DrProfileViewStar">
                     <Rating
                       value={this.state.rate}
                       size="small"
                       readOnly
                     ></Rating>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
-            <hr class="divider__EditProfile"></hr>
+            <hr class="divider__EditProfile" style={{ marginTop: "0" }}></hr>
             <div className="DrProfileInfoTable">
               <div className="DrProfileTableRow_base">
                 <div className="DrProfileLeftTableCell_base">
@@ -260,66 +261,64 @@ export default class DrProfileView extends Component {
             </div>
           </div>
           <div className="drviewprofile_offices">
-
-          {this.state.clinicInfo.map((postdetail, index) => {
-            return (
-              <div className="drviewprofile_location_infoWrap">
-              <div className="drviewprofile_location"></div>
-          
-              <div className="infoWrap">
-                
-           
-                <div className="tableRow0">
-                    <div class="completeTableCell0">{postdetail.title}</div>
+            {this.state.clinicInfo.map((postdetail, index) => {
+              return (
+                <div className="drviewprofile_location_infoWrap">
+                  <div className="drviewprofile_location">
+                    <h4
+                      style={{
+                        fontFamily: "BZar",
+                        marginTop: "180px",
+                      }}
+                    >
+                      ... به زودی{" "}
+                    </h4>
                   </div>
 
-             
-                
-                <div className="infoTable1">
-                  <div className="tableRow1">
-                  <div class="rightTableCell"> : استان</div>
-                    <div class="leftTableCell">{postdetail.city}</div>
-                    
-                  </div>
-                  <div className="tableRow1">
-                  <div class="rightTableCell"> : آدرس</div>
-                    <div class="leftTableCell">{postdetail.address}</div>
-                   
-                  </div>
-                  <div className="tableRow1">
-                  <div class="rightTableCell"> : شماره ی مطب </div>
-                    <div class="leftTableCell">{postdetail.phone}</div>
-                 
-                  </div>
-                </div>
-                <div className="infoTable3">
-                  <div className="tableRow3">
-                    {this.extraClinicInfo(
-                      postdetail.transport,
-                      postdetail.park
-                    )}
-                    <div class="completeTableCell2">
-                      <ul className="infoList">
-                        <li className="listItem">
-                          {this.state.transportResultString}
-                        </li>
+                  <div className="infoWrap">
+                    <div className="tableRow0">
+                      <div class="completeTableCell0">{postdetail.title}</div>
+                    </div>
 
-                        <li>{this.state.parkResultString}</li>
-                      </ul>
+                    <div className="infoTable1">
+                      <div className="tableRow1">
+                        <div class="rightTableCell"> : استان</div>
+                        <div class="leftTableCell">{postdetail.city}</div>
+                      </div>
+                      <div className="tableRow1">
+                        <div class="rightTableCell"> : آدرس</div>
+                        <div class="leftTableCell">{postdetail.address}</div>
+                      </div>
+                      <div className="tableRow1">
+                        <div class="rightTableCell"> : شماره ی مطب </div>
+                        <div class="leftTableCell">{postdetail.phone}</div>
+                      </div>
+                    </div>
+                    <div className="infoTable3">
+                      <div className="tableRow3">
+                        {this.extraClinicInfo(
+                          postdetail.transport,
+                          postdetail.park
+                        )}
+                        <div class="completeTableCell2">
+                          <ul className="infoList">
+                            <li className="listItem">
+                              {this.state.transportResultString}
+                            </li>
+
+                            <li>{this.state.parkResultString}</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              
-               
-              </div>
-              </div>
-            );
-          })}
+              );
+            })}
           </div>
           <div className="infoTableRating">
             <div className="tableRowRating">
               <div class="leftTableCellRating">
-              
                 <div>
                   <StarRatingComponent
                     className="Rating"
@@ -329,12 +328,28 @@ export default class DrProfileView extends Component {
                     onStarClick={this.onStarClick}
                     starColor={"Green"}
                   />
-                  </div>
-             
+                </div>
               </div>
               <div class="rightTableCellRating">امتیاز خود را ثبت کنید</div>
-            </div>
-          </div>
+            </div>{" "}
+            <Modal
+              style={{ fontFamily: "BZar" }}
+              isOpen={this.state.isnotLoged}
+            >
+              <ModalBody>
+                {" "}
+                <Button
+                  outline
+                  onClick={() => this.setState({ isnotLoged: false })}
+                >
+                  &times;
+                </Button>
+              </ModalBody>
+              <ModalBody className="modalbodCalender">
+                .امتیاز شما ثبت شد
+              </ModalBody>
+            </Modal>
+          </div>{" "}
         </div>
       );
     }

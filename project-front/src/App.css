@@ -762,8 +762,14 @@
   margin-left: 15px;
 }
 .drviewprofile_location {
-  border: 1px solid #c4c4c4;
-  background-color: #0097a7;
+  border-right: 1px solid #c4c4c4;
+  background-image: url(./pages/loc.png);
+  background-position: center;
+  background-size: 185%;
+  color: rgba(0, 0, 0, 0.308);
+  background-repeat: no-repeat;
+  justify-content: center;
+  text-align: center;
   width: 30%;
 }
 .drviewprofile_offices {
@@ -771,7 +777,6 @@
   flex-wrap: wrap;
   flex-direction: row-reverse;
 
-  border-top: 1px solid #c4c4c4;
   padding-top: 40px;
   justify-content: right;
 }
@@ -825,9 +830,12 @@
 /*table for rating*/
 .infoTableRating {
   display: table;
-  width: 100%;
-
+  width: 40%;
+  margin: auto;
+  margin-top: 3%;
   border: 0.5px solid rgb(196, 189, 189);
+  border-radius: 6px;
+  background-color: #ffdb6ec5;
 }
 .tableRowRating {
   display: table-row;
@@ -838,10 +846,10 @@
 .rightTableCellRating {
   width: 50%;
   display: table-cell;
-
-  padding-bottom: 3.5%;
-  text-align: right;
-  padding-right: 5%;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  padding-right: 60px;
+  text-align: center;
 
   font-size: 1em;
 
@@ -850,10 +858,11 @@
 .leftTableCellRating {
   width: 50%;
   display: table-cell;
-
+  padding-top: 7px;
+  padding-bottom: 5px;
   /* border: 0.5px solid; */
   text-align: center;
-
+  padding-left: 60px;
   font-size: 1em;
 }
 
@@ -861,7 +870,7 @@
   display: flex;
   margin-left: -10%;
   padding-top: 5%;
-  margin-bottom: -8%;
+  margin-bottom: -13%;
   justify-content: center;
   position: relative;
 }
