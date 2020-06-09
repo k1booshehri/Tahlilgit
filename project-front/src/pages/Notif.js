@@ -91,6 +91,7 @@ export default class Notif extends Component {
           });
         })}
         <button
+          style={{ fontFamily: "Open Sans" }}
           type="button"
           class="btn btn-secondary clearbutton"
           onClick={this.notifonclick}

@@ -1381,9 +1381,10 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30%;
-  font-size: 30px;
+  padding-top: 25%;
+  font-size: 34px;
   color: #00000027;
+  font-family: "BZar", tahoma;
 }
 /**********************************************************/
 .dropdown {

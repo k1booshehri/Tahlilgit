@@ -121,7 +121,7 @@ export default class ChatMsgs extends Component {
 
   render() {
     return (
-      <div class="mesgs">
+      <div class="mesgs" style={{ fontFamily: "BZar" }}>
         <div class="msg_history">
           {this.state.massages.map((postdetail, index) => {
             return (
@@ -170,12 +170,10 @@ export default class ChatMsgs extends Component {
                 onChange={this.handleChange}
                 autoComplete="off"
               />
-
-             
             </div>
             <button class="msg_send_btn">
-                <Send></Send>
-              </button>
+              <Send></Send>
+            </button>
           </div>
         </form>
       </div>
