@@ -16,16 +16,19 @@ class welcome extends Component {
       <div className="App">
         <div className="App__Form">
           <div className="FormCenter__welcome">
-            <h3
-             className="landing"
-            >
-          <p dir="rtl" className="landing_txt">روان یار , یک سامانه ی تحت وب برای ایجاد ارتباط بهتر میان روانشناسان و کاربران می باشد.</p>
-          <p dir="rtl"  className="landing_txt"> از ویژگی های این سامانه می توان به تعیین وقت برای کاربران، مدیریت مطب ها برای روانشناسان، امکان گفت و گو بین طرفین و مدیریت اعلان ها اشاره کرد.
-</p>
-        
-              </h3>
-          
-          
+            <h3 className="landing">
+              <p dir="rtl" className="landing_txt">
+                روان یار، یک سامانه ی تحت وب برای ایجاد ارتباط بهتر میان
+                روانشناسان و کاربران می باشد.
+              </p>
+              <p dir="rtl" className="landing_txt">
+                {" "}
+                از ویژگی های این سامانه می توان به تعیین وقت برای کاربران،
+                مدیریت مطب ها برای روانشناسان، امکان گفت و گو بین طرفین و مدیریت
+                اعلان ها اشاره کرد.
+              </p>
+            </h3>
+
             <div className="FormField__welcome">
               <Link
                 className="links"
