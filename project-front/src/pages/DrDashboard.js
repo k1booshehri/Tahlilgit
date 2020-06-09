@@ -244,6 +244,11 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
+           {localStorage.getItem("eventKey") === "0" ? (
+           <div className="nomassage">...به زودی</div>
+          ) : (
+          <p></p>
+          )}
           {/* conditions ends */}
         </div>
       </div>

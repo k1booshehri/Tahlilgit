@@ -276,6 +276,11 @@ class PatientDashboard extends Component {
           ) : (
             <p> </p>
           )}
+           {localStorage.getItem("eventKey") === "0" ? (
+           <div className="nomassage">...به زودی</div>
+          ) : (
+          <p></p>
+          )}
 
           {localStorage.getItem("eventKey") === "6" ? <ClinicRes /> : <p> </p>}
           {/* conditions ends */}
