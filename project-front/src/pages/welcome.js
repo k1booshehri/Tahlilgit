@@ -28,9 +28,10 @@ class welcome extends Component {
           
             <div className="FormField__welcome">
               <Link
+                className="links"
                 style={{
                   width: "50%",
-
+                  textDecoration: "none",
                   justifyContent: "left",
                   textAlign: "center",
                 }}
@@ -47,7 +48,7 @@ class welcome extends Component {
               <Link
                 style={{
                   width: "50%",
-
+                  textDecoration: "none",
                   justifyContent: "right",
                   textAlign: "center",
                 }}

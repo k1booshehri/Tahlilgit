@@ -72,6 +72,7 @@ class DoctorSignInForm extends Component {
         <div className="App">
           <div className="PageSwitcher">
             <NavLink
+              style={{ textDecoration: "none" }}
               to="/Dr_Sign_In"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
@@ -79,6 +80,7 @@ class DoctorSignInForm extends Component {
               ورود
             </NavLink>
             <NavLink
+              style={{ textDecoration: "none" }}
               exact
               to="/Dr_Sign_Up"
               activeClassName="PageSwitcher__Item--Active"

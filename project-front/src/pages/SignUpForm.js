@@ -106,6 +106,7 @@ class SignUpForm extends Component {
         <div className="App">
           <div className="PageSwitcher">
             <NavLink
+              style={{ textDecoration: "none" }}
               to="/sign-in"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
@@ -113,6 +114,7 @@ class SignUpForm extends Component {
               ورود
             </NavLink>
             <NavLink
+              style={{ textDecoration: "none" }}
               exact
               to="/sign-up"
               activeClassName="PageSwitcher__Item--Active"
