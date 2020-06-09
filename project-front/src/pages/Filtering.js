@@ -21,6 +21,8 @@ export default class Filtering extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleduplicate = this.handleduplicate.bind(this);
+   
   }
 
   handleChange(e) {
@@ -57,6 +59,7 @@ export default class Filtering extends Component {
     }
 
     let p = new URLSearchParams();
+   
 
     if (this.state.contains) {
       p.append("contains", this.state.contains);
@@ -78,36 +81,33 @@ export default class Filtering extends Component {
 
     return fetch("http://myravanyar.ir/api/filter/?" + p, {})
       .then((results) => results.json())
-      .then((results) => this.props.data.updatedr(results));
+    /* .then((results)=>  results.map((x) => {
+      a.push(x.username);
+  }),)*/
+      .then((results) => 
 
-    {
-      /*   
-    
-          let query = Object.keys(params)
-          .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-          .join('&');
+       this.handleduplicate(results)
+   
+       /* results.map((x) => {
+          if (!a.includes('x.username')) {
+            a.push(x.username);
+            results.push(x);
+          }
+        })*/
+     )
+      
 
-             let url = 'http://localhost:8000/filter/?' + query;
-
-                   fetch(url)
-                 .then(res => res.json())
-                  .then( (json) => {
-                    console.info(json);
-                  } ).catch(function (error) {
-                 console.log('request failed', error)
-                 });
-       
-         
-         
-       
-       
-       {/*   
-            fetch("http://localhost:8000/doctors/edu=phd/")
-              .then((results) => results.json())
-              .then((results) => this.setState({ Drlist: results }));
-       */
-    }
+   
   }
+  handleduplicate(e){
+    let clean = [];
+    clean = e.filter((e, index, self) =>
+    index === self.findIndex((t) => (t.username === e.username )))
+    this.props.data.updatedr(clean)
+
+  }
+
+
 
   render() {
     return (

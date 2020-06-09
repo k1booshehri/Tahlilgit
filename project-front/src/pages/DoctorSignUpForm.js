@@ -147,6 +147,7 @@ class DoctorSignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                   <label className="FormField__Label" htmlFor="l_name">
@@ -165,6 +166,7 @@ class DoctorSignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
 
@@ -234,6 +236,7 @@ class DoctorSignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
 
@@ -252,6 +255,7 @@ class DoctorSignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
 
@@ -351,6 +355,7 @@ class DoctorSignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
@@ -372,6 +377,7 @@ class DoctorSignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />

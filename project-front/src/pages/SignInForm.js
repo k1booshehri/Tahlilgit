@@ -118,7 +118,9 @@ class SignInForm extends Component {
                     required
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
+                      
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
@@ -140,6 +142,7 @@ class SignInForm extends Component {
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
                     onInput={(e) => e.target.setCustomValidity("")}
+                    autoComplete="off"
                   />
                 </div>
 

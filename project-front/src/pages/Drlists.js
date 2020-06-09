@@ -80,6 +80,7 @@ export default class Drlist extends Component {
             Drlist: this.state.Drlist,
             updatedr: this.updatedr.bind(this),
           }}
+          
         />
 
         <div className="Drlist">
