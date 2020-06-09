@@ -326,7 +326,7 @@ export default class DrProfileView extends Component {
                     starCount={5}
                     value={this.state.rating}
                     onStarClick={this.onStarClick}
-                    starColor={"Green"}
+                    starColor={"yellow"}
                   />
                 </div>
               </div>
