@@ -36,6 +36,7 @@ export default class ClinicTime extends Component {
       isClicked: false,
       is: false,
       isModal: false,
+      isModal2: false,
       eDel: null,
       hi: "hi",
       proSet: false,
@@ -196,14 +197,18 @@ export default class ClinicTime extends Component {
     return null;
   }
   onModal(e) {
-    sessionStorage.setItem("PaUsername", e.ptusername);
-    console.log(sessionStorage.getItem("PaUsername"));
-    this.setState({ isModal: true, eDel: e });
+    if (e.ptusername !== null) {
+      sessionStorage.setItem("PaUsername", e.ptusername);
+
+      this.setState({ isModal: true, eDel: e });
+    } else if (e.ptusername === null) {
+      this.setState({ isModal2: true, eDel: e });
+    }
   }
   //called when an event is clicked , used for deleting
   onSelectEvent(e) {
     //const r = window.confirm("Would you like to remove this event?");
-    this.setState({ is: false, isModal: false });
+    this.setState({ is: false, isModal: false, isModal2: false });
 
     // delete request for deleting an event in database
     //  if (r === true) {
@@ -327,6 +332,35 @@ export default class ClinicTime extends Component {
               onClick={this.onPaProfileClick}
             >
               مشاهده ی پروفایل کاربر
+            </Button>
+            <Button
+              outline
+              color="info"
+              size="lg"
+              block
+              onClick={this.onSelectEvent}
+            >
+              حذف وقت
+            </Button>{" "}
+            {/* <Button
+              color="secondary"
+              onClick={() => this.setState({ isModal: false })}
+            >
+              خیر
+            </Button> */}
+          </ModalFooter>
+        </Modal>
+        <Modal
+          style={{ fontFamily: "BZar" }}
+          isOpen={this.state.isModal2}
+          toggle={this.onModal}
+        >
+          {/* <ModalBody className="modalbodCalender">
+            آیا می خواهید این وقت را لغو کنید؟
+          </ModalBody> */}
+          <ModalFooter>
+            <Button outline onClick={() => this.setState({ isModal2: false })}>
+              &times;
             </Button>
             <Button
               outline
