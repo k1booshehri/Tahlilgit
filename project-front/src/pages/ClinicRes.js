@@ -161,7 +161,7 @@ export default class ClinicRes extends Component {
     let items = [];
     items.push(
       <option value="" disabled selected hidden>
-        استان مطب را انتخاب کنید
+        شهر مطب را انتخاب کنید
       </option>
     );
     for (let i = 0; i < this.state.clinicCities.length; i++) {

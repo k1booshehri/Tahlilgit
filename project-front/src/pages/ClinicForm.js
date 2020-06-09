@@ -141,7 +141,7 @@ export default class ClinicForm extends Component {
           </div>
           <div className="FormField3">
             <label className="clinicFormLable" htmlFor="city">
-              استان مطب را انتخاب کنید
+              شهر مطب را انتخاب کنید
             </label>
             <select
               value={this.state.city}
