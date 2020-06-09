@@ -93,6 +93,7 @@ class DrDashboard extends Component {
             </a>
             <a
               className="nav-link active  nav-txt"
+              style={{ fontFamily: "Open Sans" }}
               type="button"
               data-toggle="modal"
               data-target="#exampleModal"
@@ -244,10 +245,10 @@ class DrDashboard extends Component {
           ) : (
             <p> </p>
           )}
-           {localStorage.getItem("eventKey") === "0" ? (
-           <div className="nomassage">...به زودی</div>
+          {localStorage.getItem("eventKey") === "0" ? (
+            <div className="nomassage">...به زودی</div>
           ) : (
-          <p></p>
+            <p></p>
           )}
           {/* conditions ends */}
         </div>

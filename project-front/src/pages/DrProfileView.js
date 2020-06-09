@@ -282,7 +282,7 @@ export default class DrProfileView extends Component {
 
                     <div className="infoTable1">
                       <div className="tableRow1">
-                        <div class="rightTableCell"> : استان</div>
+                        <div class="rightTableCell"> : شهر</div>
                         <div class="leftTableCell">{postdetail.city}</div>
                       </div>
                       <div className="tableRow1">

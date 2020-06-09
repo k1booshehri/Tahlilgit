@@ -50,11 +50,11 @@ export default class ChatList extends Component {
   }
   render() {
     return (
-      <div className="inbox_people">
+      <div className="inbox_people" style={{ fontFamily: "BZar" }}>
         <form onSubmit={this.handleSubmit}>
           <div class="headind_srch">
             <div class="recent_heading">
-              <h4>لیست گفتگو ها</h4>
+              <h4 style={{ fontFamily: "BZar" }}>لیست گفتگو ها</h4>
             </div>
             <div class="srch_bar">
               <div class="stylish-input-group">
