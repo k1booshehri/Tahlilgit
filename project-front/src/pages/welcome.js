@@ -6,7 +6,7 @@ class welcome extends Component {
     super();
     this.state = {
       firstP:
-        "روان یار، یک سامانه ی تحت وب برای ایجاد ارتباط بهتر میان روانشناسان و کاربران می باشد",
+        ".روان یار، یک سامانه ی تحت وب برای ایجاد ارتباط بهتر میان روانشناسان و کاربران می باشد",
       secondP:
         "از ویژگی های این سامانه می توان به تعیین وقت برای کاربران، مدیریت مطب ها برای روانشناسان، امکان گفت و گو بین طرفین و مدیریت اعلان ها اشاره کرد",
     };
@@ -17,15 +17,15 @@ class welcome extends Component {
         <div className="App__Form">
           <div className="FormCenter__welcome">
             <h3
-              style={{
-                paddingRight: "11%",
-                textAlign: "right",
-              }}
+             className="landing"
             >
-              {this.state.firstP}
-            </h3>
-
-            <h3 style={{ paddingRight: "11%" }}>{this.state.secondP}</h3>
+          <p dir="rtl" className="landing_txt">روان یار , یک سامانه ی تحت وب برای ایجاد ارتباط بهتر میان روانشناسان و کاربران می باشد.</p>
+          <p dir="rtl"  className="landing_txt"> از ویژگی های این سامانه می توان به تعیین وقت برای کاربران، مدیریت مطب ها برای روانشناسان، امکان گفت و گو بین طرفین و مدیریت اعلان ها اشاره کرد.
+</p>
+        
+              </h3>
+          
+          
             <div className="FormField__welcome">
               <Link
                 style={{

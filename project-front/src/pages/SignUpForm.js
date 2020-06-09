@@ -144,6 +144,7 @@ class SignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
@@ -164,6 +165,7 @@ class SignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
@@ -183,6 +185,7 @@ class SignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
@@ -204,6 +207,7 @@ class SignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
@@ -223,6 +227,7 @@ class SignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
@@ -231,6 +236,7 @@ class SignUpForm extends Component {
                   <label
                     className="FormField__Label"
                     htmlFor="confirmNewPassword"
+                    autoComplete="off"
                   >
                     تکرار رمز ورود
                   </label>
@@ -245,6 +251,7 @@ class SignUpForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                     required
                   />
