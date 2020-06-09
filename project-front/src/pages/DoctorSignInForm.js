@@ -106,6 +106,7 @@ class DoctorSignInForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                   <label className="FormField__Label" htmlFor="password">
@@ -123,6 +124,7 @@ class DoctorSignInForm extends Component {
                     onInvalid={(e) =>
                       e.target.setCustomValidity("وارد کردن اطلاعات الزامی است")
                     }
+                    autoComplete="off"
                     onInput={(e) => e.target.setCustomValidity("")}
                   />
                 </div>
