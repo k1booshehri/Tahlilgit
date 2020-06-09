@@ -102,7 +102,7 @@ class PatientDashboard extends Component {
               type="button"
               data-toggle="modal"
               data-target="#exampleModal"
-              style={{ fontFamily: "Open Sans" }}
+              style={{ fontFamily: "BZar" }}
             >
               {this.state.update !== 0 ? (
                 <span class="notifbadge">{this.state.update}</span>

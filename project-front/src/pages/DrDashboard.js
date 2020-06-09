@@ -93,7 +93,7 @@ class DrDashboard extends Component {
             </a>
             <a
               className="nav-link active  nav-txt"
-              style={{ fontFamily: "Open Sans" }}
+              style={{ fontFamily: "BZar" }}
               type="button"
               data-toggle="modal"
               data-target="#exampleModal"
