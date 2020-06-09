@@ -253,7 +253,7 @@ export default class EditDrProfile extends Component {
               )}
               <div className="ChosePicture">
                 <ReactFileReader base64={true} handleFiles={this.getFiles}>
-                  <button className="ChosePictureButton">ویرایش </button>
+                  <button className="ChosePictureButton"> ویرایش عکس </button>
                 </ReactFileReader>
               </div>
             </div>
